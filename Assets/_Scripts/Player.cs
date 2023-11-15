@@ -105,6 +105,11 @@ public class Player : MonoBehaviour
             NoBoost();
         }
 
+        if (currentBoost <= 0)
+        {
+            NoBoost();
+        }
+
         if (isDrifting)
         {
             Drift();
