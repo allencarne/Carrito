@@ -8,6 +8,13 @@ public class Player : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     PlayerControls playerControls;
 
+    // Trails
+    [SerializeField] TrailRenderer leftAccelerateTrail;
+    [SerializeField] TrailRenderer rightAccelerateTrail;
+    [SerializeField] TrailRenderer leftDriftTrail;
+    [SerializeField] TrailRenderer rightDriftTrail;
+    [SerializeField] TrailRenderer boostTrail;
+
     [SerializeField] float speed;
     [SerializeField] float torque;
     [SerializeField] float boostForce;
@@ -69,18 +76,6 @@ public class Player : MonoBehaviour
         playerControls = new PlayerControls();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //123
-    }
-
     private void FixedUpdate()
     {
         rb.velocity = ForwardVelocity() + RightVelocity() * driftForce;
@@ -105,6 +100,10 @@ public class Player : MonoBehaviour
         {
             Boost();
         }
+        else
+        {
+            NoBoost();
+        }
 
         if (isDrifting)
         {
@@ -112,13 +111,8 @@ public class Player : MonoBehaviour
         }
         else
         {
-            NotDrift();
+            NoDrift();
         }
-
-        //Accelerate();
-        //Break();
-        //Boost();
-        //Drift();
     }
 
     void Steer(Vector2 inputValue)
@@ -139,14 +133,14 @@ public class Player : MonoBehaviour
     void Accelerate()
     {
         rb.AddForce(transform.up * speed);
-        //accelerateTrail.emitting = true;
-        //accelerateTRail2.emitting = true;
+        leftAccelerateTrail.emitting = true;
+        rightAccelerateTrail.emitting = true;
     }
 
     void Decelerate()
     {
-        //accelerateTrail.emitting = false;
-        //accelerateTRail2.emitting = false;
+        leftAccelerateTrail.emitting = false;
+        rightAccelerateTrail.emitting = false;
     }
 
     void Break()
@@ -162,27 +156,27 @@ public class Player : MonoBehaviour
             //gameManager.SetBoost(currentBoost);
             rb.AddForce(transform.up * boostForce);
             rb.AddForce(transform.up * boostForce, ForceMode2D.Impulse);
-            //boostTrail.emitting = true;
+            boostTrail.emitting = true;
+        }
+    }
 
-        }
-        else
-        {
-            //boostTrail.emitting = false;
-        }
+    void NoBoost()
+    {
+        boostTrail.emitting = false;
     }
 
     void Drift()
     {
         driftForce = 1f;
-        //driftTrail.emitting = true;
-        //driftTrail2.emitting = true;
+        leftDriftTrail.emitting = true;
+        rightDriftTrail.emitting = true;
     }
 
-    void NotDrift()
+    void NoDrift()
     {
         driftForce = 0.1f;
-        //driftTrail.emitting = false;
-        //driftTrail2.emitting = false;
+        leftDriftTrail.emitting = false;
+        rightDriftTrail.emitting = false;
     }
 
     Vector2 ForwardVelocity()
