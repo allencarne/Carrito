@@ -555,8 +555,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 736010591
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2cecd31aa3990fa429749274cd1c791b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1493,6 +1493,7 @@ GameObject:
   - component: {fileID: 998584726}
   - component: {fileID: 998584725}
   - component: {fileID: 998584724}
+  - component: {fileID: 998584727}
   m_Layer: 0
   m_Name: Car
   m_TagString: Car
@@ -1538,8 +1539,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 736010591
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 95c267b2a9c6b9247a717f96e09092fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1596,6 +1597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9fbe3b9258a5724e9d2f8e50aaa0217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInput: {fileID: 998584727}
   rb: {fileID: 998584726}
   leftAccelerateTrail: {fileID: 1747724250}
   rightAccelerateTrail: {fileID: 708228222}
@@ -1629,6 +1631,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &998584727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998584721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9224fd5e4d94d624bb1f85b769d8e150, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Steer:
+    m_Name: Steer
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: b3dcb1a0-11f9-46f5-87e0-becaec5c5a24
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!1001 &1068859054
 PrefabInstance:
   m_ObjectHideFlags: 0

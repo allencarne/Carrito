@@ -5,8 +5,8 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] PlayerInput playerInput;
     [SerializeField] Rigidbody2D rb;
-    PlayerControls playerControls;
 
     // Trails
     [SerializeField] TrailRenderer leftAccelerateTrail;
@@ -23,66 +23,13 @@ public class Player : MonoBehaviour
     public float currentBoost;
     public float maxBoost;
 
-    InputAction _Steer;
-    InputAction _Accelerate;
-    InputAction _Break;
-    InputAction _Boost;
-    InputAction _Drift;
-
-    Vector2 steerInput;
-    bool isAccelerating = false;
-    bool isBreaking = false;
-    bool isBoosting = false;
-    bool isDrifting = false;
-
-    private void OnEnable()
-    {
-        _Steer = playerControls.Player.Steer;
-        _Steer.Enable();
-        _Steer.performed += ctx => steerInput = ctx.ReadValue<Vector2>();
-
-        _Accelerate = playerControls.Player.Accelerate;
-        _Accelerate.Enable();
-        _Accelerate.started += ctx => isAccelerating = true;
-        _Accelerate.canceled += ctx => isAccelerating = false;
-
-        _Break = playerControls.Player.Break;
-        _Break.Enable();
-        _Break.started += ctx => isBreaking = true;
-        _Break.canceled += ctx => isBreaking = false;
-
-        _Boost = playerControls.Player.Boost;
-        _Boost.Enable();
-        _Boost.started += ctx => isBoosting = true;
-        _Boost.canceled += ctx => isBoosting = false;
-
-        _Drift = playerControls.Player.Drift;
-        _Drift.Enable();
-        _Drift.started += ctx => isDrifting = true;
-        _Drift.canceled += ctx => isDrifting = false;
-    }
-
-    private void OnDisable()
-    {
-        _Steer.Disable();
-        _Accelerate.Disable();
-        _Break.Disable();
-        _Boost.Disable();
-        _Drift.Disable();
-    }
-
-    private void Awake()
-    {
-        playerControls = new PlayerControls();
-    }
-
     private void FixedUpdate()
     {
         rb.velocity = ForwardVelocity() + RightVelocity() * driftForce;
 
-        Steer(steerInput);
+        Steer(playerInput.SteerInput);
 
-        if (isAccelerating)
+        if (playerInput.IsAccelerating)
         {
             Accelerate();
         }
@@ -91,12 +38,12 @@ public class Player : MonoBehaviour
             Decelerate();
         }
 
-        if (isBreaking)
+        if (playerInput.IsBreaking)
         {
             Break();
         }
 
-        if (isBoosting)
+        if (playerInput.IsBoosting)
         {
             Boost();
         }
@@ -110,7 +57,7 @@ public class Player : MonoBehaviour
             NoBoost();
         }
 
-        if (isDrifting)
+        if (playerInput.IsDrifting)
         {
             Drift();
         }
@@ -129,7 +76,7 @@ public class Player : MonoBehaviour
         rb.angularVelocity = horizontalInput * torque;
 
         // If the input is not currently being performed, stop turning
-        if (!_Steer.phase.IsInProgress())
+        if (!playerInput._Steer.phase.IsInProgress())
         {
             rb.angularVelocity = 0f;
         }
