@@ -1560,15 +1560,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 998584721}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.49, y: -0.11, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -22.39, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 760489369}
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!70 &998584724
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1643,11 +1643,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9224fd5e4d94d624bb1f85b769d8e150, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Steer:
+  steerAction:
     m_Name: Steer
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: b3dcb1a0-11f9-46f5-87e0-becaec5c5a24
+    m_Id: 0c920aad-c76b-44d8-944a-d231690a69ec
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []

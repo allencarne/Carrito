@@ -8,58 +8,52 @@ public class PlayerInput : MonoBehaviour
 {
     PlayerControls playerControls;
 
-    public InputAction _Steer;
-    private InputAction _Accelerate;
-    private InputAction _Break;
-    private InputAction _Boost;
-    private InputAction _Drift;
+    public InputAction steerAction;
+    private InputAction accelerateAction;
+    private InputAction brakeAction;
+    private InputAction boostAction;
+    private InputAction driftAction;
 
-    private Vector2 steerInput;
-    private bool isAccelerating = false;
-    private bool isBreaking = false;
-    private bool isBoosting = false;
-    private bool isDrifting = false;
-
-    public Vector2 SteerInput => steerInput;
-    public bool IsAccelerating => isAccelerating;
-    public bool IsBreaking => isBreaking;
-    public bool IsBoosting => isBoosting;
-    public bool IsDrifting => isDrifting;
+    public Vector2 SteerInput { get; private set; }
+    public bool IsAccelerating { get; private set; }
+    public bool IsBraking { get; private set; }
+    public bool IsBoosting { get; private set; }
+    public bool IsDrifting { get; private set; }
 
     private void OnEnable()
     {
-        _Steer = playerControls.Player.Steer;
-        _Steer.Enable();
-        _Steer.performed += ctx => steerInput = ctx.ReadValue<Vector2>();
+        steerAction = playerControls.Player.Steer;
+        steerAction.Enable();
+        steerAction.performed += ctx => SteerInput = ctx.ReadValue<Vector2>();
 
-        _Accelerate = playerControls.Player.Accelerate;
-        _Accelerate.Enable();
-        _Accelerate.started += ctx => isAccelerating = true;
-        _Accelerate.canceled += ctx => isAccelerating = false;
+        accelerateAction = playerControls.Player.Accelerate;
+        accelerateAction.Enable();
+        accelerateAction.started += ctx => IsAccelerating = true;
+        accelerateAction.canceled += ctx => IsAccelerating = false;
 
-        _Break = playerControls.Player.Break;
-        _Break.Enable();
-        _Break.started += ctx => isBreaking = true;
-        _Break.canceled += ctx => isBreaking = false;
+        brakeAction = playerControls.Player.Break;
+        brakeAction.Enable();
+        brakeAction.started += ctx => IsBraking = true;
+        brakeAction.canceled += ctx => IsBraking = false;
 
-        _Boost = playerControls.Player.Boost;
-        _Boost.Enable();
-        _Boost.started += ctx => isBoosting = true;
-        _Boost.canceled += ctx => isBoosting = false;
+        boostAction = playerControls.Player.Boost;
+        boostAction.Enable();
+        boostAction.started += ctx => IsBoosting = true;
+        boostAction.canceled += ctx => IsBoosting = false;
 
-        _Drift = playerControls.Player.Drift;
-        _Drift.Enable();
-        _Drift.started += ctx => isDrifting = true;
-        _Drift.canceled += ctx => isDrifting = false;
+        driftAction = playerControls.Player.Drift;
+        driftAction.Enable();
+        driftAction.started += ctx => IsDrifting = true;
+        driftAction.canceled += ctx => IsDrifting = false;
     }
 
     private void OnDisable()
     {
-        _Steer.Disable();
-        _Accelerate.Disable();
-        _Break.Disable();
-        _Boost.Disable();
-        _Drift.Disable();
+        steerAction.Disable();
+        accelerateAction.Disable();
+        brakeAction.Disable();
+        boostAction.Disable();
+        driftAction.Disable();
     }
 
     private void Awake()

@@ -8,7 +8,6 @@ public class Player : MonoBehaviour
     [SerializeField] PlayerInput playerInput;
     [SerializeField] Rigidbody2D rb;
 
-    // Trails
     [SerializeField] TrailRenderer leftAccelerateTrail;
     [SerializeField] TrailRenderer rightAccelerateTrail;
     [SerializeField] TrailRenderer leftDriftTrail;
@@ -29,54 +28,24 @@ public class Player : MonoBehaviour
 
         Steer(playerInput.SteerInput);
 
-        if (playerInput.IsAccelerating)
-        {
-            Accelerate();
-        }
-        else
-        {
-            Decelerate();
-        }
+        if (playerInput.IsAccelerating) Accelerate(); else Decelerate();
 
-        if (playerInput.IsBreaking)
-        {
-            Break();
-        }
+        if (playerInput.IsBraking) Break();
 
-        if (playerInput.IsBoosting)
-        {
-            Boost();
-        }
-        else
-        {
-            NoBoost();
-        }
+        if (playerInput.IsBoosting) Boost(); else NoBoost();
 
-        if (currentBoost <= 0)
-        {
-            NoBoost();
-        }
+        if (currentBoost <= 0) NoBoost();
 
-        if (playerInput.IsDrifting)
-        {
-            Drift();
-        }
-        else
-        {
-            NoDrift();
-        }
+        if (playerInput.IsDrifting) Drift(); else NoDrift();
     }
 
     void Steer(Vector2 inputValue)
     {
-        // Assuming you want to use only the horizontal component for angular velocity
         float horizontalInput = inputValue.x;
 
-        // Apply steering based on the horizontal input
         rb.angularVelocity = horizontalInput * torque;
 
-        // If the input is not currently being performed, stop turning
-        if (!playerInput._Steer.phase.IsInProgress())
+        if (!playerInput.steerAction.phase.IsInProgress())
         {
             rb.angularVelocity = 0f;
         }
