@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Car
+  - Blue Goal
+  - Red Goal
+  - Ball
   layers:
   - Default
   - TransparentFX
