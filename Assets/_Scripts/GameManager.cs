@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
             int randomSpawnIndex = Random.Range(0, playerSpawnPoints.Length);
             Transform selectedSpawnPoint = playerSpawnPoints[randomSpawnIndex];
 
-            playerInstance = Instantiate(player, selectedSpawnPoint.position, transform.rotation);
+            playerInstance = Instantiate(player, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
         }
     }
 
