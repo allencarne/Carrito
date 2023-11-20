@@ -18,6 +18,12 @@ public class GameManager : MonoBehaviour
         }
 
         instance = this;
+
+        // Retrieve the selected game mode from PlayerPrefs
+        if (PlayerPrefs.HasKey("GameMode"))
+        {
+            gameMode = (GameMode)PlayerPrefs.GetInt("GameMode");
+        }
     }
 
     #endregion
