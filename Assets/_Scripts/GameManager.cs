@@ -4,6 +4,24 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
+    #region Singleton
+
+    public static GameManager instance;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogWarning("More than once instance of GameManager found!");
+            return;
+        }
+
+        instance = this;
+    }
+
+    #endregion
+
     [Header("Components")]
     [SerializeField] GameObject player;
     [SerializeField] GameObject playerInstance;
@@ -28,11 +46,12 @@ public class GameManager : MonoBehaviour
     public enum GameMode
     { 
         FreePlay,
+        Training,
         Soccer,
     }
 
     GameState gameState = GameState.WarmUp;
-    GameMode gameMode = GameMode.FreePlay;
+    public GameMode gameMode = GameMode.FreePlay;
 
     private void Update()
     {
