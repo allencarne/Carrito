@@ -8,7 +8,7 @@ public class SoccerMenu : MonoBehaviour
     public void FreePlayButton()
     {
         // Tell the GameManager that FreePlay is Selected
-        PlayerPrefs.SetInt("GameMode", (int)GameManager.GameMode.FreePlay);
+        PlayerPrefs.SetInt("GameMode", (int)SoccerManager.GameMode.FreePlay);
 
         SceneManager.LoadScene("Soccer");
     }
@@ -16,7 +16,7 @@ public class SoccerMenu : MonoBehaviour
     public void TrainingButton()
     {
         // Tell the GameManager that FreePlay is Selected
-        PlayerPrefs.SetInt("GameMode", (int)GameManager.GameMode.Training);
+        PlayerPrefs.SetInt("GameMode", (int)SoccerManager.GameMode.Training);
 
         SceneManager.LoadScene("Soccer");
     }
