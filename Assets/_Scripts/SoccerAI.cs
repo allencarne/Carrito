@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player : MonoBehaviour
+public class SoccerAI : MonoBehaviour
 {
-    [SerializeField] PlayerInput playerInput;
     [SerializeField] Rigidbody2D rb;
 
     [SerializeField] TrailRenderer leftAccelerateTrail;
@@ -22,33 +21,33 @@ public class Player : MonoBehaviour
     public float currentBoost;
     [HideInInspector] public float maxBoost = 100;
 
+    [Header("Input Variables")]
+    [SerializeField] float inputTorque;
+    [SerializeField] bool inputAccelerate;
+    [SerializeField] bool inputBrakes;
+    [SerializeField] bool inputBoost;
+    [SerializeField] bool inputDrift;
+
     private void FixedUpdate()
     {
         rb.velocity = ForwardVelocity() + RightVelocity() * driftForce;
 
-        Steer(playerInput.SteerInput);
+        Steer(inputTorque);
 
-        if (playerInput.IsAccelerating) Accelerate(); else Decelerate();
+        if (inputAccelerate) Accelerate(); else Decelerate();
 
-        if (playerInput.IsBraking) Break();
+        if (inputBrakes) Break();
 
-        if (playerInput.IsBoosting) Boost(); else NoBoost();
+        if (inputBoost) Boost(); else NoBoost();
 
         if (currentBoost <= 0) NoBoost();
 
-        if (playerInput.IsDrifting) Drift(); else NoDrift();
+        if (inputDrift) Drift(); else NoDrift();
     }
 
-    void Steer(Vector2 inputValue)
+    void Steer(float inputValue)
     {
-        float horizontalInput = inputValue.x;
-
-        rb.angularVelocity = horizontalInput * torque;
-
-        if (!playerInput.steerAction.phase.IsInProgress())
-        {
-            rb.angularVelocity = 0f;
-        }
+        rb.angularVelocity = inputValue * torque;
     }
 
     void Accelerate()
