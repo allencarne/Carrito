@@ -32,7 +32,7 @@ public class SoccerManager : MonoBehaviour
     [SerializeField] GameObject playerInstance;
 
     [SerializeField] GameObject ball;
-    [SerializeField] GameObject ballInstance;
+    public GameObject ballInstance;
 
     [SerializeField] Transform[] playerSpawnPoints;  // Array of player spawn points
     [SerializeField] Transform ballSpawnPoint;

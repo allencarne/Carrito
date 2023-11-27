@@ -5,17 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Ball : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public bool blueSide;
+    public bool redSide;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -27,6 +18,29 @@ public class Ball : MonoBehaviour
         if (collision.CompareTag("Red Goal"))
         {
             SceneManager.LoadScene(0);
+        }
+
+        if (collision.CompareTag("Blue Side"))
+        {
+            blueSide = true;
+        }
+
+        if (collision.CompareTag("Red Side"))
+        {
+            redSide = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Blue Side"))
+        {
+            blueSide = false;
+        }
+
+        if (collision.CompareTag("Red Side"))
+        {
+            redSide = false;
         }
     }
 }
