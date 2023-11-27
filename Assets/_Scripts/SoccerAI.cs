@@ -11,7 +11,6 @@ public class SoccerAI : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] GameObject attackingSide;
     [SerializeField] GameObject defendingSide;
-    GameObject ball;
 
     [Header("Trails")]
     [SerializeField] TrailRenderer leftAccelerateTrail;
@@ -21,7 +20,7 @@ public class SoccerAI : MonoBehaviour
     [SerializeField] TrailRenderer boostTrail;
 
     [Header("Variables")]
-    public float turnSpeed;
+    float turnSpeed;
     //bool isAttacking = true;
     //bool isDefending = false;
 
@@ -49,11 +48,6 @@ public class SoccerAI : MonoBehaviour
 
     AIState state = AIState.Attack;
 
-    private void Start()
-    {
-        ball = SoccerManager.instance.ballInstance;
-    }
-
     private void Update()
     {
         switch (state)
@@ -70,22 +64,35 @@ public class SoccerAI : MonoBehaviour
     void AttackState()
     {
         inputAccelerate = true;
-        inputTorque = TurnTowardBall();
-    }
 
-    float TurnTowardBall()
-    {
-        Vector2 vectorToTarget = ball.transform.position - transform.position;
-        vectorToTarget.Normalize();
+        GameObject ball = SoccerManager.instance.ballInstance;
 
-        float angleToTarget = Vector2.SignedAngle(transform.up, vectorToTarget);
-        angleToTarget *= -1;
+        if (ball != null)
+        {
+            Rigidbody2D ballRb = ball.GetComponent<Rigidbody2D>();
 
-        float steerAmount = angleToTarget / turnSpeed;
+            if (ballRb != null)
+            {
+                // Calculate direction from AI to the ball
+                Vector2 vectorToTarget = ballRb.position - rb.position;
+                vectorToTarget.Normalize();
 
-        steerAmount = Mathf.Clamp(steerAmount, -1.0f, 1.0f);
+                float angleToTarget = Vector2.SignedAngle(transform.up, vectorToTarget);
+                angleToTarget *= -1;
 
-        return steerAmount;
+                // Calculate the torque input based on the angle
+                inputTorque = angleToTarget / turnSpeed;
+
+                // Adjust the inputTorque to ensure it's within a reasonable range
+                inputTorque = Mathf.Clamp(inputTorque, -1f, 1f);
+
+                // Debug.Log("Angle to Ball: " + angleToTarget);
+            }
+            else
+            {
+                Debug.LogWarning("Ball does not have a Rigidbody2D component.");
+            }
+        }
     }
 
     void DefendState()
