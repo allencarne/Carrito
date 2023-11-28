@@ -580,6 +580,7 @@ MonoBehaviour:
   leftDriftTrail: {fileID: 1443735010}
   rightDriftTrail: {fileID: 1587335388}
   boostTrail: {fileID: 1043387403}
+  turnSpeed: 10
   currentBoost: 100
   maxBoost: 100
   inputTorque: 0

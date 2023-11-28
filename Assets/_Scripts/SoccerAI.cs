@@ -20,7 +20,7 @@ public class SoccerAI : MonoBehaviour
     [SerializeField] TrailRenderer boostTrail;
 
     [Header("Variables")]
-    float turnSpeed;
+    public float turnSpeed;
     //bool isAttacking = true;
     //bool isDefending = false;
 
