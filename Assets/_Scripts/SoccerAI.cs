@@ -13,6 +13,8 @@ public class SoccerAI : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] GameObject attackingSide;
     [SerializeField] GameObject defendingSide;
+    GameObject ball;
+    Rigidbody2D ballRB;
 
     [Header("Trails")]
     [SerializeField] TrailRenderer leftAccelerateTrail;
@@ -31,14 +33,13 @@ public class SoccerAI : MonoBehaviour
     [HideInInspector] public float maxBoost = 100;
 
     [Header("Input Variables")]
-    [SerializeField] float inputTorque;
-    [SerializeField] bool inputAccelerate;
-    [SerializeField] bool inputBrakes;
-    [SerializeField] bool inputBoost;
-    [SerializeField] bool inputDrift;
+    float inputTorque;
+    bool inputAccelerate;
+    bool inputBrakes;
+    bool inputBoost;
+    bool inputDrift;
 
-    GameObject ball;
-    Rigidbody2D ballRB;
+    [SerializeField] float boostThresholdDistance;
 
     enum AIState 
     { 
@@ -92,6 +93,7 @@ public class SoccerAI : MonoBehaviour
         inputAccelerate = true;
 
         ChaseBall();
+        BoostIfFarAway();
 
         if (BlueSide)
         {
@@ -121,31 +123,76 @@ public class SoccerAI : MonoBehaviour
 
     void DefendState()
     {
-
+        if (BlueSide)
+        {
+            // BLUE - Transition to Defending State
+            if (ball != null)
+            {
+                Ball ballScript = ball.GetComponent<Ball>();
+                if (ballScript != null && ballScript.redSide)
+                {
+                    state = AIState.Attack;
+                }
+            }
+        }
+        else
+        {
+            // RED - Transition to Defending State
+            if (ball != null)
+            {
+                Ball ballScript = ball.GetComponent<Ball>();
+                if (ballScript != null && ballScript.blueSide)
+                {
+                    state = AIState.Attack;
+                }
+            }
+        }
     }
 
     void ChaseBall()
     {
-        if (ball != null)
+        if (ball != null && ballRB != null)
         {
-            if (ballRB != null)
+            // Calculate direction from AI to the ball
+            Vector2 vectorToTarget = ballRB.position - rb.position;
+            vectorToTarget.Normalize();
+
+            float angleToTarget = Vector2.SignedAngle(transform.up, vectorToTarget);
+            angleToTarget *= -1;
+
+            // Calculate the torque input based on the angle
+            inputTorque = angleToTarget / turnSpeed;
+
+            // Adjust the inputTorque to ensure it's within a reasonable range
+            inputTorque = Mathf.Clamp(inputTorque, -1f, 1f);
+
+            // Debug.Log("Angle to Ball: " + angleToTarget);
+        }
+    }
+
+    void BoostIfFarAway()
+    {
+        if (ball != null && ballRB != null)
+        {
+            Vector2 vectorToTarget = ballRB.position - rb.position;
+
+            float distanceToTarget = vectorToTarget.magnitude;
+
+            if (distanceToTarget > boostThresholdDistance)
             {
-                // Calculate direction from AI to the ball
-                Vector2 vectorToTarget = ballRB.position - rb.position;
-                vectorToTarget.Normalize();
-
-                float angleToTarget = Vector2.SignedAngle(transform.up, vectorToTarget);
-                angleToTarget *= -1;
-
-                // Calculate the torque input based on the angle
-                inputTorque = angleToTarget / turnSpeed;
-
-                // Adjust the inputTorque to ensure it's within a reasonable range
-                inputTorque = Mathf.Clamp(inputTorque, -1f, 1f);
-
-                // Debug.Log("Angle to Ball: " + angleToTarget);
+                inputBoost = true;
+            }
+            else
+            {
+                inputBoost = false;
             }
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, boostThresholdDistance);
     }
 
     #region Input

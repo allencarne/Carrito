@@ -583,11 +583,7 @@ MonoBehaviour:
   boostTrail: {fileID: 1043387403}
   currentBoost: 100
   maxBoost: 100
-  inputTorque: 0
-  inputAccelerate: 0
-  inputBrakes: 0
-  inputBoost: 0
-  inputDrift: 0
+  boostThresholdDistance: 10
 --- !u!50 &283028817 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 4690004890421714643, guid: bf7cf025dc838434ab69bfdf66777556, type: 3}
