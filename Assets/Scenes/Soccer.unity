@@ -572,6 +572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f4d7bacae9315c4389f000b3e8fba65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BlueSide: 0
   rb: {fileID: 283028817}
   attackingSide: {fileID: 304578189}
   defendingSide: {fileID: 1038625153}
@@ -580,7 +581,6 @@ MonoBehaviour:
   leftDriftTrail: {fileID: 1443735010}
   rightDriftTrail: {fileID: 1587335388}
   boostTrail: {fileID: 1043387403}
-  turnSpeed: 10
   currentBoost: 100
   maxBoost: 100
   inputTorque: 0
@@ -665,6 +665,7 @@ GameObject:
   m_Component:
   - component: {fileID: 304578190}
   - component: {fileID: 304578191}
+  - component: {fileID: 304578192}
   m_Layer: 0
   m_Name: Blue Side
   m_TagString: Blue Side
@@ -713,6 +714,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 17, y: 28}
   m_EdgeRadius: 0
+--- !u!114 &304578192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304578189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b14059faa75a844bb3ec5065efb27a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blueSide: 0
 --- !u!4 &408828968 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
@@ -1532,6 +1546,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1038625154}
   - component: {fileID: 1038625155}
+  - component: {fileID: 1038625156}
   m_Layer: 0
   m_Name: Red Side
   m_TagString: Red Side
@@ -1580,6 +1595,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 17, y: 28}
   m_EdgeRadius: 0
+--- !u!114 &1038625156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038625153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bf8ccfdbc395a248b99c4800495506b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  redSide: 0
 --- !u!96 &1043387403 stripped
 TrailRenderer:
   m_CorrespondingSourceObject: {fileID: 4690004889812348046, guid: bf7cf025dc838434ab69bfdf66777556, type: 3}

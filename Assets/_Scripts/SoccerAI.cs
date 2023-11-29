@@ -7,6 +7,8 @@ using UnityEngine.Playables;
 
 public class SoccerAI : MonoBehaviour
 {
+    [SerializeField] bool BlueSide;
+
     [Header("Components")]
     [SerializeField] Rigidbody2D rb;
     [SerializeField] GameObject attackingSide;
@@ -35,6 +37,8 @@ public class SoccerAI : MonoBehaviour
     [SerializeField] bool inputBoost;
     [SerializeField] bool inputDrift;
 
+    GameObject ball;
+    Rigidbody2D ballRB;
 
     enum AIState 
     { 
@@ -46,6 +50,15 @@ public class SoccerAI : MonoBehaviour
 
     private void Update()
     {
+        if (ball == null)
+        {
+            if (SoccerManager.instance.ballInstance != null)
+            {
+                ball = SoccerManager.instance.ballInstance;
+                ballRB = ball.GetComponent<Rigidbody2D>();
+            }
+        }
+
         switch (state)
         {
             case AIState.Attack:
@@ -55,45 +68,6 @@ public class SoccerAI : MonoBehaviour
                 DefendState();
                 break;
         }
-    }
-
-    void AttackState()
-    {
-        inputAccelerate = true;
-
-        GameObject ball = SoccerManager.instance.ballInstance;
-
-        if (ball != null)
-        {
-            Rigidbody2D ballRb = ball.GetComponent<Rigidbody2D>();
-
-            if (ballRb != null)
-            {
-                // Calculate direction from AI to the ball
-                Vector2 vectorToTarget = ballRb.position - rb.position;
-                vectorToTarget.Normalize();
-
-                float angleToTarget = Vector2.SignedAngle(transform.up, vectorToTarget);
-                angleToTarget *= -1;
-
-                // Calculate the torque input based on the angle
-                inputTorque = angleToTarget / turnSpeed;
-
-                // Adjust the inputTorque to ensure it's within a reasonable range
-                inputTorque = Mathf.Clamp(inputTorque, -1f, 1f);
-
-                // Debug.Log("Angle to Ball: " + angleToTarget);
-            }
-            else
-            {
-                Debug.LogWarning("Ball does not have a Rigidbody2D component.");
-            }
-        }
-    }
-
-    void DefendState()
-    {
-
     }
 
     private void FixedUpdate()
@@ -112,6 +86,69 @@ public class SoccerAI : MonoBehaviour
 
         if (inputDrift) Drift(); else NoDrift();
     }
+
+    void AttackState()
+    {
+        inputAccelerate = true;
+
+        ChaseBall();
+
+        if (BlueSide)
+        {
+            // BLUE - Transition to Defending State
+            if (ball != null)
+            {
+                Ball ballScript = ball.GetComponent<Ball>();
+                if (ballScript != null && ballScript.blueSide)
+                {
+                    state = AIState.Defend;
+                }
+            }
+        }
+        else
+        {
+            // RED - Transition to Defending State
+            if (ball != null)
+            {
+                Ball ballScript = ball.GetComponent<Ball>();
+                if (ballScript != null && ballScript.redSide)
+                {
+                    state = AIState.Defend;
+                }
+            }
+        }
+    }
+
+    void DefendState()
+    {
+
+    }
+
+    void ChaseBall()
+    {
+        if (ball != null)
+        {
+            if (ballRB != null)
+            {
+                // Calculate direction from AI to the ball
+                Vector2 vectorToTarget = ballRB.position - rb.position;
+                vectorToTarget.Normalize();
+
+                float angleToTarget = Vector2.SignedAngle(transform.up, vectorToTarget);
+                angleToTarget *= -1;
+
+                // Calculate the torque input based on the angle
+                inputTorque = angleToTarget / turnSpeed;
+
+                // Adjust the inputTorque to ensure it's within a reasonable range
+                inputTorque = Mathf.Clamp(inputTorque, -1f, 1f);
+
+                // Debug.Log("Angle to Ball: " + angleToTarget);
+            }
+        }
+    }
+
+    #region Input
 
     void Steer(float inputValue)
     {
@@ -181,4 +218,6 @@ public class SoccerAI : MonoBehaviour
     {
         return rb.velocity.magnitude;
     }
+
+    #endregion
 }
