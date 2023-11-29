@@ -19,13 +19,9 @@ public class SoccerAI : MonoBehaviour
     [SerializeField] TrailRenderer rightDriftTrail;
     [SerializeField] TrailRenderer boostTrail;
 
-    [Header("Variables")]
-    public float turnSpeed;
-    //bool isAttacking = true;
-    //bool isDefending = false;
-
     [Header("Stats")]
     float speed = 10;
+    float turnSpeed = 5;
     float torque = -350;
     float boostForce = 0.3f;
     float driftForce = 0.1f;
