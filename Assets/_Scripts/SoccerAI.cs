@@ -15,6 +15,8 @@ public class SoccerAI : MonoBehaviour
     [SerializeField] GameObject defendingSide;
     GameObject ball;
     Rigidbody2D ballRB;
+    [SerializeField] Transform blueDefensePoint;
+    [SerializeField] Transform redDefensePoint;
 
     [Header("Trails")]
     [SerializeField] TrailRenderer leftAccelerateTrail;
@@ -129,21 +131,59 @@ public class SoccerAI : MonoBehaviour
     {
         inputAccelerate = true;
 
-        ChaseBall();
+        MoteToBall();
         BoostIfFarAway();
     }
 
     void DefendState()
     {
-
+        MoveToGoal();
     }
 
-    void ChaseBall()
+    void MoteToBall()
     {
         if (ball != null && ballRB != null)
         {
             // Calculate direction from AI to the ball
             Vector2 vectorToTarget = ballRB.position - rb.position;
+            vectorToTarget.Normalize();
+
+            float angleToTarget = Vector2.SignedAngle(transform.up, vectorToTarget);
+            angleToTarget *= -1;
+
+            // Calculate the torque input based on the angle
+            inputTorque = angleToTarget / turnSpeed;
+
+            // Adjust the inputTorque to ensure it's within a reasonable range
+            inputTorque = Mathf.Clamp(inputTorque, -1f, 1f);
+
+            // Debug.Log("Angle to Ball: " + angleToTarget);
+        }
+    }
+
+    void MoveToGoal()
+    {
+        if (BlueSide)
+        {
+            // Calculate direction from AI to the ball
+            Vector2 vectorToTarget = blueDefensePoint.position - transform.position;
+            vectorToTarget.Normalize();
+
+            float angleToTarget = Vector2.SignedAngle(transform.up, vectorToTarget);
+            angleToTarget *= -1;
+
+            // Calculate the torque input based on the angle
+            inputTorque = angleToTarget / turnSpeed;
+
+            // Adjust the inputTorque to ensure it's within a reasonable range
+            inputTorque = Mathf.Clamp(inputTorque, -1f, 1f);
+
+            // Debug.Log("Angle to Ball: " + angleToTarget);
+        }
+        else
+        {
+            // Calculate direction from AI to the ball
+            Vector2 vectorToTarget = redDefensePoint.position - transform.position;
             vectorToTarget.Normalize();
 
             float angleToTarget = Vector2.SignedAngle(transform.up, vectorToTarget);
