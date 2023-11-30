@@ -95,9 +95,9 @@ public class SoccerAI : MonoBehaviour
         ChaseBall();
         BoostIfFarAway();
 
+        // Transition to Defend State
         if (BlueSide)
         {
-            // BLUE - Transition to Defending State
             if (ball != null)
             {
                 Ball ballScript = ball.GetComponent<Ball>();
@@ -109,7 +109,6 @@ public class SoccerAI : MonoBehaviour
         }
         else
         {
-            // RED - Transition to Defending State
             if (ball != null)
             {
                 Ball ballScript = ball.GetComponent<Ball>();
@@ -167,6 +166,26 @@ public class SoccerAI : MonoBehaviour
             inputTorque = Mathf.Clamp(inputTorque, -1f, 1f);
 
             // Debug.Log("Angle to Ball: " + angleToTarget);
+        }
+
+
+        // If blue side - if on left side of ball (behind it) - Then position car in a way that allows us to score a goal
+        if (ball != null && ballRB != null)
+        {
+            if (BlueSide)
+            {
+                if (transform.position.x < ball.transform.position.x)
+                {
+                    Debug.Log("AI is on LEFT of Ball");
+                }
+            }
+            else
+            {
+                if (transform.position.x > ball.transform.position.x)
+                {
+                    Debug.Log("AI is on RIGHT of Ball");
+                }
+            }
         }
     }
 

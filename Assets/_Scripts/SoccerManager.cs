@@ -92,6 +92,7 @@ public class SoccerManager : MonoBehaviour
         {
             ballInstance = Instantiate(ball, ballSpawnPoint);
         }
+
         if (playerInstance == null)
         {
             int randomSpawnIndex = Random.Range(0, playerSpawnPoints.Length);
