@@ -29,7 +29,7 @@ public class SoccerManager : MonoBehaviour
 
     [Header("Components")]
     [SerializeField] GameObject player;
-    [SerializeField] GameObject playerInstance;
+    public GameObject playerInstance;
 
     [SerializeField] GameObject ball;
     public GameObject ballInstance;

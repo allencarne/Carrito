@@ -42,6 +42,7 @@ public class SoccerAI : MonoBehaviour
     bool inputDrift;
 
     [SerializeField] float boostThresholdDistance;
+    float previousBallX;
 
     enum AIState 
     { 
@@ -75,37 +76,17 @@ public class SoccerAI : MonoBehaviour
         // If blue side - if on left side of ball (behind it) - Then position car in a way that allows us to score a goal
         if (ball != null && ballRB != null)
         {
-            if (BlueSide)
+            bool isOnLeft = transform.position.x < ball.transform.position.x;
+
+            if ((BlueSide && isOnLeft) || (!BlueSide && !isOnLeft))
             {
-                if (transform.position.x < ball.transform.position.x)
-                {
-                    Debug.Log("AI is on LEFT of Ball");
-
-                    state = AIState.Attack;
-                }
-
-                if (transform.position.x > ball.transform.position.x)
-                {
-                    Debug.Log("AI is on RIGHT of Ball");
-
-                    state = AIState.Defend;
-                }
+                Debug.Log("AI is on LEFT of Ball");
+                state = AIState.Attack;
             }
             else
             {
-                if (transform.position.x < ball.transform.position.x)
-                {
-                    Debug.Log("AI is on LEFT of Ball");
-
-                    state = AIState.Defend;
-                }
-
-                if (transform.position.x > ball.transform.position.x)
-                {
-                    Debug.Log("AI is on RIGHT of Ball");
-
-                    state = AIState.Attack;
-                }
+                Debug.Log("AI is on RIGHT of Ball");
+                state = AIState.Defend;
             }
         }
     }
@@ -214,6 +195,28 @@ public class SoccerAI : MonoBehaviour
             else
             {
                 inputBoost = false;
+            }
+        }
+    }
+
+    void MovingTowardGoal()
+    {
+        if (ball != null && ballRB != null)
+        {
+            // Check if the ball is moving towards or away from the goal
+            bool isMovingTowardsGoal = ballRB.position.x > previousBallX;
+
+            // Update the previousBallX for the next frame
+            previousBallX = ballRB.position.x;
+
+            // Use isMovingTowardsGoal as needed in your logic
+            if (isMovingTowardsGoal)
+            {
+                Debug.Log("Ball is moving towards the goal");
+            }
+            else
+            {
+                Debug.Log("Ball is moving away from the goal");
             }
         }
     }
