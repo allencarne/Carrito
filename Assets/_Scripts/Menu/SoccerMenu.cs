@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
+using System;
 
 public class SoccerMenu : MonoBehaviour
 {
@@ -49,7 +50,19 @@ public class SoccerMenu : MonoBehaviour
 
     [SerializeField] GameObject playButton;
 
-    enum PlayerType 
+    public enum Blue1Type
+    {
+        None,
+        AI,
+        Player1,
+        Player2,
+        Player3,
+        Player4,
+        Player5,
+        Player6,
+    }
+
+    enum Red1Type
     {
         None,
         AI,
@@ -63,6 +76,7 @@ public class SoccerMenu : MonoBehaviour
 
     private void Start()
     {
+        // Setup
         blueSide.SetActive(false);
         redSide.SetActive(false);
 
@@ -108,6 +122,60 @@ public class SoccerMenu : MonoBehaviour
 
         blue3.SetActive(false);
         red3.SetActive(false);
+
+        // Blue 1
+        blue1Text.text = Blue1Type.None.ToString();
+
+        // Red 1
+        red1Text.text = Red1Type.None.ToString();
+    }
+
+    public void Blue1Left()
+    {
+        // Get the current Blue1Type value
+        Blue1Type currentType = (Blue1Type)Enum.Parse(typeof(Blue1Type), blue1Text.text);
+
+        // Calculate the new value (cycling back to the end if reaching None)
+        Blue1Type newType = (Blue1Type)(((int)currentType - 1 + 8) % 8);
+
+        // Update the UI text
+        blue1Text.text = newType.ToString();
+    }
+
+    public void Blue1Right()
+    {
+        // Get the current Blue1Type value
+        Blue1Type currentType = (Blue1Type)Enum.Parse(typeof(Blue1Type), blue1Text.text);
+
+        // Calculate the new value (cycling back to None if reaching the end)
+        Blue1Type newType = (Blue1Type)(((int)currentType + 1) % 8);
+
+        // Update the UI text
+        blue1Text.text = newType.ToString();
+    }
+
+    public void Red1Left()
+    {
+        // Get the current Blue1Type value
+        Red1Type currentType = (Red1Type)Enum.Parse(typeof(Red1Type), red1Text.text);
+
+        // Calculate the new value (cycling back to the end if reaching None)
+        Red1Type newType = (Red1Type)(((int)currentType - 1 + 8) % 8);
+
+        // Update the UI text
+        red1Text.text = newType.ToString();
+    }
+
+    public void Red1Right()
+    {
+        // Get the current Blue1Type value
+        Red1Type currentType = (Red1Type)Enum.Parse(typeof(Red1Type), red1Text.text);
+
+        // Calculate the new value (cycling back to None if reaching the end)
+        Red1Type newType = (Red1Type)(((int)currentType + 1) % 8);
+
+        // Update the UI text
+        red1Text.text = newType.ToString();
     }
 
     public void TwoVsTwoButton()
