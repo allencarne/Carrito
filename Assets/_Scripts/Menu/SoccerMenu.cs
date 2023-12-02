@@ -20,4 +20,31 @@ public class SoccerMenu : MonoBehaviour
 
         SceneManager.LoadScene("Soccer");
     }
+
+    public void OneVsOneButton()
+    {
+        // Game Mode
+
+        // Players
+
+        SceneManager.LoadScene("Soccer");
+    }
+
+    public void TwoVsTwoButton()
+    {
+        // Game Mode
+
+        // Players
+
+        SceneManager.LoadScene("Soccer");
+    }
+
+    public void ThreeVsThreeButton()
+    {
+        // Game Mode
+
+        // Players
+
+        SceneManager.LoadScene("Soccer");
+    }
 }

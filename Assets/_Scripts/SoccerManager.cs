@@ -52,7 +52,9 @@ public class SoccerManager : MonoBehaviour
     {
         FreePlay,
         Training,
-        Soccer,
+        OneVsOne,
+        TwoVsTwo,
+        ThreeVsThree
     }
 
     GameState gameState = GameState.WarmUp;

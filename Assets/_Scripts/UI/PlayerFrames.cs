@@ -43,7 +43,7 @@ public class PlayerFrames : MonoBehaviour
         //UpdateBoostBar(player3Boost, player3cBoost, player3mBoost);
         //UpdateBoostBar(player4Boost, player4cBoost, player4mBoost);
         //UpdateBoostBar(player5Boost, player5cBoost, player5mBoost);
-        //UpdateBoostBar(player6Boost, player6cBoost, player6mBoost);
+        //UpdateBoostBar(player6Boost, player6cBoost, player6edmBoost);
     }
 
     void UpdateBoostBar(Image boostBar, float currentBoost, float maxBoost)
