@@ -101,7 +101,13 @@ public class SoccerMenu : MonoBehaviour
     {
         if (isOneVsOneActive)
         {
-            if (blue1Text.text != Blue1Type.None.ToString() && red1Text.text != Red1Type.None.ToString())
+            // Parse enum values to integers
+            int blue1TypeValue = (int)(Blue1Type)Enum.Parse(typeof(Blue1Type), blue1Text.text);
+            int red1TypeValue = (int)(Red1Type)Enum.Parse(typeof(Red1Type), red1Text.text);
+
+            // Check if both are not players before checking distinctiveness
+            if (blue1TypeValue != (int)Blue1Type.None && red1TypeValue != (int)Red1Type.None &&
+                (blue1TypeValue != red1TypeValue || blue1TypeValue == (int)Blue1Type.AI || red1TypeValue == (int)Red1Type.AI))
             {
                 playButton.SetActive(true);
             }
