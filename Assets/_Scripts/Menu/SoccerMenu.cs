@@ -8,6 +8,10 @@ using System;
 
 public class SoccerMenu : MonoBehaviour
 {
+    bool isOneVsOneActive = false;
+    bool isTwoVsTwoActive = false;
+    bool isThreeVsThreeActive = false;
+
     [Header("Sides")]
     [SerializeField] GameObject blueSide;
     [SerializeField] GameObject redSide;
@@ -92,6 +96,21 @@ public class SoccerMenu : MonoBehaviour
         playButton.SetActive(false);
     }
 
+    private void Update()
+    {
+        if (isOneVsOneActive)
+        {
+            if (blue1Text.text != Blue1Type.None.ToString() && red1Text.text != Red1Type.None.ToString())
+            {
+                playButton.SetActive(true);
+            }
+            else
+            {
+                playButton.SetActive(false);
+            }
+        }
+    }
+
     public void FreePlayButton()
     {
         // Tell the GameManager that FreePlay is Selected
@@ -110,6 +129,11 @@ public class SoccerMenu : MonoBehaviour
 
     public void OneVsOneButton()
     {
+        // Bools
+        isOneVsOneActive = true;
+        isTwoVsTwoActive = false;
+        isThreeVsThreeActive = false;
+
         // Buttons
         blueSide.SetActive(true);
         redSide.SetActive(true);
@@ -180,6 +204,11 @@ public class SoccerMenu : MonoBehaviour
 
     public void TwoVsTwoButton()
     {
+        // Bools
+        isOneVsOneActive = false;
+        isTwoVsTwoActive = true;
+        isThreeVsThreeActive = false;
+
         // Buttons
         blueSide.SetActive(true);
         redSide.SetActive(true);
@@ -196,6 +225,11 @@ public class SoccerMenu : MonoBehaviour
 
     public void ThreeVsThreeButton()
     {
+        // Bools
+        isOneVsOneActive = false;
+        isTwoVsTwoActive = false;
+        isThreeVsThreeActive = true;
+
         // Buttons
         blueSide.SetActive(true);
         redSide.SetActive(true);
@@ -208,5 +242,21 @@ public class SoccerMenu : MonoBehaviour
 
         blue3.SetActive(true);
         red3.SetActive(true);
+    }
+
+    public void PlayButton()
+    {
+        if (isOneVsOneActive)
+        {
+            // Save the value of Blue1Type & Red1Type in PlayerPrefs
+            PlayerPrefs.SetString("Blue1Type", blue1Text.text);
+            PlayerPrefs.SetString("Red1Type", red1Text.text);
+
+            // Save PlayerPrefs immediately
+            PlayerPrefs.Save();
+
+            // Now you can load the next scene
+            SceneManager.LoadScene("Soccer");
+        }
     }
 }
