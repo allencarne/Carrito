@@ -93,19 +93,22 @@ public class SoccerAI : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = ForwardVelocity() + RightVelocity() * driftForce;
+        if (SoccerManager.instance.CanMove)
+        {
+            rb.velocity = ForwardVelocity() + RightVelocity() * driftForce;
 
-        Steer(inputTorque);
+            Steer(inputTorque);
 
-        if (inputAccelerate) Accelerate(); else Decelerate();
+            if (inputAccelerate) Accelerate(); else Decelerate();
 
-        if (inputBrakes) Break();
+            if (inputBrakes) Break();
 
-        if (inputBoost) Boost(); else NoBoost();
+            if (inputBoost) Boost(); else NoBoost();
 
-        if (currentBoost <= 0) NoBoost();
+            if (currentBoost <= 0) NoBoost();
 
-        if (inputDrift) Drift(); else NoDrift();
+            if (inputDrift) Drift(); else NoDrift();
+        }
     }
 
     void AttackState()

@@ -24,19 +24,22 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = ForwardVelocity() + RightVelocity() * driftForce;
+        if (SoccerManager.instance.CanMove)
+        {
+            rb.velocity = ForwardVelocity() + RightVelocity() * driftForce;
 
-        Steer(playerInput.SteerInput);
+            Steer(playerInput.SteerInput);
 
-        if (playerInput.IsAccelerating) Accelerate(); else Decelerate();
+            if (playerInput.IsAccelerating) Accelerate(); else Decelerate();
 
-        if (playerInput.IsBraking) Break();
+            if (playerInput.IsBraking) Break();
 
-        if (playerInput.IsBoosting) Boost(); else NoBoost();
+            if (playerInput.IsBoosting) Boost(); else NoBoost();
 
-        if (currentBoost <= 0) NoBoost();
+            if (currentBoost <= 0) NoBoost();
 
-        if (playerInput.IsDrifting) Drift(); else NoDrift();
+            if (playerInput.IsDrifting) Drift(); else NoDrift();
+        }
     }
 
     void Steer(Vector2 inputValue)

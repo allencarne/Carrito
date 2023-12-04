@@ -120,7 +120,7 @@ public class SoccerMenu : MonoBehaviour
 
     public void FreePlayButton()
     {
-        // Tell the GameManager that FreePlay is Selected
+        // Tell the SoccerManager that FreePlay is Selected
         PlayerPrefs.SetInt("GameMode", (int)SoccerManager.GameMode.FreePlay);
 
         SceneManager.LoadScene("Soccer");
@@ -128,7 +128,7 @@ public class SoccerMenu : MonoBehaviour
 
     public void TrainingButton()
     {
-        // Tell the GameManager that FreePlay is Selected
+        // Tell the SoccerManager that Training is Selected
         PlayerPrefs.SetInt("GameMode", (int)SoccerManager.GameMode.Training);
 
         SceneManager.LoadScene("Soccer");
@@ -263,6 +263,9 @@ public class SoccerMenu : MonoBehaviour
             if (blue1TypeValue != (int)Blue1Type.None && red1TypeValue != (int)Red1Type.None &&
                 (blue1TypeValue != red1TypeValue || blue1TypeValue == (int)Blue1Type.AI || red1TypeValue == (int)Red1Type.AI))
             {
+                // Tell the SoccerManager that OneVsOne is Selected
+                PlayerPrefs.SetInt("GameMode", (int)SoccerManager.GameMode.OneVsOne);
+
                 // Save the value of Blue1Type & Red1Type in PlayerPrefs
                 PlayerPrefs.SetString("Blue1Type", blue1Text.text);
                 PlayerPrefs.SetString("Red1Type", red1Text.text);
