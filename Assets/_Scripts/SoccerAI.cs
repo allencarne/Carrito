@@ -15,8 +15,8 @@ public class SoccerAI : MonoBehaviour
     [SerializeField] GameObject defendingSide;
     GameObject ball;
     Rigidbody2D ballRB;
-    [SerializeField] Transform blueDefensePoint;
-    [SerializeField] Transform redDefensePoint;
+    Transform blueDefensePoint;
+    Transform redDefensePoint;
 
     [Header("Trails")]
     [SerializeField] TrailRenderer leftAccelerateTrail;
@@ -51,6 +51,12 @@ public class SoccerAI : MonoBehaviour
     }
 
     AIState state = AIState.Attack;
+
+    private void Awake()
+    {
+        blueDefensePoint = GameObject.Find("Blue Defense Point").transform;
+        redDefensePoint = GameObject.Find("Red Defense Point").transform;
+    }
 
     private void Update()
     {

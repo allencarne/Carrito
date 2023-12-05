@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class SoccerManager : MonoBehaviour
 {
@@ -38,7 +39,8 @@ public class SoccerManager : MonoBehaviour
     [SerializeField] GameObject ball;
     public GameObject ballInstance;
 
-    [SerializeField] Transform[] playerSpawnPoints;
+    [SerializeField] Transform[] blueSpawnPoints;
+    [SerializeField] Transform[] redSpawnPoints;
     [SerializeField] Transform ballSpawnPoint;
 
     [SerializeField] TextMeshProUGUI countDownText;
@@ -49,6 +51,22 @@ public class SoccerManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI matchTimeText;
     float matchDurationInSeconds = 300f; // 5 minutes
     bool isCountdownInProgress = false;
+
+    public enum PlayerType
+    {
+        None,
+        AI,
+        Player1,
+        Player2,
+        Player3,
+        Player4,
+        Player5,
+        Player6,
+    }
+
+    // Create variables to keep track of player types
+    PlayerType blue1PlayerType = PlayerType.None;
+    PlayerType red1PlayerType = PlayerType.None;
 
     public enum GameState
     {
@@ -99,22 +117,44 @@ public class SoccerManager : MonoBehaviour
 
     void CountDownState()
     {
+        // Retrieve player types from PlayerPrefs
+        blue1PlayerType = (PlayerType)Enum.Parse(typeof(PlayerType), PlayerPrefs.GetString("Blue1Type", PlayerType.None.ToString()));
+        red1PlayerType = (PlayerType)Enum.Parse(typeof(PlayerType), PlayerPrefs.GetString("Red1Type", PlayerType.None.ToString()));
+
+        if (blue1PlayerType == PlayerType.AI)
+        {
+            SpawnAI(blue1PlayerType);
+        }
+        else
+        {
+            SpawnPlayer(blue1PlayerType);
+        }
+
+        if (red1PlayerType == PlayerType.AI)
+        {
+            SpawnAI(red1PlayerType);
+        }
+        else
+        {
+            SpawnPlayer(red1PlayerType);
+        }
+
         switch (gameMode)
         {
             case GameMode.FreePlay:
                 CountDown();
                 SpawnBall();
-                SpawnPlayer();
+                //SpawnPlayer();
                 break;
             case GameMode.Training:
                 CountDown();
                 SpawnBall();
-                SpawnPlayer();
+                //SpawnPlayer();
                 break;
             case GameMode.OneVsOne:
                 CountDown();
                 SpawnBall();
-                SpawnPlayer();
+                //SpawnPlayer();
                 break;
             case GameMode.TwoVsTwo:
                 break;
@@ -284,14 +324,29 @@ public class SoccerManager : MonoBehaviour
         }
     }
 
-    void SpawnPlayer()
+    void SpawnPlayer(PlayerType playerType)
     {
         if (playerInstance == null)
         {
-            int randomSpawnIndex = Random.Range(0, playerSpawnPoints.Length);
-            Transform selectedSpawnPoint = playerSpawnPoints[randomSpawnIndex];
+            Transform[] spawnPoints = (playerType == PlayerType.Player1) ? blueSpawnPoints : redSpawnPoints;
+
+            int randomSpawnIndex = UnityEngine.Random.Range(0, spawnPoints.Length);
+            Transform selectedSpawnPoint = spawnPoints[randomSpawnIndex];
 
             playerInstance = Instantiate(player, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
+        }
+    }
+
+    void SpawnAI(PlayerType playerType)
+    {
+        if (AIInstance == null)
+        {
+            Transform[] spawnPoints = (playerType == PlayerType.Player1) ? blueSpawnPoints : redSpawnPoints;
+
+            int randomSpawnIndex = UnityEngine.Random.Range(0, spawnPoints.Length);
+            Transform selectedSpawnPoint = spawnPoints[randomSpawnIndex];
+
+            AIInstance = Instantiate(AI, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
         }
     }
 }
