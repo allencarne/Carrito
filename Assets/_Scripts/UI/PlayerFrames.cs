@@ -32,10 +32,10 @@ public class PlayerFrames : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SoccerManager.instance.playerInstance != null)
+        if (SoccerManager.instance.bluePlayerInstance != null)
         {
-            player1cBoost = SoccerManager.instance.playerInstance.GetComponent<Player>().currentBoost;
-            player1mBoost = SoccerManager.instance.playerInstance.GetComponent<Player>().maxBoost;
+            player1cBoost = SoccerManager.instance.bluePlayerInstance.GetComponent<Player>().currentBoost;
+            player1mBoost = SoccerManager.instance.bluePlayerInstance.GetComponent<Player>().maxBoost;
         }
 
         UpdateBoostBar(player1Boost, player1cBoost, player1mBoost);
