@@ -33,8 +33,11 @@ public class SoccerManager : MonoBehaviour
     [SerializeField] GameObject player;
     public GameObject playerInstance;
 
-    [SerializeField] GameObject AI;
-    public GameObject AIInstance;
+    [SerializeField] GameObject BlueAI;
+    public GameObject BlueAIINstance;
+
+    [SerializeField] GameObject RedAI;
+    public GameObject RedAIINstance;
 
     [SerializeField] GameObject ball;
     public GameObject ballInstance;
@@ -123,20 +126,20 @@ public class SoccerManager : MonoBehaviour
 
         if (blue1PlayerType == PlayerType.AI)
         {
-            SpawnAI(blue1PlayerType);
+            SpawnBlueAI();
         }
         else
         {
-            SpawnPlayer(blue1PlayerType);
+            SpawnBluePlayer();
         }
 
         if (red1PlayerType == PlayerType.AI)
         {
-            SpawnAI(red1PlayerType);
+            SpawnRedAI();
         }
         else
         {
-            SpawnPlayer(red1PlayerType);
+            SpawnRedPlayer();
         }
 
         switch (gameMode)
@@ -324,29 +327,47 @@ public class SoccerManager : MonoBehaviour
         }
     }
 
-    void SpawnPlayer(PlayerType playerType)
+    void SpawnBluePlayer()
     {
         if (playerInstance == null)
         {
-            Transform[] spawnPoints = (playerType == PlayerType.Player1) ? blueSpawnPoints : redSpawnPoints;
-
-            int randomSpawnIndex = UnityEngine.Random.Range(0, spawnPoints.Length);
-            Transform selectedSpawnPoint = spawnPoints[randomSpawnIndex];
+            int randomSpawnIndex = UnityEngine.Random.Range(0, blueSpawnPoints.Length);
+            Transform selectedSpawnPoint = blueSpawnPoints[randomSpawnIndex];
 
             playerInstance = Instantiate(player, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
         }
     }
 
-    void SpawnAI(PlayerType playerType)
+    void SpawnRedPlayer()
     {
-        if (AIInstance == null)
+        if (playerInstance == null)
         {
-            Transform[] spawnPoints = (playerType == PlayerType.Player1) ? blueSpawnPoints : redSpawnPoints;
+            int randomSpawnIndex = UnityEngine.Random.Range(0, redSpawnPoints.Length);
+            Transform selectedSpawnPoint = redSpawnPoints[randomSpawnIndex];
 
-            int randomSpawnIndex = UnityEngine.Random.Range(0, spawnPoints.Length);
-            Transform selectedSpawnPoint = spawnPoints[randomSpawnIndex];
+            playerInstance = Instantiate(player, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
+        }
+    }
 
-            AIInstance = Instantiate(AI, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
+    void SpawnBlueAI()
+    {
+        if (BlueAIINstance == null)
+        {
+            int randomSpawnIndex = UnityEngine.Random.Range(0, blueSpawnPoints.Length);
+            Transform selectedSpawnPoint = blueSpawnPoints[randomSpawnIndex];
+
+            BlueAIINstance = Instantiate(BlueAI, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
+        }
+    }
+
+    void SpawnRedAI()
+    {
+        if (RedAIINstance == null)
+        {
+            int randomSpawnIndex = UnityEngine.Random.Range(0, redSpawnPoints.Length);
+            Transform selectedSpawnPoint = redSpawnPoints[randomSpawnIndex];
+
+            RedAIINstance = Instantiate(RedAI, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
         }
     }
 }

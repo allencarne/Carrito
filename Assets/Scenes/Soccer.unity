@@ -5812,8 +5812,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 4690004890421714644, guid: bf7cf025dc838434ab69bfdf66777556, type: 3}
   playerInstance: {fileID: 0}
-  AI: {fileID: 1300979883949382233, guid: 085562fad30eb0449ba81d8fdf7539c2, type: 3}
-  AIInstance: {fileID: 0}
+  BlueAI: {fileID: 8412704991420033752, guid: 89e705e6b4fb58c46af5182b3e5300ac, type: 3}
+  BlueAIINstance: {fileID: 0}
+  RedAI: {fileID: 1300979883949382233, guid: 085562fad30eb0449ba81d8fdf7539c2, type: 3}
+  RedAIINstance: {fileID: 0}
   ball: {fileID: 5067461842776765862, guid: c59b5321d0553c746a21fbabfadc6695, type: 3}
   ballInstance: {fileID: 0}
   blueSpawnPoints:
