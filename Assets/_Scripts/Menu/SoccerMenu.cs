@@ -255,25 +255,19 @@ public class SoccerMenu : MonoBehaviour
     {
         if (isOneVsOneActive)
         {
-            // Parse enum values to integers
             int blue1TypeValue = (int)(Blue1Type)Enum.Parse(typeof(Blue1Type), blue1Text.text);
             int red1TypeValue = (int)(Red1Type)Enum.Parse(typeof(Red1Type), red1Text.text);
 
-            // Check if both are not players before checking distinctiveness
             if (blue1TypeValue != (int)Blue1Type.None && red1TypeValue != (int)Red1Type.None &&
                 (blue1TypeValue != red1TypeValue || blue1TypeValue == (int)Blue1Type.AI || red1TypeValue == (int)Red1Type.AI))
             {
-                // Tell the SoccerManager that OneVsOne is Selected
                 PlayerPrefs.SetInt("GameMode", (int)SoccerManager.GameMode.OneVsOne);
 
-                // Save the value of Blue1Type & Red1Type in PlayerPrefs
                 PlayerPrefs.SetString("Blue1Type", blue1Text.text);
                 PlayerPrefs.SetString("Red1Type", red1Text.text);
 
-                // Save PlayerPrefs immediately
                 PlayerPrefs.Save();
 
-                // Now you can load the next scene
                 SceneManager.LoadScene("Soccer");
             }
         }

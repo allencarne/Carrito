@@ -38,13 +38,17 @@ public class SoccerManager : MonoBehaviour
     [SerializeField] GameObject ball;
     public GameObject ballInstance;
 
-    [SerializeField] Transform[] playerSpawnPoints;  // Array of player spawn points
+    [SerializeField] Transform[] playerSpawnPoints;
     [SerializeField] Transform ballSpawnPoint;
 
     [SerializeField] TextMeshProUGUI countDownText;
     bool canCountDown = true;
 
     public bool CanMove = false;
+
+    [SerializeField] TextMeshProUGUI matchTimeText;
+    float matchDurationInSeconds = 300f; // 5 minutes
+    bool isCountdownInProgress = false;
 
     public enum GameState
     {
@@ -99,9 +103,13 @@ public class SoccerManager : MonoBehaviour
         {
             case GameMode.FreePlay:
                 CountDown();
+                SpawnBall();
+                SpawnPlayer();
                 break;
             case GameMode.Training:
                 CountDown();
+                SpawnBall();
+                SpawnPlayer();
                 break;
             case GameMode.OneVsOne:
                 CountDown();
@@ -129,32 +137,39 @@ public class SoccerManager : MonoBehaviour
 
     IEnumerator CountdownCoroutine()
     {
-        // Display "3" and wait for 1 second.
         countDownText.text = "3";
         yield return new WaitForSeconds(1f);
 
-        // Display "2" and wait for 1 second.
         countDownText.text = "2";
         yield return new WaitForSeconds(1f);
 
-        // Display "1" and wait for 1 second.
         countDownText.text = "1";
         yield return new WaitForSeconds(1f);
 
-        // Clear the text after the countdown is finished.
         countDownText.text = "Go!";
         yield return new WaitForSeconds(1f);
 
         // Do Stuff
-        CanMove = true;
+        gameState = GameState.Playing;
 
-        // Waits a second before turning off text
+        // Wait a second before turning off text
         countDownText.gameObject.SetActive(false);
         yield return new WaitForSeconds(1f);
     }
 
     void PlayingState()
     {
+        CanMove = true;
+
+        if (!isCountdownInProgress)
+        {
+            isCountdownInProgress = true;
+
+            matchTimeText.gameObject.SetActive(true);
+
+            StartCoroutine(MatchTimeCoroutine());
+        }
+
         switch (gameMode)
         {
             case GameMode.FreePlay:
@@ -168,6 +183,29 @@ public class SoccerManager : MonoBehaviour
             case GameMode.ThreeVsThree:
                 break;
         }
+    }
+
+    IEnumerator MatchTimeCoroutine()
+    {
+        float timeRemaining = matchDurationInSeconds;
+
+        while (timeRemaining > 0f)
+        {
+            // Update the minutes and seconds
+            int minutes = Mathf.FloorToInt(timeRemaining / 60f);
+            int seconds = Mathf.FloorToInt(timeRemaining % 60f);
+
+            // Display the time
+            matchTimeText.text = string.Format("{0}:{1:00}", minutes, seconds);
+
+            yield return new WaitForSeconds(1f);
+
+            // Decrement
+            timeRemaining -= 1f;
+        }
+
+        // End of Match
+        matchTimeText.gameObject.SetActive(false);
     }
 
     void PausedState()
