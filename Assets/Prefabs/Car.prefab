@@ -555,7 +555,7 @@ GameObject:
   - component: {fileID: 4690004890421714643}
   - component: {fileID: 4690004890421714640}
   - component: {fileID: 4690004890421714641}
-  - component: {fileID: 4690004890421714642}
+  - component: {fileID: 1936448505741379861}
   m_Layer: 0
   m_Name: Car
   m_TagString: Car
@@ -664,17 +664,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9fbe3b9258a5724e9d2f8e50aaa0217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInput: {fileID: 4690004890421714642}
+  playerInput: {fileID: 1936448505741379861}
   rb: {fileID: 4690004890421714643}
   leftAccelerateTrail: {fileID: 4690004889672566943}
   rightAccelerateTrail: {fileID: 4690004890714233659}
   leftDriftTrail: {fileID: 4690004889887926406}
   rightDriftTrail: {fileID: 4690004889824084650}
   boostTrail: {fileID: 4690004889812348046}
-  speed: 10
-  torque: -350
-  boostForce: 0.3
-  driftForce: 0.1
   currentBoost: 100
   maxBoost: 100
 --- !u!70 &4690004890421714641
@@ -693,7 +689,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.7553872, y: 1.3463004}
   m_Direction: 0
---- !u!114 &4690004890421714642
+--- !u!114 &1936448505741379861
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -702,14 +698,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4690004890421714644}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9224fd5e4d94d624bb1f85b769d8e150, type: 3}
+  m_Script: {fileID: 11500000, guid: cdcbabfc1040bb449a2587e6d246e79b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   steerAction:
     m_Name: Steer
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 0c920aad-c76b-44d8-944a-d231690a69ec
+    m_Id: 682f0bbd-1749-490a-8c28-03c80a3004a2
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []

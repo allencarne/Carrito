@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] PlayerInput playerInput;
+    [SerializeField] CustomPlayerInput playerInput;
     [SerializeField] Rigidbody2D rb;
 
     [SerializeField] TrailRenderer leftAccelerateTrail;
