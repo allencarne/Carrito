@@ -338,7 +338,7 @@ public class SoccerManager : MonoBehaviour
             int randomSpawnIndex = UnityEngine.Random.Range(0, blueSpawnPoints.Length);
             Transform selectedSpawnPoint = blueSpawnPoints[randomSpawnIndex];
 
-           // bluePlayerInstance = Instantiate(bluePlayer, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
+            //bluePlayerInstance = Instantiate(bluePlayer, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
         }
     }
 
@@ -349,7 +349,7 @@ public class SoccerManager : MonoBehaviour
             int randomSpawnIndex = UnityEngine.Random.Range(0, redSpawnPoints.Length);
             Transform selectedSpawnPoint = redSpawnPoints[randomSpawnIndex];
 
-           // redPlayerInstance = Instantiate(redPlayer, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
+            //redPlayerInstance = Instantiate(redPlayer, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
         }
     }
 

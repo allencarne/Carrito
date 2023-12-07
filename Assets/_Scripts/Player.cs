@@ -47,11 +47,6 @@ public class Player : MonoBehaviour
         float horizontalInput = inputValue.x;
 
         rb.angularVelocity = horizontalInput * torque;
-
-        if (!playerInput.steerAction.phase.IsInProgress())
-        {
-            rb.angularVelocity = 0f;
-        }
     }
 
     void Accelerate()
@@ -77,7 +72,6 @@ public class Player : MonoBehaviour
         if (currentBoost >= 1)
         {
             currentBoost--;
-            //gameManager.SetBoost(currentBoost);
             rb.AddForce(transform.up * boostForce);
             rb.AddForce(transform.up * boostForce, ForceMode2D.Impulse);
             boostTrail.emitting = true;
