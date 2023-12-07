@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class InputManager : MonoBehaviour
+public class CustomInputManager : MonoBehaviour
 {
     private List<PlayerInput> players = new List<PlayerInput>();
 
     private void OnEnable()
     {
-        //PlayerInputManager.instance.onPlayerJoined += OnPlayerJoined;
-        //PlayerInputManager.instance.onPlayerLeft += OnPlayerLeft;
+        PlayerInputManager.instance.onPlayerJoined += OnPlayerJoined;
+        PlayerInputManager.instance.onPlayerLeft += OnPlayerLeft;
     }
 
     private void OnDisable()
     {
-        //PlayerInputManager.instance.onPlayerJoined -= OnPlayerJoined;
-        //PlayerInputManager.instance.onPlayerLeft -= OnPlayerLeft;
+        PlayerInputManager.instance.onPlayerJoined -= OnPlayerJoined;
+        PlayerInputManager.instance.onPlayerLeft -= OnPlayerLeft;
     }
 
     private void OnPlayerJoined(PlayerInput playerInput)
