@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using System;
 using UnityEngine.InputSystem;
+using System.Linq;
 
 public class SoccerManager : MonoBehaviour
 {
@@ -58,6 +59,9 @@ public class SoccerManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI matchTimeText;
     float matchDurationInSeconds = 300f; // 5 minutes
     bool isCountdownInProgress = false;
+
+    bool canSpawnBlue = true;
+    bool canSpawnRed = true;
 
     public enum PlayerType
     {
@@ -339,6 +343,17 @@ public class SoccerManager : MonoBehaviour
             Transform selectedSpawnPoint = blueSpawnPoints[randomSpawnIndex];
 
             //bluePlayerInstance = Instantiate(bluePlayer, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
+            //JoinPlayerWithIndex(bluePlayerInstance, 0);
+
+            //PlayerInputManager.instance.JoinPlayer(0, -1, null);
+
+            if (canSpawnBlue)
+            {
+                canSpawnBlue = false;
+
+                PlayerInputManager.instance.JoinPlayer(0, -1, null, Gamepad.all[0]);
+                //PlayerInput.Instantiate(bluePlayer, controlScheme: "Gamepad", pairWithDevice: Gamepad.all[0]);
+            }
         }
     }
 
@@ -350,9 +365,37 @@ public class SoccerManager : MonoBehaviour
             Transform selectedSpawnPoint = redSpawnPoints[randomSpawnIndex];
 
             //redPlayerInstance = Instantiate(redPlayer, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
+            //JoinPlayerWithIndex(redPlayerInstance, 1);
+
+            //PlayerInputManager.instance.JoinPlayer(1, -1, null);
+
+            if (canSpawnRed)
+            {
+                canSpawnRed = false;
+
+                PlayerInput.Instantiate(redPlayer, controlScheme: "Keyboard", pairWithDevice: Keyboard.current);
+            }
         }
     }
+    /*
+    void JoinPlayerWithIndex(GameObject playerInstance, int playerIndex)
+    {
+        // Get the PlayerInput component on the instantiated player
+        PlayerInput playerInput = playerInstance.GetComponent<PlayerInput>();
 
+        // Get all connected gamepads
+        InputDevice[] gamepads = InputSystem.devices.Where(device => device is Gamepad).ToArray();
+
+        // Use the first gamepad if available, otherwise use a generic device
+        InputDevice selectedDevice = gamepads.Length > 0 ? gamepads[0] : InputSystem.devices[0];
+
+        // Get the spawn index for control scheme or other settings
+        int spawnIndex = playerIndex;
+
+        // Use JoinPlayer with the appropriate parameters
+        PlayerInputManager.instance.JoinPlayer(playerIndex, spawnIndex, "Gamepad", selectedDevice); // Adjust "YourControlScheme" accordingly
+    }
+    */
     void SpawnBlueAI()
     {
         if (BlueAIInstance == null)

@@ -737,35 +737,11 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1936448505741379861}
-        m_TargetAssemblyTypeName: CustomPlayerInput, Assembly-CSharp
-        m_MethodName: OnSteer
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 979752c1-b630-499c-8ca8-467fa8ac0efb
     m_ActionName: Player/Steer[/XInputControllerWindows1/leftStick,/XInputControllerWindows/leftStick,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1936448505741379861}
-        m_TargetAssemblyTypeName: CustomPlayerInput, Assembly-CSharp
-        m_MethodName: OnAccelerate
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 3aabdb65-383d-4a3e-9eb7-895916db877a
     m_ActionName: Player/Accelerate[/XInputControllerWindows1/rightTrigger,/XInputControllerWindows/rightTrigger,/Keyboard/w,/Keyboard/upArrow]
   - m_PersistentCalls:
@@ -820,7 +796,7 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: d9ee9aff-e875-4d7d-9227-e01a3f2d05e0
     m_ActionName: UI/TrackedDeviceOrientation
-  m_NeverAutoSwitchControlSchemes: 1
+  m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
