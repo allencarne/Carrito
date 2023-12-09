@@ -928,25 +928,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdcbabfc1040bb449a2587e6d246e79b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerID: 2
-  steerAction:
-    m_Name: Steer
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 682f0bbd-1749-490a-8c28-03c80a3004a2
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  steerAction2:
-    m_Name: Steer Action 2
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: a76bd0f6-1a8d-4eba-bc5a-203c499a442f
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
+  onSteerCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+  onAccelerateCanceled:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &6625549737225008733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -973,23 +960,83 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1265070536304551761}
+        m_TargetAssemblyTypeName: CustomPlayerInput, Assembly-CSharp
+        m_MethodName: OnSteer
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 979752c1-b630-499c-8ca8-467fa8ac0efb
     m_ActionName: Player/Steer[/XInputControllerWindows1/leftStick,/XInputControllerWindows/leftStick,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1265070536304551761}
+        m_TargetAssemblyTypeName: CustomPlayerInput, Assembly-CSharp
+        m_MethodName: OnAccelerate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 3aabdb65-383d-4a3e-9eb7-895916db877a
     m_ActionName: Player/Accelerate[/XInputControllerWindows1/rightTrigger,/XInputControllerWindows/rightTrigger,/Keyboard/w,/Keyboard/upArrow]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1265070536304551761}
+        m_TargetAssemblyTypeName: CustomPlayerInput, Assembly-CSharp
+        m_MethodName: OnBrake
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: be735dbb-0884-4774-9f17-967f3ba4b747
     m_ActionName: Player/Break[/XInputControllerWindows1/leftTrigger,/XInputControllerWindows/leftTrigger,/Keyboard/s,/Keyboard/downArrow]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1265070536304551761}
+        m_TargetAssemblyTypeName: CustomPlayerInput, Assembly-CSharp
+        m_MethodName: OnBoost
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 8c63fedf-dabb-4e21-a2a5-25ee4c7b20ad
     m_ActionName: Player/Boost[/XInputControllerWindows1/rightShoulder,/XInputControllerWindows/rightShoulder,/Keyboard/space]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1265070536304551761}
+        m_TargetAssemblyTypeName: CustomPlayerInput, Assembly-CSharp
+        m_MethodName: OnDrift
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 70940d64-031e-4021-9904-e3c8a5d4ca85
     m_ActionName: Player/Drift[/XInputControllerWindows1/leftShoulder,/XInputControllerWindows/leftShoulder,/Keyboard/shift]
   - m_PersistentCalls:
@@ -1033,7 +1080,7 @@ MonoBehaviour:
     m_ActionId: d9ee9aff-e875-4d7d-9227-e01a3f2d05e0
     m_ActionName: UI/TrackedDeviceOrientation
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

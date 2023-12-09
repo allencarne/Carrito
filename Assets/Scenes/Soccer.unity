@@ -3751,7 +3751,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1159961754
 Transform:
   m_ObjectHideFlags: 0
@@ -6041,9 +6041,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a7ee36046c27341b3f96ea9dafdc43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bluePlayer: {fileID: 4690004890421714644, guid: bf7cf025dc838434ab69bfdf66777556, type: 3}
+  bluePlayer: {fileID: 7755933530518722120, guid: 13452b34cd97e8b4883d85bc6539e4a2, type: 3}
   bluePlayerInstance: {fileID: 0}
-  redPlayer: {fileID: 4690004890421714644, guid: bf7cf025dc838434ab69bfdf66777556, type: 3}
+  redPlayer: {fileID: 6760605928970073182, guid: 5b054b0607840964ead73b80460eb56a, type: 3}
   redPlayerInstance: {fileID: 0}
   BlueAI: {fileID: 8412704991420033752, guid: 89e705e6b4fb58c46af5182b3e5300ac, type: 3}
   BlueAIInstance: {fileID: 0}
