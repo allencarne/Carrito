@@ -28,7 +28,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ""id"": ""425266ce-dddf-4bb3-ba45-c3c780a41d43"",
             ""actions"": [
                 {
-                    ""name"": ""Steer"",
+                    ""name"": ""Steer1"",
                     ""type"": ""Value"",
                     ""id"": ""979752c1-b630-499c-8ca8-467fa8ac0efb"",
                     ""expectedControlType"": ""Vector2"",
@@ -37,7 +37,16 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Accelerate"",
+                    ""name"": ""Steer2"",
+                    ""type"": ""Value"",
+                    ""id"": ""68bcf2af-c69d-45cd-8f9b-b966e71aa107"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Accelerate1"",
                     ""type"": ""Button"",
                     ""id"": ""3aabdb65-383d-4a3e-9eb7-895916db877a"",
                     ""expectedControlType"": ""Button"",
@@ -46,7 +55,16 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Break"",
+                    ""name"": ""Accelerate2"",
+                    ""type"": ""Button"",
+                    ""id"": ""e613441a-b154-46c1-876a-17e0716c108e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Break1"",
                     ""type"": ""Button"",
                     ""id"": ""be735dbb-0884-4774-9f17-967f3ba4b747"",
                     ""expectedControlType"": ""Button"",
@@ -55,7 +73,16 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Boost"",
+                    ""name"": ""Break2"",
+                    ""type"": ""Button"",
+                    ""id"": ""69f16c90-a198-4ca0-8e6e-e5b18170a0d4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Boost1"",
                     ""type"": ""Button"",
                     ""id"": ""8c63fedf-dabb-4e21-a2a5-25ee4c7b20ad"",
                     ""expectedControlType"": ""Button"",
@@ -64,9 +91,27 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Drift"",
+                    ""name"": ""Boost2"",
+                    ""type"": ""Button"",
+                    ""id"": ""14ee70a3-abda-4838-b272-d11224f3010e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Drift1"",
                     ""type"": ""Button"",
                     ""id"": ""70940d64-031e-4021-9904-e3c8a5d4ca85"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Drift2"",
+                    ""type"": ""Button"",
+                    ""id"": ""4e5c55bc-f4f1-4c08-bc50-3f5890b8002b"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -81,7 +126,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
-                    ""action"": ""Steer"",
+                    ""action"": ""Steer1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -92,7 +137,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Steer"",
+                    ""action"": ""Steer1"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -103,7 +148,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
-                    ""action"": ""Steer"",
+                    ""action"": ""Steer1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -114,7 +159,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
-                    ""action"": ""Steer"",
+                    ""action"": ""Steer1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -125,7 +170,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
-                    ""action"": ""Steer"",
+                    ""action"": ""Steer1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -136,7 +181,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
-                    ""action"": ""Steer"",
+                    ""action"": ""Steer1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -147,7 +192,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
-                    ""action"": ""Accelerate"",
+                    ""action"": ""Accelerate1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -158,7 +203,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Accelerate"",
+                    ""action"": ""Accelerate1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -169,7 +214,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Accelerate"",
+                    ""action"": ""Accelerate1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -180,7 +225,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Break"",
+                    ""action"": ""Break1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -191,7 +236,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Break"",
+                    ""action"": ""Break1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -202,7 +247,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Break"",
+                    ""action"": ""Break1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -213,7 +258,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Boost"",
+                    ""action"": ""Boost1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -224,7 +269,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Boost"",
+                    ""action"": ""Boost1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -235,7 +280,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Drift"",
+                    ""action"": ""Drift1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -246,7 +291,183 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Drift"",
+                    ""action"": ""Drift1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b6634d34-e82d-46f6-b6ab-0813d1a91a89"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Steer2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""A & D"",
+                    ""id"": ""f2ddf461-cf4a-4f60-9217-d5291b90c33a"",
+                    ""path"": ""Dpad"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Steer2"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""b3347ad9-d5f7-437d-a555-6da5d8ec3566"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Steer2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""01c2f969-c96e-4d42-9ca4-c9983de8aa61"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Steer2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""b6cd5a48-d202-4864-93e0-d3628c7d5ec8"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Steer2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""dc5fb08d-e99c-4205-ac9b-11b65140a80a"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Steer2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dfa036b9-999e-4c4e-a29d-06d464468e55"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Accelerate2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""08f2f89d-2cb2-45af-a76c-e43ce408606e"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Accelerate2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""43a70b76-612c-4a18-90a5-f9675b0ef871"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Accelerate2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""572fdeb0-9530-485f-8f6c-36aebc5e962c"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Break2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6be70bb5-64e4-4980-a7aa-6ba122c2d9d5"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Break2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""281bbac6-93b7-456a-9631-90fce1831858"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Break2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""10128f93-4fc1-4ea9-a298-d0106bc26547"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Boost2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6a1e6b63-d7a3-4f77-8a03-1c9acb694468"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Boost2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""082e7a87-bf3a-4ceb-af9f-9c2c3240d8d2"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Drift2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8d9ae608-1067-46fa-9a0e-5276d505017b"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Drift2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -735,11 +956,16 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_Steer = m_Player.FindAction("Steer", throwIfNotFound: true);
-        m_Player_Accelerate = m_Player.FindAction("Accelerate", throwIfNotFound: true);
-        m_Player_Break = m_Player.FindAction("Break", throwIfNotFound: true);
-        m_Player_Boost = m_Player.FindAction("Boost", throwIfNotFound: true);
-        m_Player_Drift = m_Player.FindAction("Drift", throwIfNotFound: true);
+        m_Player_Steer1 = m_Player.FindAction("Steer1", throwIfNotFound: true);
+        m_Player_Steer2 = m_Player.FindAction("Steer2", throwIfNotFound: true);
+        m_Player_Accelerate1 = m_Player.FindAction("Accelerate1", throwIfNotFound: true);
+        m_Player_Accelerate2 = m_Player.FindAction("Accelerate2", throwIfNotFound: true);
+        m_Player_Break1 = m_Player.FindAction("Break1", throwIfNotFound: true);
+        m_Player_Break2 = m_Player.FindAction("Break2", throwIfNotFound: true);
+        m_Player_Boost1 = m_Player.FindAction("Boost1", throwIfNotFound: true);
+        m_Player_Boost2 = m_Player.FindAction("Boost2", throwIfNotFound: true);
+        m_Player_Drift1 = m_Player.FindAction("Drift1", throwIfNotFound: true);
+        m_Player_Drift2 = m_Player.FindAction("Drift2", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -813,20 +1039,30 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     // Player
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
-    private readonly InputAction m_Player_Steer;
-    private readonly InputAction m_Player_Accelerate;
-    private readonly InputAction m_Player_Break;
-    private readonly InputAction m_Player_Boost;
-    private readonly InputAction m_Player_Drift;
+    private readonly InputAction m_Player_Steer1;
+    private readonly InputAction m_Player_Steer2;
+    private readonly InputAction m_Player_Accelerate1;
+    private readonly InputAction m_Player_Accelerate2;
+    private readonly InputAction m_Player_Break1;
+    private readonly InputAction m_Player_Break2;
+    private readonly InputAction m_Player_Boost1;
+    private readonly InputAction m_Player_Boost2;
+    private readonly InputAction m_Player_Drift1;
+    private readonly InputAction m_Player_Drift2;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
         public PlayerActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Steer => m_Wrapper.m_Player_Steer;
-        public InputAction @Accelerate => m_Wrapper.m_Player_Accelerate;
-        public InputAction @Break => m_Wrapper.m_Player_Break;
-        public InputAction @Boost => m_Wrapper.m_Player_Boost;
-        public InputAction @Drift => m_Wrapper.m_Player_Drift;
+        public InputAction @Steer1 => m_Wrapper.m_Player_Steer1;
+        public InputAction @Steer2 => m_Wrapper.m_Player_Steer2;
+        public InputAction @Accelerate1 => m_Wrapper.m_Player_Accelerate1;
+        public InputAction @Accelerate2 => m_Wrapper.m_Player_Accelerate2;
+        public InputAction @Break1 => m_Wrapper.m_Player_Break1;
+        public InputAction @Break2 => m_Wrapper.m_Player_Break2;
+        public InputAction @Boost1 => m_Wrapper.m_Player_Boost1;
+        public InputAction @Boost2 => m_Wrapper.m_Player_Boost2;
+        public InputAction @Drift1 => m_Wrapper.m_Player_Drift1;
+        public InputAction @Drift2 => m_Wrapper.m_Player_Drift2;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -836,40 +1072,70 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_PlayerActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_PlayerActionsCallbackInterfaces.Add(instance);
-            @Steer.started += instance.OnSteer;
-            @Steer.performed += instance.OnSteer;
-            @Steer.canceled += instance.OnSteer;
-            @Accelerate.started += instance.OnAccelerate;
-            @Accelerate.performed += instance.OnAccelerate;
-            @Accelerate.canceled += instance.OnAccelerate;
-            @Break.started += instance.OnBreak;
-            @Break.performed += instance.OnBreak;
-            @Break.canceled += instance.OnBreak;
-            @Boost.started += instance.OnBoost;
-            @Boost.performed += instance.OnBoost;
-            @Boost.canceled += instance.OnBoost;
-            @Drift.started += instance.OnDrift;
-            @Drift.performed += instance.OnDrift;
-            @Drift.canceled += instance.OnDrift;
+            @Steer1.started += instance.OnSteer1;
+            @Steer1.performed += instance.OnSteer1;
+            @Steer1.canceled += instance.OnSteer1;
+            @Steer2.started += instance.OnSteer2;
+            @Steer2.performed += instance.OnSteer2;
+            @Steer2.canceled += instance.OnSteer2;
+            @Accelerate1.started += instance.OnAccelerate1;
+            @Accelerate1.performed += instance.OnAccelerate1;
+            @Accelerate1.canceled += instance.OnAccelerate1;
+            @Accelerate2.started += instance.OnAccelerate2;
+            @Accelerate2.performed += instance.OnAccelerate2;
+            @Accelerate2.canceled += instance.OnAccelerate2;
+            @Break1.started += instance.OnBreak1;
+            @Break1.performed += instance.OnBreak1;
+            @Break1.canceled += instance.OnBreak1;
+            @Break2.started += instance.OnBreak2;
+            @Break2.performed += instance.OnBreak2;
+            @Break2.canceled += instance.OnBreak2;
+            @Boost1.started += instance.OnBoost1;
+            @Boost1.performed += instance.OnBoost1;
+            @Boost1.canceled += instance.OnBoost1;
+            @Boost2.started += instance.OnBoost2;
+            @Boost2.performed += instance.OnBoost2;
+            @Boost2.canceled += instance.OnBoost2;
+            @Drift1.started += instance.OnDrift1;
+            @Drift1.performed += instance.OnDrift1;
+            @Drift1.canceled += instance.OnDrift1;
+            @Drift2.started += instance.OnDrift2;
+            @Drift2.performed += instance.OnDrift2;
+            @Drift2.canceled += instance.OnDrift2;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
         {
-            @Steer.started -= instance.OnSteer;
-            @Steer.performed -= instance.OnSteer;
-            @Steer.canceled -= instance.OnSteer;
-            @Accelerate.started -= instance.OnAccelerate;
-            @Accelerate.performed -= instance.OnAccelerate;
-            @Accelerate.canceled -= instance.OnAccelerate;
-            @Break.started -= instance.OnBreak;
-            @Break.performed -= instance.OnBreak;
-            @Break.canceled -= instance.OnBreak;
-            @Boost.started -= instance.OnBoost;
-            @Boost.performed -= instance.OnBoost;
-            @Boost.canceled -= instance.OnBoost;
-            @Drift.started -= instance.OnDrift;
-            @Drift.performed -= instance.OnDrift;
-            @Drift.canceled -= instance.OnDrift;
+            @Steer1.started -= instance.OnSteer1;
+            @Steer1.performed -= instance.OnSteer1;
+            @Steer1.canceled -= instance.OnSteer1;
+            @Steer2.started -= instance.OnSteer2;
+            @Steer2.performed -= instance.OnSteer2;
+            @Steer2.canceled -= instance.OnSteer2;
+            @Accelerate1.started -= instance.OnAccelerate1;
+            @Accelerate1.performed -= instance.OnAccelerate1;
+            @Accelerate1.canceled -= instance.OnAccelerate1;
+            @Accelerate2.started -= instance.OnAccelerate2;
+            @Accelerate2.performed -= instance.OnAccelerate2;
+            @Accelerate2.canceled -= instance.OnAccelerate2;
+            @Break1.started -= instance.OnBreak1;
+            @Break1.performed -= instance.OnBreak1;
+            @Break1.canceled -= instance.OnBreak1;
+            @Break2.started -= instance.OnBreak2;
+            @Break2.performed -= instance.OnBreak2;
+            @Break2.canceled -= instance.OnBreak2;
+            @Boost1.started -= instance.OnBoost1;
+            @Boost1.performed -= instance.OnBoost1;
+            @Boost1.canceled -= instance.OnBoost1;
+            @Boost2.started -= instance.OnBoost2;
+            @Boost2.performed -= instance.OnBoost2;
+            @Boost2.canceled -= instance.OnBoost2;
+            @Drift1.started -= instance.OnDrift1;
+            @Drift1.performed -= instance.OnDrift1;
+            @Drift1.canceled -= instance.OnDrift1;
+            @Drift2.started -= instance.OnDrift2;
+            @Drift2.performed -= instance.OnDrift2;
+            @Drift2.canceled -= instance.OnDrift2;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1034,11 +1300,16 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     }
     public interface IPlayerActions
     {
-        void OnSteer(InputAction.CallbackContext context);
-        void OnAccelerate(InputAction.CallbackContext context);
-        void OnBreak(InputAction.CallbackContext context);
-        void OnBoost(InputAction.CallbackContext context);
-        void OnDrift(InputAction.CallbackContext context);
+        void OnSteer1(InputAction.CallbackContext context);
+        void OnSteer2(InputAction.CallbackContext context);
+        void OnAccelerate1(InputAction.CallbackContext context);
+        void OnAccelerate2(InputAction.CallbackContext context);
+        void OnBreak1(InputAction.CallbackContext context);
+        void OnBreak2(InputAction.CallbackContext context);
+        void OnBoost1(InputAction.CallbackContext context);
+        void OnBoost2(InputAction.CallbackContext context);
+        void OnDrift1(InputAction.CallbackContext context);
+        void OnDrift2(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

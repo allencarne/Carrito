@@ -15,12 +15,6 @@ public class CustomPlayerInput : MonoBehaviour
     private InputAction boostAction;
     private InputAction driftAction;
 
-    public InputAction steerAction2;
-    private InputAction accelerateAction2;
-    private InputAction brakeAction2;
-    private InputAction boostAction2;
-    private InputAction driftAction2;
-
     public Vector2 SteerInput { get; private set; }
     public bool IsAccelerating { get; private set; }
     public bool IsBraking { get; private set; }
@@ -34,12 +28,6 @@ public class CustomPlayerInput : MonoBehaviour
         brakeAction.Enable();
         boostAction.Enable();
         driftAction.Enable();
-
-        steerAction2.Enable();
-        accelerateAction2.Enable();
-        brakeAction2.Enable();
-        boostAction2.Enable();
-        driftAction2.Enable();
     }
 
     private void OnDisable()
@@ -49,12 +37,6 @@ public class CustomPlayerInput : MonoBehaviour
         brakeAction.Disable();
         boostAction.Disable();
         driftAction.Disable();
-
-        steerAction2.Disable();
-        accelerateAction2.Disable();
-        brakeAction2.Disable();
-        boostAction2.Disable();
-        driftAction2.Disable();
     }
 
     private void Awake()
@@ -63,48 +45,48 @@ public class CustomPlayerInput : MonoBehaviour
 
         if (playerID == 1)
         {
-            steerAction = playerControls.Player.Steer;
+            steerAction = playerControls.Player.Steer1;
             steerAction.performed += OnSteer;
             steerAction.canceled += OnSteerCanceled;
 
-            accelerateAction = playerControls.Player.Accelerate;
+            accelerateAction = playerControls.Player.Accelerate1;
             accelerateAction.started += OnAccelerate;
             accelerateAction.canceled += OnAccelerateCanceled;
 
-            brakeAction = playerControls.Player.Break;
+            brakeAction = playerControls.Player.Break1;
             brakeAction.started += OnBrake;
             brakeAction.canceled += OnBrakeCanceled;
 
-            boostAction = playerControls.Player.Boost;
+            boostAction = playerControls.Player.Boost1;
             boostAction.started += OnBoost;
             boostAction.canceled += OnBoostCanceled;
 
-            driftAction = playerControls.Player.Drift;
+            driftAction = playerControls.Player.Drift1;
             driftAction.started += OnDrift;
             driftAction.canceled += OnDriftCanceled;
         }
 
         if (playerID == 2)
         {
-            steerAction2 = playerControls.Player.Steer;
-            steerAction2.performed += OnSteer;
-            steerAction2.canceled += OnSteerCanceled;
+            steerAction = playerControls.Player.Steer2;
+            steerAction.performed += OnSteer;
+            steerAction.canceled += OnSteerCanceled;
 
-            accelerateAction2 = playerControls.Player.Accelerate;
-            accelerateAction2.started += OnAccelerate;
-            accelerateAction2.canceled += OnAccelerateCanceled;
+            accelerateAction = playerControls.Player.Accelerate2;
+            accelerateAction.started += OnAccelerate;
+            accelerateAction.canceled += OnAccelerateCanceled;
 
-            brakeAction2 = playerControls.Player.Break;
-            brakeAction2.started += OnBrake;
-            brakeAction2.canceled += OnBrakeCanceled;
+            brakeAction = playerControls.Player.Break2;
+            brakeAction.started += OnBrake;
+            brakeAction.canceled += OnBrakeCanceled;
 
-            boostAction2 = playerControls.Player.Boost;
-            boostAction2.started += OnBoost;
-            boostAction2.canceled += OnBoostCanceled;
+            boostAction = playerControls.Player.Boost2;
+            boostAction.started += OnBoost;
+            boostAction.canceled += OnBoostCanceled;
 
-            driftAction2 = playerControls.Player.Drift;
-            driftAction2.started += OnDrift;
-            driftAction2.canceled += OnDriftCanceled;
+            driftAction = playerControls.Player.Drift2;
+            driftAction.started += OnDrift;
+            driftAction.canceled += OnDriftCanceled;
         }
     }
 

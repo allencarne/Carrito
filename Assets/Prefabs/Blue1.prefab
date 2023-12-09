@@ -666,6 +666,15 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  steerAction2:
+    m_Name: Steer Action 2
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 0b436ae8-5b5c-46ff-bf1e-cb9349c0b14f
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!114 &1234973267150095373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -751,26 +760,6 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: d9ee9aff-e875-4d7d-9227-e01a3f2d05e0
     m_ActionName: UI/TrackedDeviceOrientation
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 40bd2419-386b-4045-8368-879fdcb1a146
-    m_ActionName: Player2/Steer[/XInputControllerWindows/leftStick,/XInputControllerWindows1/leftStick,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 3f204fc4-4e02-45c7-8789-a1c3240af841
-    m_ActionName: Player2/Accelerate[/XInputControllerWindows/rightTrigger,/XInputControllerWindows1/rightTrigger,/Keyboard/w,/Keyboard/upArrow]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 817d8abc-f2d7-468e-a7b5-d106363d66d4
-    m_ActionName: Player2/Break[/XInputControllerWindows/leftTrigger,/XInputControllerWindows1/leftTrigger,/Keyboard/s,/Keyboard/downArrow]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 5d1aa566-2b06-499a-897b-d34fde7864f2
-    m_ActionName: Player2/Boost[/XInputControllerWindows/rightShoulder,/XInputControllerWindows1/rightShoulder,/Keyboard/space]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 12c95428-c8f3-4997-8d33-f815f0517096
-    m_ActionName: Player2/Drift[/XInputControllerWindows/leftShoulder,/XInputControllerWindows1/leftShoulder,/Keyboard/shift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
