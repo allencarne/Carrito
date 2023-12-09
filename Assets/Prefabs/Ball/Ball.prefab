@@ -307,9 +307,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8c81d6e898588c4e96dabaa1e48bbb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trail: {fileID: 8808626675888807381}
   rb: {fileID: 5067461842776765858}
+  spriteRenderer: {fileID: 5067461842776765860}
+  circleCollider: {fileID: 5067461842776765859}
   explosionPrefab: {fileID: 5838739264634839647, guid: 19175e2cd82843f49adf6e375cf757d1, type: 3}
+  trail: {fileID: 8808626675888807381}
   trailSpeed: 20
   blueSide: 0
   redSide: 0
+  whoTouchedTheBallLast: {fileID: 0}

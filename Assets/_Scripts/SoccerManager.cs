@@ -31,11 +31,12 @@ public class SoccerManager : MonoBehaviour
 
     #endregion
 
-    [Header("Components")]
+    [Header("Players")]
     [SerializeField] GameObject player;
     [SerializeField] GameObject BlueAI;
     [SerializeField] GameObject RedAI;
 
+    [Header("Instances")]
     public GameObject blue1Instance;
     public GameObject blue2Instance;
     public GameObject blue3Instance;
@@ -43,27 +44,30 @@ public class SoccerManager : MonoBehaviour
     public GameObject red2Instance;
     public GameObject red3Instance;
 
-    //public GameObject BlueAIInstance;
-    //public GameObject RedAIInstance;
-
+    [Header("Ball")]
     [SerializeField] GameObject ball;
     public GameObject ballInstance;
 
+    [Header("Spawns")]
     [SerializeField] Transform[] blueSpawnPoints;
     [SerializeField] Transform[] redSpawnPoints;
     [SerializeField] Transform ballSpawnPoint;
 
+    // Count Down
     [SerializeField] TextMeshProUGUI countDownText;
     bool canCountDown = true;
 
-    public bool CanMove = false;
-
+    // Match Time
     [SerializeField] TextMeshProUGUI matchTimeText;
     float matchDurationInSeconds = 300f; // 5 minutes
     bool isCountdownInProgress = false;
+    public bool CanMove = false;
 
-    //bool canSpawnBlue = true;
-    //bool canSpawnRed = true;
+    // Score
+    [SerializeField] TextMeshProUGUI blueScoreText;
+    int blueScore;
+    [SerializeField] TextMeshProUGUI redScoreText;
+    int redScore;
 
     public enum PlayerType
     {
@@ -370,49 +374,4 @@ public class SoccerManager : MonoBehaviour
             }
         }
     }
-
-    /*
-    void SpawnBluePlayer()
-    {
-        if (blue1Instance == null)
-        {
-            int randomSpawnIndex = UnityEngine.Random.Range(0, blueSpawnPoints.Length);
-            Transform selectedSpawnPoint = blueSpawnPoints[randomSpawnIndex];
-
-            blue1Instance = Instantiate(player, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
-        }
-    }
-
-    void SpawnRedPlayer()
-    {
-        if (blue2Instance == null)
-        {
-            int randomSpawnIndex = UnityEngine.Random.Range(0, redSpawnPoints.Length);
-            Transform selectedSpawnPoint = redSpawnPoints[randomSpawnIndex];
-
-            blue2Instance = Instantiate(player, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
-        }
-    }
-    void SpawnBlueAI()
-    {
-        if (BlueAIInstance == null)
-        {
-            int randomSpawnIndex = UnityEngine.Random.Range(0, blueSpawnPoints.Length);
-            Transform selectedSpawnPoint = blueSpawnPoints[randomSpawnIndex];
-
-            BlueAIInstance = Instantiate(BlueAI, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
-        }
-    }
-
-    void SpawnRedAI()
-    {
-        if (RedAIInstance == null)
-        {
-            int randomSpawnIndex = UnityEngine.Random.Range(0, redSpawnPoints.Length);
-            Transform selectedSpawnPoint = redSpawnPoints[randomSpawnIndex];
-
-            RedAIInstance = Instantiate(RedAI, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
-        }
-    }
-    */
 }

@@ -51,20 +51,6 @@ public class BoostPack : MonoBehaviour
                 StartCoroutine(BoostPackCoolDown());
             }
         }
-
-        /*
-        if (collision.CompareTag("Car") && isBoostPackReady && player.currentBoost != player.maxBoost)
-        {
-            Instantiate(smallCircleFX, transform.position, transform.rotation);
-
-            isBoostPackReady = false;
-            spriteRenderer.sprite = boostPackEmpty;
-            float boostToAdd = Mathf.Min(boostAmount, player.maxBoost - player.currentBoost);
-            player.currentBoost += boostToAdd;
-
-            StartCoroutine(BoostPackCoolDown());
-        }
-        */
     }
 
     IEnumerator BoostPackCoolDown()

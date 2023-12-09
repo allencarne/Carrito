@@ -5,9 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class Ball : MonoBehaviour
 {
+    [SerializeField] Rigidbody2D rb;
+    [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] CircleCollider2D circleCollider;
+
     [SerializeField] GameObject explosionPrefab;
     [SerializeField] TrailRenderer trail;
-    [SerializeField] Rigidbody2D rb;
     [SerializeField] float trailSpeed;
 
     public bool blueSide;
@@ -41,20 +44,12 @@ public class Ball : MonoBehaviour
     {
         if (collision.CompareTag("Blue Goal"))
         {
-            var explosion = Instantiate(explosionPrefab, collision.transform.position, collision.transform.rotation);
-
-            Destroy(explosion, 2f);
-
-            //SceneManager.LoadScene(0);
+            StartCoroutine(ScoreDelay(collision));
         }
 
         if (collision.CompareTag("Red Goal"))
         {
-            var explosion = Instantiate(explosionPrefab, collision.transform.position, collision.transform.rotation);
-
-            Destroy(explosion, 2f);
-
-            //SceneManager.LoadScene(0);
+            StartCoroutine(ScoreDelay(collision));
         }
 
         if (collision.CompareTag("Blue Side"))
@@ -65,6 +60,33 @@ public class Ball : MonoBehaviour
         if (collision.CompareTag("Red Side"))
         {
             redSide = true;
+        }
+    }
+
+    IEnumerator ScoreDelay(Collider2D collision)
+    {
+        var explosion = Instantiate(explosionPrefab, collision.transform.position, collision.transform.rotation);
+
+        spriteRenderer.enabled = false;
+        circleCollider.enabled = false;
+
+        yield return new WaitForSeconds(1);
+
+        Destroy(explosion);
+
+        switch (SoccerManager.instance.gameMode)
+        {
+            case SoccerManager.GameMode.FreePlay:
+                SceneManager.LoadScene(0);
+                break;
+            case SoccerManager.GameMode.Training:
+                break;
+            case SoccerManager.GameMode.OneVsOne:
+                break;
+            case SoccerManager.GameMode.TwoVsTwo:
+                break;
+            case SoccerManager.GameMode.ThreeVsThree:
+                break;
         }
     }
 
