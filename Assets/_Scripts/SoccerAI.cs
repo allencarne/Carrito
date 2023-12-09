@@ -86,12 +86,12 @@ public class SoccerAI : MonoBehaviour
 
             if ((BlueSide && isOnLeft) || (!BlueSide && !isOnLeft))
             {
-                Debug.Log("AI is on LEFT of Ball");
+                //Debug.Log("AI is on LEFT of Ball");
                 state = AIState.Attack;
             }
             else
             {
-                Debug.Log("AI is on RIGHT of Ball");
+                //Debug.Log("AI is on RIGHT of Ball");
                 state = AIState.Defend;
             }
         }

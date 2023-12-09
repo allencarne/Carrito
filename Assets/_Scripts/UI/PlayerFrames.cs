@@ -52,7 +52,45 @@ public class PlayerFrames : MonoBehaviour
         blue1PlayerType = (PlayerType)Enum.Parse(typeof(PlayerType), PlayerPrefs.GetString("Blue1Type", PlayerType.None.ToString()));
         red1PlayerType = (PlayerType)Enum.Parse(typeof(PlayerType), PlayerPrefs.GetString("Red1Type", PlayerType.None.ToString()));
 
+        switch (SoccerManager.instance.gameMode)
+        {
+            case SoccerManager.GameMode.FreePlay:
+                FreePlay();
+                break;
+            case SoccerManager.GameMode.Training:
+                Training();
+                break;
+            case SoccerManager.GameMode.OneVsOne:
+                OneVSOne();
+                break;
+            case SoccerManager.GameMode.TwoVsTwo:
+                break;
+            case SoccerManager.GameMode.ThreeVsThree:
+                break;
+        }
+    }
 
+    void FreePlay()
+    {
+        if (SoccerManager.instance != null)
+        {
+            if (SoccerManager.instance.blue1Instance != null)
+            {
+                blue1cBoost = SoccerManager.instance.blue1Instance.GetComponent<Player>().currentBoost;
+                blue1mBoost = SoccerManager.instance.blue1Instance.GetComponent<Player>().maxBoost;
+
+                UpdateBoostBar(blue1Boost, blue1cBoost, blue1mBoost);
+            }
+        }
+    }
+
+    void Training()
+    {
+
+    }
+
+    void OneVSOne()
+    {
         if (SoccerManager.instance != null)
         {
             if (SoccerManager.instance.blue1Instance != null)

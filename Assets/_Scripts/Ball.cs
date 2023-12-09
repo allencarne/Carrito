@@ -5,8 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class Ball : MonoBehaviour
 {
+    [SerializeField] TrailRenderer trail;
+    [SerializeField] Rigidbody2D rb;
+
+    [SerializeField] float trailSpeed;
+
     public bool blueSide;
     public bool redSide;
+
+    private void Update()
+    {
+        float ballSpeed = rb.velocity.magnitude;
+
+        if (ballSpeed > trailSpeed)
+        {
+            trail.emitting = true;
+        }
+        else
+        {
+            trail.emitting = false;
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

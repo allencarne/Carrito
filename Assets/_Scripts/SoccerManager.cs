@@ -133,25 +133,33 @@ public class SoccerManager : MonoBehaviour
         blue1PlayerType = (PlayerType)Enum.Parse(typeof(PlayerType), PlayerPrefs.GetString("Blue1Type", PlayerType.None.ToString()));
         red1PlayerType = (PlayerType)Enum.Parse(typeof(PlayerType), PlayerPrefs.GetString("Red1Type", PlayerType.None.ToString()));
 
-        SpawnBlue1();
-        SpawnRed1();
-
         switch (gameMode)
         {
             case GameMode.FreePlay:
                 CountDown();
                 SpawnBall();
-                //SpawnPlayer();
+
+                // Spawn Blue 1 Player
+                if (blue1Instance == null)
+                {
+                    int randomSpawnIndex = UnityEngine.Random.Range(0, blueSpawnPoints.Length);
+                    Transform selectedSpawnPoint = blueSpawnPoints[randomSpawnIndex];
+
+                    blue1Instance = Instantiate(player, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
+                }
+
                 break;
             case GameMode.Training:
                 CountDown();
                 SpawnBall();
-                //SpawnPlayer();
                 break;
             case GameMode.OneVsOne:
                 CountDown();
                 SpawnBall();
-                //SpawnPlayer();
+
+                SpawnBlue1();
+                SpawnRed1();
+
                 break;
             case GameMode.TwoVsTwo:
                 break;
