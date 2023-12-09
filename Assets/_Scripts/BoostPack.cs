@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class BoostPack : MonoBehaviour
@@ -7,6 +8,7 @@ public class BoostPack : MonoBehaviour
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] Sprite boostPackFull;
     [SerializeField] Sprite boostPackEmpty;
+    [SerializeField] GameObject smallCircleFX;
 
     [SerializeField] int boostAmount;
     [SerializeField] int boostPackCoolDown;
@@ -24,6 +26,8 @@ public class BoostPack : MonoBehaviour
 
         if (collision.CompareTag("Car") && isBoostPackReady && player.currentBoost != player.maxBoost)
         {
+            Instantiate(smallCircleFX, transform.position, transform.rotation);
+
             isBoostPackReady = false;
             spriteRenderer.sprite = boostPackEmpty;
             float boostToAdd = Mathf.Min(boostAmount, player.maxBoost - player.currentBoost);
