@@ -77,7 +77,6 @@ public class SoccerManager : MonoBehaviour
         Player6,
     }
 
-    // Create variables to keep track of player types
     PlayerType blue1PlayerType = PlayerType.None;
     PlayerType red1PlayerType = PlayerType.None;
 
@@ -349,10 +348,10 @@ public class SoccerManager : MonoBehaviour
         {
             if (red1PlayerType == PlayerType.AI)
             {
-                int randomSpawnIndex = UnityEngine.Random.Range(0, blueSpawnPoints.Length);
-                Transform selectedSpawnPoint = blueSpawnPoints[randomSpawnIndex];
+                int randomSpawnIndex = UnityEngine.Random.Range(0, redSpawnPoints.Length);
+                Transform selectedSpawnPoint = redSpawnPoints[randomSpawnIndex];
 
-                red1Instance = Instantiate(BlueAI, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
+                red1Instance = Instantiate(RedAI, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
             }
             else
             {

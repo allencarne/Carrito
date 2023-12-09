@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,20 +30,66 @@ public class PlayerFrames : MonoBehaviour
     float red3cBoost;
     float red3mBoost;
 
+    public enum PlayerType
+    {
+        None,
+        AI,
+        Player1,
+        Player2,
+        Player3,
+        Player4,
+        Player5,
+        Player6,
+    }
+
+    PlayerType blue1PlayerType = PlayerType.None;
+    PlayerType red1PlayerType = PlayerType.None;
+
     // Update is called once per frame
     void Update()
     {
-        if (SoccerManager.instance.blue1Instance != null)
+        // Retrieve player types from PlayerPrefs
+        blue1PlayerType = (PlayerType)Enum.Parse(typeof(PlayerType), PlayerPrefs.GetString("Blue1Type", PlayerType.None.ToString()));
+        red1PlayerType = (PlayerType)Enum.Parse(typeof(PlayerType), PlayerPrefs.GetString("Red1Type", PlayerType.None.ToString()));
+
+
+        if (SoccerManager.instance != null)
         {
-            blue1cBoost = SoccerManager.instance.blue1Instance.GetComponent<Player>().currentBoost;
-            blue1mBoost = SoccerManager.instance.blue1Instance.GetComponent<Player>().maxBoost;
+            if (SoccerManager.instance.blue1Instance != null)
+            {
+                if (blue1PlayerType == PlayerType.AI)
+                {
+                    blue1cBoost = SoccerManager.instance.blue1Instance.GetComponent<SoccerAI>().currentBoost;
+                    blue1mBoost = SoccerManager.instance.blue1Instance.GetComponent<SoccerAI>().maxBoost;
 
-            UpdateBoostBar(blue1Boost, blue1cBoost, blue1mBoost);
+                    UpdateBoostBar(blue1Boost, blue1cBoost, blue1mBoost);
+                }
+                else
+                {
+                    blue1cBoost = SoccerManager.instance.blue1Instance.GetComponent<Player>().currentBoost;
+                    blue1mBoost = SoccerManager.instance.blue1Instance.GetComponent<Player>().maxBoost;
 
-            red1cBoost = SoccerManager.instance.red1Instance.GetComponent<Player>().currentBoost;
-            red1mBoost = SoccerManager.instance.red1Instance.GetComponent<Player>().maxBoost;
+                    UpdateBoostBar(blue1Boost, blue1cBoost, blue1mBoost);
+                }
+            }
 
-            UpdateBoostBar(red1Boost, red1cBoost, red1mBoost);
+            if (SoccerManager.instance.red1Instance != null)
+            {
+                if (red1PlayerType == PlayerType.AI)
+                {
+                    red1cBoost = SoccerManager.instance.red1Instance.GetComponent<SoccerAI>().currentBoost;
+                    red1mBoost = SoccerManager.instance.red1Instance.GetComponent<SoccerAI>().maxBoost;
+
+                    UpdateBoostBar(red1Boost, red1cBoost, red1mBoost);
+                }
+                else
+                {
+                    red1cBoost = SoccerManager.instance.red1Instance.GetComponent<Player>().currentBoost;
+                    red1mBoost = SoccerManager.instance.red1Instance.GetComponent<Player>().maxBoost;
+
+                    UpdateBoostBar(red1Boost, red1cBoost, red1mBoost);
+                }
+            }
         }
     }
 
