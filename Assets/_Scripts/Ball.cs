@@ -5,15 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class Ball : MonoBehaviour
 {
+    [SerializeField] GameObject explosionPrefab;
     [SerializeField] TrailRenderer trail;
     [SerializeField] Rigidbody2D rb;
-
-    [SerializeField] GameObject explosionPrefab;
-
     [SerializeField] float trailSpeed;
 
     public bool blueSide;
     public bool redSide;
+
+    [SerializeField] GameObject whoTouchedTheBallLast;
 
     private void Update()
     {
@@ -26,6 +26,14 @@ public class Ball : MonoBehaviour
         else
         {
             trail.emitting = false;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Car"))
+        {
+            whoTouchedTheBallLast = collision.gameObject;
         }
     }
 

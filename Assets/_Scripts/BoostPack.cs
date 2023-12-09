@@ -23,7 +23,36 @@ public class BoostPack : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         var player = collision.gameObject.GetComponent<Player>();
+        var soccerAI = collision.gameObject.GetComponent<SoccerAI>();
 
+        if (collision.CompareTag("Car") && isBoostPackReady)
+        {
+            if (player != null && player.currentBoost != player.maxBoost)
+            {
+                Instantiate(smallCircleFX, transform.position, transform.rotation);
+
+                isBoostPackReady = false;
+                spriteRenderer.sprite = boostPackEmpty;
+                float boostToAdd = Mathf.Min(boostAmount, player.maxBoost - player.currentBoost);
+                player.currentBoost += boostToAdd;
+
+                StartCoroutine(BoostPackCoolDown());
+            }
+
+            if (soccerAI != null && soccerAI.currentBoost != soccerAI.maxBoost)
+            {
+                Instantiate(smallCircleFX, transform.position, transform.rotation);
+
+                isBoostPackReady = false;
+                spriteRenderer.sprite = boostPackEmpty;
+                float boostToAdd = Mathf.Min(boostAmount, soccerAI.maxBoost - soccerAI.currentBoost);
+                soccerAI.currentBoost += boostToAdd;
+
+                StartCoroutine(BoostPackCoolDown());
+            }
+        }
+
+        /*
         if (collision.CompareTag("Car") && isBoostPackReady && player.currentBoost != player.maxBoost)
         {
             Instantiate(smallCircleFX, transform.position, transform.rotation);
@@ -35,6 +64,7 @@ public class BoostPack : MonoBehaviour
 
             StartCoroutine(BoostPackCoolDown());
         }
+        */
     }
 
     IEnumerator BoostPackCoolDown()
