@@ -5,45 +5,45 @@ using UnityEngine.UI;
 
 public class PlayerFrames : MonoBehaviour
 {
-    [SerializeField] Image player1Boost;
-    float player1cBoost;
-    float player1mBoost;
+    [SerializeField] Image blue1Boost;
+    float blue1cBoost;
+    float blue1mBoost;
 
-    [SerializeField] Image player2Boost;
-    float player2cBoost;
-    float player2mBoost;
+    [SerializeField] Image blue2Boost;
+    float blue2cBoost;
+    float blue2mBoost;
 
-    [SerializeField] Image player3Boost;
-    float player3cBoost;
-    float player3mBoost;
+    [SerializeField] Image blue3Boost;
+    float blue3cBoost;
+    float blue3mBoost;
 
-    [SerializeField] Image player4Boost;
-    float player4cBoost;
-    float player4mBoost;
+    [SerializeField] Image red1Boost;
+    float red1cBoost;
+    float red1mBoost;
 
-    [SerializeField] Image player5Boost;
-    float player5cBoost;
-    float player5mBoost;
+    [SerializeField] Image red2Boost;
+    float red2cBoost;
+    float red2mBoost;
 
-    [SerializeField] Image player6Boost;
-    float player6cBoost;
-    float player6mBoost;
+    [SerializeField] Image red3Boost;
+    float red3cBoost;
+    float red3mBoost;
 
     // Update is called once per frame
     void Update()
     {
-        if (SoccerManager.instance.bluePlayerInstance != null)
+        if (SoccerManager.instance.blue1Instance != null)
         {
-            player1cBoost = SoccerManager.instance.bluePlayerInstance.GetComponent<Player>().currentBoost;
-            player1mBoost = SoccerManager.instance.bluePlayerInstance.GetComponent<Player>().maxBoost;
-        }
+            blue1cBoost = SoccerManager.instance.blue1Instance.GetComponent<Player>().currentBoost;
+            blue1mBoost = SoccerManager.instance.blue1Instance.GetComponent<Player>().maxBoost;
 
-        UpdateBoostBar(player1Boost, player1cBoost, player1mBoost);
-        //UpdateBoostBar(player2Boost, player2cBoost, player2mBoost);
-        //UpdateBoostBar(player3Boost, player3cBoost, player3mBoost);
-        //UpdateBoostBar(player4Boost, player4cBoost, player4mBoost);
-        //UpdateBoostBar(player5Boost, player5cBoost, player5mBoost);
-        //UpdateBoostBar(player6Boost, player6cBoost, player6edmBoost);
+            UpdateBoostBar(blue1Boost, blue1cBoost, blue1mBoost);
+
+            red1cBoost = SoccerManager.instance.red1Instance.GetComponent<Player>().currentBoost;
+            red1mBoost = SoccerManager.instance.red1Instance.GetComponent<Player>().maxBoost;
+
+            UpdateBoostBar(red1Boost, red1cBoost, red1mBoost);
+        }
     }
 
     void UpdateBoostBar(Image boostBar, float currentBoost, float maxBoost)

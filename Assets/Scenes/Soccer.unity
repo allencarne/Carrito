@@ -3328,12 +3328,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 940a34924773848488b2ce83fd5150ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1Boost: {fileID: 118401148}
-  player2Boost: {fileID: 311274968}
-  player3Boost: {fileID: 1611412438}
-  player4Boost: {fileID: 1785080611}
-  player5Boost: {fileID: 1757504928}
-  player6Boost: {fileID: 1801744863}
+  blue1Boost: {fileID: 118401148}
+  blue2Boost: {fileID: 311274968}
+  blue3Boost: {fileID: 1611412438}
+  red1Boost: {fileID: 1785080611}
+  red2Boost: {fileID: 1757504928}
+  red3Boost: {fileID: 1801744863}
 --- !u!1001 &1068859054
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6041,14 +6041,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a7ee36046c27341b3f96ea9dafdc43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bluePlayer: {fileID: 7755933530518722120, guid: 13452b34cd97e8b4883d85bc6539e4a2, type: 3}
-  bluePlayerInstance: {fileID: 0}
-  redPlayer: {fileID: 6760605928970073182, guid: 5b054b0607840964ead73b80460eb56a, type: 3}
-  redPlayerInstance: {fileID: 0}
+  player: {fileID: 7755933530518722120, guid: 13452b34cd97e8b4883d85bc6539e4a2, type: 3}
   BlueAI: {fileID: 8412704991420033752, guid: 89e705e6b4fb58c46af5182b3e5300ac, type: 3}
-  BlueAIInstance: {fileID: 0}
   RedAI: {fileID: 1300979883949382233, guid: 085562fad30eb0449ba81d8fdf7539c2, type: 3}
-  RedAIInstance: {fileID: 0}
+  blue1Instance: {fileID: 0}
+  blue2Instance: {fileID: 0}
+  blue3Instance: {fileID: 0}
+  red1Instance: {fileID: 0}
+  red2Instance: {fileID: 0}
+  red3Instance: {fileID: 0}
   ball: {fileID: 5067461842776765862, guid: c59b5321d0553c746a21fbabfadc6695, type: 3}
   ballInstance: {fileID: 0}
   blueSpawnPoints:

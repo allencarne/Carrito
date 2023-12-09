@@ -10,8 +10,8 @@ using static SoccerMenu;
 public class SoccerMenu : MonoBehaviour
 {
     bool isOneVsOneActive = false;
-    bool isTwoVsTwoActive = false;
-    bool isThreeVsThreeActive = false;
+    //bool isTwoVsTwoActive = false;
+    //bool isThreeVsThreeActive = false;
 
     [Header("Sides")]
     [SerializeField] GameObject blueSide;
@@ -138,8 +138,8 @@ public class SoccerMenu : MonoBehaviour
     {
         // Bools
         isOneVsOneActive = true;
-        isTwoVsTwoActive = false;
-        isThreeVsThreeActive = false;
+        //isTwoVsTwoActive = false;
+        //isThreeVsThreeActive = false;
 
         // Buttons
         blueSide.SetActive(true);
@@ -213,8 +213,8 @@ public class SoccerMenu : MonoBehaviour
     {
         // Bools
         isOneVsOneActive = false;
-        isTwoVsTwoActive = true;
-        isThreeVsThreeActive = false;
+        //isTwoVsTwoActive = true;
+        //isThreeVsThreeActive = false;
 
         // Buttons
         blueSide.SetActive(true);
@@ -234,8 +234,8 @@ public class SoccerMenu : MonoBehaviour
     {
         // Bools
         isOneVsOneActive = false;
-        isTwoVsTwoActive = false;
-        isThreeVsThreeActive = true;
+        //isTwoVsTwoActive = false;
+        //isThreeVsThreeActive = true;
 
         // Buttons
         blueSide.SetActive(true);
