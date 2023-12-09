@@ -45,11 +45,15 @@ public class Ball : MonoBehaviour
         if (collision.CompareTag("Blue Goal"))
         {
             StartCoroutine(ScoreDelay(collision));
+
+            SoccerManager.instance.redScore += 1;
         }
 
         if (collision.CompareTag("Red Goal"))
         {
             StartCoroutine(ScoreDelay(collision));
+
+            SoccerManager.instance.blueScore += 1;
         }
 
         if (collision.CompareTag("Blue Side"))
@@ -82,6 +86,7 @@ public class Ball : MonoBehaviour
             case SoccerManager.GameMode.Training:
                 break;
             case SoccerManager.GameMode.OneVsOne:
+                SoccerManager.instance.gameState = SoccerManager.GameState.GoalScored;
                 break;
             case SoccerManager.GameMode.TwoVsTwo:
                 break;

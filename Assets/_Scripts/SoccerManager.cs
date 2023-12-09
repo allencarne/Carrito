@@ -65,9 +65,9 @@ public class SoccerManager : MonoBehaviour
 
     // Score
     [SerializeField] TextMeshProUGUI blueScoreText;
-    int blueScore;
+    public int blueScore;
     [SerializeField] TextMeshProUGUI redScoreText;
-    int redScore;
+    public int redScore;
 
     public enum PlayerType
     {
@@ -103,7 +103,7 @@ public class SoccerManager : MonoBehaviour
         ThreeVsThree
     }
 
-    GameState gameState = GameState.CountDown;
+    public GameState gameState = GameState.CountDown;
     public GameMode gameMode = GameMode.FreePlay;
 
     private void Update()
@@ -218,20 +218,6 @@ public class SoccerManager : MonoBehaviour
 
             StartCoroutine(MatchTimeCoroutine());
         }
-
-        switch (gameMode)
-        {
-            case GameMode.FreePlay:
-                break;
-            case GameMode.Training:
-                break;
-            case GameMode.OneVsOne:
-                break;
-            case GameMode.TwoVsTwo:
-                break;
-            case GameMode.ThreeVsThree:
-                break;
-        }
     }
 
     IEnumerator MatchTimeCoroutine()
@@ -259,70 +245,31 @@ public class SoccerManager : MonoBehaviour
 
     void PausedState()
     {
-        switch (gameMode)
-        {
-            case GameMode.FreePlay:
-                break;
-            case GameMode.Training:
-                break;
-            case GameMode.OneVsOne:
-                break;
-            case GameMode.TwoVsTwo:
-                break;
-            case GameMode.ThreeVsThree:
-                break;
-        }
+
     }
 
     void GoalScoredState()
     {
-        switch (gameMode)
-        {
-            case GameMode.FreePlay:
-                break;
-            case GameMode.Training:
-                break;
-            case GameMode.OneVsOne:
-                break;
-            case GameMode.TwoVsTwo:
-                break;
-            case GameMode.ThreeVsThree:
-                break;
-        }
+        blueScoreText.text = blueScore.ToString();
+        redScoreText.text = redScore.ToString();
+
+        Destroy(ballInstance);
+        Destroy(blue1Instance);
+        Destroy(red1Instance);
+
+        canCountDown = true;
+        CanMove = false;
+        gameState = GameState.CountDown;
     }
 
     void OverTimeState()
     {
-        switch (gameMode)
-        {
-            case GameMode.FreePlay:
-                break;
-            case GameMode.Training:
-                break;
-            case GameMode.OneVsOne:
-                break;
-            case GameMode.TwoVsTwo:
-                break;
-            case GameMode.ThreeVsThree:
-                break;
-        }
+
     }
 
     void GameOverState()
     {
-        switch (gameMode)
-        {
-            case GameMode.FreePlay:
-                break;
-            case GameMode.Training:
-                break;
-            case GameMode.OneVsOne:
-                break;
-            case GameMode.TwoVsTwo:
-                break;
-            case GameMode.ThreeVsThree:
-                break;
-        }
+
     }
 
     void SpawnBall()
