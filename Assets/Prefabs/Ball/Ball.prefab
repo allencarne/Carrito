@@ -201,7 +201,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -309,6 +309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trail: {fileID: 8808626675888807381}
   rb: {fileID: 5067461842776765858}
+  explosionPrefab: {fileID: 5838739264634839647, guid: 19175e2cd82843f49adf6e375cf757d1, type: 3}
   trailSpeed: 20
   blueSide: 0
   redSide: 0

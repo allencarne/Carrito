@@ -8,6 +8,8 @@ public class Ball : MonoBehaviour
     [SerializeField] TrailRenderer trail;
     [SerializeField] Rigidbody2D rb;
 
+    [SerializeField] GameObject explosionPrefab;
+
     [SerializeField] float trailSpeed;
 
     public bool blueSide;
@@ -31,12 +33,20 @@ public class Ball : MonoBehaviour
     {
         if (collision.CompareTag("Blue Goal"))
         {
-            SceneManager.LoadScene(0);
+            var explosion = Instantiate(explosionPrefab, collision.transform.position, collision.transform.rotation);
+
+            Destroy(explosion, 2f);
+
+            //SceneManager.LoadScene(0);
         }
 
         if (collision.CompareTag("Red Goal"))
         {
-            SceneManager.LoadScene(0);
+            var explosion = Instantiate(explosionPrefab, collision.transform.position, collision.transform.rotation);
+
+            Destroy(explosion, 2f);
+
+            //SceneManager.LoadScene(0);
         }
 
         if (collision.CompareTag("Blue Side"))
