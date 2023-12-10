@@ -13304,6 +13304,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a7ee36046c27341b3f96ea9dafdc43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ground: {fileID: 1198609285}
+  lines: {fileID: 1695192150}
+  groundColorGreen: {r: 0.08235294, g: 0.14509805, b: 0.07450981, a: 1}
+  lineColorGreen: {r: 1, g: 1, b: 1, a: 1}
+  groundColorRed: {r: 0.2830189, g: 0.05473478, b: 0.05473478, a: 1}
+  linesColorRed: {r: 1, g: 0.9671849, b: 0.5235849, a: 1}
+  groundColorBlue: {r: 0.008009966, g: 0.059966125, b: 0.33962262, a: 1}
+  linesColorBlue: {r: 0, g: 0, b: 0, a: 1}
+  groundColorBlack: {r: 0, g: 0, b: 0, a: 1}
+  linesColorBlack: {r: 1, g: 1, b: 1, a: 1}
   player: {fileID: 7755933530518722120, guid: 13452b34cd97e8b4883d85bc6539e4a2, type: 3}
   BlueAI: {fileID: 8412704991420033752, guid: 89e705e6b4fb58c46af5182b3e5300ac, type: 3}
   RedAI: {fileID: 1300979883949382233, guid: 085562fad30eb0449ba81d8fdf7539c2, type: 3}

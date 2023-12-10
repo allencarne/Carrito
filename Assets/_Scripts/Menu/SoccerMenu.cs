@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
 using System;
-using static SoccerMenu;
 
 public class SoccerMenu : MonoBehaviour
 {
@@ -116,6 +115,11 @@ public class SoccerMenu : MonoBehaviour
                 playButton.SetActive(false);
             }
         }
+    }
+
+    public void BackButton()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void FreePlayButton()

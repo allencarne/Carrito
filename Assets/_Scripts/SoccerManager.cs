@@ -5,6 +5,8 @@ using TMPro;
 using System;
 using UnityEngine.InputSystem;
 using System.Linq;
+using System.Net.NetworkInformation;
+using Unity.VisualScripting;
 
 public class SoccerManager : MonoBehaviour
 {
@@ -30,6 +32,21 @@ public class SoccerManager : MonoBehaviour
     }
 
     #endregion
+
+    [SerializeField] SpriteRenderer ground;
+    [SerializeField] SpriteRenderer lines;
+
+    [SerializeField] Color groundColorGreen;
+    [SerializeField] Color lineColorGreen;
+
+    [SerializeField] Color groundColorRed;
+    [SerializeField] Color linesColorRed;
+
+    [SerializeField] Color groundColorBlue;
+    [SerializeField] Color linesColorBlue;
+
+    [SerializeField] Color groundColorBlack;
+    [SerializeField] Color linesColorBlack;
 
     [Header("Players")]
     [SerializeField] GameObject player;
@@ -113,9 +130,58 @@ public class SoccerManager : MonoBehaviour
     public GameState gameState = GameState.CountDown;
     public GameMode gameMode = GameMode.FreePlay;
 
+    enum MapType
+    {
+        Green,
+        Blue,
+        Red,
+        Black,
+    }
+
     private void Start()
     {
         gameOverPanel.SetActive(false);
+
+        // Check if the PlayerPrefs key exists
+        if (PlayerPrefs.HasKey("SelectedMapType"))
+        {
+            // Retrieve the mapType from PlayerPrefs
+            int mapTypeValue = PlayerPrefs.GetInt("SelectedMapType");
+
+            // Check if the retrieved value is a valid MapType enum value
+            if (Enum.IsDefined(typeof(MapType), mapTypeValue))
+            {
+                MapType mapType = (MapType)mapTypeValue;
+
+                // Update colors based on the selected MapType
+                switch (mapType)
+                {
+                    case MapType.Green:
+                        ground.color = groundColorGreen;
+                        lines.color = lineColorGreen;
+                        break;
+
+                    case MapType.Red:
+                        ground.color = groundColorRed;
+                        lines.color = linesColorRed;
+                        break;
+
+                    case MapType.Blue:
+                        ground.color = groundColorBlue;
+                        lines.color = linesColorBlue;
+                        break;
+
+                    case MapType.Black:
+                        ground.color = groundColorBlack;
+                        lines.color = linesColorBlack;
+                        break;
+                }
+            }
+            else
+            {
+                Debug.LogError("Invalid mapType value retrieved from PlayerPrefs.");
+            }
+        }
     }
 
     private void Update()
