@@ -59,15 +59,21 @@ public class SoccerManager : MonoBehaviour
 
     // Match Time
     [SerializeField] TextMeshProUGUI matchTimeText;
-    float matchDurationInSeconds = 300f; // 5 minutes
+    //float matchDurationInSeconds = 300f; // 5 minutes
+    float matchDurationInSeconds = 10f;
     bool isCountdownInProgress = false;
     public bool CanMove = false;
+    private bool isMatchPaused = false;
 
     // Score
     [SerializeField] TextMeshProUGUI blueScoreText;
     public int blueScore;
     [SerializeField] TextMeshProUGUI redScoreText;
     public int redScore;
+
+    // Game Over
+    [SerializeField] GameObject gameOverPanel;
+    [SerializeField] TextMeshProUGUI whoWonText;
 
     public enum PlayerType
     {
@@ -106,6 +112,11 @@ public class SoccerManager : MonoBehaviour
     public GameState gameState = GameState.CountDown;
     public GameMode gameMode = GameMode.FreePlay;
 
+    private void Start()
+    {
+        gameOverPanel.SetActive(false);
+    }
+
     private void Update()
     {
         switch (gameState)
@@ -133,6 +144,8 @@ public class SoccerManager : MonoBehaviour
 
     void CountDownState()
     {
+        Time.timeScale = 1;
+
         // Retrieve player types from PlayerPrefs
         blue1PlayerType = (PlayerType)Enum.Parse(typeof(PlayerType), PlayerPrefs.GetString("Blue1Type", PlayerType.None.ToString()));
         red1PlayerType = (PlayerType)Enum.Parse(typeof(PlayerType), PlayerPrefs.GetString("Red1Type", PlayerType.None.ToString()));
@@ -208,9 +221,11 @@ public class SoccerManager : MonoBehaviour
 
     void PlayingState()
     {
+        isMatchPaused = false;
+
         CanMove = true;
 
-        if (!isCountdownInProgress)
+        if (!isCountdownInProgress && !isMatchPaused)
         {
             isCountdownInProgress = true;
 
@@ -226,21 +241,38 @@ public class SoccerManager : MonoBehaviour
 
         while (timeRemaining > 0f)
         {
-            // Update the minutes and seconds
-            int minutes = Mathf.FloorToInt(timeRemaining / 60f);
-            int seconds = Mathf.FloorToInt(timeRemaining % 60f);
+            if (!isMatchPaused)
+            {
+                // Update the minutes and seconds
+                int minutes = Mathf.FloorToInt(timeRemaining / 60f);
+                int seconds = Mathf.FloorToInt(timeRemaining % 60f);
 
-            // Display the time
-            matchTimeText.text = string.Format("{0}:{1:00}", minutes, seconds);
+                // Display the time
+                matchTimeText.text = string.Format("{0}:{1:00}", minutes, seconds);
 
-            yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(1f);
 
-            // Decrement
-            timeRemaining -= 1f;
+                // Decrement
+                timeRemaining -= 1f;
+            }
+            else
+            {
+                // If the match is paused, wait for the next frame
+                yield return null;
+            }
         }
 
         // End of Match
         matchTimeText.gameObject.SetActive(false);
+
+        if (blueScore == redScore)
+        {
+            gameState = GameState.OverTime;
+        }
+        else
+        {
+            gameState = GameState.GameOver;
+        }
     }
 
     void PausedState()
@@ -250,6 +282,8 @@ public class SoccerManager : MonoBehaviour
 
     void GoalScoredState()
     {
+        isMatchPaused = true;
+
         blueScoreText.text = blueScore.ToString();
         redScoreText.text = redScore.ToString();
 
@@ -269,7 +303,19 @@ public class SoccerManager : MonoBehaviour
 
     void GameOverState()
     {
+        Time.timeScale = 0;
+        
+        gameOverPanel.SetActive(true);
 
+        if (blueScore > redScore)
+        {
+            whoWonText.text = "Blue Team Won!";
+        }
+
+        if (redScore > blueScore)
+        {
+            whoWonText.text = "Red Team Won!";
+        }
     }
 
     void SpawnBall()

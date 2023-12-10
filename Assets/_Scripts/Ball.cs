@@ -81,7 +81,7 @@ public class Ball : MonoBehaviour
         switch (SoccerManager.instance.gameMode)
         {
             case SoccerManager.GameMode.FreePlay:
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene("Soccer");
                 break;
             case SoccerManager.GameMode.Training:
                 break;
