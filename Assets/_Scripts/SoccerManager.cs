@@ -89,6 +89,8 @@ public class SoccerManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI redScoreText;
     public int redScore;
 
+    [SerializeField] GameObject pauseMenu;
+
     // Game Over
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] TextMeshProUGUI whoWonText;
@@ -344,7 +346,9 @@ public class SoccerManager : MonoBehaviour
 
     void PausedState()
     {
+        pauseMenu.SetActive(true);
 
+        Time.timeScale = 0f;
     }
 
     void GoalScoredState()
