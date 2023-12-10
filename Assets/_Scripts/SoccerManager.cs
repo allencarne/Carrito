@@ -64,6 +64,7 @@ public class SoccerManager : MonoBehaviour
     bool isCountdownInProgress = false;
     public bool CanMove = false;
     private bool isMatchPaused = false;
+    bool isOvertime = false;
 
     // Score
     [SerializeField] TextMeshProUGUI blueScoreText;
@@ -293,18 +294,54 @@ public class SoccerManager : MonoBehaviour
 
         canCountDown = true;
         CanMove = false;
-        gameState = GameState.CountDown;
+
+        if (isOvertime)
+        {
+            isOvertime = false;
+
+            gameState = GameState.GameOver;
+        }
+        else
+        {
+            gameState = GameState.CountDown;
+        }
     }
 
     void OverTimeState()
     {
+        isOvertime = true;
+        matchTimeText.gameObject.SetActive(true);
 
+        StartCoroutine(UpdateMatchTime());
+    }
+
+    IEnumerator UpdateMatchTime()
+    {
+        // Change text color to red
+        matchTimeText.color = Color.red;
+
+        float elapsedTime = 0f;
+
+        while (isOvertime)
+        {
+            // Update the elapsed time
+            elapsedTime += Time.deltaTime;
+
+            // Calculate minutes and seconds
+            int minutes = Mathf.FloorToInt(elapsedTime / 60f);
+            int seconds = Mathf.FloorToInt(elapsedTime % 60f);
+
+            // Display the time
+            matchTimeText.text = string.Format("{0}:{1:00}", minutes, seconds);
+
+            yield return null;
+        }
     }
 
     void GameOverState()
     {
         Time.timeScale = 0;
-        
+
         gameOverPanel.SetActive(true);
 
         if (blueScore > redScore)
