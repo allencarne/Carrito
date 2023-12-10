@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-
     public void SoccerButton()
     {
         SceneManager.LoadScene("SoccerMenu");
@@ -13,17 +12,22 @@ public class MainMenu : MonoBehaviour
 
     public void RaceButton()
     {
-
+        SceneManager.LoadScene("RaceMenu");
     }
 
     public void BattleButton()
     {
-
+        SceneManager.LoadScene("BattleMenu");
     }
 
     public void OptionsButton()
     {
         SceneManager.LoadScene("OptionsMenu");
+    }
+
+    public void BindsButton()
+    {
+        SceneManager.LoadScene("BindsMenu");
     }
 
     public void ExitButton()
