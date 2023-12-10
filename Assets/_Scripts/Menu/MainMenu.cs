@@ -23,7 +23,7 @@ public class MainMenu : MonoBehaviour
 
     public void OptionsButton()
     {
-
+        SceneManager.LoadScene("OptionsMenu");
     }
 
     public void ExitButton()

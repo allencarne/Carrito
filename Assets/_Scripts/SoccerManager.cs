@@ -59,8 +59,8 @@ public class SoccerManager : MonoBehaviour
 
     // Match Time
     [SerializeField] TextMeshProUGUI matchTimeText;
-    //float matchDurationInSeconds = 300f; // 5 minutes
-    float matchDurationInSeconds = 10f;
+    float matchDurationInSeconds = 300f; // 5 minutes
+    //float matchDurationInSeconds = 10f; // For Testing
     bool isCountdownInProgress = false;
     public bool CanMove = false;
     private bool isMatchPaused = false;
