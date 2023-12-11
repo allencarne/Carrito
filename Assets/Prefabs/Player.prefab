@@ -818,7 +818,19 @@ MonoBehaviour:
     m_ActionId: 43323899-5dea-46d8-b212-394ba1df8595
     m_ActionName: Player/Pause[/Keyboard/escape,/XInputControllerWindows/start]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7976817189484525084}
+        m_TargetAssemblyTypeName: CustomPlayerInput, Assembly-CSharp
+        m_MethodName: OnReset
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 8ae1e862-f05e-4ee6-bf42-c46673fa14e4
     m_ActionName: Player/Reset[/Keyboard/tab,/XInputControllerWindows/select]
   m_NeverAutoSwitchControlSchemes: 0

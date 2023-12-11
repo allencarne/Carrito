@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class CustomPlayerInput : MonoBehaviour
 {
@@ -81,6 +83,15 @@ public class CustomPlayerInput : MonoBehaviour
 
     public void OnReset(InputAction.CallbackContext context)
     {
-
+        if (context.performed)
+        {
+            if (SoccerManager.instance.gameMode == SoccerManager.GameMode.FreePlay)
+            {
+                if (SoccerManager.instance.gameState == SoccerManager.GameState.Playing)
+                {
+                    SceneManager.LoadScene("Soccer");
+                }
+            }
+        }
     }
 }
