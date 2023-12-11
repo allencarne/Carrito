@@ -46,7 +46,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Break"",
+                    ""name"": ""Brake"",
                     ""type"": ""Button"",
                     ""id"": ""be735dbb-0884-4774-9f17-967f3ba4b747"",
                     ""expectedControlType"": ""Button"",
@@ -165,7 +165,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Break"",
+                    ""action"": ""Brake"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -176,7 +176,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Break"",
+                    ""action"": ""Brake"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -226,17 +226,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""ab977847-f3f8-4f22-9723-fdbdcd5a37ea"",
-                    ""path"": ""<Keyboard>/escape"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""Pause"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""885f6d0a-c964-47d3-8c77-a37ed679a428"",
                     ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
@@ -248,12 +237,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""bc5d6aa5-51ba-4b7d-9023-ca48de377dd2"",
-                    ""path"": ""<Keyboard>/tab"",
+                    ""id"": ""ab977847-f3f8-4f22-9723-fdbdcd5a37ea"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Reset"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -264,6 +253,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
+                    ""action"": ""Reset"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bc5d6aa5-51ba-4b7d-9023-ca48de377dd2"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Reset"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -755,7 +755,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Steer = m_Player.FindAction("Steer", throwIfNotFound: true);
         m_Player_Accelerate = m_Player.FindAction("Accelerate", throwIfNotFound: true);
-        m_Player_Break = m_Player.FindAction("Break", throwIfNotFound: true);
+        m_Player_Brake = m_Player.FindAction("Brake", throwIfNotFound: true);
         m_Player_Boost = m_Player.FindAction("Boost", throwIfNotFound: true);
         m_Player_Drift = m_Player.FindAction("Drift", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
@@ -835,7 +835,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Steer;
     private readonly InputAction m_Player_Accelerate;
-    private readonly InputAction m_Player_Break;
+    private readonly InputAction m_Player_Brake;
     private readonly InputAction m_Player_Boost;
     private readonly InputAction m_Player_Drift;
     private readonly InputAction m_Player_Pause;
@@ -846,7 +846,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public PlayerActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Steer => m_Wrapper.m_Player_Steer;
         public InputAction @Accelerate => m_Wrapper.m_Player_Accelerate;
-        public InputAction @Break => m_Wrapper.m_Player_Break;
+        public InputAction @Brake => m_Wrapper.m_Player_Brake;
         public InputAction @Boost => m_Wrapper.m_Player_Boost;
         public InputAction @Drift => m_Wrapper.m_Player_Drift;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
@@ -866,9 +866,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Accelerate.started += instance.OnAccelerate;
             @Accelerate.performed += instance.OnAccelerate;
             @Accelerate.canceled += instance.OnAccelerate;
-            @Break.started += instance.OnBreak;
-            @Break.performed += instance.OnBreak;
-            @Break.canceled += instance.OnBreak;
+            @Brake.started += instance.OnBrake;
+            @Brake.performed += instance.OnBrake;
+            @Brake.canceled += instance.OnBrake;
             @Boost.started += instance.OnBoost;
             @Boost.performed += instance.OnBoost;
             @Boost.canceled += instance.OnBoost;
@@ -891,9 +891,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Accelerate.started -= instance.OnAccelerate;
             @Accelerate.performed -= instance.OnAccelerate;
             @Accelerate.canceled -= instance.OnAccelerate;
-            @Break.started -= instance.OnBreak;
-            @Break.performed -= instance.OnBreak;
-            @Break.canceled -= instance.OnBreak;
+            @Brake.started -= instance.OnBrake;
+            @Brake.performed -= instance.OnBrake;
+            @Brake.canceled -= instance.OnBrake;
             @Boost.started -= instance.OnBoost;
             @Boost.performed -= instance.OnBoost;
             @Boost.canceled -= instance.OnBoost;
@@ -1072,7 +1072,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     {
         void OnSteer(InputAction.CallbackContext context);
         void OnAccelerate(InputAction.CallbackContext context);
-        void OnBreak(InputAction.CallbackContext context);
+        void OnBrake(InputAction.CallbackContext context);
         void OnBoost(InputAction.CallbackContext context);
         void OnDrift(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
