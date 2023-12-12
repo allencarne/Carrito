@@ -43,6 +43,8 @@ public class BindsMenu : MonoBehaviour
 
     private void Start()
     {
+        LoadSavedKeybinds();
+
         // Keyboard Steer Left
         k_SteerLeftCurrentBind.text = asset.FindAction("Steer").GetBindingDisplayString(2);
         // Keyboard Steer Right
@@ -77,6 +79,59 @@ public class BindsMenu : MonoBehaviour
         c_ResetCurrentBind.text = asset.FindAction("Reset").GetBindingDisplayString(0);
     }
 
+    private void LoadSavedKeybinds()
+    {
+        // Keyboard Steer Left
+        LoadAndApplyKeybind(SteerAction.action, 2, "SteerLeftKey", "Keyboard/A");
+        // Keybord Steer Right
+        LoadAndApplyKeybind(SteerAction.action, 3, "SteerRightKey", "Keyboard/D");
+        // Keyboard Accelerate
+        LoadAndApplyKeybind(AccelerateAction.action, 1, "AccelerateKey", "Keyboard/W");
+        // Keyboard Brake
+        LoadAndApplyKeybind(BrakeAction.action, 1, "BrakeKey", "Keyboard/S");
+        // Keyboard Boost
+        LoadAndApplyKeybind(BoostAction.action, 1, "BoostKey", "Keyboard/Space");
+        // Keyboard Drift
+        LoadAndApplyKeybind(DriftAction.action, 1, "DriftKey", "Keyboard/Shift");
+        // Keyboard Pause
+        LoadAndApplyKeybind(PauseAction.action, 1, "PauseKey", "Keyboard/Escape");
+        // Keyboard Reset
+        LoadAndApplyKeybind(ResetAction.action, 1, "ResetKey", "Keyboard/Tab");
+    }
+
+    private void LoadAndApplyKeybind(InputAction action, int controlIndex, string keyPref, string defaultKey)
+    {
+        string savedKeybind = PlayerPrefs.GetString(keyPref, defaultKey);
+        action.ApplyBindingOverride(controlIndex, savedKeybind);
+    }
+
+    private void SaveKeybinds()
+    {
+        // Keyboard Steer Left
+        SaveKeybind(SteerAction.action, 2, "SteerLeftKey");
+        // Keybord Steer Right
+        SaveKeybind(SteerAction.action, 3, "SteerRightKey");
+        // Keyboard Accelerate
+        SaveKeybind(AccelerateAction.action, 1, "AccelerateKey");
+        // Keyboard Brake
+        SaveKeybind(BrakeAction.action, 1, "BrakeKey");
+        // Keyboard Boost
+        SaveKeybind(BoostAction.action, 1, "BoostKey");
+        // Keyboard Drift
+        SaveKeybind(DriftAction.action, 1, "DriftKey");
+        // Keyboard Pause
+        SaveKeybind(PauseAction.action, 1, "PauseKey");
+        // Keyboard Reset
+        SaveKeybind(ResetAction.action, 1, "ResetKey");
+    }
+
+    private void SaveKeybind(InputAction action, int controlIndex, string keyPref)
+    {
+        string currentKeybind = action.bindings[controlIndex].effectivePath;
+        PlayerPrefs.SetString(keyPref, currentKeybind);
+        PlayerPrefs.Save();
+    }
+
     #region Keyboard & Mouse
 
     public void K_SteerLeftRebind()
@@ -99,6 +154,8 @@ public class BindsMenu : MonoBehaviour
             {
                 k_SteerLeftCurrentBind.color = Color.blue;
                 k_SteerLeftCurrentBind.text = InputControlPath.ToHumanReadableString(SteerAction.action.bindings[2].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+
+                SaveKeybinds();
 
                 rebindingOperation.Dispose();
                 SteerAction.action.Enable();
@@ -150,6 +207,8 @@ public class BindsMenu : MonoBehaviour
                 k_SteerRightCurrentBind.color = Color.blue;
                 k_SteerRightCurrentBind.text = InputControlPath.ToHumanReadableString(SteerAction.action.bindings[3].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
 
+                SaveKeybinds();
+
                 rebindingOperation.Dispose();
                 SteerAction.action.Enable();
             })
@@ -176,6 +235,9 @@ public class BindsMenu : MonoBehaviour
         // Update the text with the new default binding information
         k_SteerRightCurrentBind.text = InputControlPath.ToHumanReadableString(SteerAction.action.bindings[3].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
 
+        // Save the keybinds after resetting to default
+        SaveKeybinds();
+
         // Enable
         SteerAction.action.Enable();
     }
@@ -199,6 +261,8 @@ public class BindsMenu : MonoBehaviour
             {
                 k_AccelerateCurrentBind.color = Color.blue;
                 k_AccelerateCurrentBind.text = InputControlPath.ToHumanReadableString(AccelerateAction.action.bindings[1].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+
+                SaveKeybinds();
 
                 rebindingOperation.Dispose();
                 AccelerateAction.action.Enable();
@@ -226,6 +290,9 @@ public class BindsMenu : MonoBehaviour
         // Update the text with the new default binding information
         k_AccelerateCurrentBind.text = InputControlPath.ToHumanReadableString(AccelerateAction.action.bindings[1].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
 
+        // Save the keybinds after resetting to default
+        SaveKeybinds();
+
         // Enable
         AccelerateAction.action.Enable();
     }
@@ -249,6 +316,8 @@ public class BindsMenu : MonoBehaviour
             {
                 k_BrakeCurrentBind.color = Color.blue;
                 k_BrakeCurrentBind.text = InputControlPath.ToHumanReadableString(BrakeAction.action.bindings[1].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+
+                SaveKeybinds();
 
                 rebindingOperation.Dispose();
                 BrakeAction.action.Enable();
@@ -276,6 +345,9 @@ public class BindsMenu : MonoBehaviour
         // Update the text with the new default binding information
         k_BrakeCurrentBind.text = InputControlPath.ToHumanReadableString(BrakeAction.action.bindings[1].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
 
+        // Save the keybinds after resetting to default
+        SaveKeybinds();
+
         // Enable
         BrakeAction.action.Enable();
     }
@@ -299,6 +371,8 @@ public class BindsMenu : MonoBehaviour
             {
                 k_BoostCurrentBind.color = Color.blue;
                 k_BoostCurrentBind.text = InputControlPath.ToHumanReadableString(BoostAction.action.bindings[1].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+
+                SaveKeybinds();
 
                 rebindingOperation.Dispose();
                 BoostAction.action.Enable();
@@ -326,6 +400,9 @@ public class BindsMenu : MonoBehaviour
         // Update the text with the new default binding information
         k_BoostCurrentBind.text = InputControlPath.ToHumanReadableString(BoostAction.action.bindings[1].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
 
+        // Save the keybinds after resetting to default
+        SaveKeybinds();
+
         // Enable
         BoostAction.action.Enable();
     }
@@ -349,6 +426,8 @@ public class BindsMenu : MonoBehaviour
             {
                 k_DriftCurrentBind.color = Color.blue;
                 k_DriftCurrentBind.text = InputControlPath.ToHumanReadableString(DriftAction.action.bindings[1].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+
+                SaveKeybinds();
 
                 rebindingOperation.Dispose();
                 DriftAction.action.Enable();
@@ -376,6 +455,9 @@ public class BindsMenu : MonoBehaviour
         // Update the text with the new default binding information
         k_DriftCurrentBind.text = InputControlPath.ToHumanReadableString(DriftAction.action.bindings[1].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
 
+        // Save the keybinds after resetting to default
+        SaveKeybinds();
+
         // Enable
         DriftAction.action.Enable();
     }
@@ -399,6 +481,8 @@ public class BindsMenu : MonoBehaviour
             {
                 k_PauseCurrentBind.color = Color.blue;
                 k_PauseCurrentBind.text = InputControlPath.ToHumanReadableString(PauseAction.action.bindings[1].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+
+                SaveKeybinds();
 
                 rebindingOperation.Dispose();
                 PauseAction.action.Enable();
@@ -426,6 +510,9 @@ public class BindsMenu : MonoBehaviour
         // Update the text with the new default binding information
         k_PauseCurrentBind.text = InputControlPath.ToHumanReadableString(PauseAction.action.bindings[1].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
 
+        // Save the keybinds after resetting to default
+        SaveKeybinds();
+
         // Enable
         PauseAction.action.Enable();
     }
@@ -449,6 +536,8 @@ public class BindsMenu : MonoBehaviour
             {
                 k_ResetCurrentBind.color = Color.blue;
                 k_ResetCurrentBind.text = InputControlPath.ToHumanReadableString(ResetAction.action.bindings[1].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+
+                SaveKeybinds();
 
                 rebindingOperation.Dispose();
                 ResetAction.action.Enable();
@@ -475,6 +564,9 @@ public class BindsMenu : MonoBehaviour
 
         // Update the text with the new default binding information
         k_ResetCurrentBind.text = InputControlPath.ToHumanReadableString(ResetAction.action.bindings[1].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+
+        // Save the keybinds after resetting to default
+        SaveKeybinds();
 
         // Enable
         ResetAction.action.Enable();
@@ -532,6 +624,9 @@ public class BindsMenu : MonoBehaviour
         // Update the text with the new default binding information
         c_SteerCurrentBind.text = InputControlPath.ToHumanReadableString(SteerAction.action.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
 
+        // Save the keybinds after resetting to default
+        SaveKeybinds();
+
         // Enable
         SteerAction.action.Enable();
     }
@@ -582,6 +677,9 @@ public class BindsMenu : MonoBehaviour
 
         // Update the text with the new default binding information
         c_AccelerateCurrentBind.text = InputControlPath.ToHumanReadableString(AccelerateAction.action.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+
+        // Save the keybinds after resetting to default
+        SaveKeybinds();
 
         // Enable
         AccelerateAction.action.Enable();
@@ -634,6 +732,9 @@ public class BindsMenu : MonoBehaviour
         // Update the text with the new default binding information
         c_BrakeCurrentBind.text = InputControlPath.ToHumanReadableString(BrakeAction.action.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
 
+        // Save the keybinds after resetting to default
+        SaveKeybinds();
+
         // Enable
         BrakeAction.action.Enable();
     }
@@ -684,6 +785,9 @@ public class BindsMenu : MonoBehaviour
 
         // Update the text with the new default binding information
         c_BoostCurrentBind.text = InputControlPath.ToHumanReadableString(BoostAction.action.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+
+        // Save the keybinds after resetting to default
+        SaveKeybinds();
 
         // Enable
         BoostAction.action.Enable();
@@ -736,6 +840,9 @@ public class BindsMenu : MonoBehaviour
         // Update the text with the new default binding information
         c_DriftCurrentBind.text = InputControlPath.ToHumanReadableString(DriftAction.action.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
 
+        // Save the keybinds after resetting to default
+        SaveKeybinds();
+
         // Enable
         DriftAction.action.Enable();
     }
@@ -787,6 +894,9 @@ public class BindsMenu : MonoBehaviour
         // Update the text with the new default binding information
         c_PauseCurrentBind.text = InputControlPath.ToHumanReadableString(PauseAction.action.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
 
+        // Save the keybinds after resetting to default
+        SaveKeybinds();
+
         // Enable
         PauseAction.action.Enable();
     }
@@ -837,6 +947,9 @@ public class BindsMenu : MonoBehaviour
 
         // Update the text with the new default binding information
         c_ResetCurrentBind.text = InputControlPath.ToHumanReadableString(ResetAction.action.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+
+        // Save the keybinds after resetting to default
+        SaveKeybinds();
 
         // Enable
         ResetAction.action.Enable();
