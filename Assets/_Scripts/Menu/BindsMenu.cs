@@ -21,8 +21,7 @@ public class BindsMenu : MonoBehaviour
     [SerializeField] TextMeshProUGUI k_ResetCurrentBind;
 
     [Header("Controller")]
-    [SerializeField] TextMeshProUGUI c_SteerLeftCurrentBind;
-    [SerializeField] TextMeshProUGUI c_SteerRightCurrentBind;
+    [SerializeField] TextMeshProUGUI c_SteerCurrentBind;
     [SerializeField] TextMeshProUGUI c_AccelerateCurrentBind;
     [SerializeField] TextMeshProUGUI c_BrakeCurrentBind;
     [SerializeField] TextMeshProUGUI c_BoostCurrentBind;
@@ -62,10 +61,8 @@ public class BindsMenu : MonoBehaviour
         k_ResetCurrentBind.text = asset.FindAction("Reset").GetBindingDisplayString(1);
 
 
-        // Controller Steer Left
-        c_SteerLeftCurrentBind.text = asset.FindAction("Steer").GetBindingDisplayString(0);
-        // Controller Steer Right
-        c_SteerRightCurrentBind.text = asset.FindAction("Steer").GetBindingDisplayString(0);
+        // Controller Steer
+        c_SteerCurrentBind.text = asset.FindAction("Steer").GetBindingDisplayString(0);
         // Controller Accelerate
         c_AccelerateCurrentBind.text = asset.FindAction("Accelerate").GetBindingDisplayString(0);
         // Controller Brake
@@ -98,12 +95,36 @@ public class BindsMenu : MonoBehaviour
             .OnMatchWaitForAnother(0.1f)
             .OnComplete(operation =>
             {
+                k_SteerLeftCurrentBind.color = Color.blue;
                 k_SteerLeftCurrentBind.text = InputControlPath.ToHumanReadableString(SteerAction.action.bindings[2].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
 
                 rebindingOperation.Dispose();
                 SteerAction.action.Enable();
             })
             .Start();
+    }
+
+    public void K_SteerLeftReset()
+    {
+        // DeSelect the currently Selected UI Button
+        EventSystem.current.SetSelectedGameObject(null);
+
+        // Disable before Re-Bind
+        SteerAction.action.Disable();
+
+        // Clear any existing binding overrides for the specific control index (2 in this case)
+        SteerAction.action.RemoveBindingOverride(2);
+
+        // Apply the default binding for the specific control index (2 in this case) - using Keyboard "A" key
+        SteerAction.action.ApplyBindingOverride(2, "Keyboard/A");
+
+        // Reset Color
+        k_SteerLeftCurrentBind.color = Color.white;
+
+        // Update the text with the new default binding information
+        k_SteerLeftCurrentBind.text = InputControlPath.ToHumanReadableString(SteerAction.action.bindings[2].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+
+        SteerAction.action.Enable();
     }
 
     public void K_SteerRightRebind()
@@ -123,7 +144,7 @@ public class BindsMenu : MonoBehaviour
             .OnMatchWaitForAnother(0.1f)
             .OnComplete(operation =>
             {
-                // Assuming the right steering is at index 3
+                k_SteerRightCurrentBind.color = Color.blue;
                 k_SteerRightCurrentBind.text = InputControlPath.ToHumanReadableString(SteerAction.action.bindings[3].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
 
                 rebindingOperation.Dispose();
@@ -149,6 +170,7 @@ public class BindsMenu : MonoBehaviour
             .OnMatchWaitForAnother(0.1f)
             .OnComplete(operation =>
             {
+                k_AccelerateCurrentBind.color = Color.blue;
                 k_AccelerateCurrentBind.text = InputControlPath.ToHumanReadableString(AccelerateAction.action.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
 
                 rebindingOperation.Dispose();
@@ -174,6 +196,7 @@ public class BindsMenu : MonoBehaviour
             .OnMatchWaitForAnother(0.1f)
             .OnComplete(operation =>
             {
+                k_BrakeCurrentBind.color = Color.blue;
                 k_BrakeCurrentBind.text = InputControlPath.ToHumanReadableString(BrakeAction.action.bindings[1].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
 
                 rebindingOperation.Dispose();
@@ -199,6 +222,7 @@ public class BindsMenu : MonoBehaviour
             .OnMatchWaitForAnother(0.1f)
             .OnComplete(operation =>
             {
+                k_BoostCurrentBind.color = Color.blue;
                 k_BoostCurrentBind.text = InputControlPath.ToHumanReadableString(BoostAction.action.bindings[1].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
 
                 rebindingOperation.Dispose();
@@ -224,6 +248,7 @@ public class BindsMenu : MonoBehaviour
             .OnMatchWaitForAnother(0.1f)
             .OnComplete(operation =>
             {
+                k_DriftCurrentBind.color = Color.blue;
                 k_DriftCurrentBind.text = InputControlPath.ToHumanReadableString(DriftAction.action.bindings[1].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
 
                 rebindingOperation.Dispose();
@@ -249,6 +274,7 @@ public class BindsMenu : MonoBehaviour
             .OnMatchWaitForAnother(0.1f)
             .OnComplete(operation =>
             {
+                k_PauseCurrentBind.color = Color.blue;
                 k_PauseCurrentBind.text = InputControlPath.ToHumanReadableString(PauseAction.action.bindings[1].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
 
                 rebindingOperation.Dispose();
@@ -274,6 +300,7 @@ public class BindsMenu : MonoBehaviour
             .OnMatchWaitForAnother(0.1f)
             .OnComplete(operation =>
             {
+                k_ResetCurrentBind.color = Color.blue;
                 k_ResetCurrentBind.text = InputControlPath.ToHumanReadableString(ResetAction.action.bindings[1].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
 
                 rebindingOperation.Dispose();
@@ -284,7 +311,7 @@ public class BindsMenu : MonoBehaviour
 
     // Controller
 
-    public void C_SteerLeftRebind()
+    public void C_SteerRebind()
     {
         // DeSelect the currently Selected UI Button
         EventSystem.current.SetSelectedGameObject(null);
@@ -293,26 +320,23 @@ public class BindsMenu : MonoBehaviour
         SteerAction.action.Disable();
 
         // Update Button Text to say "Press Any Button"
-        c_SteerLeftCurrentBind.text = "Press Any Button";
+        c_SteerCurrentBind.text = "Press Any Button";
 
         rebindingOperation = SteerAction.action.PerformInteractiveRebinding()
+            .WithTargetBinding(0)
             .WithControlsExcluding("<Mouse>")
             .WithControlsExcluding("<Mouse>/LeftButton")
             .WithControlsExcluding("Keyboard")
             .OnMatchWaitForAnother(0.1f)
             .OnComplete(operation =>
             {
-                c_SteerLeftCurrentBind.text = InputControlPath.ToHumanReadableString(SteerAction.action.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+                c_SteerCurrentBind.color = Color.blue;
+                c_SteerCurrentBind.text = InputControlPath.ToHumanReadableString(SteerAction.action.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
 
                 rebindingOperation.Dispose();
                 SteerAction.action.Enable();
             })
             .Start();
-    }
-
-    public void C_SteerRightRebind()
-    {
-
     }
 
     public void C_AccelerateRebind()
@@ -333,6 +357,7 @@ public class BindsMenu : MonoBehaviour
             .OnMatchWaitForAnother(0.1f)
             .OnComplete(operation =>
             {
+                c_AccelerateCurrentBind.color = Color.blue;
                 c_AccelerateCurrentBind.text = InputControlPath.ToHumanReadableString(AccelerateAction.action.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
 
                 rebindingOperation.Dispose();
@@ -341,8 +366,153 @@ public class BindsMenu : MonoBehaviour
             .Start();
     }
 
+    public void C_BrakeRebind()
+    {
+        // DeSelect the currently Selected UI Button
+        EventSystem.current.SetSelectedGameObject(null);
+
+        // Disable before Re-Bind
+        BrakeAction.action.Disable();
+
+        // Update Button Text to say "Press Any Button"
+        c_BrakeCurrentBind.text = "Press Any Button";
+
+        rebindingOperation = BrakeAction.action.PerformInteractiveRebinding()
+            .WithControlsExcluding("<Mouse>")
+            .WithControlsExcluding("<Mouse>/LeftButton")
+            .WithControlsExcluding("Keyboard")
+            .OnMatchWaitForAnother(0.1f)
+            .OnComplete(operation =>
+            {
+                c_BrakeCurrentBind.color = Color.blue;
+                c_BrakeCurrentBind.text = InputControlPath.ToHumanReadableString(BrakeAction.action.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+
+                rebindingOperation.Dispose();
+                BrakeAction.action.Enable();
+            })
+            .Start();
+    }
+
+    public void C_BoostRebind()
+    {
+        // DeSelect the currently Selected UI Button
+        EventSystem.current.SetSelectedGameObject(null);
+
+        // Disable before Re-Bind
+        BoostAction.action.Disable();
+
+        // Update Button Text to say "Press Any Button"
+        c_BoostCurrentBind.text = "Press Any Button";
+
+        rebindingOperation = BoostAction.action.PerformInteractiveRebinding()
+            .WithControlsExcluding("<Mouse>")
+            .WithControlsExcluding("<Mouse>/LeftButton")
+            .WithControlsExcluding("Keyboard")
+            .OnMatchWaitForAnother(0.1f)
+            .OnComplete(operation =>
+            {
+                c_BoostCurrentBind.color = Color.blue;
+                c_BoostCurrentBind.text = InputControlPath.ToHumanReadableString(BoostAction.action.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+
+                rebindingOperation.Dispose();
+                BoostAction.action.Enable();
+            })
+            .Start();
+    }
+
+    public void C_DriftRebind()
+    {
+        // DeSelect the currently Selected UI Button
+        EventSystem.current.SetSelectedGameObject(null);
+
+        // Disable before Re-Bind
+        DriftAction.action.Disable();
+
+        // Update Button Text to say "Press Any Button"
+        c_DriftCurrentBind.text = "Press Any Button";
+
+        rebindingOperation = DriftAction.action.PerformInteractiveRebinding()
+            .WithControlsExcluding("<Mouse>")
+            .WithControlsExcluding("<Mouse>/LeftButton")
+            .WithControlsExcluding("Keyboard")
+            .OnMatchWaitForAnother(0.1f)
+            .OnComplete(operation =>
+            {
+                c_DriftCurrentBind.color = Color.blue;
+                c_DriftCurrentBind.text = InputControlPath.ToHumanReadableString(DriftAction.action.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+
+                rebindingOperation.Dispose();
+                DriftAction.action.Enable();
+            })
+            .Start();
+    }
+
+    public void C_PauseRebind()
+    {
+        // DeSelect the currently Selected UI Button
+        EventSystem.current.SetSelectedGameObject(null);
+
+        // Disable before Re-Bind
+        PauseAction.action.Disable();
+
+        // Update Button Text to say "Press Any Button"
+        c_PauseCurrentBind.text = "Press Any Button";
+
+        rebindingOperation = PauseAction.action.PerformInteractiveRebinding()
+            .WithControlsExcluding("<Mouse>")
+            .WithControlsExcluding("<Mouse>/LeftButton")
+            .WithControlsExcluding("Keyboard")
+            .OnMatchWaitForAnother(0.1f)
+            .OnComplete(operation =>
+            {
+                c_PauseCurrentBind.color = Color.blue;
+                c_PauseCurrentBind.text = InputControlPath.ToHumanReadableString(PauseAction.action.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+
+                rebindingOperation.Dispose();
+                PauseAction.action.Enable();
+            })
+            .Start();
+    }
+
+    public void C_ResetRebind()
+    {
+        // DeSelect the currently Selected UI Button
+        EventSystem.current.SetSelectedGameObject(null);
+
+        // Disable before Re-Bind
+        ResetAction.action.Disable();
+
+        // Update Button Text to say "Press Any Button"
+        c_ResetCurrentBind.text = "Press Any Button";
+
+        rebindingOperation = ResetAction.action.PerformInteractiveRebinding()
+            .WithControlsExcluding("<Mouse>")
+            .WithControlsExcluding("<Mouse>/LeftButton")
+            .WithControlsExcluding("Keyboard")
+            .OnMatchWaitForAnother(0.1f)
+            .OnComplete(operation =>
+            {
+                c_ResetCurrentBind.color = Color.blue;
+                c_ResetCurrentBind.text = InputControlPath.ToHumanReadableString(ResetAction.action.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+
+                rebindingOperation.Dispose();
+                ResetAction.action.Enable();
+            })
+            .Start();
+    }
+
     public void BackButton()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void K_ResetAllBinds()
+    {
+
+    }
+
+    public void C_ResetAllBinds()
+    {
+
     }
 }
