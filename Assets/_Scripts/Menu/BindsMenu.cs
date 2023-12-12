@@ -77,6 +77,8 @@ public class BindsMenu : MonoBehaviour
         c_ResetCurrentBind.text = asset.FindAction("Reset").GetBindingDisplayString(0);
     }
 
+    #region Keyboard & Mouse
+
     public void K_SteerLeftRebind()
     {
         // DeSelect the currently Selected UI Button
@@ -104,7 +106,7 @@ public class BindsMenu : MonoBehaviour
             .Start();
     }
 
-    public void K_SteerLeftReset()
+    public void K_Reset_SteerLeft()
     {
         // DeSelect the currently Selected UI Button
         EventSystem.current.SetSelectedGameObject(null);
@@ -112,10 +114,10 @@ public class BindsMenu : MonoBehaviour
         // Disable before Re-Bind
         SteerAction.action.Disable();
 
-        // Clear any existing binding overrides for the specific control index (2 in this case)
+        // Clear any existing binding overrides for the specific control index
         SteerAction.action.RemoveBindingOverride(2);
 
-        // Apply the default binding for the specific control index (2 in this case) - using Keyboard "A" key
+        // Apply the default binding for the specific control index
         SteerAction.action.ApplyBindingOverride(2, "Keyboard/A");
 
         // Reset Color
@@ -124,6 +126,7 @@ public class BindsMenu : MonoBehaviour
         // Update the text with the new default binding information
         k_SteerLeftCurrentBind.text = InputControlPath.ToHumanReadableString(SteerAction.action.bindings[2].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
 
+        // Enable
         SteerAction.action.Enable();
     }
 
@@ -153,6 +156,30 @@ public class BindsMenu : MonoBehaviour
             .Start();
     }
 
+    public void K_Reset_SteerRight()
+    {
+        // DeSelect the currently Selected UI Button
+        EventSystem.current.SetSelectedGameObject(null);
+
+        // Disable before Re-Bind
+        SteerAction.action.Disable();
+
+        // Clear any existing binding overrides for the specific control index
+        SteerAction.action.RemoveBindingOverride(3);
+
+        // Apply the default binding for the specific control index
+        SteerAction.action.ApplyBindingOverride(3, "Keyboard/D");
+
+        // Reset Color
+        k_SteerRightCurrentBind.color = Color.white;
+
+        // Update the text with the new default binding information
+        k_SteerRightCurrentBind.text = InputControlPath.ToHumanReadableString(SteerAction.action.bindings[3].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+
+        // Enable
+        SteerAction.action.Enable();
+    }
+
     public void K_AccelerateRebind()
     {
         // DeSelect the currently Selected UI Button
@@ -171,12 +198,36 @@ public class BindsMenu : MonoBehaviour
             .OnComplete(operation =>
             {
                 k_AccelerateCurrentBind.color = Color.blue;
-                k_AccelerateCurrentBind.text = InputControlPath.ToHumanReadableString(AccelerateAction.action.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+                k_AccelerateCurrentBind.text = InputControlPath.ToHumanReadableString(AccelerateAction.action.bindings[1].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
 
                 rebindingOperation.Dispose();
                 AccelerateAction.action.Enable();
             })
             .Start();
+    }
+
+    public void K_Reset_Accelerate()
+    {
+        // DeSelect the currently Selected UI Button
+        EventSystem.current.SetSelectedGameObject(null);
+
+        // Disable before Re-Bind
+        AccelerateAction.action.Disable();
+
+        // Clear any existing binding overrides for the specific control index
+        AccelerateAction.action.RemoveBindingOverride(1);
+
+        // Apply the default binding for the specific control index
+        AccelerateAction.action.ApplyBindingOverride(1, "Keyboard/W");
+
+        // Reset Color
+        k_AccelerateCurrentBind.color = Color.white;
+
+        // Update the text with the new default binding information
+        k_AccelerateCurrentBind.text = InputControlPath.ToHumanReadableString(AccelerateAction.action.bindings[1].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+
+        // Enable
+        AccelerateAction.action.Enable();
     }
 
     public void K_BrakeRebind()
@@ -205,6 +256,30 @@ public class BindsMenu : MonoBehaviour
             .Start();
     }
 
+    public void K_Reset_Brake()
+    {
+        // DeSelect the currently Selected UI Button
+        EventSystem.current.SetSelectedGameObject(null);
+
+        // Disable before Re-Bind
+        BrakeAction.action.Disable();
+
+        // Clear any existing binding overrides for the specific control index
+        BrakeAction.action.RemoveBindingOverride(1);
+
+        // Apply the default binding for the specific control index
+        BrakeAction.action.ApplyBindingOverride(1, "Keyboard/S");
+
+        // Reset Color
+        k_BrakeCurrentBind.color = Color.white;
+
+        // Update the text with the new default binding information
+        k_BrakeCurrentBind.text = InputControlPath.ToHumanReadableString(BrakeAction.action.bindings[1].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+
+        // Enable
+        BrakeAction.action.Enable();
+    }
+
     public void K_BoostRebind()
     {
         // DeSelect the currently Selected UI Button
@@ -229,6 +304,30 @@ public class BindsMenu : MonoBehaviour
                 BoostAction.action.Enable();
             })
             .Start();
+    }
+
+    public void K_Reset_Boost()
+    {
+        // DeSelect the currently Selected UI Button
+        EventSystem.current.SetSelectedGameObject(null);
+
+        // Disable before Re-Bind
+        BoostAction.action.Disable();
+
+        // Clear any existing binding overrides for the specific control index
+        BoostAction.action.RemoveBindingOverride(1);
+
+        // Apply the default binding for the specific control index
+        BoostAction.action.ApplyBindingOverride(1, "Keyboard/Space");
+
+        // Reset Color
+        k_BoostCurrentBind.color = Color.white;
+
+        // Update the text with the new default binding information
+        k_BoostCurrentBind.text = InputControlPath.ToHumanReadableString(BoostAction.action.bindings[1].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+
+        // Enable
+        BoostAction.action.Enable();
     }
 
     public void K_DriftRebind()
@@ -257,6 +356,30 @@ public class BindsMenu : MonoBehaviour
             .Start();
     }
 
+    public void K_Reset_Drift()
+    {
+        // DeSelect the currently Selected UI Button
+        EventSystem.current.SetSelectedGameObject(null);
+
+        // Disable before Re-Bind
+        DriftAction.action.Disable();
+
+        // Clear any existing binding overrides for the specific control index
+        DriftAction.action.RemoveBindingOverride(1);
+
+        // Apply the default binding for the specific control index
+        DriftAction.action.ApplyBindingOverride(1, "Keyboard/Shift");
+
+        // Reset Color
+        k_DriftCurrentBind.color = Color.white;
+
+        // Update the text with the new default binding information
+        k_DriftCurrentBind.text = InputControlPath.ToHumanReadableString(DriftAction.action.bindings[1].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+
+        // Enable
+        DriftAction.action.Enable();
+    }
+
     public void K_PauseRebind()
     {
         // DeSelect the currently Selected UI Button
@@ -281,6 +404,30 @@ public class BindsMenu : MonoBehaviour
                 PauseAction.action.Enable();
             })
             .Start();
+    }
+
+    public void K_Reset_Pause()
+    {
+        // DeSelect the currently Selected UI Button
+        EventSystem.current.SetSelectedGameObject(null);
+
+        // Disable before Re-Bind
+        PauseAction.action.Disable();
+
+        // Clear any existing binding overrides for the specific control index
+        PauseAction.action.RemoveBindingOverride(1);
+
+        // Apply the default binding for the specific control index
+        PauseAction.action.ApplyBindingOverride(1, "Keyboard/Escape");
+
+        // Reset Color
+        k_PauseCurrentBind.color = Color.white;
+
+        // Update the text with the new default binding information
+        k_PauseCurrentBind.text = InputControlPath.ToHumanReadableString(PauseAction.action.bindings[1].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+
+        // Enable
+        PauseAction.action.Enable();
     }
 
     public void K_ResetRebind()
@@ -309,7 +456,33 @@ public class BindsMenu : MonoBehaviour
             .Start();
     }
 
-    // Controller
+    public void K_Reset_Reset()
+    {
+        // DeSelect the currently Selected UI Button
+        EventSystem.current.SetSelectedGameObject(null);
+
+        // Disable before Re-Bind
+        ResetAction.action.Disable();
+
+        // Clear any existing binding overrides for the specific control index
+        ResetAction.action.RemoveBindingOverride(1);
+
+        // Apply the default binding for the specific control index
+        ResetAction.action.ApplyBindingOverride(1, "Keyboard/Tab");
+
+        // Reset Color
+        k_ResetCurrentBind.color = Color.white;
+
+        // Update the text with the new default binding information
+        k_ResetCurrentBind.text = InputControlPath.ToHumanReadableString(ResetAction.action.bindings[1].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+
+        // Enable
+        ResetAction.action.Enable();
+    }
+
+    #endregion
+
+    #region Controller
 
     public void C_SteerRebind()
     {
@@ -501,18 +674,10 @@ public class BindsMenu : MonoBehaviour
             .Start();
     }
 
+    #endregion
+
     public void BackButton()
     {
         SceneManager.LoadScene("MainMenu");
-    }
-
-    public void K_ResetAllBinds()
-    {
-
-    }
-
-    public void C_ResetAllBinds()
-    {
-
     }
 }
