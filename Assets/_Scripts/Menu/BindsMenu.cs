@@ -97,6 +97,21 @@ public class BindsMenu : MonoBehaviour
         LoadAndApplyKeybind(PauseAction.action, 1, "PauseKey", "Keyboard/Escape");
         // Keyboard Reset
         LoadAndApplyKeybind(ResetAction.action, 1, "ResetKey", "Keyboard/Tab");
+
+        // Controller Steer
+        LoadAndApplyKeybind(SteerAction.action, 0, "SteerButton", "<Gamepad>/leftStick");
+        // Controller Accelerate
+        LoadAndApplyKeybind(AccelerateAction.action, 0, "AccelerateButton", "<Gamepad>/righttrigger");
+        // Controller Brake
+        LoadAndApplyKeybind(BrakeAction.action, 0, "BrakeButton", "<Gamepad>/lefttrigger");
+        // Controller Boost
+        LoadAndApplyKeybind(BoostAction.action, 0, "BoostButton", "<Gamepad>/rightshoulder");
+        // Controller Drift
+        LoadAndApplyKeybind(DriftAction.action, 0, "DriftButton", "<Gamepad>/leftshoulder");
+        // Controller Pause
+        LoadAndApplyKeybind(PauseAction.action, 0, "PauseButton", "<Gamepad>/start");
+        // Controller Reset
+        LoadAndApplyKeybind(ResetAction.action, 0, "ResetButton", "<Gamepad>/select");
     }
 
     private void LoadAndApplyKeybind(InputAction action, int controlIndex, string keyPref, string defaultKey)
@@ -123,6 +138,21 @@ public class BindsMenu : MonoBehaviour
         SaveKeybind(PauseAction.action, 1, "PauseKey");
         // Keyboard Reset
         SaveKeybind(ResetAction.action, 1, "ResetKey");
+
+        // Controller Steer
+        SaveKeybind(SteerAction.action, 0, "SteerButton");
+        // Controller Accelerate
+        SaveKeybind(AccelerateAction.action, 0, "AccelerateButton");
+        // Controller Brake
+        SaveKeybind(BrakeAction.action, 0, "BrakeButton");
+        // Controller Boost
+        SaveKeybind(BoostAction.action, 0, "BoostButton");
+        // Controller Drift
+        SaveKeybind(DriftAction.action, 0, "DriftButton");
+        // Controller Pause
+        SaveKeybind(PauseAction.action, 0, "PauseButton");
+        // Controller Reset
+        SaveKeybind(ResetAction.action, 0, "ResetButton");
     }
 
     private void SaveKeybind(InputAction action, int controlIndex, string keyPref)
@@ -598,6 +628,8 @@ public class BindsMenu : MonoBehaviour
                 c_SteerCurrentBind.color = Color.blue;
                 c_SteerCurrentBind.text = InputControlPath.ToHumanReadableString(SteerAction.action.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
 
+                SaveKeybinds();
+
                 rebindingOperation.Dispose();
                 SteerAction.action.Enable();
             })
@@ -651,6 +683,8 @@ public class BindsMenu : MonoBehaviour
             {
                 c_AccelerateCurrentBind.color = Color.blue;
                 c_AccelerateCurrentBind.text = InputControlPath.ToHumanReadableString(AccelerateAction.action.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+
+                SaveKeybinds();
 
                 rebindingOperation.Dispose();
                 AccelerateAction.action.Enable();
@@ -706,6 +740,8 @@ public class BindsMenu : MonoBehaviour
                 c_BrakeCurrentBind.color = Color.blue;
                 c_BrakeCurrentBind.text = InputControlPath.ToHumanReadableString(BrakeAction.action.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
 
+                SaveKeybinds();
+
                 rebindingOperation.Dispose();
                 BrakeAction.action.Enable();
             })
@@ -759,6 +795,8 @@ public class BindsMenu : MonoBehaviour
             {
                 c_BoostCurrentBind.color = Color.blue;
                 c_BoostCurrentBind.text = InputControlPath.ToHumanReadableString(BoostAction.action.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+
+                SaveKeybinds();
 
                 rebindingOperation.Dispose();
                 BoostAction.action.Enable();
@@ -814,6 +852,8 @@ public class BindsMenu : MonoBehaviour
                 c_DriftCurrentBind.color = Color.blue;
                 c_DriftCurrentBind.text = InputControlPath.ToHumanReadableString(DriftAction.action.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
 
+                SaveKeybinds();
+
                 rebindingOperation.Dispose();
                 DriftAction.action.Enable();
             })
@@ -868,6 +908,8 @@ public class BindsMenu : MonoBehaviour
                 c_PauseCurrentBind.color = Color.blue;
                 c_PauseCurrentBind.text = InputControlPath.ToHumanReadableString(PauseAction.action.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
 
+                SaveKeybinds();
+
                 rebindingOperation.Dispose();
                 PauseAction.action.Enable();
             })
@@ -921,6 +963,8 @@ public class BindsMenu : MonoBehaviour
             {
                 c_ResetCurrentBind.color = Color.blue;
                 c_ResetCurrentBind.text = InputControlPath.ToHumanReadableString(ResetAction.action.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+
+                SaveKeybinds();
 
                 rebindingOperation.Dispose();
                 ResetAction.action.Enable();
