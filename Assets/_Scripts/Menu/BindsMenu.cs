@@ -512,6 +512,30 @@ public class BindsMenu : MonoBehaviour
             .Start();
     }
 
+    public void C_Reset_Steer()
+    {
+        // DeSelect the currently Selected UI Button
+        EventSystem.current.SetSelectedGameObject(null);
+
+        // Disable before Re-Bind
+        SteerAction.action.Disable();
+
+        // Clear any existing binding overrides for the specific control index
+        SteerAction.action.RemoveBindingOverride(0);
+
+        // Apply the default binding for the specific control index
+        SteerAction.action.ApplyBindingOverride(0, "<Gamepad>/leftStick");
+
+        // Reset Color
+        c_SteerCurrentBind.color = Color.white;
+
+        // Update the text with the new default binding information
+        c_SteerCurrentBind.text = InputControlPath.ToHumanReadableString(SteerAction.action.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+
+        // Enable
+        SteerAction.action.Enable();
+    }
+
     public void C_AccelerateRebind()
     {
         // DeSelect the currently Selected UI Button
@@ -537,6 +561,30 @@ public class BindsMenu : MonoBehaviour
                 AccelerateAction.action.Enable();
             })
             .Start();
+    }
+
+    public void C_Reset_Accelerate()
+    {
+        // DeSelect the currently Selected UI Button
+        EventSystem.current.SetSelectedGameObject(null);
+
+        // Disable before Re-Bind
+        AccelerateAction.action.Disable();
+
+        // Clear any existing binding overrides for the specific control index
+        AccelerateAction.action.RemoveBindingOverride(0);
+
+        // Apply the default binding for the specific control index
+        AccelerateAction.action.ApplyBindingOverride(0, "<Gamepad>/righttrigger");
+
+        // Reset Color
+        c_AccelerateCurrentBind.color = Color.white;
+
+        // Update the text with the new default binding information
+        c_AccelerateCurrentBind.text = InputControlPath.ToHumanReadableString(AccelerateAction.action.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+
+        // Enable
+        AccelerateAction.action.Enable();
     }
 
     public void C_BrakeRebind()
@@ -566,6 +614,30 @@ public class BindsMenu : MonoBehaviour
             .Start();
     }
 
+    public void C_Reset_Brake()
+    {
+        // DeSelect the currently Selected UI Button
+        EventSystem.current.SetSelectedGameObject(null);
+
+        // Disable before Re-Bind
+        BrakeAction.action.Disable();
+
+        // Clear any existing binding overrides for the specific control index
+        BrakeAction.action.RemoveBindingOverride(0);
+
+        // Apply the default binding for the specific control index
+        BrakeAction.action.ApplyBindingOverride(0, "<Gamepad>/lefttrigger");
+
+        // Reset Color
+        c_BrakeCurrentBind.color = Color.white;
+
+        // Update the text with the new default binding information
+        c_BrakeCurrentBind.text = InputControlPath.ToHumanReadableString(BrakeAction.action.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+
+        // Enable
+        BrakeAction.action.Enable();
+    }
+
     public void C_BoostRebind()
     {
         // DeSelect the currently Selected UI Button
@@ -591,6 +663,30 @@ public class BindsMenu : MonoBehaviour
                 BoostAction.action.Enable();
             })
             .Start();
+    }
+
+    public void C_Reset_Boost()
+    {
+        // DeSelect the currently Selected UI Button
+        EventSystem.current.SetSelectedGameObject(null);
+
+        // Disable before Re-Bind
+        BoostAction.action.Disable();
+
+        // Clear any existing binding overrides for the specific control index
+        BoostAction.action.RemoveBindingOverride(0);
+
+        // Apply the default binding for the specific control index
+        BoostAction.action.ApplyBindingOverride(0, "<Gamepad>/rightshoulder");
+
+        // Reset Color
+        c_BoostCurrentBind.color = Color.white;
+
+        // Update the text with the new default binding information
+        c_BoostCurrentBind.text = InputControlPath.ToHumanReadableString(BoostAction.action.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+
+        // Enable
+        BoostAction.action.Enable();
     }
 
     public void C_DriftRebind()
@@ -620,6 +716,30 @@ public class BindsMenu : MonoBehaviour
             .Start();
     }
 
+    public void C_Reset_Drift()
+    {
+        // DeSelect the currently Selected UI Button
+        EventSystem.current.SetSelectedGameObject(null);
+
+        // Disable before Re-Bind
+        DriftAction.action.Disable();
+
+        // Clear any existing binding overrides for the specific control index
+        DriftAction.action.RemoveBindingOverride(0);
+
+        // Apply the default binding for the specific control index
+        DriftAction.action.ApplyBindingOverride(0, "<Gamepad>/leftshoulder");
+
+        // Reset Color
+        c_DriftCurrentBind.color = Color.white;
+
+        // Update the text with the new default binding information
+        c_DriftCurrentBind.text = InputControlPath.ToHumanReadableString(DriftAction.action.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+
+        // Enable
+        DriftAction.action.Enable();
+    }
+
     public void C_PauseRebind()
     {
         // DeSelect the currently Selected UI Button
@@ -647,6 +767,30 @@ public class BindsMenu : MonoBehaviour
             .Start();
     }
 
+    public void C_Reset_Pause()
+    {
+        // DeSelect the currently Selected UI Button
+        EventSystem.current.SetSelectedGameObject(null);
+
+        // Disable before Re-Bind
+        PauseAction.action.Disable();
+
+        // Clear any existing binding overrides for the specific control index
+        PauseAction.action.RemoveBindingOverride(0);
+
+        // Apply the default binding for the specific control index
+        PauseAction.action.ApplyBindingOverride(0, "<Gamepad>/start");
+
+        // Reset Color
+        c_PauseCurrentBind.color = Color.white;
+
+        // Update the text with the new default binding information
+        c_PauseCurrentBind.text = InputControlPath.ToHumanReadableString(PauseAction.action.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+
+        // Enable
+        PauseAction.action.Enable();
+    }
+
     public void C_ResetRebind()
     {
         // DeSelect the currently Selected UI Button
@@ -672,6 +816,30 @@ public class BindsMenu : MonoBehaviour
                 ResetAction.action.Enable();
             })
             .Start();
+    }
+
+    public void C_Reset_Reset()
+    {
+        // DeSelect the currently Selected UI Button
+        EventSystem.current.SetSelectedGameObject(null);
+
+        // Disable before Re-Bind
+        ResetAction.action.Disable();
+
+        // Clear any existing binding overrides for the specific control index
+        ResetAction.action.RemoveBindingOverride(0);
+
+        // Apply the default binding for the specific control index
+        ResetAction.action.ApplyBindingOverride(0, "<Gamepad>/select");
+
+        // Reset Color
+        c_ResetCurrentBind.color = Color.white;
+
+        // Update the text with the new default binding information
+        c_ResetCurrentBind.text = InputControlPath.ToHumanReadableString(ResetAction.action.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+
+        // Enable
+        ResetAction.action.Enable();
     }
 
     #endregion

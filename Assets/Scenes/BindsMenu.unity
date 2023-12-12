@@ -341,7 +341,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1164642508}
         m_TargetAssemblyTypeName: BindsMenu, Assembly-CSharp
-        m_MethodName: K_SteerLeftRebind
+        m_MethodName: C_Reset_Brake
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -636,7 +636,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1164642508}
         m_TargetAssemblyTypeName: BindsMenu, Assembly-CSharp
-        m_MethodName: K_SteerLeftRebind
+        m_MethodName: C_Reset_Accelerate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5042,7 +5042,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1164642508}
         m_TargetAssemblyTypeName: BindsMenu, Assembly-CSharp
-        m_MethodName: K_SteerLeftRebind
+        m_MethodName: C_Reset_Steer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5309,7 +5309,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1164642508}
         m_TargetAssemblyTypeName: BindsMenu, Assembly-CSharp
-        m_MethodName: K_SteerLeftRebind
+        m_MethodName: C_Reset_Boost
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9399,7 +9399,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1164642508}
         m_TargetAssemblyTypeName: BindsMenu, Assembly-CSharp
-        m_MethodName: K_SteerLeftRebind
+        m_MethodName: C_Reset_Pause
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11676,7 +11676,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1164642508}
         m_TargetAssemblyTypeName: BindsMenu, Assembly-CSharp
-        m_MethodName: K_SteerLeftRebind
+        m_MethodName: C_Reset_Drift
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12482,7 +12482,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1164642508}
         m_TargetAssemblyTypeName: BindsMenu, Assembly-CSharp
-        m_MethodName: K_SteerLeftRebind
+        m_MethodName: C_Reset_Reset
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
