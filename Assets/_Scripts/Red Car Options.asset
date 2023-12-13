@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adc903a058f75cc4995ba1a9e7dbe957, type: 3}
+  m_Name: Red Car Options
+  m_EditorClassIdentifier: 
+  bodys:
+  - {fileID: 21300000, guid: efc00d4b48344b24c8fe3ce8793e72b4, type: 3}
+  - {fileID: 21300000, guid: abdd73a4f327b6943ab9aeda694378fd, type: 3}
+  tires:
+  - {fileID: 21300000, guid: df3e70e69b7c3af45a546f401f35010f, type: 3}
+  - {fileID: 21300000, guid: 720daee2b1519bf48a69480499143770, type: 3}
+  - {fileID: 21300000, guid: a10e07998c77c35439489c97db40b9b2, type: 3}
+  wings:
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 103e73db300ae724f8db395cfe383907, type: 3}
+  - {fileID: 21300000, guid: e3541b12fef1cd0408c7dff0853448d7, type: 3}
+  paint:
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0.46226418, g: 0, b: 0, a: 1}

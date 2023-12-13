@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ee5f473ba6f5f4f4ba7df0988d4d12f9
+guid: 4e81fdb41bb01d04dbf5115aed02405a
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -121,7 +121,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Car
     originalName: 
-    pivot: {x: 0.5, y: -0.22727273}
+    pivot: {x: 0.5, y: -0.13043478}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -129,8 +129,8 @@ ScriptedImporter:
       x: 4
       y: 4
       width: 14
-      height: 22
-    spriteID: 6b89b6622fe18004ea48bc85e18db425
+      height: 23
+    spriteID: 250fed4ba672acd4b859e8920cce1083
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -152,10 +152,10 @@ ScriptedImporter:
       frameIndex: 0
       cellRect:
         x: 9
-        y: 5
+        y: 3
         width: 14
-        height: 22
-      spriteId: 6b89b6622fe18004ea48bc85e18db425
+        height: 23
+      spriteId: 250fed4ba672acd4b859e8920cce1083
     linkedCells: []
     parentIndex: -1
   platformSettings: []

@@ -232,6 +232,9 @@ public class SoccerManager : MonoBehaviour
                     Transform selectedSpawnPoint = blueSpawnPoints[randomSpawnIndex];
 
                     blue1Instance = Instantiate(player, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
+
+                    // Assign to Blue
+                    blue1Instance.GetComponent<PlayerCustomization>().team = PlayerCustomization.TeamType.Blue;
                 }
 
                 break;
@@ -443,6 +446,9 @@ public class SoccerManager : MonoBehaviour
                 Transform selectedSpawnPoint = blueSpawnPoints[randomSpawnIndex];
 
                 blue1Instance = Instantiate(BlueAI, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
+
+                // Assign to Blue
+                blue1Instance.GetComponent<PlayerCustomization>().team = PlayerCustomization.TeamType.Blue;
             }
             else
             {
@@ -450,6 +456,9 @@ public class SoccerManager : MonoBehaviour
                 Transform selectedSpawnPoint = blueSpawnPoints[randomSpawnIndex];
 
                 blue1Instance = Instantiate(player, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
+
+                // Assign to Blue
+                blue1Instance.GetComponent<PlayerCustomization>().team = PlayerCustomization.TeamType.Blue;
             }
         }
     }
@@ -464,6 +473,9 @@ public class SoccerManager : MonoBehaviour
                 Transform selectedSpawnPoint = redSpawnPoints[randomSpawnIndex];
 
                 red1Instance = Instantiate(RedAI, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
+
+                // Assign to Red
+                red1Instance.GetComponent<PlayerCustomization>().team = PlayerCustomization.TeamType.Red;
             }
             else
             {
@@ -471,6 +483,9 @@ public class SoccerManager : MonoBehaviour
                 Transform selectedSpawnPoint = redSpawnPoints[randomSpawnIndex];
 
                 red1Instance = Instantiate(player, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
+
+                // Assign to Red
+                red1Instance.GetComponent<PlayerCustomization>().team = PlayerCustomization.TeamType.Red;
             }
         }
     }
