@@ -785,7 +785,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -863,8 +863,6 @@ MonoBehaviour:
   leftDriftTrail: {fileID: 6762107385994339340}
   rightDriftTrail: {fileID: 6680575781675600376}
   boostTrail: {fileID: 4448703018989227678}
-  boostFX: {fileID: 4959921748649894069, guid: 9b58750bcfe14124fb8f470f2dab8974, type: 3}
-  canSpawnBoostFX: 1
   currentBoost: 100
   maxBoost: 100
 --- !u!70 &1027614283480326082
