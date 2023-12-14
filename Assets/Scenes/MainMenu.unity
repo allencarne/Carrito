@@ -1683,7 +1683,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 445025524}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1566312520}
+        m_TargetAssemblyTypeName: CustomizeMenu, Assembly-CSharp
+        m_MethodName: TireRight
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &445025524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6764,9 +6776,8 @@ MonoBehaviour:
   body: {fileID: 797549073}
   tire: {fileID: 996703594}
   wing: {fileID: 895135499}
-  bodyLeft: {fileID: 931938237}
-  bodyRight: {fileID: 1740954198}
   bodyText: {fileID: 1649145596}
+  tireText: {fileID: 1640410876}
 --- !u!1 &1584683288
 GameObject:
   m_ObjectHideFlags: 0
@@ -8203,7 +8214,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1876773631}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1566312520}
+        m_TargetAssemblyTypeName: CustomizeMenu, Assembly-CSharp
+        m_MethodName: TireLeft
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1876773631
 MonoBehaviour:
   m_ObjectHideFlags: 0
