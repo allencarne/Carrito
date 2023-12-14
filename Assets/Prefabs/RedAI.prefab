@@ -601,6 +601,7 @@ MonoBehaviour:
   leftDriftTrail: {fileID: 1300979884478721035}
   rightDriftTrail: {fileID: 1300979883334845991}
   boostTrail: {fileID: 1300979883346307075}
+  boostFX: {fileID: 4959921748649894069, guid: 9b58750bcfe14124fb8f470f2dab8974, type: 3}
   currentBoost: 100
   maxBoost: 100
   boostThresholdDistance: 10
