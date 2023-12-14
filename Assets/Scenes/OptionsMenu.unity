@@ -533,8 +533,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 48.196533, y: -45.116455}
-  m_SizeDelta: {x: 30.311, y: 30}
+  m_AnchoredPosition: {x: 37.30005, y: -45}
+  m_SizeDelta: {x: 39.143, y: 35.888}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &160516078
 MonoBehaviour:
@@ -2359,7 +2359,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 960, y: 540}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -2580,10 +2580,10 @@ RectTransform:
   - {fileID: 1173487592}
   m_Father: {fileID: 1292072471}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 210.28}
-  m_SizeDelta: {x: 636.035, y: 80.012}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 25, y: -45}
+  m_SizeDelta: {x: -100, y: 80.01199}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1348500355
 MonoBehaviour:
@@ -2924,9 +2924,9 @@ RectTransform:
   - {fileID: 742917222}
   m_Father: {fileID: 1292072471}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 320.39648, y: 75}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -159.60352, y: 75}
   m_SizeDelta: {x: 160.568, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1499083104
@@ -3797,9 +3797,9 @@ RectTransform:
   - {fileID: 1510170015}
   m_Father: {fileID: 1292072471}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -319.39648, y: 75}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 160.60352, y: 75}
   m_SizeDelta: {x: 160.568, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1809417257
@@ -4478,5 +4478,5 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1516619987}
-  - {fileID: 1292072471}
   - {fileID: 1986500694}
+  - {fileID: 1292072471}
