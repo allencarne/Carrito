@@ -51,68 +51,31 @@ public class CustomizeMenu : MonoBehaviour
         isBlueActive = false;
     }
 
+    public void ChangeCustomizationIndex(int change, ref int currentIndex, int length)
+    {
+        currentIndex = (currentIndex + change + length) % length;
+        SelectCarOptions(isBlueActive ? blueOptions : redOptions, blueBodyIndex, blueTireIndex);
+        UpdateText(blueBodyIndex, blueTireIndex);
+    }
+
     public void BodyLeft()
     {
-        if (isBlueActive)
-        {
-            blueBodyIndex = (blueBodyIndex - 1 + blueOptions.bodys.Length) % blueOptions.bodys.Length;
-            SelectCarOptions(blueOptions, blueBodyIndex, blueTireIndex);
-            UpdateText(blueBodyIndex, blueTireIndex);
-        }
-        else
-        {
-            redBodyIndex = (redBodyIndex - 1 + redOptions.bodys.Length) % redOptions.bodys.Length;
-            SelectCarOptions(redOptions, redBodyIndex, redTireIndex);
-            UpdateText(redBodyIndex, redTireIndex);
-        }
+        ChangeCustomizationIndex(-1, ref blueBodyIndex, blueOptions.bodys.Length);
     }
 
     public void BodyRight()
     {
-        if (isBlueActive)
-        {
-            blueBodyIndex = (blueBodyIndex + 1) % blueOptions.bodys.Length;
-            SelectCarOptions(blueOptions, blueBodyIndex, blueTireIndex);
-            UpdateText(blueBodyIndex, blueTireIndex);
-        }
-        else
-        {
-            redBodyIndex = (redBodyIndex + 1) % redOptions.bodys.Length;
-            SelectCarOptions(redOptions, redBodyIndex, redTireIndex);
-            UpdateText(redBodyIndex, redTireIndex);
-        }
+        ChangeCustomizationIndex(1, ref blueBodyIndex, blueOptions.bodys.Length);
     }
 
     public void TireLeft()
     {
-        if (isBlueActive)
-        {
-            blueTireIndex = (blueTireIndex - 1 + blueOptions.tires.Length) % blueOptions.tires.Length;
-            SelectCarOptions(blueOptions, blueBodyIndex, blueTireIndex);
-            UpdateText(blueBodyIndex, blueTireIndex);
-        }
-        else
-        {
-            redTireIndex = (redTireIndex - 1 + redOptions.tires.Length) % redOptions.tires.Length;
-            SelectCarOptions(redOptions, redBodyIndex, redTireIndex);
-            UpdateText(redBodyIndex, redTireIndex);
-        }
+        ChangeCustomizationIndex(-1, ref blueTireIndex, blueOptions.tires.Length);
     }
 
     public void TireRight()
     {
-        if (isBlueActive)
-        {
-            blueTireIndex = (blueTireIndex + 1) % blueOptions.tires.Length;
-            SelectCarOptions(blueOptions, blueBodyIndex, blueTireIndex);
-            UpdateText(blueBodyIndex, blueTireIndex);
-        }
-        else
-        {
-            redTireIndex = (redTireIndex + 1) % redOptions.tires.Length;
-            SelectCarOptions(redOptions, redBodyIndex, redTireIndex);
-            UpdateText(redBodyIndex, redTireIndex);
-        }
+        ChangeCustomizationIndex(1, ref blueTireIndex, blueOptions.tires.Length);
     }
 
     public void SelectCarOptions(CarOptions options, int bodyIndex, int tireIndex)
