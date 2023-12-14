@@ -95,6 +95,11 @@ public class SoccerManager : MonoBehaviour
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] TextMeshProUGUI whoWonText;
 
+    // Pause
+    [SerializeField] InputActionAsset asset;
+    InputAction pauseAction;
+    public static event System.Action OnResumed;
+
     public enum PlayerType
     {
         None,
@@ -138,6 +143,19 @@ public class SoccerManager : MonoBehaviour
         Blue,
         Red,
         Black,
+    }
+
+    private void OnEnable()
+    {
+        pauseAction = asset.FindAction("Pause");
+        pauseAction.Enable();
+        pauseAction.performed += OnPause;
+    }
+
+    private void OnDisable()
+    {
+        pauseAction.performed -= OnPause;
+        pauseAction.Disable();
     }
 
     private void Start()
@@ -352,6 +370,21 @@ public class SoccerManager : MonoBehaviour
         pauseMenu.SetActive(true);
 
         Time.timeScale = 0f;
+    }
+
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (gameState == GameState.Playing)
+            {
+                gameState = GameState.Paused;
+            }
+            else if (gameState == GameState.Paused)
+            {
+                OnResumed?.Invoke();
+            }
+        }
     }
 
     void GoalScoredState()

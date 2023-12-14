@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static SoccerManager;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -12,12 +13,12 @@ public class PauseMenu : MonoBehaviour
 
     private void OnEnable()
     {
-        CustomPlayerInput.OnResumed += ResumeButton;
+        SoccerManager.OnResumed += ResumeButton;
     }
 
     private void OnDisable()
     {
-        CustomPlayerInput.OnResumed -= ResumeButton;
+        SoccerManager.OnResumed -= ResumeButton;
     }
 
     public void ResumeButton()
@@ -54,5 +55,18 @@ public class PauseMenu : MonoBehaviour
 
         volumeMenu.SetActive(false);
         displayMenu.SetActive(false);
+    }
+
+    // Game UI
+    public void PauseButton()
+    {
+        if (SoccerManager.instance.gameState == GameState.Playing)
+        {
+            SoccerManager.instance.gameState = GameState.Paused;
+        }
+        else if (SoccerManager.instance.gameState == GameState.Paused)
+        {
+            ResumeButton();
+        }
     }
 }

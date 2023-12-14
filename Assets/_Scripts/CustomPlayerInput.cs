@@ -14,7 +14,7 @@ public class CustomPlayerInput : MonoBehaviour
     public bool IsBoosting { get; private set; }
     public bool IsDrifting { get; private set; }
 
-    public static event System.Action OnResumed;
+    //public static event System.Action OnResumed;
 
     public void OnSteer(InputAction.CallbackContext context)
     {
@@ -65,7 +65,7 @@ public class CustomPlayerInput : MonoBehaviour
             IsDrifting = false;
         }
     }
-
+    /*
     public void OnPause(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -80,7 +80,7 @@ public class CustomPlayerInput : MonoBehaviour
             }
         }
     }
-
+    */
     public void OnReset(InputAction.CallbackContext context)
     {
         if (context.performed)
