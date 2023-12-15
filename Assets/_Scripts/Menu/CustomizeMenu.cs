@@ -24,6 +24,14 @@ public class CustomizeMenu : MonoBehaviour
     private int blueTireIndex = 0;
     private int redTireIndex = 0;
 
+    [SerializeField] TextMeshProUGUI wingText;
+    private int blueWingIndex = 0;
+    private int redWingIndex = 0;
+
+    [SerializeField] TextMeshProUGUI paintText;
+    private int bluePaintIndex = 0;
+    private int redPaintIndex = 0;
+
     private void Start()
     {
         BlueButton();
@@ -33,11 +41,13 @@ public class CustomizeMenu : MonoBehaviour
     {
         if (isBlueActive)
         {
-            SelectCarOptions(blueOptions, blueBodyIndex, blueTireIndex);
+            SelectCarOptions(blueOptions, blueBodyIndex, blueTireIndex, blueWingIndex, bluePaintIndex);
+            UpdateText(blueBodyIndex, blueTireIndex, blueWingIndex, bluePaintIndex);
         }
         else
         {
-            SelectCarOptions(redOptions, redBodyIndex, redTireIndex);
+            SelectCarOptions(redOptions, redBodyIndex, redTireIndex, redWingIndex, redPaintIndex);
+            UpdateText(redBodyIndex, redTireIndex, redWingIndex, redPaintIndex);
         }
     }
 
@@ -51,56 +61,126 @@ public class CustomizeMenu : MonoBehaviour
         isBlueActive = false;
     }
 
-    public void ChangeCustomizationIndex(int change, ref int currentIndex, int length)
-    {
-        currentIndex = (currentIndex + change + length) % length;
-        SelectCarOptions(isBlueActive ? blueOptions : redOptions, blueBodyIndex, blueTireIndex);
-        UpdateText(blueBodyIndex, blueTireIndex);
-    }
-
     public void BodyLeft()
     {
-        ChangeCustomizationIndex(-1, ref blueBodyIndex, blueOptions.bodys.Length);
+        if (isBlueActive)
+        {
+            blueBodyIndex = (blueBodyIndex - 1 + blueOptions.bodys.Length) % blueOptions.bodys.Length;
+        }
+        else
+        {
+            redBodyIndex = (redBodyIndex - 1 + redOptions.bodys.Length) % redOptions.bodys.Length;
+        }
     }
 
     public void BodyRight()
     {
-        ChangeCustomizationIndex(1, ref blueBodyIndex, blueOptions.bodys.Length);
+        if (isBlueActive)
+        {
+            blueBodyIndex = (blueBodyIndex + 1) % blueOptions.bodys.Length;
+        }
+        else
+        {
+            redBodyIndex = (redBodyIndex + 1) % redOptions.bodys.Length;
+        }
     }
 
     public void TireLeft()
     {
-        ChangeCustomizationIndex(-1, ref blueTireIndex, blueOptions.tires.Length);
+        if (isBlueActive)
+        {
+            blueTireIndex = (blueTireIndex - 1 + blueOptions.tires.Length) % blueOptions.tires.Length;
+        }
+        else
+        {
+            redTireIndex = (redTireIndex - 1 + redOptions.tires.Length) % redOptions.tires.Length;
+        }
     }
 
     public void TireRight()
     {
-        ChangeCustomizationIndex(1, ref blueTireIndex, blueOptions.tires.Length);
+        if (isBlueActive)
+        {
+            blueTireIndex = (blueTireIndex + 1) % blueOptions.tires.Length;
+        }
+        else
+        {
+            redTireIndex = (redTireIndex + 1) % redOptions.tires.Length;
+        }
     }
 
-    public void SelectCarOptions(CarOptions options, int bodyIndex, int tireIndex)
+    public void WingLeft()
     {
-        // Display the current body sprite based on the index
+        if (isBlueActive)
+        {
+            blueWingIndex = (blueWingIndex - 1 + blueOptions.wings.Length) % blueOptions.wings.Length;
+        }
+        else
+        {
+            redWingIndex = (redWingIndex - 1 + redOptions.wings.Length) % redOptions.wings.Length;
+        }
+    }
+
+    public void WingRight()
+    {
+        if (isBlueActive)
+        {
+            blueWingIndex = (blueWingIndex + 1) % blueOptions.wings.Length;
+        }
+        else
+        {
+            redWingIndex = (redWingIndex + 1) % redOptions.wings.Length;
+        }
+    }
+
+    public void PaintLeft()
+    {
+        if (isBlueActive)
+        {
+            bluePaintIndex = (bluePaintIndex - 1 + blueOptions.paint.Length) % blueOptions.paint.Length;
+        }
+        else
+        {
+            redPaintIndex = (redPaintIndex - 1 + redOptions.paint.Length) % redOptions.paint.Length;
+        }
+    }
+
+    public void PaintRight()
+    {
+        if (isBlueActive)
+        {
+            bluePaintIndex = (bluePaintIndex + 1) % blueOptions.paint.Length;
+        }
+        else
+        {
+            redPaintIndex = (redPaintIndex + 1) % redOptions.paint.Length;
+        }
+    }
+
+    public void SelectCarOptions(CarOptions options, int bodyIndex, int tireIndex, int wingIndex, int paintIndex)
+    {
+        // Body
         if (options.bodys.Length > 0)
             body.sprite = options.bodys[bodyIndex];
 
-       // Display the current body sprite based on the index
+       // Tires
        if (options.tires.Length > 0)
            tire.sprite = options.tires[tireIndex];
-       /*
-       // Set random wing sprite
-       if (options.wings.Length > 0)
-           wing.sprite = options.wings[Random.Range(0, options.wings.Length)];
 
-       // Set random paint color
-       if (options.paint.Length > 0)
-           body.color = options.paint[Random.Range(0, options.paint.Length)];
-        */
+        // Wing
+        if (options.wings.Length > 0)
+            wing.sprite = options.wings[wingIndex];
+
+        // Paint
+        if (options.paint.Length > 0)
+            body.color = options.paint[paintIndex];
     }
 
-    private void UpdateText(int cBodyInxed, int cTireIndex)
+    private void UpdateText(int cBodyInxed, int cTireIndex, int cWingIndex, int cPaintIndex)
     {
         bodyText.text = cBodyInxed.ToString();
         tireText.text = cTireIndex.ToString();
+        wingText.text = cWingIndex.ToString();
+        paintText.text = cPaintIndex.ToString();
     }
 }
