@@ -11,5 +11,5 @@ public class CarOptions : ScriptableObject
 
     public Color[] paint;
 
-    public GameObject[] trails;
+    public Gradient[] trails;
 }

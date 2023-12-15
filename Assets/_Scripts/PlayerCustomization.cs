@@ -10,6 +10,7 @@ public class PlayerCustomization : MonoBehaviour
     [SerializeField] SpriteRenderer body;
     [SerializeField] SpriteRenderer tire;
     [SerializeField] SpriteRenderer wing;
+    [SerializeField] TrailRenderer trail;
 
     public enum TeamType
     {
@@ -35,20 +36,24 @@ public class PlayerCustomization : MonoBehaviour
 
     private void SelectRandomOptions(CarOptions options)
     {
-        // Set random body sprite
+        // Body
         if (options.bodys.Length > 0)
             body.sprite = options.bodys[Random.Range(0, options.bodys.Length)];
 
-        // Set random tire sprite
+        // Tire
         if (options.tires.Length > 0)
             tire.sprite = options.tires[Random.Range(0, options.tires.Length)];
 
-        // Set random wing sprite
+        // Wing
         if (options.wings.Length > 0)
             wing.sprite = options.wings[Random.Range(0, options.wings.Length)];
 
-        // Set random paint color
+        // Paint
         if (options.paint.Length > 0)
             body.color = options.paint[Random.Range(0, options.paint.Length)];
+
+        // Trail
+        if (options.trails.Length > 0)
+            trail.colorGradient = options.trails[Random.Range(0, options.trails.Length)];
     }
 }

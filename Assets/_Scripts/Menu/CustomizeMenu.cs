@@ -15,9 +15,10 @@ public class CustomizeMenu : MonoBehaviour
     [SerializeField] CarOptions blueOptions;
     [SerializeField] CarOptions redOptions;
 
-    [SerializeField] SpriteRenderer body;
-    [SerializeField] SpriteRenderer tire;
-    [SerializeField] SpriteRenderer wing;
+    [SerializeField] Image body;
+    [SerializeField] Image tire;
+    [SerializeField] Image wing;
+    [SerializeField] TrailRenderer trail;
 
     [SerializeField] TextMeshProUGUI bodyText;
     private int blueBodyIndex = 0;
@@ -35,6 +36,10 @@ public class CustomizeMenu : MonoBehaviour
     private int bluePaintIndex = 0;
     private int redPaintIndex = 0;
 
+    [SerializeField] TextMeshProUGUI trailText;
+    private int blueTrailIndex = 0;
+    private int redTrailIndex = 0;
+
     private void Start()
     {
         BlueButton();
@@ -42,17 +47,15 @@ public class CustomizeMenu : MonoBehaviour
 
     private void Update()
     {
-        preview.transform.Translate(Vector3.up * previewSpeed * Time.deltaTime);
-
         if (isBlueActive)
         {
-            SelectCarOptions(blueOptions, blueBodyIndex, blueTireIndex, blueWingIndex, bluePaintIndex);
-            UpdateText(blueBodyIndex, blueTireIndex, blueWingIndex, bluePaintIndex);
+            SelectCarOptions(blueOptions, blueBodyIndex, blueTireIndex, blueWingIndex, bluePaintIndex, blueTrailIndex);
+            UpdateText(blueBodyIndex, blueTireIndex, blueWingIndex, bluePaintIndex, blueTrailIndex);
         }
         else
         {
-            SelectCarOptions(redOptions, redBodyIndex, redTireIndex, redWingIndex, redPaintIndex);
-            UpdateText(redBodyIndex, redTireIndex, redWingIndex, redPaintIndex);
+            SelectCarOptions(redOptions, redBodyIndex, redTireIndex, redWingIndex, redPaintIndex, redTrailIndex);
+            UpdateText(redBodyIndex, redTireIndex, redWingIndex, redPaintIndex, redTrailIndex);
         }
     }
 
@@ -162,7 +165,31 @@ public class CustomizeMenu : MonoBehaviour
         }
     }
 
-    public void SelectCarOptions(CarOptions options, int bodyIndex, int tireIndex, int wingIndex, int paintIndex)
+    public void TrailLeft()
+    {
+        if (isBlueActive)
+        {
+            blueTrailIndex = (blueTrailIndex - 1 + blueOptions.trails.Length) % blueOptions.trails.Length;
+        }
+        else
+        {
+            redTrailIndex = (redTrailIndex - 1 + redOptions.trails.Length) % redOptions.trails.Length;
+        }
+    }
+
+    public void TrailRight()
+    {
+        if (isBlueActive)
+        {
+            blueTrailIndex = (blueTrailIndex + 1) % blueOptions.trails.Length;
+        }
+        else
+        {
+            redTrailIndex = (redTrailIndex + 1) % redOptions.trails.Length;
+        }
+    }
+
+    public void SelectCarOptions(CarOptions options, int bodyIndex, int tireIndex, int wingIndex, int paintIndex, int trailIndex)
     {
         // Body
         if (options.bodys.Length > 0)
@@ -179,13 +206,18 @@ public class CustomizeMenu : MonoBehaviour
         // Paint
         if (options.paint.Length > 0)
             body.color = options.paint[paintIndex];
+
+        // Trail
+        if (options.trails.Length > 0)
+            trail.colorGradient = options.trails[trailIndex];
     }
 
-    private void UpdateText(int cBodyInxed, int cTireIndex, int cWingIndex, int cPaintIndex)
+    private void UpdateText(int cBodyInxed, int cTireIndex, int cWingIndex, int cPaintIndex, int cTrailIndex)
     {
         bodyText.text = cBodyInxed.ToString();
         tireText.text = cTireIndex.ToString();
         wingText.text = cWingIndex.ToString();
         paintText.text = cPaintIndex.ToString();
+        trailText.text = cTrailIndex.ToString();
     }
 }
