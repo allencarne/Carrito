@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 public class CustomizeMenu : MonoBehaviour
 {
+    [SerializeField] GameObject preview;
+    [SerializeField] float previewSpeed;
+
     bool isBlueActive;
 
     [SerializeField] CarOptions blueOptions;
@@ -39,6 +42,8 @@ public class CustomizeMenu : MonoBehaviour
 
     private void Update()
     {
+        preview.transform.Translate(Vector3.up * previewSpeed * Time.deltaTime);
+
         if (isBlueActive)
         {
             SelectCarOptions(blueOptions, blueBodyIndex, blueTireIndex, blueWingIndex, bluePaintIndex);

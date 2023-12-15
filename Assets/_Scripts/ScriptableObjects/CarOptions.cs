@@ -10,4 +10,6 @@ public class CarOptions : ScriptableObject
     public Sprite[] wings;
 
     public Color[] paint;
+
+    public GameObject[] trails;
 }

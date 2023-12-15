@@ -6341,6 +6341,7 @@ Transform:
   - {fileID: 996703593}
   - {fileID: 895135498}
   - {fileID: 1892439802}
+  - {fileID: 1675562302}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &1433306356
@@ -6867,6 +6868,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d8cb6006be88d64ab830cb1b32df63c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  preview: {fileID: 1415054775}
+  previewSpeed: 0
   blueOptions: {fileID: 11400000, guid: 467a937e74bb33442872dfffadf8d7db, type: 2}
   redOptions: {fileID: 11400000, guid: c6a4a33714242194793a1d2931384f0c, type: 2}
   body: {fileID: 797549073}
@@ -7632,12 +7635,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1675562299}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -2.2299998, y: -3.1800005, z: -10}
+  m_LocalScale: {x: 0.19999996, y: 0.19999996, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1415054776}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1675562303
 MonoBehaviour:
@@ -9586,7 +9589,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 996370392}
   - {fileID: 613908333}
-  - {fileID: 1675562302}
   - {fileID: 186638725}
   - {fileID: 1566312518}
   - {fileID: 1415054776}
