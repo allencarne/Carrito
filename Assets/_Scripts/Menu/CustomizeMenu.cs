@@ -7,9 +7,6 @@ using UnityEngine.UI;
 
 public class CustomizeMenu : MonoBehaviour
 {
-    [SerializeField] GameObject preview;
-    [SerializeField] float previewSpeed;
-
     bool isBlueActive = true;
 
     [SerializeField] CarOptions blueOptions;

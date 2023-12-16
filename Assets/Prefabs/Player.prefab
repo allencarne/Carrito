@@ -739,6 +739,7 @@ GameObject:
   - component: {fileID: 7976817189484525084}
   - component: {fileID: 1234973267150095373}
   - component: {fileID: 6185728809261068083}
+  - component: {fileID: 4676471940076671050}
   m_Layer: 0
   m_Name: Player
   m_TagString: Car
@@ -1112,7 +1113,22 @@ MonoBehaviour:
   tire: {fileID: 6521874732642511412}
   wing: {fileID: 1052621071539820377}
   trail: {fileID: 3666273003481078502}
-  team: 0
+  isBlueTeam: 0
+  isAI: 0
+--- !u!114 &4676471940076671050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7755933530518722120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 390123f21f491fa46a51a6069054ac58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionIntensityThreshold: 20
+  kaboom: {fileID: 5838739264634839647, guid: 19175e2cd82843f49adf6e375cf757d1, type: 3}
 --- !u!1 &8672732287561352799
 GameObject:
   m_ObjectHideFlags: 0

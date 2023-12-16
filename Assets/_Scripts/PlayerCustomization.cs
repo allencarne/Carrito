@@ -20,25 +20,18 @@ public class PlayerCustomization : MonoBehaviour
 
     private const string PLAYERPREFS_PREFIX = "PlayerCustomization_";
 
-    public enum TeamType
-    {
-        None,
-        Blue,
-        Red
-    }
-
-    public TeamType team = TeamType.None;
+    public bool isBlueTeam;
 
     public bool isAI = false;
 
     private void Start()
     {
-        if (team == TeamType.Blue)
+        if (isBlueTeam)
         {
             LoadPlayerPrefs();
             SelectRandomOptions(blueOptions);
         }
-        else if (team == TeamType.Red)
+        else
         {
             LoadPlayerPrefs();
             SelectRandomOptions(redOptions);
@@ -49,7 +42,7 @@ public class PlayerCustomization : MonoBehaviour
     {
         if (!isAI)
         {
-            string keyPrefix = team == TeamType.Blue ? "Blue_" : "Red_";
+            string keyPrefix = isBlueTeam ? "Blue_" : "Red_";
 
             // Load customization options from PlayerPrefs
             bodyIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "BodyIndex", 0);

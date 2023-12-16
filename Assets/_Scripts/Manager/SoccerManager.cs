@@ -147,6 +147,8 @@ public class SoccerManager : MonoBehaviour
 
     private void OnEnable()
     {
+        Kaboom.OnKaboom += KaboomHappened;
+
         pauseAction = asset.FindAction("Pause");
         pauseAction.Enable();
         pauseAction.performed += OnPause;
@@ -154,6 +156,8 @@ public class SoccerManager : MonoBehaviour
 
     private void OnDisable()
     {
+        Kaboom.OnKaboom -= KaboomHappened;
+
         pauseAction.performed -= OnPause;
         pauseAction.Disable();
     }
@@ -252,7 +256,7 @@ public class SoccerManager : MonoBehaviour
                     blue1Instance = Instantiate(player, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
 
                     // Assign to Blue
-                    blue1Instance.GetComponent<PlayerCustomization>().team = PlayerCustomization.TeamType.Blue;
+                    blue1Instance.GetComponent<PlayerCustomization>().isBlueTeam = true;
                 }
 
                 break;
@@ -263,7 +267,6 @@ public class SoccerManager : MonoBehaviour
             case GameMode.OneVsOne:
                 CountDown();
                 SpawnBall();
-
                 SpawnBlue1();
                 SpawnRed1();
 
@@ -481,7 +484,7 @@ public class SoccerManager : MonoBehaviour
                 blue1Instance = Instantiate(BlueAI, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
 
                 // Assign to Blue
-                blue1Instance.GetComponent<PlayerCustomization>().team = PlayerCustomization.TeamType.Blue;
+                blue1Instance.GetComponent<PlayerCustomization>().isBlueTeam = true;
 
                 // Assign AI
                 blue1Instance.GetComponent<PlayerCustomization>().isAI = true;
@@ -494,7 +497,7 @@ public class SoccerManager : MonoBehaviour
                 blue1Instance = Instantiate(player, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
 
                 // Assign to Blue
-                blue1Instance.GetComponent<PlayerCustomization>().team = PlayerCustomization.TeamType.Blue;
+                blue1Instance.GetComponent<PlayerCustomization>().isBlueTeam = true;
 
                 // Assign false
                 blue1Instance.GetComponent<PlayerCustomization>().isAI = false;
@@ -514,7 +517,7 @@ public class SoccerManager : MonoBehaviour
                 red1Instance = Instantiate(RedAI, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
 
                 // Assign to Red
-                red1Instance.GetComponent<PlayerCustomization>().team = PlayerCustomization.TeamType.Red;
+                red1Instance.GetComponent<PlayerCustomization>().isBlueTeam = false;
 
                 // Assign AI
                 red1Instance.GetComponent<PlayerCustomization>().isAI = true;
@@ -527,11 +530,23 @@ public class SoccerManager : MonoBehaviour
                 red1Instance = Instantiate(player, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
 
                 // Assign to Red
-                red1Instance.GetComponent<PlayerCustomization>().team = PlayerCustomization.TeamType.Red;
+                red1Instance.GetComponent<PlayerCustomization>().isBlueTeam = false;
 
                 // Assign Player
                 red1Instance.GetComponent <PlayerCustomization>().isAI = false;
             }
+        }
+    }
+
+    void KaboomHappened()
+    {
+        if (gameState == GameState.Playing)
+        {
+            SpawnBlue1();
+            Debug.Log("Spawn Blue 1");
+
+            SpawnRed1();
+            Debug.Log("Spawn Red 1");
         }
     }
 }
