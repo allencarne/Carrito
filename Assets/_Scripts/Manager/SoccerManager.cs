@@ -540,13 +540,18 @@ public class SoccerManager : MonoBehaviour
 
     void KaboomHappened()
     {
+        StartCoroutine(ReviveDelay());
+    }
+
+    IEnumerator ReviveDelay()
+    {
+        yield return new WaitForSeconds(2f);
+
         if (gameState == GameState.Playing)
         {
             SpawnBlue1();
-            Debug.Log("Spawn Blue 1");
 
             SpawnRed1();
-            Debug.Log("Spawn Red 1");
         }
     }
 }

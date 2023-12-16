@@ -33,7 +33,6 @@ public class Kaboom : MonoBehaviour
 
                 if (collisionIntensity >= collisionIntensityThreshold)
                 {
-
                     // Calculate the speeds of the two players
                     float mySpeed = me.GetComponent<Rigidbody2D>().velocity.magnitude;
                     float hitSpeed = hit.GetComponent<Rigidbody2D>().velocity.magnitude;
@@ -41,17 +40,26 @@ public class Kaboom : MonoBehaviour
                     // Determine the winner based on speed
                     if (mySpeed >= hitSpeed)
                     {
-                        Instantiate(kaboom, transform.position, transform.rotation);
+                        Instantiate(kaboom, hit.transform.position, hit.transform.rotation);
 
-                        Destroy(gameObject);
+                        if (collision.gameObject == SoccerManager.instance.blue1Instance)
+                        {
+                            SoccerManager.instance.blue1Instance = null;
+                        }
+                        if (collision.gameObject == SoccerManager.instance.red1Instance)
+                        {
+                            SoccerManager.instance.red1Instance = null;
+                        }
+
+                        Destroy(collision.gameObject);
 
                         OnKaboom?.Invoke();
                     }
                     else
                     {
-                        Instantiate(kaboom, hit.transform.position, hit.transform.rotation);
+                        Instantiate(kaboom, transform.position, transform.rotation);
 
-                        Destroy(collision.gameObject);
+                        Destroy(gameObject);
 
                         OnKaboom?.Invoke();
                     }
