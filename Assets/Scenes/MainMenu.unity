@@ -3178,8 +3178,8 @@ TrailRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1161418797
-  m_SortingLayer: -1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Time: 0.1
   m_PreviewTimeScale: 1
@@ -4815,6 +4815,18 @@ MonoBehaviour:
     Name: 
     GameObject: {fileID: 0}
     Ordinal: 17
+    Priority: 0
+    IconType: 5000
+    IconTexture: {fileID: 0}
+    IsIconRecursive: 0
+    BackgroundType: 4000
+    BackgroundTexture: {fileID: 0}
+    IsBackgroundRecursive: 0
+    IsHidden: 0
+  - Type: 0
+    Name: 
+    GameObject: {fileID: 368585650}
+    Ordinal: 18
     Priority: 0
     IconType: 5000
     IconTexture: {fileID: 0}

@@ -482,6 +482,9 @@ public class SoccerManager : MonoBehaviour
 
                 // Assign to Blue
                 blue1Instance.GetComponent<PlayerCustomization>().team = PlayerCustomization.TeamType.Blue;
+
+                // Assign AI
+                blue1Instance.GetComponent<PlayerCustomization>().isAI = true;
             }
             else
             {
@@ -492,6 +495,9 @@ public class SoccerManager : MonoBehaviour
 
                 // Assign to Blue
                 blue1Instance.GetComponent<PlayerCustomization>().team = PlayerCustomization.TeamType.Blue;
+
+                // Assign false
+                blue1Instance.GetComponent<PlayerCustomization>().isAI = false;
             }
         }
     }
@@ -509,6 +515,9 @@ public class SoccerManager : MonoBehaviour
 
                 // Assign to Red
                 red1Instance.GetComponent<PlayerCustomization>().team = PlayerCustomization.TeamType.Red;
+
+                // Assign AI
+                red1Instance.GetComponent<PlayerCustomization>().isAI = true;
             }
             else
             {
@@ -519,6 +528,9 @@ public class SoccerManager : MonoBehaviour
 
                 // Assign to Red
                 red1Instance.GetComponent<PlayerCustomization>().team = PlayerCustomization.TeamType.Red;
+
+                // Assign Player
+                red1Instance.GetComponent <PlayerCustomization>().isAI = false;
             }
         }
     }

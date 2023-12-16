@@ -40,8 +40,11 @@ public class CustomizeMenu : MonoBehaviour
     private int blueTrailIndex = 0;
     private int redTrailIndex = 0;
 
+    private const string PLAYERPREFS_PREFIX = "PlayerCustomization_";
+
     private void Start()
     {
+        LoadPlayerPrefs();
         BlueButton();
     }
 
@@ -51,6 +54,7 @@ public class CustomizeMenu : MonoBehaviour
         {
             SelectCarOptions(blueOptions, blueBodyIndex, blueTireIndex, blueWingIndex, bluePaintIndex, blueTrailIndex);
             UpdateText(blueBodyIndex, blueTireIndex, blueWingIndex, bluePaintIndex, blueTrailIndex);
+
         }
         else
         {
@@ -59,14 +63,43 @@ public class CustomizeMenu : MonoBehaviour
         }
     }
 
+    private void SavePlayerPrefs()
+    {
+        string keyPrefix = isBlueActive ? "Blue_" : "Red_";
+
+        PlayerPrefs.SetInt(PLAYERPREFS_PREFIX + keyPrefix + "BodyIndex", isBlueActive ? blueBodyIndex : redBodyIndex);
+        PlayerPrefs.SetInt(PLAYERPREFS_PREFIX + keyPrefix + "TireIndex", isBlueActive ? blueTireIndex : redTireIndex);
+        PlayerPrefs.SetInt(PLAYERPREFS_PREFIX + keyPrefix + "WingIndex", isBlueActive ? blueWingIndex : redWingIndex);
+        PlayerPrefs.SetInt(PLAYERPREFS_PREFIX + keyPrefix + "PaintIndex", isBlueActive ? bluePaintIndex : redPaintIndex);
+        PlayerPrefs.SetInt(PLAYERPREFS_PREFIX + keyPrefix + "TrailIndex", isBlueActive ? blueTrailIndex : redTrailIndex);
+
+        PlayerPrefs.Save();
+    }
+
+    private void LoadPlayerPrefs()
+    {
+        string keyPrefix = isBlueActive ? "Blue_" : "Red_";
+
+        blueBodyIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "BodyIndex", 0);
+        blueTireIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "TireIndex", 0);
+        blueWingIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "WingIndex", 0);
+        bluePaintIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "PaintIndex", 0);
+        blueTrailIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "TrailIndex", 0);
+    }
+
     public void BlueButton()
     {
+        SavePlayerPrefs();
         isBlueActive = true;
+        LoadPlayerPrefs();
     }
 
     public void RedButton()
     {
+        SavePlayerPrefs();
         isBlueActive = false;
+        LoadPlayerPrefs();
+
     }
 
     public void BodyLeft()

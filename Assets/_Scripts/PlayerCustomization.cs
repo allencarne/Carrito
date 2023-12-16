@@ -12,6 +12,14 @@ public class PlayerCustomization : MonoBehaviour
     [SerializeField] SpriteRenderer wing;
     [SerializeField] TrailRenderer trail;
 
+    private int bodyIndex = 0;
+    private int tireIndex = 0;
+    private int wingIndex = 0;
+    private int paintIndex = 0;
+    private int trailIndex = 0;
+
+    private const string PLAYERPREFS_PREFIX = "PlayerCustomization_";
+
     public enum TeamType
     {
         None,
@@ -21,39 +29,82 @@ public class PlayerCustomization : MonoBehaviour
 
     public TeamType team = TeamType.None;
 
+    public bool isAI = false;
+
     private void Start()
     {
-        // Select random options based on the team type
         if (team == TeamType.Blue)
         {
+            LoadPlayerPrefs();
             SelectRandomOptions(blueOptions);
         }
         else if (team == TeamType.Red)
         {
+            LoadPlayerPrefs();
             SelectRandomOptions(redOptions);
+        }
+    }
+
+    private void LoadPlayerPrefs()
+    {
+        if (!isAI)
+        {
+            string keyPrefix = team == TeamType.Blue ? "Blue_" : "Red_";
+
+            // Load customization options from PlayerPrefs
+            bodyIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "BodyIndex", 0);
+            tireIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "TireIndex", 0);
+            wingIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "WingIndex", 0);
+            paintIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "PaintIndex", 0);
+            trailIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "TrailIndex", 0);
         }
     }
 
     private void SelectRandomOptions(CarOptions options)
     {
-        // Body
-        if (options.bodys.Length > 0)
-            body.sprite = options.bodys[Random.Range(0, options.bodys.Length)];
+        if (!isAI)
+        {
+            // Set Body Based on Player Prefs
+            if (options.bodys.Length > 0)
+                body.sprite = options.bodys[bodyIndex];
 
-        // Tire
-        if (options.tires.Length > 0)
-            tire.sprite = options.tires[Random.Range(0, options.tires.Length)];
+            // Set Tire Based on Player Prefs
+            if (options.tires.Length > 0)
+                tire.sprite = options.tires[tireIndex];
 
-        // Wing
-        if (options.wings.Length > 0)
-            wing.sprite = options.wings[Random.Range(0, options.wings.Length)];
+            // Set Wing Based on Player Prefs
+            if (options.wings.Length > 0)
+                wing.sprite = options.wings[wingIndex];
 
-        // Paint
-        if (options.paint.Length > 0)
-            body.color = options.paint[Random.Range(0, options.paint.Length)];
+            // Set Paint Based on Player Prefs
+            if (options.paint.Length > 0)
+                body.color = options.paint[paintIndex];
 
-        // Trail
-        if (options.trails.Length > 0)
-            trail.colorGradient = options.trails[Random.Range(0, options.trails.Length)];
+            // Set Trail Based on Player Prefs
+            if (options.trails.Length > 0)
+                trail.colorGradient = options.trails[trailIndex];
+        }
+        else
+        {
+            // Body
+            if (options.bodys.Length > 0)
+                body.sprite = options.bodys[Random.Range(0, options.bodys.Length)];
+
+            // Tire
+            if (options.tires.Length > 0)
+                tire.sprite = options.tires[Random.Range(0, options.tires.Length)];
+
+            // Wing
+            if (options.wings.Length > 0)
+                wing.sprite = options.wings[Random.Range(0, options.wings.Length)];
+
+            // Paint
+            if (options.paint.Length > 0)
+                body.color = options.paint[Random.Range(0, options.paint.Length)];
+
+            // Trail
+            if (options.trails.Length > 0)
+                trail.colorGradient = options.trails[Random.Range(0, options.trails.Length)];
+        }
     }
 }
