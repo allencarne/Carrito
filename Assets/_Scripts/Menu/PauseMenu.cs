@@ -24,6 +24,8 @@ public class PauseMenu : MonoBehaviour
     public void ResumeButton()
     {
         pauseMenu.SetActive(false);
+        volumeMenu.SetActive(false);
+        displayMenu.SetActive(false);
 
         Time.timeScale = 1;
 
