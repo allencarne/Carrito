@@ -10,7 +10,7 @@ public class CustomizeMenu : MonoBehaviour
     [SerializeField] GameObject preview;
     [SerializeField] float previewSpeed;
 
-    bool isBlueActive;
+    bool isBlueActive = true;
 
     [SerializeField] CarOptions blueOptions;
     [SerializeField] CarOptions redOptions;
@@ -45,7 +45,6 @@ public class CustomizeMenu : MonoBehaviour
     private void Start()
     {
         LoadPlayerPrefs();
-        BlueButton();
     }
 
     private void Update()
@@ -63,40 +62,46 @@ public class CustomizeMenu : MonoBehaviour
         }
     }
 
-    private void SavePlayerPrefs()
+    public void SavePlayerPrefs()
     {
-        string keyPrefix = isBlueActive ? "Blue_" : "Red_";
-
-        PlayerPrefs.SetInt(PLAYERPREFS_PREFIX + keyPrefix + "BodyIndex", isBlueActive ? blueBodyIndex : redBodyIndex);
-        PlayerPrefs.SetInt(PLAYERPREFS_PREFIX + keyPrefix + "TireIndex", isBlueActive ? blueTireIndex : redTireIndex);
-        PlayerPrefs.SetInt(PLAYERPREFS_PREFIX + keyPrefix + "WingIndex", isBlueActive ? blueWingIndex : redWingIndex);
-        PlayerPrefs.SetInt(PLAYERPREFS_PREFIX + keyPrefix + "PaintIndex", isBlueActive ? bluePaintIndex : redPaintIndex);
-        PlayerPrefs.SetInt(PLAYERPREFS_PREFIX + keyPrefix + "TrailIndex", isBlueActive ? blueTrailIndex : redTrailIndex);
+        SaveTeamPrefs("Blue_", blueBodyIndex, blueTireIndex, blueWingIndex, bluePaintIndex, blueTrailIndex);
+        SaveTeamPrefs("Red_", redBodyIndex, redTireIndex, redWingIndex, redPaintIndex, redTrailIndex);
 
         PlayerPrefs.Save();
     }
 
+    private void SaveTeamPrefs(string keyPrefix, int bodyIndex, int tireIndex, int wingIndex, int paintIndex, int trailIndex)
+    {
+        PlayerPrefs.SetInt(PLAYERPREFS_PREFIX + keyPrefix + "BodyIndex", bodyIndex);
+        PlayerPrefs.SetInt(PLAYERPREFS_PREFIX + keyPrefix + "TireIndex", tireIndex);
+        PlayerPrefs.SetInt(PLAYERPREFS_PREFIX + keyPrefix + "WingIndex", wingIndex);
+        PlayerPrefs.SetInt(PLAYERPREFS_PREFIX + keyPrefix + "PaintIndex", paintIndex);
+        PlayerPrefs.SetInt(PLAYERPREFS_PREFIX + keyPrefix + "TrailIndex", trailIndex);
+    }
+
     private void LoadPlayerPrefs()
     {
-        string keyPrefix = isBlueActive ? "Blue_" : "Red_";
+        LoadTeamPrefs("Blue_", ref blueBodyIndex, ref blueTireIndex, ref blueWingIndex, ref bluePaintIndex, ref blueTrailIndex);
+        LoadTeamPrefs("Red_", ref redBodyIndex, ref redTireIndex, ref redWingIndex, ref redPaintIndex, ref redTrailIndex);
+    }
 
-        blueBodyIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "BodyIndex", 0);
-        blueTireIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "TireIndex", 0);
-        blueWingIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "WingIndex", 0);
-        bluePaintIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "PaintIndex", 0);
-        blueTrailIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "TrailIndex", 0);
+    private void LoadTeamPrefs(string keyPrefix, ref int bodyIndex, ref int tireIndex, ref int wingIndex, ref int paintIndex, ref int trailIndex)
+    {
+        bodyIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "BodyIndex", 0);
+        tireIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "TireIndex", 0);
+        wingIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "WingIndex", 0);
+        paintIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "PaintIndex", 0);
+        trailIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "TrailIndex", 0);
     }
 
     public void BlueButton()
     {
-        SavePlayerPrefs();
         isBlueActive = true;
         LoadPlayerPrefs();
     }
 
     public void RedButton()
     {
-        SavePlayerPrefs();
         isBlueActive = false;
         LoadPlayerPrefs();
 
