@@ -455,11 +455,13 @@ public class SoccerManager : MonoBehaviour
 
         if (blueScore > redScore)
         {
+            whoWonText.color = Color.blue;
             whoWonText.text = "Blue Team Won!";
         }
 
         if (redScore > blueScore)
         {
+            whoWonText.color = Color.red;
             whoWonText.text = "Red Team Won!";
         }
     }

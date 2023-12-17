@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
@@ -13,8 +11,6 @@ public class CustomPlayerInput : MonoBehaviour
     public bool IsBraking { get; private set; }
     public bool IsBoosting { get; private set; }
     public bool IsDrifting { get; private set; }
-
-    //public static event System.Action OnResumed;
 
     public void OnSteer(InputAction.CallbackContext context)
     {
@@ -65,22 +61,7 @@ public class CustomPlayerInput : MonoBehaviour
             IsDrifting = false;
         }
     }
-    /*
-    public void OnPause(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            if (SoccerManager.instance.gameState == SoccerManager.GameState.Playing)
-            {
-                SoccerManager.instance.gameState = SoccerManager.GameState.Paused;
-            } 
-            else if (SoccerManager.instance.gameState == SoccerManager.GameState.Paused)
-            {
-                OnResumed?.Invoke();
-            }
-        }
-    }
-    */
+
     public void OnReset(InputAction.CallbackContext context)
     {
         if (context.performed)
