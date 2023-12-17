@@ -16,7 +16,9 @@ public class Ball : MonoBehaviour
     public bool blueSide;
     public bool redSide;
 
-    [SerializeField] GameObject whoTouchedTheBallLast;
+    [SerializeField] GameObject whoTouchedTheBallLastBlue;
+    [SerializeField] GameObject whoTouchedTheBallLastRed;
+    public static event System.Action OnScored;
 
     private void Update()
     {
@@ -36,7 +38,36 @@ public class Ball : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Car"))
         {
-            whoTouchedTheBallLast = collision.gameObject;
+            if (collision.gameObject == SoccerManager.instance.blue1Instance)
+            {
+                whoTouchedTheBallLastBlue = collision.gameObject;
+            }
+
+            if (collision.gameObject == SoccerManager.instance.blue2Instance)
+            {
+                whoTouchedTheBallLastBlue = collision.gameObject;
+            }
+
+            if (collision.gameObject == SoccerManager.instance.blue3Instance)
+            {
+                whoTouchedTheBallLastBlue = collision.gameObject;
+            }
+
+
+            if (collision.gameObject == SoccerManager.instance.red1Instance)
+            {
+                whoTouchedTheBallLastRed = collision.gameObject;
+            }
+
+            if (collision.gameObject == SoccerManager.instance.red2Instance)
+            {
+                whoTouchedTheBallLastRed = collision.gameObject;
+            }
+
+            if (collision.gameObject == SoccerManager.instance.red3Instance)
+            {
+                whoTouchedTheBallLastRed = collision.gameObject;
+            }
         }
     }
 
@@ -47,6 +78,14 @@ public class Ball : MonoBehaviour
             StartCoroutine(ScoreDelay(collision));
 
             SoccerManager.instance.redScore += 1;
+
+            OnScored?.Invoke();
+
+            GameObject cameraController = GameObject.Find("Camera Controller");
+            if (cameraController != null)
+            {
+                cameraController.GetComponent<CameraFollowAndZoom>().target = whoTouchedTheBallLastRed.transform;
+            }
         }
 
         if (collision.CompareTag("Red Goal"))
@@ -54,6 +93,14 @@ public class Ball : MonoBehaviour
             StartCoroutine(ScoreDelay(collision));
 
             SoccerManager.instance.blueScore += 1;
+
+            OnScored?.Invoke();
+
+            GameObject cameraController = GameObject.Find("Camera Controller");
+            if (cameraController != null)
+            {
+                cameraController.GetComponent<CameraFollowAndZoom>().target = whoTouchedTheBallLastBlue.transform;
+            }
         }
 
         if (collision.CompareTag("Blue Side"))
@@ -74,7 +121,7 @@ public class Ball : MonoBehaviour
         spriteRenderer.enabled = false;
         circleCollider.enabled = false;
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(3);
 
         Destroy(explosion);
 
