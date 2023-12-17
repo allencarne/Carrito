@@ -14,13 +14,14 @@ public class SoccerMapSelection : MonoBehaviour
 
     enum MapType
     {
+        Random,
         Green,
         Blue,
         Red,
         Black,
     }
 
-    MapType mapType = MapType.Green;
+    MapType mapType = MapType.Random;
 
     private void Start()
     {

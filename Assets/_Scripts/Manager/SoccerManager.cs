@@ -2,11 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System;
 using UnityEngine.InputSystem;
-using System.Linq;
-using System.Net.NetworkInformation;
-using Unity.VisualScripting;
 
 public class SoccerManager : MonoBehaviour
 {
@@ -139,6 +135,7 @@ public class SoccerManager : MonoBehaviour
 
     enum MapType
     {
+        Random,
         Green,
         Blue,
         Red,
@@ -173,9 +170,19 @@ public class SoccerManager : MonoBehaviour
             int mapTypeValue = PlayerPrefs.GetInt("SelectedMapType");
 
             // Check if the retrieved value is a valid MapType enum value
-            if (Enum.IsDefined(typeof(MapType), mapTypeValue))
+            if (System.Enum.IsDefined(typeof(MapType), mapTypeValue))
             {
-                MapType mapType = (MapType)mapTypeValue;
+                MapType mapType;
+
+                // If "Random" is selected, choose a random map type
+                if ((MapType)mapTypeValue == MapType.Random)
+                {
+                    mapType = (MapType)Random.Range(1, 5); // Exclude MapType.Random
+                }
+                else
+                {
+                    mapType = (MapType)mapTypeValue;
+                }
 
                 // Update colors based on the selected MapType
                 switch (mapType)
@@ -238,8 +245,8 @@ public class SoccerManager : MonoBehaviour
         Time.timeScale = 1;
 
         // Retrieve player types from PlayerPrefs
-        blue1PlayerType = (PlayerType)Enum.Parse(typeof(PlayerType), PlayerPrefs.GetString("Blue1Type", PlayerType.None.ToString()));
-        red1PlayerType = (PlayerType)Enum.Parse(typeof(PlayerType), PlayerPrefs.GetString("Red1Type", PlayerType.None.ToString()));
+        blue1PlayerType = (PlayerType)System.Enum.Parse(typeof(PlayerType), PlayerPrefs.GetString("Blue1Type", PlayerType.None.ToString()));
+        red1PlayerType = (PlayerType)System.Enum.Parse(typeof(PlayerType), PlayerPrefs.GetString("Red1Type", PlayerType.None.ToString()));
 
         switch (gameMode)
         {

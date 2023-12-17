@@ -84,7 +84,14 @@ public class Ball : MonoBehaviour
             GameObject cameraController = GameObject.Find("Camera Controller");
             if (cameraController != null)
             {
-                cameraController.GetComponent<CameraFollowAndZoom>().target = whoTouchedTheBallLastRed.transform;
+                if (whoTouchedTheBallLastRed != null)
+                {
+                    cameraController.GetComponent<CameraFollowAndZoom>().target = whoTouchedTheBallLastRed.transform;
+                }
+                else
+                {
+                    cameraController.GetComponent<CameraFollowAndZoom>().target = SoccerManager.instance.red1Instance.transform;
+                }
             }
         }
 
@@ -99,7 +106,14 @@ public class Ball : MonoBehaviour
             GameObject cameraController = GameObject.Find("Camera Controller");
             if (cameraController != null)
             {
-                cameraController.GetComponent<CameraFollowAndZoom>().target = whoTouchedTheBallLastBlue.transform;
+                if (whoTouchedTheBallLastBlue != null)
+                {
+                    cameraController.GetComponent<CameraFollowAndZoom>().target = whoTouchedTheBallLastBlue.transform;
+                }
+                else
+                {
+                    cameraController.GetComponent<CameraFollowAndZoom>().target = SoccerManager.instance.blue1Instance.transform;
+                }
             }
         }
 

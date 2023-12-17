@@ -54,9 +54,8 @@ public class SoccerMenu : MonoBehaviour
 
     [SerializeField] GameObject playButton;
 
-    public enum Blue1Type
+    public enum PlayerType
     {
-        None,
         AI,
         Player1,
         Player2,
@@ -66,17 +65,8 @@ public class SoccerMenu : MonoBehaviour
         Player6,
     }
 
-    enum Red1Type
-    {
-        None,
-        AI,
-        Player1,
-        Player2,
-        Player3,
-        Player4,
-        Player5,
-        Player6,
-    }
+    PlayerType Blue1Type = PlayerType.Player1;
+    PlayerType Red1Type = PlayerType.AI;
 
     private void Start()
     {
@@ -100,13 +90,8 @@ public class SoccerMenu : MonoBehaviour
     {
         if (isOneVsOneActive)
         {
-            // Parse enum values to integers
-            int blue1TypeValue = (int)(Blue1Type)Enum.Parse(typeof(Blue1Type), blue1Text.text);
-            int red1TypeValue = (int)(Red1Type)Enum.Parse(typeof(Red1Type), red1Text.text);
-
-            // Check if both are not players before checking distinctiveness
-            if (blue1TypeValue != (int)Blue1Type.None && red1TypeValue != (int)Red1Type.None &&
-                (blue1TypeValue != red1TypeValue || blue1TypeValue == (int)Blue1Type.AI || red1TypeValue == (int)Red1Type.AI))
+            // Check if both are not the same human player or both are AI
+            if (Blue1Type != Red1Type || (Blue1Type == PlayerType.AI && Red1Type == PlayerType.AI))
             {
                 playButton.SetActive(true);
             }
@@ -159,58 +144,46 @@ public class SoccerMenu : MonoBehaviour
         red3.SetActive(false);
 
         // Blue 1
-        blue1Text.text = Blue1Type.None.ToString();
+        blue1Text.text = Blue1Type.ToString();
 
         // Red 1
-        red1Text.text = Red1Type.None.ToString();
+        red1Text.text = Red1Type.ToString();
     }
 
     public void Blue1Left()
     {
-        // Get the current Blue1Type value
-        Blue1Type currentType = (Blue1Type)Enum.Parse(typeof(Blue1Type), blue1Text.text);
-
-        // Calculate the new value (cycling back to the end if reaching None)
-        Blue1Type newType = (Blue1Type)(((int)currentType - 1 + 8) % 8);
+        // Calculate the new value (cycling back to the end)
+        Blue1Type = (PlayerType)(((int)Blue1Type - 1 + 7) % 7);
 
         // Update the UI text
-        blue1Text.text = newType.ToString();
+        blue1Text.text = Blue1Type.ToString();
     }
 
     public void Blue1Right()
     {
-        // Get the current Blue1Type value
-        Blue1Type currentType = (Blue1Type)Enum.Parse(typeof(Blue1Type), blue1Text.text);
-
-        // Calculate the new value (cycling back to None if reaching the end)
-        Blue1Type newType = (Blue1Type)(((int)currentType + 1) % 8);
+        // Calculate the new value (cycling back to the beginning)
+        Blue1Type = (PlayerType)(((int)Blue1Type + 1) % 7);
 
         // Update the UI text
-        blue1Text.text = newType.ToString();
+        blue1Text.text = Blue1Type.ToString();
     }
 
     public void Red1Left()
     {
-        // Get the current Blue1Type value
-        Red1Type currentType = (Red1Type)Enum.Parse(typeof(Red1Type), red1Text.text);
-
-        // Calculate the new value (cycling back to the end if reaching None)
-        Red1Type newType = (Red1Type)(((int)currentType - 1 + 8) % 8);
+        // Calculate the new value (cycling back to the end)
+        Red1Type = (PlayerType)(((int)Red1Type - 1 + 7) % 7);
 
         // Update the UI text
-        red1Text.text = newType.ToString();
+        red1Text.text = Red1Type.ToString();
     }
 
     public void Red1Right()
     {
-        // Get the current Blue1Type value
-        Red1Type currentType = (Red1Type)Enum.Parse(typeof(Red1Type), red1Text.text);
-
-        // Calculate the new value (cycling back to None if reaching the end)
-        Red1Type newType = (Red1Type)(((int)currentType + 1) % 8);
+        // Calculate the new value (cycling back to the beginning)
+        Red1Type = (PlayerType)(((int)Red1Type + 1) % 7);
 
         // Update the UI text
-        red1Text.text = newType.ToString();
+        red1Text.text = Red1Type.ToString();
     }
 
     public void TwoVsTwoButton()
@@ -259,21 +232,14 @@ public class SoccerMenu : MonoBehaviour
     {
         if (isOneVsOneActive)
         {
-            int blue1TypeValue = (int)(Blue1Type)Enum.Parse(typeof(Blue1Type), blue1Text.text);
-            int red1TypeValue = (int)(Red1Type)Enum.Parse(typeof(Red1Type), red1Text.text);
+            PlayerPrefs.SetInt("GameMode", (int)SoccerManager.GameMode.OneVsOne);
 
-            if (blue1TypeValue != (int)Blue1Type.None && red1TypeValue != (int)Red1Type.None &&
-                (blue1TypeValue != red1TypeValue || blue1TypeValue == (int)Blue1Type.AI || red1TypeValue == (int)Red1Type.AI))
-            {
-                PlayerPrefs.SetInt("GameMode", (int)SoccerManager.GameMode.OneVsOne);
+            PlayerPrefs.SetString("Blue1Type", Blue1Type.ToString());
+            PlayerPrefs.SetString("Red1Type", Red1Type.ToString());
 
-                PlayerPrefs.SetString("Blue1Type", blue1Text.text);
-                PlayerPrefs.SetString("Red1Type", red1Text.text);
+            PlayerPrefs.Save();
 
-                PlayerPrefs.Save();
-
-                SceneManager.LoadScene("Soccer");
-            }
+            SceneManager.LoadScene("Soccer");
         }
     }
 }
