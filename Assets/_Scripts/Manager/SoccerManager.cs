@@ -73,7 +73,6 @@ public class SoccerManager : MonoBehaviour
     // Match Time
     [SerializeField] TextMeshProUGUI matchTimeText;
     float matchDurationInSeconds = 300f; // 5 minutes
-    //float matchDurationInSeconds = 10f; // For Testing
     bool isCountdownInProgress = false;
     public bool CanMove = false;
     private bool isMatchPaused = false;
@@ -110,10 +109,11 @@ public class SoccerManager : MonoBehaviour
 
     PlayerType blue1PlayerType = PlayerType.None;
     PlayerType blue2PlayerType = PlayerType.None;
+    PlayerType blue3PlayerType = PlayerType.None;
 
     PlayerType red1PlayerType = PlayerType.None;
     PlayerType red2PlayerType = PlayerType.None;
-
+    PlayerType red3PlayerType = PlayerType.None;
 
     public enum GameState
     {
@@ -257,6 +257,9 @@ public class SoccerManager : MonoBehaviour
         blue2PlayerType = (PlayerType)System.Enum.Parse(typeof(PlayerType), PlayerPrefs.GetString("Blue2Type", PlayerType.None.ToString()));
         red2PlayerType = (PlayerType)System.Enum.Parse(typeof(PlayerType), PlayerPrefs.GetString("Red2Type", PlayerType.None.ToString()));
 
+        blue3PlayerType = (PlayerType)System.Enum.Parse(typeof(PlayerType), PlayerPrefs.GetString("Blue3Type", PlayerType.None.ToString()));
+        red3PlayerType = (PlayerType)System.Enum.Parse(typeof(PlayerType), PlayerPrefs.GetString("Red3Type", PlayerType.None.ToString()));
+
         switch (gameMode)
         {
             case GameMode.FreePlay:
@@ -297,6 +300,15 @@ public class SoccerManager : MonoBehaviour
 
                 break;
             case GameMode.ThreeVsThree:
+                CountDown();
+                SpawnBall();
+                SpawnBlue1();
+                SpawnRed1();
+                SpawnBlue2();
+                SpawnRed2();
+                SpawnBlue3();
+                SpawnRed3();
+
                 break;
         }
     }
@@ -589,6 +601,39 @@ public class SoccerManager : MonoBehaviour
         }
     }
 
+    void SpawnBlue3()
+    {
+        if (blue3Instance == null)
+        {
+            if (blue3PlayerType == PlayerType.AI)
+            {
+                int randomSpawnIndex = Random.Range(0, blueSpawnPoints.Length);
+                Transform selectedSpawnPoint = blueSpawnPoints[randomSpawnIndex];
+
+                blue3Instance = Instantiate(BlueAI, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
+
+                // Assign to Blue
+                blue3Instance.GetComponent<PlayerCustomization>().isBlueTeam = true;
+
+                // Assign AI
+                blue3Instance.GetComponent<PlayerCustomization>().isAI = true;
+            }
+            else
+            {
+                int randomSpawnIndex = Random.Range(0, blueSpawnPoints.Length);
+                Transform selectedSpawnPoint = blueSpawnPoints[randomSpawnIndex];
+
+                blue3Instance = Instantiate(player, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
+
+                // Assign to Blue
+                blue3Instance.GetComponent<PlayerCustomization>().isBlueTeam = true;
+
+                // Assign false
+                blue3Instance.GetComponent<PlayerCustomization>().isAI = false;
+            }
+        }
+    }
+
     void SpawnRed1()
     {
         if (red1Instance == null)
@@ -655,6 +700,39 @@ public class SoccerManager : MonoBehaviour
         }
     }
 
+    void SpawnRed3()
+    {
+        if (red3Instance == null)
+        {
+            if (red3PlayerType == PlayerType.AI)
+            {
+                int randomSpawnIndex = Random.Range(0, redSpawnPoints.Length);
+                Transform selectedSpawnPoint = redSpawnPoints[randomSpawnIndex];
+
+                red3Instance = Instantiate(RedAI, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
+
+                // Assign to Red
+                red3Instance.GetComponent<PlayerCustomization>().isBlueTeam = false;
+
+                // Assign AI
+                red3Instance.GetComponent<PlayerCustomization>().isAI = true;
+            }
+            else
+            {
+                int randomSpawnIndex = Random.Range(0, redSpawnPoints.Length);
+                Transform selectedSpawnPoint = redSpawnPoints[randomSpawnIndex];
+
+                red3Instance = Instantiate(player, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
+
+                // Assign to Red
+                red3Instance.GetComponent<PlayerCustomization>().isBlueTeam = false;
+
+                // Assign Player
+                red3Instance.GetComponent<PlayerCustomization>().isAI = false;
+            }
+        }
+    }
+
     void KaboomHappened()
     {
         StartCoroutine(ReviveDelay());
@@ -667,12 +745,13 @@ public class SoccerManager : MonoBehaviour
         if (gameState == GameState.Playing)
         {
             SpawnBlue1();
-
             SpawnRed1();
 
             SpawnBlue2();
-
             SpawnRed2();
+
+            SpawnBlue3();
+            SpawnRed3();
         }
     }
 }

@@ -48,6 +48,9 @@ public class PlayerFrames : MonoBehaviour
     PlayerType blue2PlayerType = PlayerType.None;
     PlayerType red2PlayerType = PlayerType.None;
 
+    PlayerType blue3PlayerType = PlayerType.None;
+    PlayerType red3PlayerType = PlayerType.None;
+
     // Update is called once per frame
     void Update()
     {
@@ -57,6 +60,9 @@ public class PlayerFrames : MonoBehaviour
 
         blue2PlayerType = (PlayerType)Enum.Parse(typeof(PlayerType), PlayerPrefs.GetString("Blue2Type", PlayerType.None.ToString()));
         red2PlayerType = (PlayerType)Enum.Parse(typeof(PlayerType), PlayerPrefs.GetString("Red2Type", PlayerType.None.ToString()));
+
+        blue3PlayerType = (PlayerType)Enum.Parse(typeof(PlayerType), PlayerPrefs.GetString("Blue3Type", PlayerType.None.ToString()));
+        red3PlayerType = (PlayerType)Enum.Parse(typeof(PlayerType), PlayerPrefs.GetString("Red3Type", PlayerType.None.ToString()));
 
         switch (SoccerManager.instance.gameMode)
         {
@@ -74,6 +80,9 @@ public class PlayerFrames : MonoBehaviour
                 TwoVsTwo();
                 break;
             case SoccerManager.GameMode.ThreeVsThree:
+                OneVsOne();
+                TwoVsTwo();
+                ThreeVsThree();
                 break;
         }
     }
@@ -176,6 +185,48 @@ public class PlayerFrames : MonoBehaviour
                     red2mBoost = SoccerManager.instance.red2Instance.GetComponent<Player>().maxBoost;
 
                     UpdateBoostBar(red2Boost, red2cBoost, red2mBoost);
+                }
+            }
+        }
+    }
+
+    void ThreeVsThree()
+    {
+        if (SoccerManager.instance != null)
+        {
+            if (SoccerManager.instance.blue3Instance != null)
+            {
+                if (blue3PlayerType == PlayerType.AI)
+                {
+                    blue3cBoost = SoccerManager.instance.blue3Instance.GetComponent<SoccerAI>().currentBoost;
+                    blue3mBoost = SoccerManager.instance.blue3Instance.GetComponent<SoccerAI>().maxBoost;
+
+                    UpdateBoostBar(blue3Boost, blue3cBoost, blue3mBoost);
+                }
+                else
+                {
+                    blue3cBoost = SoccerManager.instance.blue3Instance.GetComponent<Player>().currentBoost;
+                    blue3mBoost = SoccerManager.instance.blue3Instance.GetComponent<Player>().maxBoost;
+
+                    UpdateBoostBar(blue3Boost, blue3cBoost, blue3mBoost);
+                }
+            }
+
+            if (SoccerManager.instance.red3Instance != null)
+            {
+                if (red3PlayerType == PlayerType.AI)
+                {
+                    red3cBoost = SoccerManager.instance.red3Instance.GetComponent<SoccerAI>().currentBoost;
+                    red3mBoost = SoccerManager.instance.red3Instance.GetComponent<SoccerAI>().maxBoost;
+
+                    UpdateBoostBar(red3Boost, red3cBoost, red3mBoost);
+                }
+                else
+                {
+                    red3cBoost = SoccerManager.instance.red3Instance.GetComponent<Player>().currentBoost;
+                    red3mBoost = SoccerManager.instance.red3Instance.GetComponent<Player>().maxBoost;
+
+                    UpdateBoostBar(red3Boost, red3cBoost, red3mBoost);
                 }
             }
         }

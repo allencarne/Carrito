@@ -10,7 +10,7 @@ public class SoccerMenu : MonoBehaviour
 {
     bool isOneVsOneActive = false;
     bool isTwoVsTwoActive = false;
-    //bool isThreeVsThreeActive = false;
+    bool isThreeVsThreeActive = false;
 
     [Header("Sides")]
     [SerializeField] GameObject blueSide;
@@ -71,6 +71,9 @@ public class SoccerMenu : MonoBehaviour
     PlayerType Blue2Type = PlayerType.AI;
     PlayerType Red2Type = PlayerType.AI;
 
+    PlayerType Blue3Type = PlayerType.AI;
+    PlayerType Red3Type = PlayerType.AI;
+
     private void Start()
     {
         // Setup
@@ -119,6 +122,25 @@ public class SoccerMenu : MonoBehaviour
                 playButton.SetActive(false);
             }
         }
+
+        if (isThreeVsThreeActive)
+        {
+            // Check if all pairs are not the same human player or both are AI
+            if ((Blue1Type != Red1Type || (Blue1Type == PlayerType.AI && Red1Type == PlayerType.AI)) &&
+                (Blue2Type != Red2Type || (Blue2Type == PlayerType.AI && Red2Type == PlayerType.AI)) &&
+                (Blue3Type != Red3Type || (Blue3Type == PlayerType.AI && Red3Type == PlayerType.AI)) &&
+                (Blue1Type != Blue2Type && Blue1Type != Blue3Type && Blue2Type != Blue3Type) &&
+                (Red1Type != Red2Type && Red1Type != Red3Type && Red2Type != Red3Type) &&
+                (Blue1Type == PlayerType.AI || Blue2Type == PlayerType.AI || Blue3Type == PlayerType.AI) &&
+                (Red1Type == PlayerType.AI || Red2Type == PlayerType.AI || Red3Type == PlayerType.AI))
+            {
+                playButton.SetActive(true);
+            }
+            else
+            {
+                playButton.SetActive(false);
+            }
+        }
     }
 
     public void BackButton()
@@ -147,7 +169,7 @@ public class SoccerMenu : MonoBehaviour
         // Bools
         isOneVsOneActive = true;
         isTwoVsTwoActive = false;
-        //isThreeVsThreeActive = false;
+        isThreeVsThreeActive = false;
 
         // Buttons
         blueSide.SetActive(true);
@@ -162,10 +184,10 @@ public class SoccerMenu : MonoBehaviour
         blue3.SetActive(false);
         red3.SetActive(false);
 
-        // Blue 1
+        // Blue
         blue1Text.text = Blue1Type.ToString();
 
-        // Red 1
+        // Red
         red1Text.text = Red1Type.ToString();
     }
 
@@ -210,7 +232,7 @@ public class SoccerMenu : MonoBehaviour
         // Bools
         isOneVsOneActive = false;
         isTwoVsTwoActive = true;
-        //isThreeVsThreeActive = false;
+        isThreeVsThreeActive = false;
 
         // Buttons
         blueSide.SetActive(true);
@@ -275,7 +297,7 @@ public class SoccerMenu : MonoBehaviour
         // Bools
         isOneVsOneActive = false;
         isTwoVsTwoActive = false;
-        //isThreeVsThreeActive = true;
+        isThreeVsThreeActive = true;
 
         // Buttons
         blueSide.SetActive(true);
@@ -289,6 +311,52 @@ public class SoccerMenu : MonoBehaviour
 
         blue3.SetActive(true);
         red3.SetActive(true);
+
+        // Blue
+        blue1Text.text = Blue1Type.ToString();
+        blue2Text.text = Blue2Type.ToString();
+        blue3Text.text = Blue3Type.ToString();
+
+        // Red
+        red1Text.text = Red1Type.ToString();
+        red2Text.text = Red2Type.ToString();
+        red3Text.text = Red3Type.ToString();
+    }
+
+    public void Blue3Left()
+    {
+        // Calculate the new value (cycling back to the end)
+        Blue3Type = (PlayerType)(((int)Blue3Type - 1 + 7) % 7);
+
+        // Update the UI text
+        blue3Text.text = Blue3Type.ToString();
+    }
+
+    public void Blue3Right()
+    {
+        // Calculate the new value (cycling back to the beginning)
+        Blue3Type = (PlayerType)(((int)Blue3Type + 1) % 7);
+
+        // Update the UI text
+        blue3Text.text = Blue3Type.ToString();
+    }
+
+    public void Red3Left()
+    {
+        // Calculate the new value (cycling back to the end)
+        Red3Type = (PlayerType)(((int)Red3Type - 1 + 7) % 7);
+
+        // Update the UI text
+        red3Text.text = Red3Type.ToString();
+    }
+
+    public void Red3Right()
+    {
+        // Calculate the new value (cycling back to the beginning)
+        Red3Type = (PlayerType)(((int)Red3Type + 1) % 7);
+
+        // Update the UI text
+        red3Text.text = Red3Type.ToString();
     }
 
     public void PlayButton()
@@ -314,6 +382,24 @@ public class SoccerMenu : MonoBehaviour
 
             PlayerPrefs.SetString("Blue2Type", Blue2Type.ToString());
             PlayerPrefs.SetString("Red2Type", Red2Type.ToString());
+
+            PlayerPrefs.Save();
+
+            SceneManager.LoadScene("Soccer");
+        }
+
+        if (isThreeVsThreeActive)
+        {
+            PlayerPrefs.SetInt("GameMode", (int)SoccerManager.GameMode.ThreeVsThree);
+
+            PlayerPrefs.SetString("Blue1Type", Blue1Type.ToString());
+            PlayerPrefs.SetString("Red1Type", Red1Type.ToString());
+
+            PlayerPrefs.SetString("Blue2Type", Blue2Type.ToString());
+            PlayerPrefs.SetString("Red2Type", Red2Type.ToString());
+
+            PlayerPrefs.SetString("Blue3Type", Blue3Type.ToString());
+            PlayerPrefs.SetString("Red3Type", Red3Type.ToString());
 
             PlayerPrefs.Save();
 
