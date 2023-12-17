@@ -4347,7 +4347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 1806841160}
+  m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &648136484
@@ -12001,9 +12001,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  smoothTime: 0.3
   zoomSpeed: 5
-  minZoom: 5
   maxZoom: 10
 --- !u!1 &1068382898
 GameObject:
