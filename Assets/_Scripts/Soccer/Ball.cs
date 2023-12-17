@@ -150,8 +150,10 @@ public class Ball : MonoBehaviour
                 SoccerManager.instance.gameState = SoccerManager.GameState.GoalScored;
                 break;
             case SoccerManager.GameMode.TwoVsTwo:
+                SoccerManager.instance.gameState = SoccerManager.GameState.GoalScored;
                 break;
             case SoccerManager.GameMode.ThreeVsThree:
+                SoccerManager.instance.gameState = SoccerManager.GameState.GoalScored;
                 break;
         }
     }

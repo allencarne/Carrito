@@ -45,12 +45,18 @@ public class PlayerFrames : MonoBehaviour
     PlayerType blue1PlayerType = PlayerType.None;
     PlayerType red1PlayerType = PlayerType.None;
 
+    PlayerType blue2PlayerType = PlayerType.None;
+    PlayerType red2PlayerType = PlayerType.None;
+
     // Update is called once per frame
     void Update()
     {
         // Retrieve player types from PlayerPrefs
         blue1PlayerType = (PlayerType)Enum.Parse(typeof(PlayerType), PlayerPrefs.GetString("Blue1Type", PlayerType.None.ToString()));
         red1PlayerType = (PlayerType)Enum.Parse(typeof(PlayerType), PlayerPrefs.GetString("Red1Type", PlayerType.None.ToString()));
+
+        blue2PlayerType = (PlayerType)Enum.Parse(typeof(PlayerType), PlayerPrefs.GetString("Blue2Type", PlayerType.None.ToString()));
+        red2PlayerType = (PlayerType)Enum.Parse(typeof(PlayerType), PlayerPrefs.GetString("Red2Type", PlayerType.None.ToString()));
 
         switch (SoccerManager.instance.gameMode)
         {
@@ -61,9 +67,11 @@ public class PlayerFrames : MonoBehaviour
                 Training();
                 break;
             case SoccerManager.GameMode.OneVsOne:
-                OneVSOne();
+                OneVsOne();
                 break;
             case SoccerManager.GameMode.TwoVsTwo:
+                OneVsOne();
+                TwoVsTwo();
                 break;
             case SoccerManager.GameMode.ThreeVsThree:
                 break;
@@ -89,7 +97,7 @@ public class PlayerFrames : MonoBehaviour
 
     }
 
-    void OneVSOne()
+    void OneVsOne()
     {
         if (SoccerManager.instance != null)
         {
@@ -126,6 +134,48 @@ public class PlayerFrames : MonoBehaviour
                     red1mBoost = SoccerManager.instance.red1Instance.GetComponent<Player>().maxBoost;
 
                     UpdateBoostBar(red1Boost, red1cBoost, red1mBoost);
+                }
+            }
+        }
+    }
+
+    void TwoVsTwo()
+    {
+        if (SoccerManager.instance != null)
+        {
+            if (SoccerManager.instance.blue2Instance != null)
+            {
+                if (blue2PlayerType == PlayerType.AI)
+                {
+                    blue2cBoost = SoccerManager.instance.blue2Instance.GetComponent<SoccerAI>().currentBoost;
+                    blue2mBoost = SoccerManager.instance.blue2Instance.GetComponent<SoccerAI>().maxBoost;
+
+                    UpdateBoostBar(blue2Boost, blue2cBoost, blue2mBoost);
+                }
+                else
+                {
+                    blue2cBoost = SoccerManager.instance.blue2Instance.GetComponent<Player>().currentBoost;
+                    blue2mBoost = SoccerManager.instance.blue2Instance.GetComponent<Player>().maxBoost;
+
+                    UpdateBoostBar(blue2Boost, blue2cBoost, blue2mBoost);
+                }
+            }
+
+            if (SoccerManager.instance.red2Instance != null)
+            {
+                if (red2PlayerType == PlayerType.AI)
+                {
+                    red2cBoost = SoccerManager.instance.red2Instance.GetComponent<SoccerAI>().currentBoost;
+                    red2mBoost = SoccerManager.instance.red2Instance.GetComponent<SoccerAI>().maxBoost;
+
+                    UpdateBoostBar(red2Boost, red2cBoost, red2mBoost);
+                }
+                else
+                {
+                    red2cBoost = SoccerManager.instance.red2Instance.GetComponent<Player>().currentBoost;
+                    red2mBoost = SoccerManager.instance.red2Instance.GetComponent<Player>().maxBoost;
+
+                    UpdateBoostBar(red2Boost, red2cBoost, red2mBoost);
                 }
             }
         }

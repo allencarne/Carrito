@@ -427,7 +427,6 @@ MonoBehaviour:
   leftDriftTrail: {fileID: 8412704991949364362}
   rightDriftTrail: {fileID: 8412704992818771622}
   boostTrail: {fileID: 8412704992830249090}
-  boostFX: {fileID: 4959921748649894069, guid: 9b58750bcfe14124fb8f470f2dab8974, type: 3}
   currentBoost: 100
   maxBoost: 100
   boostThresholdDistance: 10
@@ -448,7 +447,9 @@ MonoBehaviour:
   body: {fileID: 3533393387253884200}
   tire: {fileID: 9079538256629881698}
   wing: {fileID: 2746051799024667713}
-  team: 0
+  trail: {fileID: 8412704992830249090}
+  isBlueTeam: 0
+  isAI: 0
 --- !u!1 &8412704991649611473
 GameObject:
   m_ObjectHideFlags: 0

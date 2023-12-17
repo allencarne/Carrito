@@ -9,7 +9,7 @@ using System;
 public class SoccerMenu : MonoBehaviour
 {
     bool isOneVsOneActive = false;
-    //bool isTwoVsTwoActive = false;
+    bool isTwoVsTwoActive = false;
     //bool isThreeVsThreeActive = false;
 
     [Header("Sides")]
@@ -68,6 +68,9 @@ public class SoccerMenu : MonoBehaviour
     PlayerType Blue1Type = PlayerType.Player1;
     PlayerType Red1Type = PlayerType.AI;
 
+    PlayerType Blue2Type = PlayerType.AI;
+    PlayerType Red2Type = PlayerType.AI;
+
     private void Start()
     {
         // Setup
@@ -92,6 +95,22 @@ public class SoccerMenu : MonoBehaviour
         {
             // Check if both are not the same human player or both are AI
             if (Blue1Type != Red1Type || (Blue1Type == PlayerType.AI && Red1Type == PlayerType.AI))
+            {
+                playButton.SetActive(true);
+            }
+            else
+            {
+                playButton.SetActive(false);
+            }
+        }
+
+        if (isTwoVsTwoActive)
+        {
+            // Check if all pairs are not the same human player or both are AI
+            if ((Blue1Type != Red1Type || (Blue1Type == PlayerType.AI && Red1Type == PlayerType.AI)) &&
+                (Blue2Type != Red2Type || (Blue2Type == PlayerType.AI && Red2Type == PlayerType.AI)) &&
+                (Blue1Type != Blue2Type || (Blue1Type == PlayerType.AI && Blue2Type == PlayerType.AI)) &&
+                (Red1Type != Red2Type || (Red1Type == PlayerType.AI && Red2Type == PlayerType.AI)))
             {
                 playButton.SetActive(true);
             }
@@ -127,7 +146,7 @@ public class SoccerMenu : MonoBehaviour
     {
         // Bools
         isOneVsOneActive = true;
-        //isTwoVsTwoActive = false;
+        isTwoVsTwoActive = false;
         //isThreeVsThreeActive = false;
 
         // Buttons
@@ -190,7 +209,7 @@ public class SoccerMenu : MonoBehaviour
     {
         // Bools
         isOneVsOneActive = false;
-        //isTwoVsTwoActive = true;
+        isTwoVsTwoActive = true;
         //isThreeVsThreeActive = false;
 
         // Buttons
@@ -205,13 +224,57 @@ public class SoccerMenu : MonoBehaviour
 
         blue3.SetActive(false);
         red3.SetActive(false);
+
+        // Blue
+        blue1Text.text = Blue1Type.ToString();
+        blue2Text.text = Blue2Type.ToString();
+
+        // Red
+        red1Text.text = Red1Type.ToString();
+        red2Text.text = Red2Type.ToString();
+    }
+
+    public void Blue2Left()
+    {
+        // Calculate the new value (cycling back to the end)
+        Blue2Type = (PlayerType)(((int)Blue2Type - 1 + 7) % 7);
+
+        // Update the UI text
+        blue2Text.text = Blue2Type.ToString();
+    }
+
+    public void Blue2Right()
+    {
+        // Calculate the new value (cycling back to the beginning)
+        Blue2Type = (PlayerType)(((int)Blue2Type + 1) % 7);
+
+        // Update the UI text
+        blue2Text.text = Blue2Type.ToString();
+    }
+
+    public void Red2Left()
+    {
+        // Calculate the new value (cycling back to the end)
+        Red2Type = (PlayerType)(((int)Red2Type - 1 + 7) % 7);
+
+        // Update the UI text
+        red2Text.text = Red2Type.ToString();
+    }
+
+    public void Red2Right()
+    {
+        // Calculate the new value (cycling back to the beginning)
+        Red2Type = (PlayerType)(((int)Red2Type + 1) % 7);
+
+        // Update the UI text
+        red2Text.text = Red2Type.ToString();
     }
 
     public void ThreeVsThreeButton()
     {
         // Bools
         isOneVsOneActive = false;
-        //isTwoVsTwoActive = false;
+        isTwoVsTwoActive = false;
         //isThreeVsThreeActive = true;
 
         // Buttons
@@ -236,6 +299,21 @@ public class SoccerMenu : MonoBehaviour
 
             PlayerPrefs.SetString("Blue1Type", Blue1Type.ToString());
             PlayerPrefs.SetString("Red1Type", Red1Type.ToString());
+
+            PlayerPrefs.Save();
+
+            SceneManager.LoadScene("Soccer");
+        }
+
+        if (isTwoVsTwoActive)
+        {
+            PlayerPrefs.SetInt("GameMode", (int)SoccerManager.GameMode.TwoVsTwo);
+
+            PlayerPrefs.SetString("Blue1Type", Blue1Type.ToString());
+            PlayerPrefs.SetString("Red1Type", Red1Type.ToString());
+
+            PlayerPrefs.SetString("Blue2Type", Blue2Type.ToString());
+            PlayerPrefs.SetString("Red2Type", Red2Type.ToString());
 
             PlayerPrefs.Save();
 
