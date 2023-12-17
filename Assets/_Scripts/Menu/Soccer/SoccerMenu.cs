@@ -94,51 +94,47 @@ public class SoccerMenu : MonoBehaviour
 
     private void Update()
     {
+        bool isBlue1Passing = Blue1Type != PlayerType.AI && (Blue1Type == Blue2Type || Blue1Type == Blue3Type || Blue1Type == Red1Type || Blue1Type == Red2Type || Blue1Type == Red3Type);
+        bool isBlue2Passing = Blue2Type != PlayerType.AI && (Blue2Type == Blue1Type || Blue2Type == Blue3Type || Blue2Type == Red1Type || Blue2Type == Red2Type || Blue2Type == Red3Type);
+        bool isBlue3Passing = Blue3Type != PlayerType.AI && (Blue3Type == Blue1Type || Blue3Type == Blue2Type || Blue3Type == Red1Type || Blue3Type == Red2Type || Blue3Type == Red3Type);
+
+        bool isRed1Passing = Red1Type != PlayerType.AI && (Red1Type == Blue1Type || Red1Type == Blue2Type || Red1Type == Blue3Type || Red1Type == Red2Type || Red1Type == Red3Type);
+        bool isRed2Passing = Red2Type != PlayerType.AI && (Red2Type == Blue1Type || Red2Type == Blue2Type || Red2Type == Blue3Type || Red2Type == Red1Type || Red2Type == Red3Type);
+        bool isRed3Passing = Red3Type != PlayerType.AI && (Red3Type == Blue1Type || Red3Type == Blue2Type || Red3Type == Blue3Type || Red3Type == Red1Type || Red3Type == Red2Type);
+
         if (isOneVsOneActive)
         {
-            // Check if both are not the same human player or both are AI
-            if (Blue1Type != Red1Type || (Blue1Type == PlayerType.AI && Red1Type == PlayerType.AI))
+            if (isBlue1Passing || isRed1Passing)
             {
-                playButton.SetActive(true);
+                playButton.SetActive(false);
             }
             else
             {
-                playButton.SetActive(false);
+                playButton.SetActive(true);
             }
         }
 
         if (isTwoVsTwoActive)
         {
-            // Check if all pairs are not the same human player or both are AI
-            if ((Blue1Type != Red1Type || (Blue1Type == PlayerType.AI && Red1Type == PlayerType.AI)) &&
-                (Blue2Type != Red2Type || (Blue2Type == PlayerType.AI && Red2Type == PlayerType.AI)) &&
-                (Blue1Type != Blue2Type || (Blue1Type == PlayerType.AI && Blue2Type == PlayerType.AI)) &&
-                (Red1Type != Red2Type || (Red1Type == PlayerType.AI && Red2Type == PlayerType.AI)))
+            if (isBlue1Passing || isRed1Passing || isBlue2Passing || isRed2Passing)
             {
-                playButton.SetActive(true);
+                playButton.SetActive(false);
             }
             else
             {
-                playButton.SetActive(false);
+                playButton.SetActive(true);
             }
         }
 
         if (isThreeVsThreeActive)
         {
-            // Check if all pairs are not the same human player or both are AI
-            if ((Blue1Type != Red1Type || (Blue1Type == PlayerType.AI && Red1Type == PlayerType.AI)) &&
-                (Blue2Type != Red2Type || (Blue2Type == PlayerType.AI && Red2Type == PlayerType.AI)) &&
-                (Blue3Type != Red3Type || (Blue3Type == PlayerType.AI && Red3Type == PlayerType.AI)) &&
-                (Blue1Type != Blue2Type && Blue1Type != Blue3Type && Blue2Type != Blue3Type) &&
-                (Red1Type != Red2Type && Red1Type != Red3Type && Red2Type != Red3Type) &&
-                (Blue1Type == PlayerType.AI || Blue2Type == PlayerType.AI || Blue3Type == PlayerType.AI) &&
-                (Red1Type == PlayerType.AI || Red2Type == PlayerType.AI || Red3Type == PlayerType.AI))
+            if (isBlue1Passing || isRed1Passing || isBlue2Passing || isRed2Passing || isBlue3Passing || isRed3Passing)
             {
-                playButton.SetActive(true);
+                playButton.SetActive(false);
             }
             else
             {
-                playButton.SetActive(false);
+                playButton.SetActive(true);
             }
         }
     }

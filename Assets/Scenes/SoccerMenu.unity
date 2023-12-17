@@ -584,7 +584,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 42029087}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1288059670}
+        m_TargetAssemblyTypeName: SoccerMenu, Assembly-CSharp
+        m_MethodName: Red2Left
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &42029087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6726,7 +6738,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1031370506}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1288059670}
+        m_TargetAssemblyTypeName: SoccerMenu, Assembly-CSharp
+        m_MethodName: Blue2Left
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1031370506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8420,7 +8444,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1527933021}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1288059670}
+        m_TargetAssemblyTypeName: SoccerMenu, Assembly-CSharp
+        m_MethodName: Red2Right
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1527933021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11230,7 +11266,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2051407242}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1288059670}
+        m_TargetAssemblyTypeName: SoccerMenu, Assembly-CSharp
+        m_MethodName: Blue2Right
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2051407242
 MonoBehaviour:
   m_ObjectHideFlags: 0
