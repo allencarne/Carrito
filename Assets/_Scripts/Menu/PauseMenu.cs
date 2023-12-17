@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using static SoccerManager;
 
 public class PauseMenu : MonoBehaviour
 {
+    [Header("Pause")]
     [SerializeField] GameObject pauseMenu;
-
-    [SerializeField] GameObject volumeMenu;
-    [SerializeField] GameObject displayMenu;
 
     private void OnEnable()
     {
@@ -24,39 +23,15 @@ public class PauseMenu : MonoBehaviour
     public void ResumeButton()
     {
         pauseMenu.SetActive(false);
-        volumeMenu.SetActive(false);
-        displayMenu.SetActive(false);
 
         Time.timeScale = 1;
 
         SoccerManager.instance.gameState = SoccerManager.GameState.Playing;
     }
 
-    public void VolumeButton()
-    {
-        pauseMenu.SetActive(false);
-
-        volumeMenu.SetActive(true);
-    }
-
-    public void DisplayButton()
-    {
-        pauseMenu.SetActive(false);
-
-        displayMenu.SetActive(true);
-    }
-
     public void QuitButton()
     {
         SceneManager.LoadScene("MainMenu");
-    }
-
-    public void BackButon()
-    {
-        pauseMenu.SetActive(true);
-
-        volumeMenu.SetActive(false);
-        displayMenu.SetActive(false);
     }
 
     // Game UI
