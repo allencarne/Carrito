@@ -8,11 +8,13 @@ public class PlayerCustomization : MonoBehaviour
     [SerializeField] CarOptions redOptions;
 
     [SerializeField] SpriteRenderer body;
+    [SerializeField] SpriteRenderer _light;
     [SerializeField] SpriteRenderer tire;
     [SerializeField] SpriteRenderer wing;
     [SerializeField] TrailRenderer trail;
 
     private int bodyIndex = 0;
+    private int lightIndex = 0;
     private int tireIndex = 0;
     private int wingIndex = 0;
     private int paintIndex = 0;
@@ -46,6 +48,7 @@ public class PlayerCustomization : MonoBehaviour
 
             // Load customization options from PlayerPrefs
             bodyIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "BodyIndex", 0);
+            lightIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "LightIndex", 0);
             tireIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "TireIndex", 0);
             wingIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "WingIndex", 0);
             paintIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "PaintIndex", 0);
@@ -59,7 +62,13 @@ public class PlayerCustomization : MonoBehaviour
         {
             // Set Body Based on Player Prefs
             if (options.bodys.Length > 0)
+            {
                 body.sprite = options.bodys[bodyIndex];
+
+                // Set Light based on the selected body index
+                if (options.lights.Length > 0)
+                    lightIndex = Mathf.Clamp(bodyIndex, 0, options.lights.Length - 1);
+            }
 
             // Set Tire Based on Player Prefs
             if (options.tires.Length > 0)
@@ -81,7 +90,14 @@ public class PlayerCustomization : MonoBehaviour
         {
             // Body
             if (options.bodys.Length > 0)
-                body.sprite = options.bodys[Random.Range(0, options.bodys.Length)];
+            {
+                int randomBodyIndex = Random.Range(0, options.bodys.Length);
+                body.sprite = options.bodys[randomBodyIndex];
+
+                // Light
+                if (options.lights.Length > 0)
+                    lightIndex = Mathf.Clamp(randomBodyIndex, 0, options.lights.Length - 1);
+            }
 
             // Tire
             if (options.tires.Length > 0)

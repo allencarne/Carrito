@@ -13,6 +13,7 @@ public class CustomizeMenu : MonoBehaviour
     [SerializeField] CarOptions redOptions;
 
     [SerializeField] Image body;
+    [SerializeField] Image _light;
     [SerializeField] Image tire;
     [SerializeField] Image wing;
     [SerializeField] TrailRenderer trail;
@@ -20,6 +21,9 @@ public class CustomizeMenu : MonoBehaviour
     [SerializeField] TextMeshProUGUI bodyText;
     private int blueBodyIndex = 0;
     private int redBodyIndex = 0;
+
+    private int blueLightIndex = 0;
+    private int redLightIndex = 0;
 
     [SerializeField] TextMeshProUGUI tireText;
     private int blueTireIndex = 0;
@@ -61,15 +65,16 @@ public class CustomizeMenu : MonoBehaviour
 
     public void SavePlayerPrefs()
     {
-        SaveTeamPrefs("Blue_", blueBodyIndex, blueTireIndex, blueWingIndex, bluePaintIndex, blueTrailIndex);
-        SaveTeamPrefs("Red_", redBodyIndex, redTireIndex, redWingIndex, redPaintIndex, redTrailIndex);
+        SaveTeamPrefs("Blue_", blueBodyIndex, blueLightIndex, blueTireIndex, blueWingIndex, bluePaintIndex, blueTrailIndex);
+        SaveTeamPrefs("Red_", redBodyIndex, redLightIndex, redTireIndex, redWingIndex, redPaintIndex, redTrailIndex);
 
         PlayerPrefs.Save();
     }
 
-    private void SaveTeamPrefs(string keyPrefix, int bodyIndex, int tireIndex, int wingIndex, int paintIndex, int trailIndex)
+    private void SaveTeamPrefs(string keyPrefix, int bodyIndex, int lightIndex, int tireIndex, int wingIndex, int paintIndex, int trailIndex)
     {
         PlayerPrefs.SetInt(PLAYERPREFS_PREFIX + keyPrefix + "BodyIndex", bodyIndex);
+        PlayerPrefs.SetInt(PLAYERPREFS_PREFIX + keyPrefix + "LightIndex", lightIndex);
         PlayerPrefs.SetInt(PLAYERPREFS_PREFIX + keyPrefix + "TireIndex", tireIndex);
         PlayerPrefs.SetInt(PLAYERPREFS_PREFIX + keyPrefix + "WingIndex", wingIndex);
         PlayerPrefs.SetInt(PLAYERPREFS_PREFIX + keyPrefix + "PaintIndex", paintIndex);
@@ -78,13 +83,14 @@ public class CustomizeMenu : MonoBehaviour
 
     private void LoadPlayerPrefs()
     {
-        LoadTeamPrefs("Blue_", ref blueBodyIndex, ref blueTireIndex, ref blueWingIndex, ref bluePaintIndex, ref blueTrailIndex);
-        LoadTeamPrefs("Red_", ref redBodyIndex, ref redTireIndex, ref redWingIndex, ref redPaintIndex, ref redTrailIndex);
+        LoadTeamPrefs("Blue_", ref blueBodyIndex, ref blueLightIndex, ref blueTireIndex, ref blueWingIndex, ref bluePaintIndex, ref blueTrailIndex);
+        LoadTeamPrefs("Red_", ref redBodyIndex, ref redLightIndex, ref redTireIndex, ref redWingIndex, ref redPaintIndex, ref redTrailIndex);
     }
 
-    private void LoadTeamPrefs(string keyPrefix, ref int bodyIndex, ref int tireIndex, ref int wingIndex, ref int paintIndex, ref int trailIndex)
+    private void LoadTeamPrefs(string keyPrefix, ref int bodyIndex, ref int lightIndex, ref int tireIndex, ref int wingIndex, ref int paintIndex, ref int trailIndex)
     {
         bodyIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "BodyIndex", 0);
+        lightIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "LightIndex", 0);
         tireIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "TireIndex", 0);
         wingIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "WingIndex", 0);
         paintIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "PaintIndex", 0);
@@ -230,8 +236,12 @@ public class CustomizeMenu : MonoBehaviour
         if (options.bodys.Length > 0)
             body.sprite = options.bodys[bodyIndex];
 
-       // Tires
-       if (options.tires.Length > 0)
+        // Light
+        if (options.lights.Length > 0)
+            _light.sprite = options.lights[Mathf.Clamp(bodyIndex, 0, options.lights.Length - 1)];
+
+        // Tires
+        if (options.tires.Length > 0)
            tire.sprite = options.tires[tireIndex];
 
         // Wing

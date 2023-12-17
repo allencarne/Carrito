@@ -286,8 +286,15 @@ public class SoccerManager : MonoBehaviour
             case GameMode.OneVsOne:
                 CountDown();
                 SpawnBall();
-                //SpawnBlue1();
-                //SpawnRed1();
+
+                int randomBlueSpawnIndex = Random.Range(0, blueSpawnPoints.Length);
+                Transform selectedBlueSpawnPoint = blueSpawnPoints[randomBlueSpawnIndex];
+
+                int randomRedSpawnIndex = Random.Range(0, redSpawnPoints.Length);
+                Transform selectedRedSpawnPoint = redSpawnPoints[randomRedSpawnIndex];
+
+                SpawnBlue1(selectedBlueSpawnPoint);
+                SpawnRed1(selectedRedSpawnPoint);
 
                 break;
             case GameMode.TwoVsTwo:

@@ -15,17 +15,37 @@ MonoBehaviour:
   bodys:
   - {fileID: 21300000, guid: efc00d4b48344b24c8fe3ce8793e72b4, type: 3}
   - {fileID: 21300000, guid: abdd73a4f327b6943ab9aeda694378fd, type: 3}
+  - {fileID: 21300000, guid: c1949de0308556247abb3f7e38184ab5, type: 3}
+  - {fileID: 21300000, guid: dc9b923b0c40e5446b7ebe2c26aa84f8, type: 3}
+  - {fileID: 21300000, guid: bac5a6317632d8441b3db3d92e4e7b70, type: 3}
+  lights:
+  - {fileID: 21300000, guid: efc3c77848362894b99ca678cc73ab77, type: 3}
+  - {fileID: 21300000, guid: 2348b1089a3cad348bf8c9b085536b56, type: 3}
+  - {fileID: 21300000, guid: 4b40a51ca9294e7448d1270da7a761a9, type: 3}
+  - {fileID: 21300000, guid: 1de38e426710c7b4488a1b86b331bbb8, type: 3}
+  - {fileID: 21300000, guid: c7ff8e146d8f9174eb2ce9378ae94fdc, type: 3}
   tires:
   - {fileID: 21300000, guid: df3e70e69b7c3af45a546f401f35010f, type: 3}
   - {fileID: 21300000, guid: 720daee2b1519bf48a69480499143770, type: 3}
   - {fileID: 21300000, guid: a10e07998c77c35439489c97db40b9b2, type: 3}
+  - {fileID: 21300000, guid: 19bd6194afd04064e902dca527534046, type: 3}
   wings:
   - {fileID: 21300000, guid: 103e73db300ae724f8db395cfe383907, type: 3}
   - {fileID: 21300000, guid: e3541b12fef1cd0408c7dff0853448d7, type: 3}
   - {fileID: 21300000, guid: 259a2d5587231a04aae6e7c3d013e53a, type: 3}
+  - {fileID: 21300000, guid: e241aaaa569195843ba67ee0e6cd2630, type: 3}
+  - {fileID: 21300000, guid: d2a37e0265f67f542bce9e3e2c8b27f5, type: 3}
   paint:
+  - {r: 1, g: 0.7028302, b: 0.7028302, a: 1}
+  - {r: 1, g: 0.3915094, b: 0.3915094, a: 1}
   - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 0.46226418, g: 0, b: 0, a: 1}
+  - {r: 0.49056602, g: 0, b: 0, a: 1}
+  - {r: 0.2924528, g: 0.07863118, b: 0.07863118, a: 1}
+  - {r: 1, g: 0.8452556, b: 0.75, a: 1}
+  - {r: 1, g: 0.64069873, b: 0.41037738, a: 1}
+  - {r: 1, g: 0.38666672, b: 0, a: 1}
+  - {r: 0.6509434, g: 0.25271922, b: 0, a: 1}
+  - {r: 0.4056604, g: 0.22106603, b: 0.10524209, a: 1}
   trails:
   - serializedVersion: 2
     key0: {r: 0.9882878, g: 1, b: 0, a: 1}

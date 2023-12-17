@@ -6,6 +6,7 @@ using UnityEngine;
 public class CarOptions : ScriptableObject
 {
     public Sprite[] bodys;
+    public Sprite[] lights;
     public Sprite[] tires;
     public Sprite[] wings;
 
