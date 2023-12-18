@@ -67,7 +67,10 @@ public class PlayerCustomization : MonoBehaviour
 
                 // Set Light based on the selected body index
                 if (options.lights.Length > 0)
+                {
                     lightIndex = Mathf.Clamp(bodyIndex, 0, options.lights.Length - 1);
+                    _light.sprite = options.lights[lightIndex];  // Update _light sprite based on lightIndex
+                }
             }
 
             // Set Tire Based on Player Prefs
@@ -96,7 +99,10 @@ public class PlayerCustomization : MonoBehaviour
 
                 // Light
                 if (options.lights.Length > 0)
+                {
                     lightIndex = Mathf.Clamp(randomBodyIndex, 0, options.lights.Length - 1);
+                    _light.sprite = options.lights[lightIndex];  // Update _light sprite based on lightIndex
+                }
             }
 
             // Tire

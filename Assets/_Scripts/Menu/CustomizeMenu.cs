@@ -52,13 +52,13 @@ public class CustomizeMenu : MonoBehaviour
     {
         if (isBlueActive)
         {
-            SelectCarOptions(blueOptions, blueBodyIndex, blueTireIndex, blueWingIndex, bluePaintIndex, blueTrailIndex);
+            SelectCarOptions(blueOptions, blueBodyIndex, blueLightIndex, blueTireIndex, blueWingIndex, bluePaintIndex, blueTrailIndex);
             UpdateText(blueBodyIndex, blueTireIndex, blueWingIndex, bluePaintIndex, blueTrailIndex);
 
         }
         else
         {
-            SelectCarOptions(redOptions, redBodyIndex, redTireIndex, redWingIndex, redPaintIndex, redTrailIndex);
+            SelectCarOptions(redOptions, redBodyIndex, redLightIndex, redTireIndex, redWingIndex, redPaintIndex, redTrailIndex);
             UpdateText(redBodyIndex, redTireIndex, redWingIndex, redPaintIndex, redTrailIndex);
         }
     }
@@ -115,10 +115,12 @@ public class CustomizeMenu : MonoBehaviour
         if (isBlueActive)
         {
             blueBodyIndex = (blueBodyIndex - 1 + blueOptions.bodys.Length) % blueOptions.bodys.Length;
+            blueLightIndex = Mathf.Clamp(blueBodyIndex, 0, blueOptions.lights.Length - 1);
         }
         else
         {
             redBodyIndex = (redBodyIndex - 1 + redOptions.bodys.Length) % redOptions.bodys.Length;
+            redLightIndex = Mathf.Clamp(redBodyIndex, 0, redOptions.lights.Length - 1);
         }
     }
 
@@ -127,10 +129,12 @@ public class CustomizeMenu : MonoBehaviour
         if (isBlueActive)
         {
             blueBodyIndex = (blueBodyIndex + 1) % blueOptions.bodys.Length;
+            blueLightIndex = Mathf.Clamp(blueBodyIndex, 0, blueOptions.lights.Length - 1);
         }
         else
         {
             redBodyIndex = (redBodyIndex + 1) % redOptions.bodys.Length;
+            redLightIndex = Mathf.Clamp(redBodyIndex, 0, redOptions.lights.Length - 1);
         }
     }
 
@@ -230,7 +234,7 @@ public class CustomizeMenu : MonoBehaviour
         }
     }
 
-    public void SelectCarOptions(CarOptions options, int bodyIndex, int tireIndex, int wingIndex, int paintIndex, int trailIndex)
+    public void SelectCarOptions(CarOptions options, int bodyIndex, int lightIndex, int tireIndex, int wingIndex, int paintIndex, int trailIndex)
     {
         // Body
         if (options.bodys.Length > 0)
@@ -238,7 +242,7 @@ public class CustomizeMenu : MonoBehaviour
 
         // Light
         if (options.lights.Length > 0)
-            _light.sprite = options.lights[Mathf.Clamp(bodyIndex, 0, options.lights.Length - 1)];
+            _light.sprite = options.lights[Mathf.Clamp(lightIndex, 0, options.lights.Length - 1)];
 
         // Tires
         if (options.tires.Length > 0)
