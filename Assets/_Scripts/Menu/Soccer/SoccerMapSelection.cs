@@ -19,6 +19,10 @@ public class SoccerMapSelection : MonoBehaviour
         Blue,
         Red,
         Black,
+        Purple,
+        Pink,
+        Yellow,
+        Brown,
     }
 
     MapType mapType = MapType.Random;

@@ -31,18 +31,30 @@ public class SoccerManager : MonoBehaviour
 
     [SerializeField] SpriteRenderer ground;
     [SerializeField] SpriteRenderer lines;
-
+    [Header("Green")]
     [SerializeField] Color groundColorGreen;
     [SerializeField] Color lineColorGreen;
-
+    [Header("Red")]
     [SerializeField] Color groundColorRed;
     [SerializeField] Color linesColorRed;
-
+    [Header("Blue")]
     [SerializeField] Color groundColorBlue;
     [SerializeField] Color linesColorBlue;
-
+    [Header("Black")]
     [SerializeField] Color groundColorBlack;
     [SerializeField] Color linesColorBlack;
+    [Header("Purple")]
+    [SerializeField] Color groundColorPurple;
+    [SerializeField] Color linesColorPurple;
+    [Header("Pink")]
+    [SerializeField] Color groundColorPink;
+    [SerializeField] Color linesColorPink;
+    [Header("Yellow")]
+    [SerializeField] Color groundColorYellow;
+    [SerializeField] Color linesColorYellow;
+    [Header("Brown")]
+    [SerializeField] Color groundColorBrown;
+    [SerializeField] Color linesColorBrown;
 
     [Header("Players")]
     [SerializeField] GameObject player;
@@ -144,6 +156,10 @@ public class SoccerManager : MonoBehaviour
         Blue,
         Red,
         Black,
+        Purple,
+        Pink,
+        Yellow,
+        Brown,
     }
 
     private void OnEnable()
@@ -209,6 +225,26 @@ public class SoccerManager : MonoBehaviour
                     case MapType.Black:
                         ground.color = groundColorBlack;
                         lines.color = linesColorBlack;
+                        break;
+
+                    case MapType.Purple:
+                        ground.color = groundColorPurple;
+                        lines.color = linesColorPurple;
+                        break;
+
+                    case MapType.Pink:
+                        ground.color = groundColorPink;
+                        lines.color = linesColorPink;
+                        break;
+
+                    case MapType.Yellow:
+                        ground.color = groundColorYellow;
+                        lines.color = linesColorYellow;
+                        break;
+
+                    case MapType.Brown:
+                        ground.color = groundColorBrown;
+                        lines.color = linesColorBrown;
                         break;
                 }
             }
