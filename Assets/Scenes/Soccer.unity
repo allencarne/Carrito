@@ -681,7 +681,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25.45
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.y
@@ -721,7 +721,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571562, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_Name
-      value: SmallBoostPack (5)
+      value: Small - Middle Right
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -881,11 +881,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.04
+      value: -7
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.11
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -921,7 +921,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571562, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_Name
-      value: SmallBoostPack (6)
+      value: Small - Close Top Left
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -942,11 +942,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.69
+      value: 12.5
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.16
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -982,7 +982,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571562, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_Name
-      value: SmallBoostPack (17)
+      value: Small - Top Right
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1013,11 +1013,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8608438746356857361, guid: b64b9f9a0d7e1d343b0994fb0ef89bb0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.88
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 8608438746356857361, guid: b64b9f9a0d7e1d343b0994fb0ef89bb0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.96
+      value: -12
       objectReference: {fileID: 0}
     - target: {fileID: 8608438746356857361, guid: b64b9f9a0d7e1d343b0994fb0ef89bb0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1053,7 +1053,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8608438746356857365, guid: b64b9f9a0d7e1d343b0994fb0ef89bb0, type: 3}
       propertyPath: m_Name
-      value: BoostPack (2)
+      value: Big - Bottom Left
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1344,11 +1344,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8608438746356857361, guid: b64b9f9a0d7e1d343b0994fb0ef89bb0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25.02
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8608438746356857361, guid: b64b9f9a0d7e1d343b0994fb0ef89bb0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.3
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8608438746356857361, guid: b64b9f9a0d7e1d343b0994fb0ef89bb0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1384,7 +1384,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8608438746356857365, guid: b64b9f9a0d7e1d343b0994fb0ef89bb0, type: 3}
       propertyPath: m_Name
-      value: BoostPack (1)
+      value: Big - Top Right
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2478,11 +2478,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8608438746356857361, guid: b64b9f9a0d7e1d343b0994fb0ef89bb0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 24.75
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8608438746356857361, guid: b64b9f9a0d7e1d343b0994fb0ef89bb0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.62
+      value: -12
       objectReference: {fileID: 0}
     - target: {fileID: 8608438746356857361, guid: b64b9f9a0d7e1d343b0994fb0ef89bb0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2518,7 +2518,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8608438746356857365, guid: b64b9f9a0d7e1d343b0994fb0ef89bb0, type: 3}
       propertyPath: m_Name
-      value: BoostPack (3)
+      value: Big - Bottom Right
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2645,11 +2645,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.86
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.33
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2685,7 +2685,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571562, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_Name
-      value: SmallBoostPack (7)
+      value: Small - Close Top Right
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3128,7 +3128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.12
+      value: -12.5
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3168,7 +3168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571562, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_Name
-      value: SmallBoostPack (10)
+      value: Small - Left Center
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3934,7 +3934,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.46
+      value: 12.5
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3974,7 +3974,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571562, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_Name
-      value: SmallBoostPack (11)
+      value: Small - Right Center
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4193,11 +4193,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.67
+      value: -18
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.37
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4233,7 +4233,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571562, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_Name
-      value: SmallBoostPack (12)
+      value: Small - Top Left
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4645,11 +4645,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.62
+      value: -12.5
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.16
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4685,7 +4685,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571562, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_Name
-      value: SmallBoostPack (16)
+      value: Small - Top Left
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10440,7 +10440,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8608438746356857361, guid: b64b9f9a0d7e1d343b0994fb0ef89bb0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.08
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8608438746356857361, guid: b64b9f9a0d7e1d343b0994fb0ef89bb0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10476,7 +10476,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8608438746356857365, guid: b64b9f9a0d7e1d343b0994fb0ef89bb0, type: 3}
       propertyPath: m_Name
-      value: BoostPack (4)
+      value: Big - Top Middle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11676,11 +11676,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8608438746356857361, guid: b64b9f9a0d7e1d343b0994fb0ef89bb0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -25.16
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 8608438746356857361, guid: b64b9f9a0d7e1d343b0994fb0ef89bb0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.03
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8608438746356857361, guid: b64b9f9a0d7e1d343b0994fb0ef89bb0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11716,7 +11716,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8608438746356857365, guid: b64b9f9a0d7e1d343b0994fb0ef89bb0, type: 3}
       propertyPath: m_Name
-      value: BoostPack
+      value: Big - Top Left
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12151,7 +12151,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571562, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_Name
-      value: SmallBoostPack (2)
+      value: Small - Center Bottom
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12306,11 +12306,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.48
+      value: -12.5
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.81
+      value: -12
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -12346,7 +12346,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571562, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_Name
-      value: SmallBoostPack (19)
+      value: Small - Bottom Left
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12595,11 +12595,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.57
+      value: -18
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.58
+      value: -4.5
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -12635,7 +12635,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571562, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_Name
-      value: SmallBoostPack (14)
+      value: Small - Bottom Left
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13081,7 +13081,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.68
+      value: -4.65
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13121,7 +13121,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571562, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_Name
-      value: SmallBoostPack (3)
+      value: Small - Center Left
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13792,11 +13792,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20.63
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.95
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13832,7 +13832,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571562, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_Name
-      value: SmallBoostPack (13)
+      value: Small - Top Right
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14114,7 +14114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571562, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_Name
-      value: SmallBoostPack
+      value: Small - Center Top
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14402,11 +14402,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.68
+      value: 4.65
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.05
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14442,7 +14442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571562, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_Name
-      value: SmallBoostPack (1)
+      value: Small - Center Right
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15091,11 +15091,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.97
+      value: -7
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.4
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -15131,7 +15131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571562, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_Name
-      value: SmallBoostPack (8)
+      value: Small - Close Bottom Left
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15570,11 +15570,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.69
+      value: 12.5
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.81
+      value: -12
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -15610,7 +15610,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571562, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_Name
-      value: SmallBoostPack (18)
+      value: Small - Bottom Right
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15881,11 +15881,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20.69
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.31
+      value: -4.5
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -15921,7 +15921,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571562, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_Name
-      value: SmallBoostPack (15)
+      value: Small - Bottom Right
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16530,26 +16530,26 @@ Transform:
   - {fileID: 708326892}
   - {fileID: 284846553}
   - {fileID: 241085853}
-  - {fileID: 1908252932}
-  - {fileID: 1565324939}
-  - {fileID: 826671089}
-  - {fileID: 921255591}
+  - {fileID: 847422875}
+  - {fileID: 196894780}
+  - {fileID: 1130398201}
+  - {fileID: 1617608541}
   - {fileID: 202639650}
   - {fileID: 1228188217}
-  - {fileID: 1158169720}
-  - {fileID: 1556926837}
-  - {fileID: 924737377}
-  - {fileID: 99881}
-  - {fileID: 16980938}
-  - {fileID: 1999864135}
   - {fileID: 518339002}
   - {fileID: 171009632}
   - {fileID: 1846741692}
   - {fileID: 408828968}
-  - {fileID: 847422875}
-  - {fileID: 196894780}
-  - {fileID: 1617608541}
-  - {fileID: 1130398201}
+  - {fileID: 16980938}
+  - {fileID: 1999864135}
+  - {fileID: 921255591}
+  - {fileID: 1565324939}
+  - {fileID: 1908252932}
+  - {fileID: 826671089}
+  - {fileID: 1158169720}
+  - {fileID: 1556926837}
+  - {fileID: 924737377}
+  - {fileID: 99881}
   m_Father: {fileID: 14886241}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1752758307
@@ -16699,11 +16699,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.53
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.4
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16739,7 +16739,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571562, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_Name
-      value: SmallBoostPack (9)
+      value: Small - Close Bottom Right
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17474,7 +17474,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8608438746356857361, guid: b64b9f9a0d7e1d343b0994fb0ef89bb0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12.01
+      value: -12
       objectReference: {fileID: 0}
     - target: {fileID: 8608438746356857361, guid: b64b9f9a0d7e1d343b0994fb0ef89bb0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -17510,7 +17510,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8608438746356857365, guid: b64b9f9a0d7e1d343b0994fb0ef89bb0, type: 3}
       propertyPath: m_Name
-      value: BoostPack (5)
+      value: Big - Bottom Middle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18693,7 +18693,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -25.38
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571542, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18733,7 +18733,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828056642174571562, guid: 226e4cfa2746921419ad68e39c94a9aa, type: 3}
       propertyPath: m_Name
-      value: SmallBoostPack (4)
+      value: Small - Middle Left
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
