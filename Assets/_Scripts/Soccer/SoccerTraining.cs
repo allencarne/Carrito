@@ -18,7 +18,7 @@ public class SoccerTraining : MonoBehaviour
 
     private void Start()
     {
-        trainingPanel.SetActive(true);
+        //trainingPanel.SetActive(true);
     }
 
     public void Striker1()
