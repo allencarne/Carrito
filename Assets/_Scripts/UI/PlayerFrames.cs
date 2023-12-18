@@ -6,26 +6,32 @@ using UnityEngine.UI;
 
 public class PlayerFrames : MonoBehaviour
 {
+    [SerializeField] GameObject blue1Frame;
     [SerializeField] Image blue1Boost;
     float blue1cBoost;
     float blue1mBoost;
 
+    [SerializeField] GameObject blue2Frame;
     [SerializeField] Image blue2Boost;
     float blue2cBoost;
     float blue2mBoost;
 
+    [SerializeField] GameObject blue3Frame;
     [SerializeField] Image blue3Boost;
     float blue3cBoost;
     float blue3mBoost;
 
+    [SerializeField] GameObject red1Frame;
     [SerializeField] Image red1Boost;
     float red1cBoost;
     float red1mBoost;
 
+    [SerializeField] GameObject red2Frame;
     [SerializeField] Image red2Boost;
     float red2cBoost;
     float red2mBoost;
 
+    [SerializeField] GameObject red3Frame;
     [SerializeField] Image red3Boost;
     float red3cBoost;
     float red3mBoost;
@@ -50,6 +56,53 @@ public class PlayerFrames : MonoBehaviour
 
     PlayerType blue3PlayerType = PlayerType.None;
     PlayerType red3PlayerType = PlayerType.None;
+
+    private void Start()
+    {
+        switch (SoccerManager.instance.gameMode)
+        {
+            case SoccerManager.GameMode.FreePlay:
+                blue1Frame.SetActive(true);
+                blue2Frame.SetActive(false);
+                blue3Frame.SetActive(false);
+                red1Frame.SetActive(false);
+                red2Frame.SetActive(false);
+                red3Frame.SetActive(false);
+                break;
+            case SoccerManager.GameMode.Training:
+                blue1Frame.SetActive(true);
+                blue2Frame.SetActive(false);
+                blue3Frame.SetActive(false);
+                red1Frame.SetActive(false);
+                red2Frame.SetActive(false);
+                red3Frame.SetActive(false);
+                break;
+            case SoccerManager.GameMode.OneVsOne:
+                blue1Frame.SetActive(true);
+                blue2Frame.SetActive(false);
+                blue3Frame.SetActive(false);
+                red1Frame.SetActive(true);
+                red2Frame.SetActive(false);
+                red3Frame.SetActive(false);
+                break;
+            case SoccerManager.GameMode.TwoVsTwo:
+                blue1Frame.SetActive(true);
+                blue2Frame.SetActive(true);
+                blue3Frame.SetActive(false);
+                red1Frame.SetActive(true);
+                red2Frame.SetActive(true);
+                red3Frame.SetActive(false);
+                break;
+            case SoccerManager.GameMode.ThreeVsThree:
+                blue1Frame.SetActive(true);
+                blue2Frame.SetActive(true);
+                blue3Frame.SetActive(true);
+                red1Frame.SetActive(true);
+                red2Frame.SetActive(true);
+                red3Frame.SetActive(true);
+                break;
+        }
+    }
 
     // Update is called once per frame
     void Update()
