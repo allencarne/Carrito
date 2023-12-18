@@ -3077,7 +3077,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &328165218
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12615,7 +12615,7 @@ MonoBehaviour:
     GameObject: {fileID: 1749665332}
     Ordinal: 3
     Priority: 0
-    IconType: 138700
+    IconType: 4000
     IconTexture: {fileID: 0}
     IsIconRecursive: 0
     BackgroundType: 4000
@@ -12843,10 +12843,10 @@ MonoBehaviour:
     GameObject: {fileID: 1695192147}
     Ordinal: 22
     Priority: 0
-    IconType: 138750
+    IconType: 11000
     IconTexture: {fileID: 0}
     IsIconRecursive: 0
-    BackgroundType: 2000
+    BackgroundType: 12000
     BackgroundTexture: {fileID: 0}
     IsBackgroundRecursive: 0
     IsHidden: 0
@@ -13339,6 +13339,30 @@ MonoBehaviour:
     IconTexture: {fileID: 0}
     IsIconRecursive: 0
     BackgroundType: 20000
+    BackgroundTexture: {fileID: 0}
+    IsBackgroundRecursive: 0
+    IsHidden: 0
+  - Type: 0
+    Name: 
+    GameObject: {fileID: 328165217}
+    Ordinal: 64
+    Priority: 0
+    IconType: 5000
+    IconTexture: {fileID: 0}
+    IsIconRecursive: 0
+    BackgroundType: 4000
+    BackgroundTexture: {fileID: 0}
+    IsBackgroundRecursive: 0
+    IsHidden: 0
+  - Type: 0
+    Name: 
+    GameObject: {fileID: 1198609283}
+    Ordinal: 65
+    Priority: 0
+    IconType: 11000
+    IconTexture: {fileID: 0}
+    IsIconRecursive: 0
+    BackgroundType: 12000
     BackgroundTexture: {fileID: 0}
     IsBackgroundRecursive: 0
     IsHidden: 0
@@ -24432,6 +24456,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1956923910}
+  - component: {fileID: 1956923911}
   - component: {fileID: 1956923909}
   m_Layer: 0
   m_Name: SoccerManager
@@ -24518,6 +24543,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1956923911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956923908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 025cce46f532dea4582238d062e5a6c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ground: {fileID: 1198609285}
+  lines: {fileID: 1695192150}
+  groundColorGreen: {r: 0.121568635, g: 0.23529413, b: 0.10980393, a: 1}
+  lineColorGreen: {r: 1, g: 1, b: 1, a: 1}
+  groundColorRed: {r: 0.28235295, g: 0.054901965, b: 0.054901965, a: 1}
+  linesColorRed: {r: 1, g: 0.9686275, b: 0.5254902, a: 1}
+  groundColorBlue: {r: 0.13333334, g: 0.30980393, b: 0.43529415, a: 1}
+  linesColorBlue: {r: 1, g: 1, b: 1, a: 1}
+  groundColorBlack: {r: 0.08627451, g: 0.08627451, b: 0.08627451, a: 1}
+  linesColorBlack: {r: 1, g: 1, b: 1, a: 1}
+  groundColorPurple: {r: 0.28235295, g: 0.14509805, b: 0.35686275, a: 1}
+  linesColorPurple: {r: 1, g: 1, b: 1, a: 1}
+  groundColorPink: {r: 0.6901961, g: 0.5294118, b: 0.6862745, a: 1}
+  linesColorPink: {r: 0, g: 0, b: 0, a: 1}
+  groundColorYellow: {r: 0.5647059, g: 0.5647059, b: 0.2627451, a: 1}
+  linesColorYellow: {r: 0, g: 0, b: 0, a: 1}
+  groundColorBrown: {r: 0.27450982, g: 0.23137257, b: 0.12941177, a: 1}
+  linesColorBrown: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1965727091
 GameObject:
   m_ObjectHideFlags: 0
