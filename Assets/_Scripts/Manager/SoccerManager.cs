@@ -29,6 +29,8 @@ public class SoccerManager : MonoBehaviour
 
     #endregion
 
+    [SerializeField] SoccerTraining soccerTraining;
+
     [Header("Players")]
     [SerializeField] GameObject player;
     [SerializeField] GameObject BlueAI;
@@ -218,8 +220,18 @@ public class SoccerManager : MonoBehaviour
 
                 break;
             case GameMode.Training:
-                CountDown();
-                SpawnBall();
+                switch (soccerTraining.training)
+                {
+                    case SoccerTraining.Training.None:
+
+                        break;
+                    case SoccerTraining.Training.Striker1:
+                        break;
+                    case SoccerTraining.Training.Striker2:
+                        break;
+                    case SoccerTraining.Training.Striker3:
+                        break;
+                }
                 break;
             case GameMode.OneVsOne:
                 CountDown();
