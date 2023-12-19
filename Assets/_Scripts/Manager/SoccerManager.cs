@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
+using static SoccerTraining;
 
 public class SoccerManager : MonoBehaviour
 {
@@ -222,16 +223,34 @@ public class SoccerManager : MonoBehaviour
             case GameMode.Training:
                 switch (soccerTraining.training)
                 {
-                    case SoccerTraining.Training.None:
+                    case Training.Striker1:
+
+                        if (soccerTraining.trainingPanel.activeSelf)
+                        {
+                            soccerTraining.trainingPanel.SetActive(false);
+
+                            Debug.Log("Test");
+
+                            soccerTraining.carTransform = soccerTraining.striker1;
+
+                            soccerTraining.ballTransform = soccerTraining.striker1Ball;
+
+                            SpawnTrainingPlayer(soccerTraining.carTransform);
+
+                            SpawnTrainingBall(soccerTraining.ballTransform, 1000);
+
+                            CountDown();
+
+                            gameState = GameState.CountDown;
+                        }
 
                         break;
-                    case SoccerTraining.Training.Striker1:
+                    case Training.Striker2:
                         break;
-                    case SoccerTraining.Training.Striker2:
-                        break;
-                    case SoccerTraining.Training.Striker3:
+                    case Training.Striker3:
                         break;
                 }
+
                 break;
             case GameMode.OneVsOne:
                 CountDown();
@@ -573,6 +592,33 @@ public class SoccerManager : MonoBehaviour
         if (ballInstance == null)
         {
             ballInstance = Instantiate(ball, ballSpawnPoint);
+        }
+    }
+
+    void SpawnTrainingBall(Transform ballPos, float speed)
+    {
+        if (ballInstance == null)
+        {
+            ballInstance = Instantiate(ball, ballPos);
+
+            Rigidbody ballRigidbody = ballInstance.GetComponent<Rigidbody>();
+
+            if (ballRigidbody != null)
+            {
+                ballRigidbody.AddForce(Vector3.forward * speed, ForceMode.VelocityChange);
+            }
+        }
+    }
+
+    public void SpawnTrainingPlayer(Transform carPos)
+    {
+        // Spawn Blue 1 Player
+        if (blue1Instance == null)
+        {
+            blue1Instance = Instantiate(player, carPos.position, carPos.rotation);
+
+            // Assign to Blue
+            blue1Instance.GetComponent<PlayerCustomization>().isBlueTeam = true;
         }
     }
 

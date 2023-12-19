@@ -315,4 +315,5 @@ MonoBehaviour:
   trailSpeed: 20
   blueSide: 0
   redSide: 0
-  whoTouchedTheBallLast: {fileID: 0}
+  whoTouchedTheBallLastBlue: {fileID: 0}
+  whoTouchedTheBallLastRed: {fileID: 0}
