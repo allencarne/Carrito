@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class SoccerTraining : MonoBehaviour
 {
     public GameObject trainingPanel;
-    public TextMeshProUGUI trainingText;
 
     [Header("Car")]
     public Transform carTransform;

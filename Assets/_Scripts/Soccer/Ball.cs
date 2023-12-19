@@ -75,24 +75,37 @@ public class Ball : MonoBehaviour
     {
         if (collision.CompareTag("Blue Goal"))
         {
-            StartCoroutine(ScoreDelay(collision));
-
-            SoccerManager.instance.redScore += 1;
-
-            OnScored?.Invoke();
-
-            GameObject cameraController = GameObject.Find("Camera Controller");
-            if (cameraController != null)
+            if (SoccerManager.instance.gameMode == SoccerManager.GameMode.Training)
             {
-                if (whoTouchedTheBallLastRed != null)
+                Time.timeScale = 0;
+
+                SoccerManager.instance.trainingText.color = Color.red;
+                SoccerManager.instance.trainingText.text = "Failed!";
+                SoccerManager.instance.trainingText.gameObject.SetActive(true);
+
+                StartCoroutine(SoccerManager.instance.TrainingEndDelay());
+            }
+            else
+            {
+                StartCoroutine(ScoreDelay(collision));
+
+                SoccerManager.instance.redScore += 1;
+
+                OnScored?.Invoke();
+
+                GameObject cameraController = GameObject.Find("Camera Controller");
+                if (cameraController != null)
                 {
-                    cameraController.GetComponent<CameraFollowAndZoom>().target = whoTouchedTheBallLastRed.transform;
-                }
-                else
-                {
-                    if (SoccerManager.instance.red1Instance)
+                    if (whoTouchedTheBallLastRed != null)
                     {
-                        cameraController.GetComponent<CameraFollowAndZoom>().target = SoccerManager.instance.red1Instance.transform;
+                        cameraController.GetComponent<CameraFollowAndZoom>().target = whoTouchedTheBallLastRed.transform;
+                    }
+                    else
+                    {
+                        if (SoccerManager.instance.red1Instance)
+                        {
+                            cameraController.GetComponent<CameraFollowAndZoom>().target = SoccerManager.instance.red1Instance.transform;
+                        }
                     }
                 }
             }

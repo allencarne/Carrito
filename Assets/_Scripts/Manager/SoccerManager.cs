@@ -31,6 +31,7 @@ public class SoccerManager : MonoBehaviour
 
     #endregion
 
+    public TextMeshProUGUI trainingText;
     [SerializeField] SoccerTraining training;
 
     [Header("Players")]
@@ -600,9 +601,9 @@ public class SoccerManager : MonoBehaviour
         {
             Time.timeScale = 0;
 
-            training.trainingText.color = Color.red;
-            training.trainingText.text = "Failed";
-            training.trainingText.gameObject.SetActive(true);
+            trainingText.color = Color.red;
+            trainingText.text = "Failed!";
+            trainingText.gameObject.SetActive(true);
 
             StartCoroutine(TrainingEndDelay());
         }
@@ -626,7 +627,7 @@ public class SoccerManager : MonoBehaviour
         }
     }
 
-    IEnumerator TrainingEndDelay()
+    public IEnumerator TrainingEndDelay()
     {
         float startTime = Time.realtimeSinceStartup;
         float delay = 2f;
