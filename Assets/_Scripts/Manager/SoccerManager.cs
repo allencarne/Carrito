@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
 using static SoccerTraining;
+using UnityEngine.SceneManagement;
 
 public class SoccerManager : MonoBehaviour
 {
@@ -30,7 +31,7 @@ public class SoccerManager : MonoBehaviour
 
     #endregion
 
-    [SerializeField] SoccerTraining soccerTraining;
+    [SerializeField] SoccerTraining training;
 
     [Header("Players")]
     [SerializeField] GameObject player;
@@ -158,6 +159,11 @@ public class SoccerManager : MonoBehaviour
     private void Start()
     {
         gameOverPanel.SetActive(false);
+
+        if (gameMode == GameMode.Training)
+        {
+            training.trainingPanel.SetActive(true);
+        }
     }
 
     private void Update()
@@ -221,27 +227,23 @@ public class SoccerManager : MonoBehaviour
 
                 break;
             case GameMode.Training:
-                switch (soccerTraining.training)
+
+                switch (training.training)
                 {
                     case Training.Striker1:
 
-                        if (soccerTraining.trainingPanel.activeSelf)
+                        if (training.trainingPanel.activeSelf)
                         {
-                            soccerTraining.trainingPanel.SetActive(false);
+                            training.trainingPanel.SetActive(false);
 
-                            Debug.Log("Test");
+                            training.carTransform = training.striker1;
 
-                            soccerTraining.carTransform = soccerTraining.striker1;
+                            training.ballTransform = training.striker1Ball;
 
-                            soccerTraining.ballTransform = soccerTraining.striker1Ball;
+                            SpawnTrainingPlayer(training.carTransform);
 
-                            SpawnTrainingPlayer(soccerTraining.carTransform);
-
-                            SpawnTrainingBall(soccerTraining.ballTransform, 1000);
-
+                            SpawnTrainingBall(training.ballTransform, 1000);
                             CountDown();
-
-                            gameState = GameState.CountDown;
                         }
 
                         break;
@@ -250,6 +252,7 @@ public class SoccerManager : MonoBehaviour
                     case Training.Striker3:
                         break;
                 }
+
 
                 break;
             case GameMode.OneVsOne:
@@ -373,7 +376,7 @@ public class SoccerManager : MonoBehaviour
         }
     }
 
-    void CountDown()
+    public void CountDown()
     {
         if (canCountDown)
         {
@@ -413,23 +416,41 @@ public class SoccerManager : MonoBehaviour
 
     void PlayingState()
     {
-        isMatchPaused = false;
-
-        CanMove = true;
-
-        if (!isCountdownInProgress && !isMatchPaused)
+        if (gameMode == GameMode.Training)
         {
-            isCountdownInProgress = true;
+            isMatchPaused = false;
 
-            matchTimeText.gameObject.SetActive(true);
+            CanMove = true;
 
-            StartCoroutine(MatchTimeCoroutine());
+            if (!isCountdownInProgress && !isMatchPaused)
+            {
+                isCountdownInProgress = true;
+
+                matchTimeText.gameObject.SetActive(true);
+
+                StartCoroutine(MatchTimeCoroutine(10));
+            }
+        }
+        else
+        {
+            isMatchPaused = false;
+
+            CanMove = true;
+
+            if (!isCountdownInProgress && !isMatchPaused)
+            {
+                isCountdownInProgress = true;
+
+                matchTimeText.gameObject.SetActive(true);
+
+                StartCoroutine(MatchTimeCoroutine(matchDurationInSeconds));
+            }
         }
     }
 
-    IEnumerator MatchTimeCoroutine()
+    IEnumerator MatchTimeCoroutine(float matchDuration)
     {
-        float timeRemaining = matchDurationInSeconds;
+        float timeRemaining = matchDuration;
 
         while (timeRemaining > 0f)
         {
@@ -454,16 +475,23 @@ public class SoccerManager : MonoBehaviour
             }
         }
 
-        // End of Match
-        matchTimeText.gameObject.SetActive(false);
-
-        if (blueScore == redScore)
+        if (gameMode == GameMode.Training)
         {
-            gameState = GameState.OverTime;
+            gameState = GameState.GameOver;
         }
         else
         {
-            gameState = GameState.GameOver;
+            // End of Match
+            matchTimeText.gameObject.SetActive(false);
+
+            if (blueScore == redScore)
+            {
+                gameState = GameState.OverTime;
+            }
+            else
+            {
+                gameState = GameState.GameOver;
+            }
         }
     }
 
@@ -568,21 +596,47 @@ public class SoccerManager : MonoBehaviour
 
     void GameOverState()
     {
-        Time.timeScale = 0;
-
-        gameOverPanel.SetActive(true);
-
-        if (blueScore > redScore)
+        if (gameMode == GameMode.Training)
         {
-            whoWonText.color = Color.blue;
-            whoWonText.text = "Blue Team Won!";
+            Time.timeScale = 0;
+
+            training.trainingText.color = Color.red;
+            training.trainingText.text = "Failed";
+            training.trainingText.gameObject.SetActive(true);
+
+            StartCoroutine(TrainingEndDelay());
+        }
+        else
+        {
+            Time.timeScale = 0;
+
+            gameOverPanel.SetActive(true);
+
+            if (blueScore > redScore)
+            {
+                whoWonText.color = Color.blue;
+                whoWonText.text = "Blue Team Won!";
+            }
+
+            if (redScore > blueScore)
+            {
+                whoWonText.color = Color.red;
+                whoWonText.text = "Red Team Won!";
+            }
+        }
+    }
+
+    IEnumerator TrainingEndDelay()
+    {
+        float startTime = Time.realtimeSinceStartup;
+        float delay = 2f;
+
+        while (Time.realtimeSinceStartup - startTime < delay)
+        {
+            yield return null; // Wait for the next frame
         }
 
-        if (redScore > blueScore)
-        {
-            whoWonText.color = Color.red;
-            whoWonText.text = "Red Team Won!";
-        }
+        SceneManager.LoadScene("Soccer");
     }
 
     #endregion
@@ -595,7 +649,7 @@ public class SoccerManager : MonoBehaviour
         }
     }
 
-    void SpawnTrainingBall(Transform ballPos, float speed)
+    public void SpawnTrainingBall(Transform ballPos, float speed)
     {
         if (ballInstance == null)
         {

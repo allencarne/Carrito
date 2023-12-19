@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class SoccerTraining : MonoBehaviour
 {
     public GameObject trainingPanel;
+    public TextMeshProUGUI trainingText;
 
     [Header("Car")]
     public Transform carTransform;
@@ -163,13 +165,6 @@ public class SoccerTraining : MonoBehaviour
 
     TrainingState state = TrainingState.Selection;
 
-    private void Start()
-    {
-        if (SoccerManager.instance.gameMode == SoccerManager.GameMode.Training)
-        {
-            trainingPanel.SetActive(true);
-        }
-    }
 
     private void Update()
     {
@@ -182,6 +177,46 @@ public class SoccerTraining : MonoBehaviour
             case Training.Striker3:
                 break;
         }
+
+        switch (state)
+        {
+            case TrainingState.Selection:
+                Selection();
+                break;
+            case TrainingState.CountDown:
+                break;
+            case TrainingState.Playing:
+                break;
+            case TrainingState.Paused:
+                break;
+            case TrainingState.GoalScored:
+                break;
+        }
+    }
+
+    void Selection()
+    {
+
+    }
+
+    void CountDown()
+    {
+
+    }
+
+    void Playing()
+    {
+
+    }
+
+    void Paused()
+    {
+
+    }
+
+    void GoalScored()
+    {
+
     }
 
     public void Striker1()

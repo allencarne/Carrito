@@ -90,7 +90,10 @@ public class Ball : MonoBehaviour
                 }
                 else
                 {
-                    cameraController.GetComponent<CameraFollowAndZoom>().target = SoccerManager.instance.red1Instance.transform;
+                    if (SoccerManager.instance.red1Instance)
+                    {
+                        cameraController.GetComponent<CameraFollowAndZoom>().target = SoccerManager.instance.red1Instance.transform;
+                    }
                 }
             }
         }
@@ -112,7 +115,10 @@ public class Ball : MonoBehaviour
                 }
                 else
                 {
-                    cameraController.GetComponent<CameraFollowAndZoom>().target = SoccerManager.instance.blue1Instance.transform;
+                    if (SoccerManager.instance.blue1Instance)
+                    {
+                        cameraController.GetComponent<CameraFollowAndZoom>().target = SoccerManager.instance.blue1Instance.transform;
+                    }
                 }
             }
         }
