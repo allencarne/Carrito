@@ -66,7 +66,7 @@ public class CustomPlayerInput : MonoBehaviour
     {
         if (context.performed)
         {
-            if (SoccerManager.instance.gameMode == SoccerManager.GameMode.FreePlay)
+            if (SoccerManager.instance.gameMode == SoccerManager.GameMode.FreePlay || SoccerManager.instance.gameMode == SoccerManager.GameMode.Training)
             {
                 if (SoccerManager.instance.gameState == SoccerManager.GameState.Playing)
                 {

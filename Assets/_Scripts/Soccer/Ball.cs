@@ -115,7 +115,20 @@ public class Ball : MonoBehaviour
         {
             StartCoroutine(ScoreDelay(collision));
 
-            SoccerManager.instance.blueScore += 1;
+            if (SoccerManager.instance.gameMode == SoccerManager.GameMode.Training)
+            {
+                SoccerManager.instance.trainingText.color = Color.green;
+                SoccerManager.instance.trainingText.text = "Passed!";
+                SoccerManager.instance.trainingText.gameObject.SetActive(true);
+
+                UpdateBubble();
+
+                StartCoroutine(SoccerManager.instance.TrainingEndDelay());
+            }
+            else
+            {
+                SoccerManager.instance.blueScore += 1;
+            }
 
             OnScored?.Invoke();
 
@@ -187,6 +200,25 @@ public class Ball : MonoBehaviour
         if (collision.CompareTag("Red Side"))
         {
             redSide = false;
+        }
+    }
+
+    void UpdateBubble()
+    {
+        SoccerTraining soccerTraining = SoccerManager.instance.GetComponent<SoccerTraining>();
+
+        switch (soccerTraining.training)
+        {
+            case SoccerTraining.Training.Striker1:
+                PlayerPrefs.SetInt("Striker1", 1);
+                PlayerPrefs.Save();
+                break;
+            case SoccerTraining.Training.Striker2:
+
+                break;
+            case SoccerTraining.Training.Striker3:
+
+                break;
         }
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SoccerTraining : MonoBehaviour
 {
@@ -11,64 +12,78 @@ public class SoccerTraining : MonoBehaviour
 
     [Header("Ball")]
     public Transform ballTransform;
-    //public float ballSpeed;
 
     [Header("Striker 1")]
+    [SerializeField] Image striker1bubble;
+
     public Transform striker1;
     public Transform striker1Ball;
 
     [Header("Striker 2")]
-    Vector3 striker2Position;
-    Quaternion striker2Rotation;
+    [SerializeField] Image striker2bubble;
 
-    [Header("Striker 3")] Vector3 striker3Position;
-    Quaternion striker3Rotation;
+    public Transform striker2;
+    public Transform striker2Ball;
 
-    [Header("Striker 4")] Vector3 striker4Position;
-    Quaternion striker4Rotation;
+    [Header("Striker 3")]
+    [SerializeField] Image striker3bubble;
 
-    Vector3 ball4Position;
-    Vector2 ball4direction;
-    float ball4Speed;
+    public Transform striker3;
+    public Transform striker3Ball;
 
-    [Header("Striker 5")] Vector3 striker5Position;
-    Quaternion striker5Rotation;
+    [Header("Striker 4")]
+    [SerializeField] Image striker4bubble;
 
-    Vector3 ball5Position;
-    Vector2 ball5direction;
-    float ball5Speed;
+    public Transform striker4;
+    public Transform striker4Ball;
 
-    [Header("Striker 6")] 
-    Vector3 striker6Position;
-    Quaternion striker6Rotation;
+    [Header("Striker 5")]
+    [SerializeField] Image striker5bubble;
 
-    Vector3 ball6Position;
-    Vector2 ball6direction;
-    float ball6Speed;
+    public Transform striker5;
+    public Transform striker5Ball;
+    public Vector2 ball5direction;
+    public float ball5Speed;
+
+    [Header("Striker 6")]
+    [SerializeField] Image striker6bubble;
+
+    public Transform striker6;
+    public Transform striker6Ball;
+    public Vector2 ball6direction;
+    public float ball6Speed;
 
     [Header("Striker 7")]
-    Vector3 striker7Position;
-    Quaternion striker7Rotation;
+    [SerializeField] Image striker7bubble;
 
-    Vector3 ball7Position;
-    Vector2 ball7direction;
-    float ball7Speed;
+    public Transform striker7;
+    public Transform striker7Ball;
+    public Vector2 ball7direction;
+    public float ball7Speed;
 
     [Header("Striker 8")]
-    Vector3 striker8Position;
-    Quaternion striker8Rotation;
+    [SerializeField] Image striker8bubble;
 
-    Vector3 ball8Position;
-    Vector2 ball8direction;
-    float ball8Speed;
+    public Transform striker8;
+    public Transform striker8Ball;
+    public Vector2 ball8direction;
+    public float ball8Speed;
 
     [Header("Striker 9")]
-    Vector3 striker9Position;
-    Quaternion striker9Rotation;
+    [SerializeField] Image striker9bubble;
 
-    Vector3 ball9Position;
-    Vector2 ball9direction;
-    float ball9Speed;
+    public Transform striker9;
+    public Transform striker9Ball;
+    public Vector2 ball9direction;
+    public float ball9Speed;
+
+    [Header("Striker 10")]
+    [SerializeField] Image striker10bubble;
+
+    public Transform striker10;
+    public Transform striker10Ball;
+    public Vector2 ball10direction;
+    public float ball10Speed;
 
     [Header("Defender 1")]
     Vector3 defender1position;
@@ -148,20 +163,34 @@ public class SoccerTraining : MonoBehaviour
         Striker1,
         Striker2,
         Striker3,
+        Striker4,
+        Striker5,
+        Striker6,
+        Striker7,
+        Striker8,
+        Striker9,
+        Striker10,
+        Defender1,
+        Defender2,
+        Defender3,
+        Defender4,
+        Defender5,
+        Defender6,
+        Defender7,
+        Defender8,
+        Defender9,
+        Defender10,
     }
 
     public Training training = Training.None;
 
-    enum TrainingState
+    private void Start()
     {
-        Selection,
-        CountDown,
-        Playing,
-        Paused,
-        GoalScored,
+        if (PlayerPrefs.GetInt("Striker1") == 1)
+        {
+            striker1bubble.color = Color.green;
+        }
     }
-
-    TrainingState state = TrainingState.Selection;
 
 
     private void Update()
@@ -174,47 +203,41 @@ public class SoccerTraining : MonoBehaviour
                 break;
             case Training.Striker3:
                 break;
+            case Training.Striker4:
+                break;
+            case Training.Striker5:
+                break;
+            case Training.Striker6:
+                break;
+            case Training.Striker7:
+                break;
+            case Training.Striker8:
+                break;
+            case Training.Striker9:
+                break;
+            case Training.Striker10:
+                break;
+            case Training.Defender1:
+                break;
+            case Training.Defender2:
+                break;
+            case Training.Defender3:
+                break;
+            case Training.Defender4:
+                break;
+            case Training.Defender5:
+                break;
+            case Training.Defender6:
+                break;
+            case Training.Defender7:
+                break;
+            case Training.Defender8:
+                break;
+            case Training.Defender9:
+                break;
+            case Training.Defender10:
+                break;
         }
-
-        switch (state)
-        {
-            case TrainingState.Selection:
-                Selection();
-                break;
-            case TrainingState.CountDown:
-                break;
-            case TrainingState.Playing:
-                break;
-            case TrainingState.Paused:
-                break;
-            case TrainingState.GoalScored:
-                break;
-        }
-    }
-
-    void Selection()
-    {
-
-    }
-
-    void CountDown()
-    {
-
-    }
-
-    void Playing()
-    {
-
-    }
-
-    void Paused()
-    {
-
-    }
-
-    void GoalScored()
-    {
-
     }
 
     public void Striker1()
@@ -234,36 +257,86 @@ public class SoccerTraining : MonoBehaviour
 
     public void Striker4()
     {
-
+        training = Training.Striker4;
     }
 
     public void Striker5()
     {
-
+        training = Training.Striker5;
     }
 
     public void Striker6()
     {
-
+        training = Training.Striker6;
     }
 
     public void Striker7()
     {
-
+        training = Training.Striker7;
     }
 
     public void Striker8()
     {
-
+        training = Training.Striker8;
     }
 
     public void Striker9()
     {
-
+        training = Training.Striker9;
     }
 
     public void Striker10()
     {
+        training = Training.Striker10;
+    }
 
+    public void Defender1()
+    {
+        training = Training.Defender1;
+    }
+
+    public void Defender2()
+    {
+        training = Training.Defender2;
+    }
+
+    public void Defender3()
+    {
+        training = Training.Defender3;
+    }
+
+    public void Defender4()
+    {
+        training = Training.Defender4;
+    }
+
+    public void Defender5()
+    {
+        training = Training.Defender5;
+    }
+
+    public void Defender6()
+    {
+        training = Training.Defender6;
+    }
+
+    public void Defender7()
+    {
+        training = Training.Defender7;
+    }
+
+    public void Defender8()
+    {
+        training = Training.Defender8;
+    }
+
+    public void Defender9()
+    {
+        training = Training.Defender9;
+    }
+
+    public void Defender10()
+    {
+        training = Training.Defender10;
     }
 }

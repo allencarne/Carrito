@@ -30,7 +30,7 @@ public class SoccerManager : MonoBehaviour
     }
 
     #endregion
-
+    [SerializeField] GameObject resetButton;
     public TextMeshProUGUI trainingText;
     [SerializeField] SoccerTraining training;
 
@@ -210,6 +210,7 @@ public class SoccerManager : MonoBehaviour
 
         switch (gameMode)
         {
+            #region Free Play
             case GameMode.FreePlay:
                 CountDown();
                 SpawnBall();
@@ -225,37 +226,87 @@ public class SoccerManager : MonoBehaviour
                     // Assign to Blue
                     blue1Instance.GetComponent<PlayerCustomization>().isBlueTeam = true;
                 }
-
                 break;
+            #endregion
+
+            #region Training
             case GameMode.Training:
 
                 switch (training.training)
                 {
                     case Training.Striker1:
 
-                        if (training.trainingPanel.activeSelf)
-                        {
-                            training.trainingPanel.SetActive(false);
-
-                            training.carTransform = training.striker1;
-
-                            training.ballTransform = training.striker1Ball;
-
-                            SpawnTrainingPlayer(training.carTransform);
-
-                            SpawnTrainingBall(training.ballTransform, 1000);
-                            CountDown();
-                        }
+                        SetTraining(training.striker1, training.striker1Ball, 0f, Vector2.zero);
 
                         break;
                     case Training.Striker2:
+
+                        SetTraining(training.striker2, training.striker2Ball, 0f, Vector2.zero);
+
                         break;
                     case Training.Striker3:
+
+                        SetTraining(training.striker3, training.striker3Ball, 0f, Vector2.zero);
+
+                        break;
+                    case Training.Striker4:
+
+                        SetTraining(training.striker4, training.striker4Ball, 1, Vector2.left);
+
+                        break;
+                    case Training.Striker5:
+
+                        break;
+                    case Training.Striker6:
+
+                        break;
+                    case Training.Striker7:
+
+                        break;
+                    case Training.Striker8:
+
+                        break;
+                    case Training.Striker9:
+
+                        break;
+                    case Training.Striker10:
+
+                        break;
+                    case Training.Defender1:
+
+                        break;
+                    case Training.Defender2:
+
+                        break;
+                    case Training.Defender3:
+
+                        break;
+                    case Training.Defender4:
+
+                        break;
+                    case Training.Defender5:
+
+                        break;
+                    case Training.Defender6:
+
+                        break;
+                    case Training.Defender7:
+
+                        break;
+                    case Training.Defender8:
+
+                        break;
+                    case Training.Defender9:
+
+                        break;
+                    case Training.Defender10:
+
                         break;
                 }
-
-
                 break;
+            #endregion
+
+            #region 1v1
             case GameMode.OneVsOne:
                 CountDown();
                 SpawnBall();
@@ -270,6 +321,9 @@ public class SoccerManager : MonoBehaviour
                 SpawnRed1(selectedRedSpawnPoint);
 
                 break;
+            #endregion
+
+            #region 2v2
             case GameMode.TwoVsTwo:
                 CountDown();
                 SpawnBall();
@@ -311,6 +365,9 @@ public class SoccerManager : MonoBehaviour
                 SpawnRed2(redSpawnPoint2);
 
                 break;
+            #endregion
+
+            #region 3v3
             case GameMode.ThreeVsThree:
                 CountDown();
                 SpawnBall();
@@ -372,9 +429,23 @@ public class SoccerManager : MonoBehaviour
                 SpawnRed1(redSpawnPoint1_);
                 SpawnRed2(redSpawnPoint2_);
                 SpawnRed3(redSpawnPoint3_);
-
                 break;
+                #endregion
         }
+    }
+
+    public void SetTraining(Transform car, Transform ball, float ballSpeed, Vector2 ballDirection)
+    {
+        training.trainingPanel.SetActive(false);
+
+        training.carTransform = car;
+
+        training.ballTransform = ball;
+
+        SpawnTrainingPlayer(training.carTransform);
+
+        SpawnTrainingBall(training.ballTransform, ballSpeed, ballDirection);
+        CountDown();
     }
 
     public void CountDown()
@@ -630,7 +701,7 @@ public class SoccerManager : MonoBehaviour
     public IEnumerator TrainingEndDelay()
     {
         float startTime = Time.realtimeSinceStartup;
-        float delay = 2f;
+        float delay = 1f;
 
         while (Time.realtimeSinceStartup - startTime < delay)
         {
@@ -642,27 +713,26 @@ public class SoccerManager : MonoBehaviour
 
     #endregion
 
-    void SpawnBall()
-    {
-        if (ballInstance == null)
-        {
-            ballInstance = Instantiate(ball, ballSpawnPoint);
-        }
-    }
-
-    public void SpawnTrainingBall(Transform ballPos, float speed)
+    public void SpawnTrainingBall(Transform ballPos, float speed, Vector2 direction)
     {
         if (ballInstance == null)
         {
             ballInstance = Instantiate(ball, ballPos);
 
-            Rigidbody ballRigidbody = ballInstance.GetComponent<Rigidbody>();
+            Rigidbody2D ballRigidbody = ballInstance.GetComponent<Rigidbody2D>();
 
             if (ballRigidbody != null)
             {
-                ballRigidbody.AddForce(Vector3.forward * speed, ForceMode.VelocityChange);
+                StartCoroutine(BallDelay(ballRigidbody, direction, speed));
             }
         }
+    }
+
+    IEnumerator BallDelay(Rigidbody2D ballRB, Vector2 direction, float speed)
+    {
+        yield return new WaitForSeconds(4);
+
+        ballRB.AddForce(direction * speed, ForceMode2D.Impulse);
     }
 
     public void SpawnTrainingPlayer(Transform carPos)
@@ -674,6 +744,14 @@ public class SoccerManager : MonoBehaviour
 
             // Assign to Blue
             blue1Instance.GetComponent<PlayerCustomization>().isBlueTeam = true;
+        }
+    }
+
+    void SpawnBall()
+    {
+        if (ballInstance == null)
+        {
+            ballInstance = Instantiate(ball, ballSpawnPoint);
         }
     }
 
