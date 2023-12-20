@@ -251,55 +251,87 @@ public class SoccerManager : MonoBehaviour
                         break;
                     case Training.Striker4:
 
-                        SetTraining(training.striker4, training.striker4Ball, 1, Vector2.left);
+                        SetTraining(training.striker4, training.striker4Ball, 1, Vector2.zero);
 
                         break;
                     case Training.Striker5:
 
+                        SetTraining(training.striker5, training.striker5Ball, 1, Vector2.zero);
+
                         break;
                     case Training.Striker6:
+
+                        SetTraining(training.striker6, training.striker6Ball, 1, Vector2.zero);
 
                         break;
                     case Training.Striker7:
 
+                        SetTraining(training.striker7, training.striker7Ball, 1, Vector2.zero);
+
                         break;
                     case Training.Striker8:
+
+                        SetTraining(training.striker8, training.striker8Ball, 1, Vector2.zero);
 
                         break;
                     case Training.Striker9:
 
+                        SetTraining(training.striker9, training.striker9Ball, 1, Vector2.zero);
+
                         break;
                     case Training.Striker10:
+
+                        SetTraining(training.striker10, training.striker10Ball, 1, Vector2.zero);
 
                         break;
                     case Training.Defender1:
 
+                        SetTraining(training.defender1, training.defender1Ball, 1, Vector2.zero);
+
                         break;
                     case Training.Defender2:
+
+                        SetTraining(training.defender2, training.defender2Ball, 1, Vector2.zero);
 
                         break;
                     case Training.Defender3:
 
+                        SetTraining(training.defender3, training.defender3Ball, 1, Vector2.zero);
+
                         break;
                     case Training.Defender4:
+
+                        SetTraining(training.defender4, training.defender4Ball, 1, Vector2.zero);
 
                         break;
                     case Training.Defender5:
 
+                        SetTraining(training.defender5, training.defender5Ball, 1, Vector2.zero);
+
                         break;
                     case Training.Defender6:
+
+                        SetTraining(training.defender6, training.defender6Ball, 1, Vector2.zero);
 
                         break;
                     case Training.Defender7:
 
+                        SetTraining(training.defender7, training.defender7Ball, 1, Vector2.zero);
+
                         break;
                     case Training.Defender8:
+
+                        SetTraining(training.defender8, training.defender8Ball, 1, Vector2.zero);
 
                         break;
                     case Training.Defender9:
 
+                        SetTraining(training.defender9, training.defender9Ball, 1, Vector2.zero);
+
                         break;
                     case Training.Defender10:
+
+                        SetTraining(training.defender10, training.defender10Ball, 1, Vector2.zero);
 
                         break;
                 }

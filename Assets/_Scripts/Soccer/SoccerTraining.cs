@@ -15,147 +15,103 @@ public class SoccerTraining : MonoBehaviour
 
     [Header("Striker 1")]
     [SerializeField] Image striker1bubble;
-
     public Transform striker1;
     public Transform striker1Ball;
 
     [Header("Striker 2")]
     [SerializeField] Image striker2bubble;
-
     public Transform striker2;
     public Transform striker2Ball;
 
     [Header("Striker 3")]
     [SerializeField] Image striker3bubble;
-
     public Transform striker3;
     public Transform striker3Ball;
 
     [Header("Striker 4")]
     [SerializeField] Image striker4bubble;
-
     public Transform striker4;
     public Transform striker4Ball;
 
     [Header("Striker 5")]
     [SerializeField] Image striker5bubble;
-
     public Transform striker5;
     public Transform striker5Ball;
-    public Vector2 ball5direction;
-    public float ball5Speed;
 
     [Header("Striker 6")]
     [SerializeField] Image striker6bubble;
-
     public Transform striker6;
     public Transform striker6Ball;
-    public Vector2 ball6direction;
-    public float ball6Speed;
 
     [Header("Striker 7")]
     [SerializeField] Image striker7bubble;
-
     public Transform striker7;
     public Transform striker7Ball;
-    public Vector2 ball7direction;
-    public float ball7Speed;
 
     [Header("Striker 8")]
     [SerializeField] Image striker8bubble;
-
     public Transform striker8;
     public Transform striker8Ball;
-    public Vector2 ball8direction;
-    public float ball8Speed;
 
     [Header("Striker 9")]
     [SerializeField] Image striker9bubble;
-
     public Transform striker9;
     public Transform striker9Ball;
-    public Vector2 ball9direction;
-    public float ball9Speed;
 
     [Header("Striker 10")]
     [SerializeField] Image striker10bubble;
-
     public Transform striker10;
     public Transform striker10Ball;
-    public Vector2 ball10direction;
-    public float ball10Speed;
 
     [Header("Defender 1")]
-    Vector3 defender1position;
-    Quaternion defender1Rotation;
-
-    Vector3 dBall1Position;
-    Vector2 dBall1direction;
-    float dBall1Speed;
+    [SerializeField] Image defender1bubble;
+    public Transform defender1;
+    public Transform defender1Ball;
 
     [Header("Defender 2")]
-    Vector3 defender2position;
-    Quaternion defender2Rotation;
-
-    Vector3 dBall2Position;
-    Vector2 dBall2direction;
-    float dBall2Speed;
+    [SerializeField] Image defender2bubble;
+    public Transform defender2;
+    public Transform defender2Ball;
 
     [Header("Defender 3")]
-    Vector3 defender3position;
-    Quaternion defender3Rotation;
-
-    Vector3 dBall3Position;
-    Vector2 dBall3direction;
-    float dBall3Speed;
+    [SerializeField] Image defender3bubble;
+    public Transform defender3;
+    public Transform defender3Ball;
 
     [Header("Defender 4")]
-    Vector3 defender4position;
-    Quaternion defender4Rotation;
-
-    Vector3 dBall4Position;
-    Vector2 dBall4direction;
-    float dBall4Speed;
+    [SerializeField] Image defender4bubble;
+    public Transform defender4;
+    public Transform defender4Ball;
 
     [Header("Defender 5")]
-    Vector3 defender5position;
-    Quaternion defender5Rotation;
-
-    Vector3 dBall5Position;
-    Vector2 dBall5direction;
-    float dBall5Speed;
+    [SerializeField] Image defender5bubble;
+    public Transform defender5;
+    public Transform defender5Ball;
 
     [Header("Defender 6")]
-    Vector3 defender6position;
-    Quaternion defender6Rotation;
-
-    Vector3 dBall6Position;
-    Vector2 dBall6direction;
-    float dBall6Speed;
+    [SerializeField] Image defender6bubble;
+    public Transform defender6;
+    public Transform defender6Ball;
 
     [Header("Defender 7")]
-    Vector3 defender7position;
-    Quaternion defender7Rotation;
-
-    Vector3 dBall7Position;
-    Vector2 dBall7direction;
-    float dBall7Speed;
+    [SerializeField] Image defender7bubble;
+    public Transform defender7;
+    public Transform defender7Ball;
 
     [Header("Defender 8")]
-    Vector3 defender8position;
-    Quaternion defender8Rotation;
-
-    Vector3 dBall8Position;
-    Vector2 dBall8direction;
-    float dBall8Speed;
+    [SerializeField] Image defender8bubble;
+    public Transform defender8;
+    public Transform defender8Ball;
 
     [Header("Defender 9")]
-    Vector3 defender9position;
-    Quaternion defender9Rotation;
+    [SerializeField] Image defender9bubble;
+    public Transform defender9;
+    public Transform defender9Ball;
 
-    Vector3 dBall9Position;
-    Vector2 dBall9direction;
-    float dBall9Speed;
+    [Header("Defender 10")]
+    [SerializeField] Image defender10bubble;
+    public Transform defender10;
+    public Transform defender10Ball;
 
     public enum Training 
     { 
@@ -189,6 +145,101 @@ public class SoccerTraining : MonoBehaviour
         if (PlayerPrefs.GetInt("Striker1") == 1)
         {
             striker1bubble.color = Color.green;
+        }
+
+        if (PlayerPrefs.GetInt("Striker2") == 1)
+        {
+            striker2bubble.color = Color.green;
+        }
+
+        if (PlayerPrefs.GetInt("Striker3") == 1)
+        {
+            striker3bubble.color = Color.green;
+        }
+
+        if (PlayerPrefs.GetInt("Striker4") == 1)
+        {
+            striker4bubble.color = Color.green;
+        }
+
+        if (PlayerPrefs.GetInt("Striker5") == 1)
+        {
+            striker5bubble.color = Color.green;
+        }
+
+        if (PlayerPrefs.GetInt("Striker6") == 1)
+        {
+            striker6bubble.color = Color.green;
+        }
+
+        if (PlayerPrefs.GetInt("Striker7") == 1)
+        {
+            striker7bubble.color = Color.green;
+        }
+
+        if (PlayerPrefs.GetInt("Striker8") == 1)
+        {
+            striker8bubble.color = Color.green;
+        }
+
+        if (PlayerPrefs.GetInt("Striker9") == 1)
+        {
+            striker9bubble.color = Color.green;
+        }
+
+        if (PlayerPrefs.GetInt("Striker10") == 1)
+        {
+            striker10bubble.color = Color.green;
+        }
+
+        if (PlayerPrefs.GetInt("Defender1") == 1)
+        {
+            defender1bubble.color = Color.green;
+        }
+
+        if (PlayerPrefs.GetInt("Defender2") == 1)
+        {
+            defender2bubble.color = Color.green;
+        }
+
+        if (PlayerPrefs.GetInt("Defender3") == 1)
+        {
+            defender3bubble.color = Color.green;
+        }
+
+        if (PlayerPrefs.GetInt("Defender4") == 1)
+        {
+            defender4bubble.color = Color.green;
+        }
+
+        if (PlayerPrefs.GetInt("Defender5") == 1)
+        {
+            defender5bubble.color = Color.green;
+        }
+
+        if (PlayerPrefs.GetInt("Defender6") == 1)
+        {
+            defender6bubble.color = Color.green;
+        }
+
+        if (PlayerPrefs.GetInt("Defender7") == 1)
+        {
+            defender7bubble.color = Color.green;
+        }
+
+        if (PlayerPrefs.GetInt("Defender8") == 1)
+        {
+            defender8bubble.color = Color.green;
+        }
+
+        if (PlayerPrefs.GetInt("Defender9") == 1)
+        {
+            defender9bubble.color = Color.green;
+        }
+
+        if (PlayerPrefs.GetInt("Defender10") == 1)
+        {
+            defender10bubble.color = Color.green;
         }
     }
 
