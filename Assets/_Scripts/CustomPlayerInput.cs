@@ -61,18 +61,4 @@ public class CustomPlayerInput : MonoBehaviour
             IsDrifting = false;
         }
     }
-
-    public void OnReset(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            if (SoccerManager.instance.gameMode == SoccerManager.GameMode.FreePlay || SoccerManager.instance.gameMode == SoccerManager.GameMode.Training)
-            {
-                if (SoccerManager.instance.gameState == SoccerManager.GameState.Playing)
-                {
-                    SceneManager.LoadScene("Soccer");
-                }
-            }
-        }
-    }
 }

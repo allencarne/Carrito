@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -122,6 +123,7 @@ public class Ball : MonoBehaviour
                 SoccerManager.instance.trainingText.gameObject.SetActive(true);
 
                 UpdateBubble();
+                ResetState();
 
                 StartCoroutine(SoccerManager.instance.TrainingEndDelay());
             }
@@ -201,6 +203,20 @@ public class Ball : MonoBehaviour
         {
             redSide = false;
         }
+    }
+
+    void ResetState()
+    {
+        PlayerPrefs.SetInt("ResetS1", 0);
+        PlayerPrefs.SetInt("ResetS2", 0);
+        PlayerPrefs.SetInt("ResetS3", 0);
+        PlayerPrefs.SetInt("ResetS4", 0);
+        PlayerPrefs.SetInt("ResetS5", 0);
+        PlayerPrefs.SetInt("ResetS6", 0);
+        PlayerPrefs.SetInt("ResetS7", 0);
+        PlayerPrefs.SetInt("ResetS8", 0);
+        PlayerPrefs.SetInt("ResetS9", 0);
+        PlayerPrefs.SetInt("ResetS10", 0);
     }
 
     void UpdateBubble()

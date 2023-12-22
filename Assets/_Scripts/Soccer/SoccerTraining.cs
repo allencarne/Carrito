@@ -241,6 +241,70 @@ public class SoccerTraining : MonoBehaviour
         {
             defender10bubble.color = Color.green;
         }
+
+
+
+
+
+        if (PlayerPrefs.GetInt("ResetS1") == 1)
+        {
+            Striker1();
+        }
+
+        if (PlayerPrefs.GetInt("ResetS2") == 1)
+        {
+            Striker2();
+            PlayerPrefs.SetInt("ResetS2", 0);
+        }
+
+        if (PlayerPrefs.GetInt("ResetS3") == 1)
+        {
+            Striker3();
+            PlayerPrefs.SetInt("ResetS3", 0);
+        }
+
+        if (PlayerPrefs.GetInt("ResetS4") == 1)
+        {
+            Striker4();
+            PlayerPrefs.SetInt("ResetS4", 0);
+        }
+
+        if (PlayerPrefs.GetInt("ResetS5") == 1)
+        {
+            Striker5();
+            PlayerPrefs.SetInt("ResetS5", 0);
+        }
+
+        if (PlayerPrefs.GetInt("ResetS6") == 1)
+        {
+            Striker6();
+            PlayerPrefs.SetInt("ResetS6", 0);
+        }
+
+        if (PlayerPrefs.GetInt("ResetS7") == 1)
+        {
+            Striker7();
+            PlayerPrefs.SetInt("ResetS7", 0);
+        }
+
+        if (PlayerPrefs.GetInt("ResetS8") == 1)
+        {
+            Striker8();
+            PlayerPrefs.SetInt("ResetS8", 0);
+        }
+
+        if (PlayerPrefs.GetInt("ResetS9") == 1)
+        {
+            Striker9();
+            PlayerPrefs.SetInt("ResetS9", 0);
+        }
+
+        if (PlayerPrefs.GetInt("ResetS10") == 1)
+        {
+            Striker10();
+            PlayerPrefs.SetInt("ResetS10", 0);
+        }
+
     }
 
 
