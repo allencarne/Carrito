@@ -251,37 +251,37 @@ public class SoccerManager : MonoBehaviour
                         break;
                     case Training.Striker4:
 
-                        SetTraining(training.striker4, training.striker4Ball, 1, Vector2.zero);
+                        SetTraining(training.striker4, training.striker4Ball, 1, Vector2.down);
 
                         break;
                     case Training.Striker5:
 
-                        SetTraining(training.striker5, training.striker5Ball, 1, Vector2.zero);
+                        SetTraining(training.striker5, training.striker5Ball, 1, new Vector2(-1, 1));
 
                         break;
                     case Training.Striker6:
 
-                        SetTraining(training.striker6, training.striker6Ball, 1, Vector2.zero);
+                        SetTraining(training.striker6, training.striker6Ball, 2, new Vector2(1, -1));
 
                         break;
                     case Training.Striker7:
 
-                        SetTraining(training.striker7, training.striker7Ball, 1, Vector2.zero);
+                        SetTraining(training.striker7, training.striker7Ball, 3, Vector2.left);
 
                         break;
                     case Training.Striker8:
 
-                        SetTraining(training.striker8, training.striker8Ball, 1, Vector2.zero);
+                        SetTraining(training.striker8, training.striker8Ball, 5, new Vector2(1, 1));
 
                         break;
                     case Training.Striker9:
 
-                        SetTraining(training.striker9, training.striker9Ball, 1, Vector2.zero);
+                        SetTraining(training.striker9, training.striker9Ball, 6, new Vector2(-1, 1));
 
                         break;
                     case Training.Striker10:
 
-                        SetTraining(training.striker10, training.striker10Ball, 1, Vector2.zero);
+                        SetTraining(training.striker10, training.striker10Ball, 8, new Vector2(1, 1));
 
                         break;
                     case Training.Defender1:
