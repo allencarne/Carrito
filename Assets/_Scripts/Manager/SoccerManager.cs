@@ -651,91 +651,136 @@ public class SoccerManager : MonoBehaviour
             {
                 if (gameState == GameState.Playing)
                 {
-                    switch (training.training)
-                    {
-                        case Training.Striker1:
-
-                            PlayerPrefs.SetInt("ResetS1", 1);
-                            SceneManager.LoadScene("Soccer");
-
-                            break;
-                        case Training.Striker2:
-
-                            PlayerPrefs.SetInt("ResetS2", 1);
-                            SceneManager.LoadScene("Soccer");
-
-                            break;
-                        case Training.Striker3:
-
-                            PlayerPrefs.SetInt("ResetS3", 1);
-                            SceneManager.LoadScene("Soccer");
-
-                            break;
-                        case Training.Striker4:
-
-                            PlayerPrefs.SetInt("ResetS4", 1);
-                            SceneManager.LoadScene("Soccer");
-
-                            break;
-                        case Training.Striker5:
-
-                            PlayerPrefs.SetInt("ResetS5", 1);
-                            SceneManager.LoadScene("Soccer");
-
-                            break;
-                        case Training.Striker6:
-
-                            PlayerPrefs.SetInt("ResetS6", 1);
-                            SceneManager.LoadScene("Soccer");
-
-                            break;
-                        case Training.Striker7:
-
-                            PlayerPrefs.SetInt("ResetS7", 1);
-                            SceneManager.LoadScene("Soccer");
-
-                            break;
-                        case Training.Striker8:
-
-                            PlayerPrefs.SetInt("ResetS8", 1);
-                            SceneManager.LoadScene("Soccer");
-
-                            break;
-                        case Training.Striker9:
-
-                            PlayerPrefs.SetInt("ResetS9", 1);
-                            SceneManager.LoadScene("Soccer");
-
-                            break;
-                        case Training.Striker10:
-
-                            PlayerPrefs.SetInt("ResetS10", 1);
-                            SceneManager.LoadScene("Soccer");
-
-                            break;
-                        case Training.Defender1:
-                            break;
-                        case Training.Defender2:
-                            break;
-                        case Training.Defender3:
-                            break;
-                        case Training.Defender4:
-                            break;
-                        case Training.Defender5:
-                            break;
-                        case Training.Defender6:
-                            break;
-                        case Training.Defender7:
-                            break;
-                        case Training.Defender8:
-                            break;
-                        case Training.Defender9:
-                            break;
-                        case Training.Defender10:
-                            break;
-                    }
+                    ReloadTrainingLevel();
                 }
             }
+        }
+    }
+
+    public void ReloadTrainingLevel()
+    {
+        switch (training.training)
+        {
+            case Training.Striker1:
+
+                PlayerPrefs.SetInt("ResetS1", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+            case Training.Striker2:
+
+                PlayerPrefs.SetInt("ResetS2", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+            case Training.Striker3:
+
+                PlayerPrefs.SetInt("ResetS3", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+            case Training.Striker4:
+
+                PlayerPrefs.SetInt("ResetS4", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+            case Training.Striker5:
+
+                PlayerPrefs.SetInt("ResetS5", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+            case Training.Striker6:
+
+                PlayerPrefs.SetInt("ResetS6", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+            case Training.Striker7:
+
+                PlayerPrefs.SetInt("ResetS7", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+            case Training.Striker8:
+
+                PlayerPrefs.SetInt("ResetS8", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+            case Training.Striker9:
+
+                PlayerPrefs.SetInt("ResetS9", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+            case Training.Striker10:
+
+                PlayerPrefs.SetInt("ResetS10", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+            case Training.Defender1:
+
+                PlayerPrefs.SetInt("ResetD1", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+            case Training.Defender2:
+
+                PlayerPrefs.SetInt("ResetD2", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+            case Training.Defender3:
+
+                PlayerPrefs.SetInt("ResetD3", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+            case Training.Defender4:
+
+                PlayerPrefs.SetInt("ResetD4", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+            case Training.Defender5:
+
+                PlayerPrefs.SetInt("ResetD5", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+            case Training.Defender6:
+
+                PlayerPrefs.SetInt("ResetD6", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+            case Training.Defender7:
+
+                PlayerPrefs.SetInt("ResetD7", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+            case Training.Defender8:
+
+                PlayerPrefs.SetInt("ResetD8", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+            case Training.Defender9:
+
+                PlayerPrefs.SetInt("ResetD9", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+            case Training.Defender10:
+
+                PlayerPrefs.SetInt("ResetD10", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
         }
     }
 

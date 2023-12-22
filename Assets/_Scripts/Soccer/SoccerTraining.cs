@@ -254,104 +254,96 @@ public class SoccerTraining : MonoBehaviour
         if (PlayerPrefs.GetInt("ResetS2") == 1)
         {
             Striker2();
-            PlayerPrefs.SetInt("ResetS2", 0);
         }
 
         if (PlayerPrefs.GetInt("ResetS3") == 1)
         {
             Striker3();
-            PlayerPrefs.SetInt("ResetS3", 0);
         }
 
         if (PlayerPrefs.GetInt("ResetS4") == 1)
         {
             Striker4();
-            PlayerPrefs.SetInt("ResetS4", 0);
         }
 
         if (PlayerPrefs.GetInt("ResetS5") == 1)
         {
             Striker5();
-            PlayerPrefs.SetInt("ResetS5", 0);
         }
 
         if (PlayerPrefs.GetInt("ResetS6") == 1)
         {
             Striker6();
-            PlayerPrefs.SetInt("ResetS6", 0);
         }
 
         if (PlayerPrefs.GetInt("ResetS7") == 1)
         {
             Striker7();
-            PlayerPrefs.SetInt("ResetS7", 0);
         }
 
         if (PlayerPrefs.GetInt("ResetS8") == 1)
         {
             Striker8();
-            PlayerPrefs.SetInt("ResetS8", 0);
         }
 
         if (PlayerPrefs.GetInt("ResetS9") == 1)
         {
             Striker9();
-            PlayerPrefs.SetInt("ResetS9", 0);
         }
 
         if (PlayerPrefs.GetInt("ResetS10") == 1)
         {
             Striker10();
-            PlayerPrefs.SetInt("ResetS10", 0);
         }
 
-    }
-
-
-    private void Update()
-    {
-        switch (training)
+        if (PlayerPrefs.GetInt("ResetD1") == 1)
         {
-            case Training.Striker1:
-                break;
-            case Training.Striker2:
-                break;
-            case Training.Striker3:
-                break;
-            case Training.Striker4:
-                break;
-            case Training.Striker5:
-                break;
-            case Training.Striker6:
-                break;
-            case Training.Striker7:
-                break;
-            case Training.Striker8:
-                break;
-            case Training.Striker9:
-                break;
-            case Training.Striker10:
-                break;
-            case Training.Defender1:
-                break;
-            case Training.Defender2:
-                break;
-            case Training.Defender3:
-                break;
-            case Training.Defender4:
-                break;
-            case Training.Defender5:
-                break;
-            case Training.Defender6:
-                break;
-            case Training.Defender7:
-                break;
-            case Training.Defender8:
-                break;
-            case Training.Defender9:
-                break;
-            case Training.Defender10:
-                break;
+            Defender1();
+        }
+
+        if (PlayerPrefs.GetInt("ResetD2") == 1)
+        {
+            Defender2();
+        }
+
+        if (PlayerPrefs.GetInt("ResetD3") == 1)
+        {
+            Defender3();
+        }
+
+        if (PlayerPrefs.GetInt("ResetD4") == 1)
+        {
+            Defender4();
+        }
+
+        if (PlayerPrefs.GetInt("ResetD5") == 1)
+        {
+            Defender5();
+        }
+
+        if (PlayerPrefs.GetInt("ResetD6") == 1)
+        {
+            Defender6();
+        }
+
+        if (PlayerPrefs.GetInt("ResetD7") == 1)
+        {
+            Defender7();
+        }
+
+        if (PlayerPrefs.GetInt("ResetD8") == 1)
+        {
+            Defender8();
+        }
+
+        if (PlayerPrefs.GetInt("ResetD9") == 1)
+        {
+            Defender9();
+        }
+
+        if (PlayerPrefs.GetInt("ResetD10") == 1)
+        {
+            Defender10();
         }
     }
 
