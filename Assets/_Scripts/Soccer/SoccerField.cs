@@ -31,6 +31,11 @@ public class SoccerField : MonoBehaviour
     [SerializeField] Color groundColorBrown;
     [SerializeField] Color linesColorBrown;
 
+    [Header("Weather")]
+    [SerializeField] GameObject snowWeather;
+    [SerializeField] GameObject rainWeather;
+    [SerializeField] GameObject leavesWeather;
+
     enum MapType
     {
         Random,
@@ -46,6 +51,62 @@ public class SoccerField : MonoBehaviour
 
     void Start()
     {
+        switch (PlayerPrefs.GetInt("SelectedWeatherType"))
+        {
+            case 0:
+                // Random
+                int random = Random.Range(0, 3);
+
+                switch (random)
+                {
+                    case 0:
+                        // Snow
+                        snowWeather.SetActive(true);
+                        rainWeather.SetActive(false);
+                        leavesWeather.SetActive(false);
+                        break;
+                    case 1:
+                        // Rain
+                        snowWeather.SetActive(false);
+                        rainWeather.SetActive(true);
+                        leavesWeather.SetActive(false);
+                        break;
+                    case 2:
+                        // Leaves
+                        snowWeather.SetActive(false);
+                        rainWeather.SetActive(false);
+                        leavesWeather.SetActive(true);
+                        break;
+                }
+
+                break;
+            case 1:
+                // None
+                snowWeather.SetActive(false);
+                rainWeather.SetActive(false);
+                leavesWeather.SetActive(false);
+                break;
+            case 2:
+                // Snow
+                snowWeather.SetActive(true);
+                rainWeather.SetActive(false);
+                leavesWeather.SetActive(false);
+                break;
+            case 3:
+                // Rain
+                snowWeather.SetActive(false);
+                rainWeather.SetActive(true);
+                leavesWeather.SetActive(false);
+                break;
+            case 4:
+                // Leaves
+                snowWeather.SetActive(false);
+                rainWeather.SetActive(false);
+                leavesWeather.SetActive(true);
+                break;
+        }
+
+
         // Check if the PlayerPrefs key exists
         if (PlayerPrefs.HasKey("SelectedMapType"))
         {

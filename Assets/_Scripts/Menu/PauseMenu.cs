@@ -47,4 +47,23 @@ public class PauseMenu : MonoBehaviour
             ResumeButton();
         }
     }
+
+    public void ResetButton()
+    {
+        if (SoccerManager.instance.gameMode == GameMode.FreePlay)
+        {
+            if (SoccerManager.instance.gameState == GameState.Playing)
+            {
+                SceneManager.LoadScene("Soccer");
+            }
+        }
+
+        if (SoccerManager.instance.gameMode == GameMode.Training)
+        {
+            if (SoccerManager.instance.gameState == GameState.Playing)
+            {
+                SoccerManager.instance.GetComponent<SoccerTraining>().ReloadTrainingLevel();
+            }
+        }
+    }
 }

@@ -145,12 +145,6 @@ public class SoccerTraining : MonoBehaviour
 
     public Training training = Training.None;
 
-    private void Update()
-    {
-        Debug.Log(PlayerPrefs.GetInt("Defender1"));
-        Debug.Log(PlayerPrefs.GetInt("ResetD1"));
-    }
-
     private void Start()
     {
         EventSystem.current.SetSelectedGameObject(null);

@@ -12,6 +12,11 @@ public class SoccerMapSelection : MonoBehaviour
     [SerializeField] Button mapLeft;
     [SerializeField] Button mapRight;
 
+    [Header("Weather")]
+    [SerializeField] TextMeshProUGUI weatherText;
+    [SerializeField] Button weatherLeft;
+    [SerializeField] Button weatherRight;
+
     enum MapType
     {
         Random,
@@ -27,17 +32,36 @@ public class SoccerMapSelection : MonoBehaviour
 
     MapType mapType = MapType.Random;
 
+    enum WeatherType
+    {
+        Random,
+        None,
+        Snow,
+        Rain,
+        Leaves,
+    }
+
+    WeatherType weatherType = WeatherType.Random;
+
     private void Start()
     {
+        // Map
         int savedMapType = PlayerPrefs.GetInt("SelectedMapType", -1);
-
         // Check if the savedMapType is a valid enum value
         if (Enum.IsDefined(typeof(MapType), savedMapType))
         {
             mapType = (MapType)savedMapType;
         }
-
         UpdateMapText();
+
+        // Weather
+        int savedWeatherType = PlayerPrefs.GetInt("SelectedWeatherType", -1);
+        // Check if the savedWeatherType is a valid enum value
+        if (Enum.IsDefined(typeof(WeatherType), savedWeatherType))
+        {
+            weatherType = (WeatherType)savedWeatherType;
+        }
+        UpdateWeatherText();
     }
 
     public void MapLeft()
@@ -61,6 +85,30 @@ public class SoccerMapSelection : MonoBehaviour
 
         // Save the selected MapType to PlayerPrefs
         PlayerPrefs.SetInt("SelectedMapType", (int)mapType);
+        PlayerPrefs.Save();
+    }
+
+    public void WeatherLeft()
+    {
+        // Cycle to the previous WeatherType
+        weatherType = (WeatherType)(((int)weatherType - 1 + Enum.GetNames(typeof(WeatherType)).Length) % Enum.GetNames(typeof(WeatherType)).Length);
+        UpdateWeatherText();
+    }
+
+    public void WeatherRight()
+    {
+        // Cycle to the next WeatherType
+        weatherType = (WeatherType)(((int)weatherType + 1) % Enum.GetNames(typeof(WeatherType)).Length);
+        UpdateWeatherText();
+    }
+
+    void UpdateWeatherText()
+    {
+        // Update the UI text based on the current WeatherType
+        weatherText.text = weatherType.ToString();
+
+        // Save the selected WeatherType to PlayerPrefs
+        PlayerPrefs.SetInt("SelectedWeatherType", (int)weatherType);
         PlayerPrefs.Save();
     }
 }
