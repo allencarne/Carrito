@@ -84,6 +84,7 @@ public class Ball : MonoBehaviour
                 SoccerManager.instance.trainingText.text = "Failed!";
                 SoccerManager.instance.trainingText.gameObject.SetActive(true);
 
+                SoccerManager.instance.GetComponent<SoccerTraining>().ReloadTrainingLevel();
                 StartCoroutine(SoccerManager.instance.TrainingEndDelay());
             }
             else
@@ -123,7 +124,7 @@ public class Ball : MonoBehaviour
                 SoccerManager.instance.trainingText.gameObject.SetActive(true);
 
                 SoccerManager.instance.GetComponent<SoccerTraining>().UpdateBubble();
-                ResetState();
+                SoccerManager.instance.GetComponent<SoccerTraining>().ResetState();
 
                 StartCoroutine(SoccerManager.instance.TrainingEndDelay());
             }
@@ -203,30 +204,6 @@ public class Ball : MonoBehaviour
         {
             redSide = false;
         }
-    }
-
-    void ResetState()
-    {
-        PlayerPrefs.SetInt("ResetS1", 0);
-        PlayerPrefs.SetInt("ResetS2", 0);
-        PlayerPrefs.SetInt("ResetS3", 0);
-        PlayerPrefs.SetInt("ResetS4", 0);
-        PlayerPrefs.SetInt("ResetS5", 0);
-        PlayerPrefs.SetInt("ResetS6", 0);
-        PlayerPrefs.SetInt("ResetS7", 0);
-        PlayerPrefs.SetInt("ResetS8", 0);
-        PlayerPrefs.SetInt("ResetS9", 0);
-        PlayerPrefs.SetInt("ResetS10", 0);
-        PlayerPrefs.SetInt("ResetD1", 0);
-        PlayerPrefs.SetInt("ResetD2", 0);
-        PlayerPrefs.SetInt("ResetD3", 0);
-        PlayerPrefs.SetInt("ResetD4", 0);
-        PlayerPrefs.SetInt("ResetD5", 0);
-        PlayerPrefs.SetInt("ResetD6", 0);
-        PlayerPrefs.SetInt("ResetD7", 0);
-        PlayerPrefs.SetInt("ResetD8", 0);
-        PlayerPrefs.SetInt("ResetD9", 0);
-        PlayerPrefs.SetInt("ResetD10", 0);
     }
 
     void ResetIfFailed()

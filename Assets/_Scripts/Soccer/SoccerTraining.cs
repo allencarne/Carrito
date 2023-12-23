@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using static SoccerManager;
+using UnityEngine.SceneManagement;
 
 public class SoccerTraining : MonoBehaviour
 {
@@ -484,6 +485,157 @@ public class SoccerTraining : MonoBehaviour
     {
         training = Training.Defender10;
         isStriker = false;
+    }
+
+    public void ResetState()
+    {
+        PlayerPrefs.SetInt("ResetS1", 0);
+        PlayerPrefs.SetInt("ResetS2", 0);
+        PlayerPrefs.SetInt("ResetS3", 0);
+        PlayerPrefs.SetInt("ResetS4", 0);
+        PlayerPrefs.SetInt("ResetS5", 0);
+        PlayerPrefs.SetInt("ResetS6", 0);
+        PlayerPrefs.SetInt("ResetS7", 0);
+        PlayerPrefs.SetInt("ResetS8", 0);
+        PlayerPrefs.SetInt("ResetS9", 0);
+        PlayerPrefs.SetInt("ResetS10", 0);
+        PlayerPrefs.SetInt("ResetD1", 0);
+        PlayerPrefs.SetInt("ResetD2", 0);
+        PlayerPrefs.SetInt("ResetD3", 0);
+        PlayerPrefs.SetInt("ResetD4", 0);
+        PlayerPrefs.SetInt("ResetD5", 0);
+        PlayerPrefs.SetInt("ResetD6", 0);
+        PlayerPrefs.SetInt("ResetD7", 0);
+        PlayerPrefs.SetInt("ResetD8", 0);
+        PlayerPrefs.SetInt("ResetD9", 0);
+        PlayerPrefs.SetInt("ResetD10", 0);
+    }
+
+    public void ReloadTrainingLevel()
+    {
+        switch (training)
+        {
+            case Training.Striker1:
+
+                PlayerPrefs.SetInt("ResetS1", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+            case Training.Striker2:
+
+                PlayerPrefs.SetInt("ResetS2", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+            case Training.Striker3:
+
+                PlayerPrefs.SetInt("ResetS3", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+            case Training.Striker4:
+
+                PlayerPrefs.SetInt("ResetS4", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+            case Training.Striker5:
+
+                PlayerPrefs.SetInt("ResetS5", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+            case Training.Striker6:
+
+                PlayerPrefs.SetInt("ResetS6", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+            case Training.Striker7:
+
+                PlayerPrefs.SetInt("ResetS7", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+            case Training.Striker8:
+
+                PlayerPrefs.SetInt("ResetS8", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+            case Training.Striker9:
+
+                PlayerPrefs.SetInt("ResetS9", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+            case Training.Striker10:
+
+                PlayerPrefs.SetInt("ResetS10", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+            case Training.Defender1:
+
+                PlayerPrefs.SetInt("ResetD1", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+            case Training.Defender2:
+
+                PlayerPrefs.SetInt("ResetD2", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+            case Training.Defender3:
+
+                PlayerPrefs.SetInt("ResetD3", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+            case Training.Defender4:
+
+                PlayerPrefs.SetInt("ResetD4", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+            case Training.Defender5:
+
+                PlayerPrefs.SetInt("ResetD5", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+            case Training.Defender6:
+
+                PlayerPrefs.SetInt("ResetD6", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+            case Training.Defender7:
+
+                PlayerPrefs.SetInt("ResetD7", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+            case Training.Defender8:
+
+                PlayerPrefs.SetInt("ResetD8", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+            case Training.Defender9:
+
+                PlayerPrefs.SetInt("ResetD9", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+            case Training.Defender10:
+
+                PlayerPrefs.SetInt("ResetD10", 1);
+                SceneManager.LoadScene("Soccer");
+
+                break;
+        }
     }
 
     public void UpdateBubble()
