@@ -147,8 +147,8 @@ public class SoccerTraining : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(PlayerPrefs.GetInt("Defender8"));
-        Debug.Log(PlayerPrefs.GetInt("ResetD8"));
+        Debug.Log(PlayerPrefs.GetInt("Defender1"));
+        Debug.Log(PlayerPrefs.GetInt("ResetD1"));
     }
 
     private void Start()

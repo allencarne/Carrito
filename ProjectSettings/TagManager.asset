@@ -10,6 +10,7 @@ TagManager:
   - Ball
   - Blue Side
   - Red Side
+  - Wall
   layers:
   - Default
   - TransparentFX

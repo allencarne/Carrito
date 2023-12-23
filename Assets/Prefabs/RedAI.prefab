@@ -440,6 +440,8 @@ GameObject:
   - component: {fileID: 1300979883949382236}
   - component: {fileID: 5987602597141611663}
   - component: {fileID: 570558551892864728}
+  - component: {fileID: 5814735877219607060}
+  - component: {fileID: 18732111521142771}
   m_Layer: 0
   m_Name: RedAI
   m_TagString: Car
@@ -626,6 +628,40 @@ MonoBehaviour:
   trail: {fileID: 1300979883346307075}
   isBlueTeam: 0
   isAI: 0
+--- !u!114 &5814735877219607060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300979883949382233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcfbb2d2ce6606545bbc42a42ba0d0b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 18732111521142771}
+--- !u!95 &18732111521142771
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300979883949382233}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2f9af04fe9b6d2d458f076f40e640746, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1300979884222898100
 GameObject:
   m_ObjectHideFlags: 0
