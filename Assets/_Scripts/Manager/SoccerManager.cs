@@ -306,47 +306,47 @@ public class SoccerManager : MonoBehaviour
                         break;
                     case Training.Defender2:
 
-                        SetTraining(soccerTraining.defender2, soccerTraining.defender2Ball, 1, Vector2.zero);
+                        SetTraining(soccerTraining.defender2, soccerTraining.defender2Ball, 6, Vector2.left);
 
                         break;
                     case Training.Defender3:
 
-                        SetTraining(soccerTraining.defender3, soccerTraining.defender3Ball, 1, Vector2.zero);
+                        SetTraining(soccerTraining.defender3, soccerTraining.defender3Ball, 6, new Vector2(-1, 1));
 
                         break;
                     case Training.Defender4:
 
-                        SetTraining(soccerTraining.defender4, soccerTraining.defender4Ball, 1, Vector2.zero);
+                        SetTraining(soccerTraining.defender4, soccerTraining.defender4Ball, 6, Vector2.left);
 
                         break;
                     case Training.Defender5:
 
-                        SetTraining(soccerTraining.defender5, soccerTraining.defender5Ball, 1, Vector2.zero);
+                        SetTraining(soccerTraining.defender5, soccerTraining.defender5Ball, 2, Vector2.left);
 
                         break;
                     case Training.Defender6:
 
-                        SetTraining(soccerTraining.defender6, soccerTraining.defender6Ball, 1, Vector2.zero);
+                        SetTraining(soccerTraining.defender6, soccerTraining.defender6Ball, 12, Vector2.left);
 
                         break;
                     case Training.Defender7:
 
-                        SetTraining(soccerTraining.defender7, soccerTraining.defender7Ball, 1, Vector2.zero);
+                        SetTraining(soccerTraining.defender7, soccerTraining.defender7Ball, 8, new Vector2(-1, -1));
 
                         break;
                     case Training.Defender8:
 
-                        SetTraining(soccerTraining.defender8, soccerTraining.defender8Ball, 1, Vector2.zero);
+                        SetTraining(soccerTraining.defender8, soccerTraining.defender8Ball, 9, new Vector2(-1, 1));
 
                         break;
                     case Training.Defender9:
 
-                        SetTraining(soccerTraining.defender9, soccerTraining.defender9Ball, 1, Vector2.zero);
+                        SetTraining(soccerTraining.defender9, soccerTraining.defender9Ball, 7, Vector2.left);
 
                         break;
                     case Training.Defender10:
 
-                        SetTraining(soccerTraining.defender10, soccerTraining.defender10Ball, 1, Vector2.zero);
+                        SetTraining(soccerTraining.defender10, soccerTraining.defender10Ball, 4, Vector2.left);
 
                         break;
                 }
@@ -559,7 +559,7 @@ public class SoccerManager : MonoBehaviour
                 }
                 else
                 {
-                    StartCoroutine(MatchTimeCoroutine(3));
+                    StartCoroutine(MatchTimeCoroutine(5));
                 }
             }
         }
