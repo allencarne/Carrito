@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using static SoccerManager;
 
 public class SoccerTraining : MonoBehaviour
 {
+    [SerializeField] GameObject striker1Button;
     public GameObject trainingPanel;
 
     [Header("Car")]
@@ -142,6 +145,14 @@ public class SoccerTraining : MonoBehaviour
 
     private void Start()
     {
+        EventSystem.current.SetSelectedGameObject(null);
+
+        if (SoccerManager.instance.gameMode == GameMode.Training)
+        {
+            EventSystem.current.SetSelectedGameObject(striker1Button);
+        }
+
+
         if (PlayerPrefs.GetInt("Striker1") == 1)
         {
             striker1bubble.color = Color.green;

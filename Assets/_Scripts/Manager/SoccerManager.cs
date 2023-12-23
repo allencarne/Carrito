@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
-using static SoccerTraining;
 using UnityEngine.SceneManagement;
-using UnityEditorInternal;
+using UnityEngine.UI;
+using static SoccerTraining;
+using UnityEngine.EventSystems;
 
 public class SoccerManager : MonoBehaviour
 {
@@ -31,9 +32,9 @@ public class SoccerManager : MonoBehaviour
     }
 
     #endregion
-    [SerializeField] GameObject resetButton;
+    [SerializeField] GameObject resumeButton;
     public TextMeshProUGUI trainingText;
-    [SerializeField] SoccerTraining training;
+    [SerializeField] SoccerTraining soccerTraining;
 
     [Header("Players")]
     [SerializeField] GameObject player;
@@ -82,6 +83,8 @@ public class SoccerManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI whoWonText;
 
     // Pause
+    [SerializeField] Button pauseButton;
+    [SerializeField] Button resetButton;
     [SerializeField] InputActionAsset asset;
     InputAction pauseAction;
     public static event System.Action OnResumed;
@@ -170,10 +173,12 @@ public class SoccerManager : MonoBehaviour
     private void Start()
     {
         gameOverPanel.SetActive(false);
+        pauseButton.gameObject.SetActive(false);
+        resetButton.gameObject.SetActive(false);
 
         if (gameMode == GameMode.Training)
         {
-            training.trainingPanel.SetActive(true);
+            soccerTraining.trainingPanel.SetActive(true);
         }
     }
 
@@ -242,106 +247,106 @@ public class SoccerManager : MonoBehaviour
             #region Training
             case GameMode.Training:
 
-                switch (training.training)
+                switch (soccerTraining.training)
                 {
                     case Training.Striker1:
 
-                        SetTraining(training.striker1, training.striker1Ball, 0f, Vector2.zero);
+                        SetTraining(soccerTraining.striker1, soccerTraining.striker1Ball, 0f, Vector2.zero);
 
                         break;
                     case Training.Striker2:
 
-                        SetTraining(training.striker2, training.striker2Ball, 0f, Vector2.zero);
+                        SetTraining(soccerTraining.striker2, soccerTraining.striker2Ball, 0f, Vector2.zero);
 
                         break;
                     case Training.Striker3:
 
-                        SetTraining(training.striker3, training.striker3Ball, 0f, Vector2.zero);
+                        SetTraining(soccerTraining.striker3, soccerTraining.striker3Ball, 0f, Vector2.zero);
 
                         break;
                     case Training.Striker4:
 
-                        SetTraining(training.striker4, training.striker4Ball, 1, Vector2.down);
+                        SetTraining(soccerTraining.striker4, soccerTraining.striker4Ball, 1, Vector2.down);
 
                         break;
                     case Training.Striker5:
 
-                        SetTraining(training.striker5, training.striker5Ball, 1, new Vector2(-1, 1));
+                        SetTraining(soccerTraining.striker5, soccerTraining.striker5Ball, 1, new Vector2(-1, 1));
 
                         break;
                     case Training.Striker6:
 
-                        SetTraining(training.striker6, training.striker6Ball, 2, new Vector2(1, -1));
+                        SetTraining(soccerTraining.striker6, soccerTraining.striker6Ball, 2, new Vector2(1, -1));
 
                         break;
                     case Training.Striker7:
 
-                        SetTraining(training.striker7, training.striker7Ball, 3, Vector2.left);
+                        SetTraining(soccerTraining.striker7, soccerTraining.striker7Ball, 3, Vector2.left);
 
                         break;
                     case Training.Striker8:
 
-                        SetTraining(training.striker8, training.striker8Ball, 5, new Vector2(1, 1));
+                        SetTraining(soccerTraining.striker8, soccerTraining.striker8Ball, 5, new Vector2(1, 1));
 
                         break;
                     case Training.Striker9:
 
-                        SetTraining(training.striker9, training.striker9Ball, 6, new Vector2(-1, 1));
+                        SetTraining(soccerTraining.striker9, soccerTraining.striker9Ball, 6, new Vector2(-1, 1));
 
                         break;
                     case Training.Striker10:
 
-                        SetTraining(training.striker10, training.striker10Ball, 8, new Vector2(1, 1));
+                        SetTraining(soccerTraining.striker10, soccerTraining.striker10Ball, 8, new Vector2(1, 1));
 
                         break;
                     case Training.Defender1:
 
-                        SetTraining(training.defender1, training.defender1Ball, 1, Vector2.zero);
+                        SetTraining(soccerTraining.defender1, soccerTraining.defender1Ball, 1, Vector2.zero);
 
                         break;
                     case Training.Defender2:
 
-                        SetTraining(training.defender2, training.defender2Ball, 1, Vector2.zero);
+                        SetTraining(soccerTraining.defender2, soccerTraining.defender2Ball, 1, Vector2.zero);
 
                         break;
                     case Training.Defender3:
 
-                        SetTraining(training.defender3, training.defender3Ball, 1, Vector2.zero);
+                        SetTraining(soccerTraining.defender3, soccerTraining.defender3Ball, 1, Vector2.zero);
 
                         break;
                     case Training.Defender4:
 
-                        SetTraining(training.defender4, training.defender4Ball, 1, Vector2.zero);
+                        SetTraining(soccerTraining.defender4, soccerTraining.defender4Ball, 1, Vector2.zero);
 
                         break;
                     case Training.Defender5:
 
-                        SetTraining(training.defender5, training.defender5Ball, 1, Vector2.zero);
+                        SetTraining(soccerTraining.defender5, soccerTraining.defender5Ball, 1, Vector2.zero);
 
                         break;
                     case Training.Defender6:
 
-                        SetTraining(training.defender6, training.defender6Ball, 1, Vector2.zero);
+                        SetTraining(soccerTraining.defender6, soccerTraining.defender6Ball, 1, Vector2.zero);
 
                         break;
                     case Training.Defender7:
 
-                        SetTraining(training.defender7, training.defender7Ball, 1, Vector2.zero);
+                        SetTraining(soccerTraining.defender7, soccerTraining.defender7Ball, 1, Vector2.zero);
 
                         break;
                     case Training.Defender8:
 
-                        SetTraining(training.defender8, training.defender8Ball, 1, Vector2.zero);
+                        SetTraining(soccerTraining.defender8, soccerTraining.defender8Ball, 1, Vector2.zero);
 
                         break;
                     case Training.Defender9:
 
-                        SetTraining(training.defender9, training.defender9Ball, 1, Vector2.zero);
+                        SetTraining(soccerTraining.defender9, soccerTraining.defender9Ball, 1, Vector2.zero);
 
                         break;
                     case Training.Defender10:
 
-                        SetTraining(training.defender10, training.defender10Ball, 1, Vector2.zero);
+                        SetTraining(soccerTraining.defender10, soccerTraining.defender10Ball, 1, Vector2.zero);
 
                         break;
                 }
@@ -478,15 +483,15 @@ public class SoccerManager : MonoBehaviour
 
     public void SetTraining(Transform car, Transform ball, float ballSpeed, Vector2 ballDirection)
     {
-        training.trainingPanel.SetActive(false);
+        soccerTraining.trainingPanel.SetActive(false);
 
-        training.carTransform = car;
+        soccerTraining.carTransform = car;
 
-        training.ballTransform = ball;
+        soccerTraining.ballTransform = ball;
 
-        SpawnTrainingPlayer(training.carTransform);
+        SpawnTrainingPlayer(soccerTraining.carTransform);
 
-        SpawnTrainingBall(training.ballTransform, ballSpeed, ballDirection);
+        SpawnTrainingBall(soccerTraining.ballTransform, ballSpeed, ballDirection);
         CountDown();
     }
 
@@ -530,6 +535,12 @@ public class SoccerManager : MonoBehaviour
 
     void PlayingState()
     {
+        pauseButton.gameObject.SetActive(true);
+        if (gameMode == GameMode.FreePlay || gameMode == GameMode.Training)
+        {
+            resetButton.gameObject.SetActive(true);
+        }
+
         if (gameMode == GameMode.Training)
         {
             isMatchPaused = false;
@@ -622,6 +633,9 @@ public class SoccerManager : MonoBehaviour
 
     public void OnPause(InputAction.CallbackContext context)
     {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(resumeButton);
+
         if (context.performed)
         {
             if (gameState == GameState.Playing)
@@ -659,7 +673,7 @@ public class SoccerManager : MonoBehaviour
 
     public void ReloadTrainingLevel()
     {
-        switch (training.training)
+        switch (soccerTraining.training)
         {
             case Training.Striker1:
 
