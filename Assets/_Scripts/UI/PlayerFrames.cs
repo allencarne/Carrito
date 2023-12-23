@@ -59,9 +59,15 @@ public class PlayerFrames : MonoBehaviour
 
     private void Start()
     {
+        RectTransform rectTransform = blue1Frame.GetComponent<RectTransform>();
+
+
         switch (SoccerManager.instance.gameMode)
         {
             case SoccerManager.GameMode.FreePlay:
+
+                rectTransform.anchoredPosition = new Vector2(0f, rectTransform.anchoredPosition.y);
+
                 blue1Frame.SetActive(true);
                 blue2Frame.SetActive(false);
                 blue3Frame.SetActive(false);
@@ -70,6 +76,9 @@ public class PlayerFrames : MonoBehaviour
                 red3Frame.SetActive(false);
                 break;
             case SoccerManager.GameMode.Training:
+
+                rectTransform.anchoredPosition = new Vector2(0f, rectTransform.anchoredPosition.y);
+
                 blue1Frame.SetActive(true);
                 blue2Frame.SetActive(false);
                 blue3Frame.SetActive(false);
@@ -156,7 +165,16 @@ public class PlayerFrames : MonoBehaviour
 
     void Training()
     {
+        if (SoccerManager.instance != null)
+        {
+            if (SoccerManager.instance.blue1Instance != null)
+            {
+                blue1cBoost = SoccerManager.instance.blue1Instance.GetComponent<Player>().currentBoost;
+                blue1mBoost = SoccerManager.instance.blue1Instance.GetComponent<Player>().maxBoost;
 
+                UpdateBoostBar(blue1Boost, blue1cBoost, blue1mBoost);
+            }
+        }
     }
 
     void OneVsOne()
