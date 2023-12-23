@@ -553,7 +553,14 @@ public class SoccerManager : MonoBehaviour
 
                 matchTimeText.gameObject.SetActive(true);
 
-                StartCoroutine(MatchTimeCoroutine(10));
+                if (soccerTraining.isStriker)
+                {
+                    StartCoroutine(MatchTimeCoroutine(10));
+                }
+                else
+                {
+                    StartCoroutine(MatchTimeCoroutine(3));
+                }
             }
         }
         else
