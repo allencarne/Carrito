@@ -14,6 +14,10 @@ public class Player : MonoBehaviour
     [SerializeField] TrailRenderer rightDriftTrail;
     [SerializeField] TrailRenderer boostTrail;
 
+    [SerializeField] GameObject accTrailLeft;
+    [SerializeField] GameObject accTrailRight;
+    [SerializeField] GameObject preBoostTrail;
+
     float speed = 10;
     float torque = -350;
     float boostForce = 0.3f;
@@ -24,6 +28,26 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (playerInput.IsAccelerating && !SoccerManager.instance.CanMove)
+        {
+            accTrailLeft.SetActive(true);
+            accTrailRight.SetActive(true);
+        }
+        else
+        {
+            accTrailLeft.SetActive(false);
+            accTrailRight.SetActive(false);
+        }
+
+        if (playerInput.IsBoosting && !SoccerManager.instance.CanMove)
+        {
+            preBoostTrail.SetActive(true);
+        }
+        else
+        {
+            preBoostTrail.SetActive(false);
+        }
+
         if (SoccerManager.instance.CanMove)
         {
             rb.velocity = ForwardVelocity() + RightVelocity() * driftForce;
@@ -52,6 +76,7 @@ public class Player : MonoBehaviour
     void Accelerate()
     {
         rb.AddForce(transform.up * speed);
+
         leftAccelerateTrail.emitting = true;
         rightAccelerateTrail.emitting = true;
     }
