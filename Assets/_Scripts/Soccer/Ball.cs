@@ -122,7 +122,7 @@ public class Ball : MonoBehaviour
                 SoccerManager.instance.trainingText.text = "Passed!";
                 SoccerManager.instance.trainingText.gameObject.SetActive(true);
 
-                UpdateBubble();
+                SoccerManager.instance.GetComponent<SoccerTraining>().UpdateBubble();
                 ResetState();
 
                 StartCoroutine(SoccerManager.instance.TrainingEndDelay());
@@ -298,92 +298,5 @@ public class Ball : MonoBehaviour
         }
     }
 
-    void UpdateBubble()
-    {
-        SoccerTraining soccerTraining = SoccerManager.instance.GetComponent<SoccerTraining>();
 
-        switch (soccerTraining.training)
-        {
-            case SoccerTraining.Training.Striker1:
-                PlayerPrefs.SetInt("Striker1", 1);
-                PlayerPrefs.Save();
-                break;
-            case SoccerTraining.Training.Striker2:
-                PlayerPrefs.SetInt("Striker2", 1);
-                PlayerPrefs.Save();
-                break;
-            case SoccerTraining.Training.Striker3:
-                PlayerPrefs.SetInt("Striker3", 1);
-                PlayerPrefs.Save();
-                break;
-            case SoccerTraining.Training.Striker4:
-                PlayerPrefs.SetInt("Striker4", 1);
-                PlayerPrefs.Save();
-                break;
-            case SoccerTraining.Training.Striker5:
-                PlayerPrefs.SetInt("Striker5", 1);
-                PlayerPrefs.Save();
-                break;
-            case SoccerTraining.Training.Striker6:
-                PlayerPrefs.SetInt("Striker6", 1);
-                PlayerPrefs.Save();
-                break;
-            case SoccerTraining.Training.Striker7:
-                PlayerPrefs.SetInt("Striker7", 1);
-                PlayerPrefs.Save();
-                break;
-            case SoccerTraining.Training.Striker8:
-                PlayerPrefs.SetInt("Striker8", 1);
-                PlayerPrefs.Save();
-                break;
-            case SoccerTraining.Training.Striker9:
-                PlayerPrefs.SetInt("Striker9", 1);
-                PlayerPrefs.Save();
-                break;
-            case SoccerTraining.Training.Striker10:
-                PlayerPrefs.SetInt("Striker10", 1);
-                PlayerPrefs.Save();
-                break;
-            case SoccerTraining.Training.Defender1:
-                PlayerPrefs.SetInt("Defender1", 1);
-                PlayerPrefs.Save();
-                break;
-            case SoccerTraining.Training.Defender2:
-                PlayerPrefs.SetInt("Defender2", 1);
-                PlayerPrefs.Save();
-                break;
-            case SoccerTraining.Training.Defender3:
-                PlayerPrefs.SetInt("Defender3", 1);
-                PlayerPrefs.Save();
-                break;
-            case SoccerTraining.Training.Defender4:
-                PlayerPrefs.SetInt("Defender4", 1);
-                PlayerPrefs.Save();
-                break;
-            case SoccerTraining.Training.Defender5:
-                PlayerPrefs.SetInt("Defender5", 1);
-                PlayerPrefs.Save();
-                break;
-            case SoccerTraining.Training.Defender6:
-                PlayerPrefs.SetInt("Defender6", 1);
-                PlayerPrefs.Save();
-                break;
-            case SoccerTraining.Training.Defender7:
-                PlayerPrefs.SetInt("Defender7", 1);
-                PlayerPrefs.Save();
-                break;
-            case SoccerTraining.Training.Defender8:
-                PlayerPrefs.SetInt("Defender8", 1);
-                PlayerPrefs.Save();
-                break;
-            case SoccerTraining.Training.Defender9:
-                PlayerPrefs.SetInt("Defender9", 1);
-                PlayerPrefs.Save();
-                break;
-            case SoccerTraining.Training.Defender10:
-                PlayerPrefs.SetInt("Defender10", 1);
-                PlayerPrefs.Save();
-                break;
-        }
-    }
 }

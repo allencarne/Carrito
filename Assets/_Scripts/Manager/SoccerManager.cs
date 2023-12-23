@@ -301,7 +301,7 @@ public class SoccerManager : MonoBehaviour
                         break;
                     case Training.Defender1:
 
-                        SetTraining(soccerTraining.defender1, soccerTraining.defender1Ball, 1, Vector2.zero);
+                        SetTraining(soccerTraining.defender1, soccerTraining.defender1Ball, 5, Vector2.left);
 
                         break;
                     case Training.Defender2:
@@ -875,13 +875,28 @@ public class SoccerManager : MonoBehaviour
     {
         if (gameMode == GameMode.Training)
         {
-            Time.timeScale = 0;
+            if (soccerTraining.isStriker)
+            {
+                Time.timeScale = 0;
 
-            trainingText.color = Color.red;
-            trainingText.text = "Failed!";
-            trainingText.gameObject.SetActive(true);
+                trainingText.color = Color.red;
+                trainingText.text = "Failed!";
+                trainingText.gameObject.SetActive(true);
 
-            StartCoroutine(TrainingEndDelay());
+                StartCoroutine(TrainingEndDelay());
+            }
+            else
+            {
+                Time.timeScale = 0;
+
+                trainingText.color = Color.green;
+                trainingText.text = "Passed!";
+                trainingText.gameObject.SetActive(true);
+
+                soccerTraining.UpdateBubble();
+
+                StartCoroutine(TrainingEndDelay());
+            }
         }
         else
         {

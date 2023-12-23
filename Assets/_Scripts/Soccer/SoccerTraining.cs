@@ -10,6 +10,8 @@ public class SoccerTraining : MonoBehaviour
     [SerializeField] GameObject striker1Button;
     public GameObject trainingPanel;
 
+    public bool isStriker;
+
     [Header("Car")]
     public Transform carTransform;
 
@@ -361,100 +363,207 @@ public class SoccerTraining : MonoBehaviour
     public void Striker1()
     {
         training = Training.Striker1;
+        isStriker = true;
     }
 
     public void Striker2()
     {
         training = Training.Striker2;
+        isStriker = true;
     }
 
     public void Striker3()
     {
         training = Training.Striker3;
+        isStriker = true;
     }
 
     public void Striker4()
     {
         training = Training.Striker4;
+        isStriker = true;
     }
 
     public void Striker5()
     {
         training = Training.Striker5;
+        isStriker = true;
     }
 
     public void Striker6()
     {
         training = Training.Striker6;
+        isStriker = true;
     }
 
     public void Striker7()
     {
         training = Training.Striker7;
+        isStriker = true;
     }
 
     public void Striker8()
     {
         training = Training.Striker8;
+        isStriker = true;
     }
 
     public void Striker9()
     {
         training = Training.Striker9;
+        isStriker = true;
     }
 
     public void Striker10()
     {
         training = Training.Striker10;
+        isStriker = true;
     }
 
     public void Defender1()
     {
         training = Training.Defender1;
+        isStriker = false;
     }
 
     public void Defender2()
     {
         training = Training.Defender2;
+        isStriker = false;
     }
 
     public void Defender3()
     {
         training = Training.Defender3;
+        isStriker = false;
     }
 
     public void Defender4()
     {
         training = Training.Defender4;
+        isStriker = false;
     }
 
     public void Defender5()
     {
         training = Training.Defender5;
+        isStriker = false;
     }
 
     public void Defender6()
     {
         training = Training.Defender6;
+        isStriker = false;
     }
 
     public void Defender7()
     {
         training = Training.Defender7;
+        isStriker = false;
     }
 
     public void Defender8()
     {
         training = Training.Defender8;
+        isStriker = false;
     }
 
     public void Defender9()
     {
         training = Training.Defender9;
+        isStriker = false;
     }
 
     public void Defender10()
     {
         training = Training.Defender10;
+        isStriker = false;
+    }
+
+    public void UpdateBubble()
+    {
+        switch (training)
+        {
+            case Training.Striker1:
+                PlayerPrefs.SetInt("Striker1", 1);
+                PlayerPrefs.Save();
+                break;
+            case Training.Striker2:
+                PlayerPrefs.SetInt("Striker2", 1);
+                PlayerPrefs.Save();
+                break;
+            case Training.Striker3:
+                PlayerPrefs.SetInt("Striker3", 1);
+                PlayerPrefs.Save();
+                break;
+            case Training.Striker4:
+                PlayerPrefs.SetInt("Striker4", 1);
+                PlayerPrefs.Save();
+                break;
+            case Training.Striker5:
+                PlayerPrefs.SetInt("Striker5", 1);
+                PlayerPrefs.Save();
+                break;
+            case Training.Striker6:
+                PlayerPrefs.SetInt("Striker6", 1);
+                PlayerPrefs.Save();
+                break;
+            case Training.Striker7:
+                PlayerPrefs.SetInt("Striker7", 1);
+                PlayerPrefs.Save();
+                break;
+            case Training.Striker8:
+                PlayerPrefs.SetInt("Striker8", 1);
+                PlayerPrefs.Save();
+                break;
+            case Training.Striker9:
+                PlayerPrefs.SetInt("Striker9", 1);
+                PlayerPrefs.Save();
+                break;
+            case Training.Striker10:
+                PlayerPrefs.SetInt("Striker10", 1);
+                PlayerPrefs.Save();
+                break;
+            case Training.Defender1:
+                PlayerPrefs.SetInt("Defender1", 1);
+                PlayerPrefs.Save();
+                break;
+            case Training.Defender2:
+                PlayerPrefs.SetInt("Defender2", 1);
+                PlayerPrefs.Save();
+                break;
+            case Training.Defender3:
+                PlayerPrefs.SetInt("Defender3", 1);
+                PlayerPrefs.Save();
+                break;
+            case Training.Defender4:
+                PlayerPrefs.SetInt("Defender4", 1);
+                PlayerPrefs.Save();
+                break;
+            case Training.Defender5:
+                PlayerPrefs.SetInt("Defender5", 1);
+                PlayerPrefs.Save();
+                break;
+            case Training.Defender6:
+                PlayerPrefs.SetInt("Defender6", 1);
+                PlayerPrefs.Save();
+                break;
+            case Training.Defender7:
+                PlayerPrefs.SetInt("Defender7", 1);
+                PlayerPrefs.Save();
+                break;
+            case Training.Defender8:
+                PlayerPrefs.SetInt("Defender8", 1);
+                PlayerPrefs.Save();
+                break;
+            case Training.Defender9:
+                PlayerPrefs.SetInt("Defender9", 1);
+                PlayerPrefs.Save();
+                break;
+            case Training.Defender10:
+                PlayerPrefs.SetInt("Defender10", 1);
+                PlayerPrefs.Save();
+                break;
+        }
     }
 }
