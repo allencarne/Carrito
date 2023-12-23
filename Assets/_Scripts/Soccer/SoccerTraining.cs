@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using static SoccerManager;
 using UnityEngine.SceneManagement;
 
 public class SoccerTraining : MonoBehaviour
@@ -156,7 +155,7 @@ public class SoccerTraining : MonoBehaviour
     {
         EventSystem.current.SetSelectedGameObject(null);
 
-        if (SoccerManager.instance.gameMode == GameMode.Training)
+        if (SoccerManager.instance.gameMode == SoccerManager.GameMode.Training)
         {
             EventSystem.current.SetSelectedGameObject(striker1Button);
         }

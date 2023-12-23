@@ -572,6 +572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 6607275158854715547}
+  collisionIntensityThreshold: 10
 --- !u!1 &8412704991649611473
 GameObject:
   m_ObjectHideFlags: 0
