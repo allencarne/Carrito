@@ -94,7 +94,7 @@ public class Ball : MonoBehaviour
             else
             {
                 StartCoroutine(ScoreDelay());
-                RedGoal(collision);
+                BlueGoal(collision);
 
                 SoccerManager.instance.redScore += 1;
 
@@ -121,7 +121,7 @@ public class Ball : MonoBehaviour
         if (collision.CompareTag("Red Goal"))
         {
             StartCoroutine(ScoreDelay());
-            BlueGoal(collision);
+            RedGoal(collision);
 
             if (SoccerManager.instance.gameMode == SoccerManager.GameMode.Training)
             {
@@ -173,25 +173,22 @@ public class Ball : MonoBehaviour
     {
         int explosionIndex;
 
-        if (whoTouchedTheBallLastBlue != null)
+        if (whoTouchedTheBallLastRed != null)
         {
-            if (whoTouchedTheBallLastBlue.GetComponent<PlayerCustomization>().isBlueTeam)
+            if (whoTouchedTheBallLastRed.GetComponent<PlayerCustomization>().isAI)
             {
-                if (whoTouchedTheBallLastBlue.GetComponent<PlayerCustomization>().isAI)
-                {
-                    // Instatiate a Random Explosion
-                    int randomExplosion = Random.Range(0, blueCarOptions.explosions.Length);
-                    var explosion = Instantiate(blueCarOptions.explosions[randomExplosion], collision.transform.position, collision.transform.rotation);
-                    Destroy(explosion, 3);
-                }
-                else
-                {
-                    explosionIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + "Blue_" + "ExplosionIndex", 0);
+                // Instatiate a Random Explosion
+                int randomExplosion = Random.Range(0, blueCarOptions.explosions.Length);
+                var explosion = Instantiate(blueCarOptions.explosions[randomExplosion], collision.transform.position, collision.transform.rotation);
+                Destroy(explosion, 3);
+            }
+            else
+            {
+                explosionIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + "Blue_" + "ExplosionIndex", 0);
 
-                    var explosion = Instantiate(blueCarOptions.explosions[explosionIndex], collision.transform.position, collision.transform.rotation);
+                var explosion = Instantiate(blueCarOptions.explosions[explosionIndex], collision.transform.position, collision.transform.rotation);
 
-                    Destroy(explosion, 3);
-                }
+                Destroy(explosion, 3);
             }
         }
     }
@@ -200,25 +197,22 @@ public class Ball : MonoBehaviour
     {
         int explosionIndex;
 
-        if (whoTouchedTheBallLastRed != null)
+        if (whoTouchedTheBallLastBlue != null)
         {
-            if (!whoTouchedTheBallLastRed.GetComponent<PlayerCustomization>().isBlueTeam)
+            if (whoTouchedTheBallLastBlue.GetComponent<PlayerCustomization>().isAI)
             {
-                if (whoTouchedTheBallLastBlue.GetComponent<PlayerCustomization>().isAI)
-                {
-                    // Instatiate a Random Explosion
-                    int randomExplosion = Random.Range(0, redCarOptions.explosions.Length);
-                    var explosion = Instantiate(redCarOptions.explosions[randomExplosion], collision.transform.position, collision.transform.rotation);
-                    Destroy(explosion, 3);
-                }
-                else
-                {
-                    explosionIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + "Red_" + "ExplosionIndex", 0);
+                // Instatiate a Random Explosion
+                int randomExplosion = Random.Range(0, redCarOptions.explosions.Length);
+                var explosion = Instantiate(redCarOptions.explosions[randomExplosion], collision.transform.position, collision.transform.rotation);
+                Destroy(explosion, 3);
+            }
+            else
+            {
+                explosionIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + "Red_" + "ExplosionIndex", 0);
 
-                    var explosion = Instantiate(redCarOptions.explosions[explosionIndex], collision.transform.position, collision.transform.rotation);
+                var explosion = Instantiate(redCarOptions.explosions[explosionIndex], collision.transform.position, collision.transform.rotation);
 
-                    Destroy(explosion, 3);
-                }
+                Destroy(explosion, 3);
             }
         }
     }
