@@ -41,6 +41,11 @@ public class CustomizeMenu : MonoBehaviour
     private int blueTrailIndex = 0;
     private int redTrailIndex = 0;
 
+    [SerializeField] TextMeshProUGUI explosionText;
+    private int blueExplosionIndex = 0;
+    private int redExplosionIndex = 0;
+    [SerializeField] GameObject currentExplosion;
+
     private const string PLAYERPREFS_PREFIX = "PlayerCustomization_";
 
     private void Start()
@@ -52,14 +57,14 @@ public class CustomizeMenu : MonoBehaviour
     {
         if (isBlueActive)
         {
-            SelectCarOptions(blueOptions, blueBodyIndex, blueLightIndex, blueTireIndex, blueWingIndex, bluePaintIndex, blueTrailIndex);
-            UpdateText(blueBodyIndex, blueTireIndex, blueWingIndex, bluePaintIndex, blueTrailIndex);
+            SelectCarOptions(blueOptions, blueBodyIndex, blueLightIndex, blueTireIndex, blueWingIndex, bluePaintIndex, blueTrailIndex, blueExplosionIndex);
+            UpdateText(blueBodyIndex, blueTireIndex, blueWingIndex, bluePaintIndex, blueTrailIndex, blueExplosionIndex);
 
         }
         else
         {
-            SelectCarOptions(redOptions, redBodyIndex, redLightIndex, redTireIndex, redWingIndex, redPaintIndex, redTrailIndex);
-            UpdateText(redBodyIndex, redTireIndex, redWingIndex, redPaintIndex, redTrailIndex);
+            SelectCarOptions(redOptions, redBodyIndex, redLightIndex, redTireIndex, redWingIndex, redPaintIndex, redTrailIndex, redExplosionIndex);
+            UpdateText(redBodyIndex, redTireIndex, redWingIndex, redPaintIndex, redTrailIndex, redExplosionIndex);
         }
     }
 
@@ -234,7 +239,31 @@ public class CustomizeMenu : MonoBehaviour
         }
     }
 
-    public void SelectCarOptions(CarOptions options, int bodyIndex, int lightIndex, int tireIndex, int wingIndex, int paintIndex, int trailIndex)
+    public void ExplosionLeft()
+    {
+        if (isBlueActive)
+        {
+            blueExplosionIndex = (blueExplosionIndex - 1 + blueOptions.explosions.Length) % blueOptions.explosions.Length;
+        }
+        else
+        {
+            redExplosionIndex = (redExplosionIndex - 1 + redOptions.explosions.Length) % redOptions.explosions.Length;
+        }
+    }
+
+    public void ExplosionRight()
+    {
+        if (isBlueActive)
+        {
+            blueExplosionIndex = (blueExplosionIndex + 1) % blueOptions.explosions.Length;
+        }
+        else
+        {
+            redExplosionIndex = (redExplosionIndex + 1) % redOptions.explosions.Length;
+        }
+    }
+
+    public void SelectCarOptions(CarOptions options, int bodyIndex, int lightIndex, int tireIndex, int wingIndex, int paintIndex, int trailIndex, int explosionIndex)
     {
         // Body
         if (options.bodys.Length > 0)
@@ -259,14 +288,46 @@ public class CustomizeMenu : MonoBehaviour
         // Trail
         if (options.trails.Length > 0)
             trail.colorGradient = options.trails[trailIndex];
+
+        // Explosion
+        if (options.explosions.Length > 0)
+        {
+            if (currentExplosion == null)
+            {
+                switch (explosionIndex)
+                {
+                    case 0:
+                        currentExplosion = Instantiate(options.explosions[0], transform.position, transform.rotation, transform);
+                        break;
+                    case 1:
+                        currentExplosion = Instantiate(options.explosions[1], transform.position, transform.rotation, transform);
+                        break;
+                    case 2:
+                        currentExplosion = Instantiate(options.explosions[2], transform.position, transform.rotation, transform);
+                        break;
+                    case 3:
+                        currentExplosion = Instantiate(options.explosions[3], transform.position, transform.rotation, transform);
+                        break;
+                    case 4:
+                        currentExplosion = Instantiate(options.explosions[4], transform.position, transform.rotation, transform);
+                        break;
+                    case 5:
+                        currentExplosion = Instantiate(options.explosions[5], transform.position, transform.rotation, transform);
+                        break;
+                }
+
+                Destroy(currentExplosion, 1);
+            }
+        }
     }
 
-    private void UpdateText(int cBodyInxed, int cTireIndex, int cWingIndex, int cPaintIndex, int cTrailIndex)
+    private void UpdateText(int cBodyIndex, int cTireIndex, int cWingIndex, int cPaintIndex, int cTrailIndex, int cExplosionIndex)
     {
-        bodyText.text = cBodyInxed.ToString();
+        bodyText.text = cBodyIndex.ToString();
         tireText.text = cTireIndex.ToString();
         wingText.text = cWingIndex.ToString();
         paintText.text = cPaintIndex.ToString();
         trailText.text = cTrailIndex.ToString();
+        explosionText.text = cExplosionIndex.ToString();
     }
 }

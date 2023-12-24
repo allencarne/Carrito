@@ -163,3 +163,10 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
+  explosions:
+  - {fileID: 5838739264634839647, guid: 19175e2cd82843f49adf6e375cf757d1, type: 3}
+  - {fileID: 847364653631361738, guid: cadf6a5002f16ad4c9f2fa4261b796e6, type: 3}
+  - {fileID: 488016210323066447, guid: c078c374d0bbc9b489ca19e851ae9db1, type: 3}
+  - {fileID: 5838634441676286814, guid: d14e004c307925e41bc7654d7ef3018f, type: 3}
+  - {fileID: 921448492587895796, guid: 57d3649470f556940a978daee90d2dbe, type: 3}
+  - {fileID: 7321457966230909108, guid: 556552490b37f9d4e8c5afc210cbbd85, type: 3}

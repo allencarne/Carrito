@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-
     private void Start()
     {
         // Reset the PlayerPrefs for tracking Current Training

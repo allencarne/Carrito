@@ -460,7 +460,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 49970743}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1566312520}
+        m_TargetAssemblyTypeName: CustomizeMenu, Assembly-CSharp
+        m_MethodName: ExplosionRight
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &49970743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6528,7 +6540,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1217074659}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1566312520}
+        m_TargetAssemblyTypeName: CustomizeMenu, Assembly-CSharp
+        m_MethodName: ExplosionLeft
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1217074659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7329,6 +7353,8 @@ MonoBehaviour:
   wingText: {fileID: 1211645289}
   paintText: {fileID: 1022568947}
   trailText: {fileID: 968704039}
+  explosionText: {fileID: 542890308}
+  currentExplosion: {fileID: 0}
 --- !u!1 &1584683288
 GameObject:
   m_ObjectHideFlags: 0
