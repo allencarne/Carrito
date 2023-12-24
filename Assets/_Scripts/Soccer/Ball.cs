@@ -10,7 +10,11 @@ public class Ball : MonoBehaviour
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] CircleCollider2D circleCollider;
 
-    [SerializeField] GameObject explosionPrefab;
+    [SerializeField] CarOptions blueCarOptions;
+    [SerializeField] CarOptions redCarOptions;
+    private const string PLAYERPREFS_PREFIX = "PlayerCustomization_";
+    //[SerializeField] GameObject explosionPrefab;
+
     [SerializeField] TrailRenderer trail;
     [SerializeField] float trailSpeed;
 
@@ -89,7 +93,8 @@ public class Ball : MonoBehaviour
             }
             else
             {
-                StartCoroutine(ScoreDelay(collision));
+                StartCoroutine(ScoreDelay());
+                RedGoal(collision);
 
                 SoccerManager.instance.redScore += 1;
 
@@ -115,7 +120,8 @@ public class Ball : MonoBehaviour
 
         if (collision.CompareTag("Red Goal"))
         {
-            StartCoroutine(ScoreDelay(collision));
+            StartCoroutine(ScoreDelay());
+            BlueGoal(collision);
 
             if (SoccerManager.instance.gameMode == SoccerManager.GameMode.Training)
             {
@@ -163,16 +169,67 @@ public class Ball : MonoBehaviour
         }
     }
 
-    IEnumerator ScoreDelay(Collider2D collision)
+    void BlueGoal(Collider2D collision)
     {
-        var explosion = Instantiate(explosionPrefab, collision.transform.position, collision.transform.rotation);
+        int explosionIndex;
 
+        if (whoTouchedTheBallLastBlue != null)
+        {
+            if (whoTouchedTheBallLastBlue.GetComponent<PlayerCustomization>().isBlueTeam)
+            {
+                if (whoTouchedTheBallLastBlue.GetComponent<PlayerCustomization>().isAI)
+                {
+                    // Instatiate a Random Explosion
+                    int randomExplosion = Random.Range(0, blueCarOptions.explosions.Length);
+                    var explosion = Instantiate(blueCarOptions.explosions[randomExplosion], collision.transform.position, collision.transform.rotation);
+                    Destroy(explosion, 3);
+                }
+                else
+                {
+                    explosionIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + "Blue_" + "ExplosionIndex", 0);
+
+                    var explosion = Instantiate(blueCarOptions.explosions[explosionIndex], collision.transform.position, collision.transform.rotation);
+
+                    Destroy(explosion, 3);
+                }
+            }
+        }
+    }
+
+    void RedGoal(Collider2D collision)
+    {
+        int explosionIndex;
+
+        if (whoTouchedTheBallLastRed != null)
+        {
+            if (!whoTouchedTheBallLastRed.GetComponent<PlayerCustomization>().isBlueTeam)
+            {
+                if (whoTouchedTheBallLastBlue.GetComponent<PlayerCustomization>().isAI)
+                {
+                    // Instatiate a Random Explosion
+                    int randomExplosion = Random.Range(0, redCarOptions.explosions.Length);
+                    var explosion = Instantiate(redCarOptions.explosions[randomExplosion], collision.transform.position, collision.transform.rotation);
+                    Destroy(explosion, 3);
+                }
+                else
+                {
+                    explosionIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + "Red_" + "ExplosionIndex", 0);
+
+                    var explosion = Instantiate(redCarOptions.explosions[explosionIndex], collision.transform.position, collision.transform.rotation);
+
+                    Destroy(explosion, 3);
+                }
+            }
+        }
+    }
+
+
+    IEnumerator ScoreDelay()
+    {
         spriteRenderer.enabled = false;
         circleCollider.enabled = false;
 
         yield return new WaitForSeconds(3);
-
-        Destroy(explosion);
 
         switch (SoccerManager.instance.gameMode)
         {

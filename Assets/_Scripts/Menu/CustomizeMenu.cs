@@ -70,13 +70,13 @@ public class CustomizeMenu : MonoBehaviour
 
     public void SavePlayerPrefs()
     {
-        SaveTeamPrefs("Blue_", blueBodyIndex, blueLightIndex, blueTireIndex, blueWingIndex, bluePaintIndex, blueTrailIndex);
-        SaveTeamPrefs("Red_", redBodyIndex, redLightIndex, redTireIndex, redWingIndex, redPaintIndex, redTrailIndex);
+        SaveTeamPrefs("Blue_", blueBodyIndex, blueLightIndex, blueTireIndex, blueWingIndex, bluePaintIndex, blueTrailIndex, blueExplosionIndex);
+        SaveTeamPrefs("Red_", redBodyIndex, redLightIndex, redTireIndex, redWingIndex, redPaintIndex, redTrailIndex, redExplosionIndex);
 
         PlayerPrefs.Save();
     }
 
-    private void SaveTeamPrefs(string keyPrefix, int bodyIndex, int lightIndex, int tireIndex, int wingIndex, int paintIndex, int trailIndex)
+    private void SaveTeamPrefs(string keyPrefix, int bodyIndex, int lightIndex, int tireIndex, int wingIndex, int paintIndex, int trailIndex, int explosionIndex)
     {
         PlayerPrefs.SetInt(PLAYERPREFS_PREFIX + keyPrefix + "BodyIndex", bodyIndex);
         PlayerPrefs.SetInt(PLAYERPREFS_PREFIX + keyPrefix + "LightIndex", lightIndex);
@@ -84,15 +84,16 @@ public class CustomizeMenu : MonoBehaviour
         PlayerPrefs.SetInt(PLAYERPREFS_PREFIX + keyPrefix + "WingIndex", wingIndex);
         PlayerPrefs.SetInt(PLAYERPREFS_PREFIX + keyPrefix + "PaintIndex", paintIndex);
         PlayerPrefs.SetInt(PLAYERPREFS_PREFIX + keyPrefix + "TrailIndex", trailIndex);
+        PlayerPrefs.SetInt(PLAYERPREFS_PREFIX + keyPrefix + "ExplosionIndex", explosionIndex);
     }
 
     private void LoadPlayerPrefs()
     {
-        LoadTeamPrefs("Blue_", ref blueBodyIndex, ref blueLightIndex, ref blueTireIndex, ref blueWingIndex, ref bluePaintIndex, ref blueTrailIndex);
-        LoadTeamPrefs("Red_", ref redBodyIndex, ref redLightIndex, ref redTireIndex, ref redWingIndex, ref redPaintIndex, ref redTrailIndex);
+        LoadTeamPrefs("Blue_", ref blueBodyIndex, ref blueLightIndex, ref blueTireIndex, ref blueWingIndex, ref bluePaintIndex, ref blueTrailIndex, ref blueExplosionIndex);
+        LoadTeamPrefs("Red_", ref redBodyIndex, ref redLightIndex, ref redTireIndex, ref redWingIndex, ref redPaintIndex, ref redTrailIndex, ref redExplosionIndex);
     }
 
-    private void LoadTeamPrefs(string keyPrefix, ref int bodyIndex, ref int lightIndex, ref int tireIndex, ref int wingIndex, ref int paintIndex, ref int trailIndex)
+    private void LoadTeamPrefs(string keyPrefix, ref int bodyIndex, ref int lightIndex, ref int tireIndex, ref int wingIndex, ref int paintIndex, ref int trailIndex, ref int explosionIndex)
     {
         bodyIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "BodyIndex", 0);
         lightIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "LightIndex", 0);
@@ -100,6 +101,7 @@ public class CustomizeMenu : MonoBehaviour
         wingIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "WingIndex", 0);
         paintIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "PaintIndex", 0);
         trailIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "TrailIndex", 0);
+        explosionIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "ExplosionIndex", 0);
     }
 
     public void BlueButton()

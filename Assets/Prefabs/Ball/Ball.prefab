@@ -310,7 +310,8 @@ MonoBehaviour:
   rb: {fileID: 5067461842776765858}
   spriteRenderer: {fileID: 5067461842776765860}
   circleCollider: {fileID: 5067461842776765859}
-  explosionPrefab: {fileID: 5838739264634839647, guid: 19175e2cd82843f49adf6e375cf757d1, type: 3}
+  blueCarOptions: {fileID: 11400000, guid: 467a937e74bb33442872dfffadf8d7db, type: 2}
+  redCarOptions: {fileID: 11400000, guid: c6a4a33714242194793a1d2931384f0c, type: 2}
   trail: {fileID: 8808626675888807381}
   trailSpeed: 20
   blueSide: 0
