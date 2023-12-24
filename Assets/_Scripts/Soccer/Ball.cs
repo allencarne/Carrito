@@ -113,6 +113,11 @@ public class Ball : MonoBehaviour
                         {
                             cameraController.GetComponent<CameraFollowAndZoom>().target = SoccerManager.instance.red1Instance.transform;
                         }
+
+                        if (SoccerManager.instance.blue1Instance)
+                        {
+                            cameraController.GetComponent<CameraFollowAndZoom>().target = SoccerManager.instance.blue1Instance.transform;
+                        }
                     }
                 }
             }
@@ -178,17 +183,56 @@ public class Ball : MonoBehaviour
             if (whoTouchedTheBallLastRed.GetComponent<PlayerCustomization>().isAI)
             {
                 // Instatiate a Random Explosion
-                int randomExplosion = Random.Range(0, blueCarOptions.explosions.Length);
-                var explosion = Instantiate(blueCarOptions.explosions[randomExplosion], collision.transform.position, collision.transform.rotation);
+                int randomExplosion = Random.Range(0, redCarOptions.explosions.Length);
+                var explosion = Instantiate(redCarOptions.explosions[randomExplosion], collision.transform.position, collision.transform.rotation);
                 Destroy(explosion, 3);
             }
             else
             {
-                explosionIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + "Blue_" + "ExplosionIndex", 0);
-
-                var explosion = Instantiate(blueCarOptions.explosions[explosionIndex], collision.transform.position, collision.transform.rotation);
-
+                // Instatiate Explosion Based on Red Player Prefs
+                explosionIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + "Red_" + "ExplosionIndex", 0);
+                var explosion = Instantiate(redCarOptions.explosions[explosionIndex], collision.transform.position, collision.transform.rotation);
                 Destroy(explosion, 3);
+            }
+        }
+        else
+        {
+            if (SoccerManager.instance.red1Instance)
+            {
+                if (SoccerManager.instance.red1Instance.GetComponent<PlayerCustomization>().isAI)
+                {
+                    // Instatiate a Random Explosion
+                    int randomExplosion = Random.Range(0, redCarOptions.explosions.Length);
+                    var explosion = Instantiate(redCarOptions.explosions[randomExplosion], collision.transform.position, collision.transform.rotation);
+                    Destroy(explosion, 3);
+                }
+                else
+                {
+                    // Instatiate Explosion Based on Red Player Prefs
+                    explosionIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + "Red_" + "ExplosionIndex", 0);
+                    var explosion = Instantiate(redCarOptions.explosions[explosionIndex], collision.transform.position, collision.transform.rotation);
+                    Destroy(explosion, 3);
+                }
+            }
+            else
+            {
+                if (SoccerManager.instance.blue1Instance)
+                {
+                    if (SoccerManager.instance.blue1Instance.GetComponent<PlayerCustomization>().isAI)
+                    {
+                        // Instatiate a Random Explosion
+                        int randomExplosion = Random.Range(0, blueCarOptions.explosions.Length);
+                        var explosion = Instantiate(blueCarOptions.explosions[randomExplosion], collision.transform.position, collision.transform.rotation);
+                        Destroy(explosion, 3);
+                    }
+                    else
+                    {
+                        // Instatiate Explosion Based on Blue Player Prefs
+                        explosionIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + "Blue_" + "ExplosionIndex", 0);
+                        var explosion = Instantiate(blueCarOptions.explosions[explosionIndex], collision.transform.position, collision.transform.rotation);
+                        Destroy(explosion, 3);
+                    }
+                }
             }
         }
     }
@@ -208,9 +252,9 @@ public class Ball : MonoBehaviour
             }
             else
             {
-                explosionIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + "Red_" + "ExplosionIndex", 0);
+                explosionIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + "Blue_" + "ExplosionIndex", 0);
 
-                var explosion = Instantiate(redCarOptions.explosions[explosionIndex], collision.transform.position, collision.transform.rotation);
+                var explosion = Instantiate(blueCarOptions.explosions[explosionIndex], collision.transform.position, collision.transform.rotation);
 
                 Destroy(explosion, 3);
             }
