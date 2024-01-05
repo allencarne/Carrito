@@ -26,6 +26,8 @@ public class Player : MonoBehaviour
     public float currentBoost;
     [HideInInspector] public float maxBoost = 100;
 
+    public bool isDrifting = false;
+
     private void FixedUpdate()
     {
         if (playerInput.IsAccelerating && !SoccerManager.instance.CanMove)
@@ -110,6 +112,8 @@ public class Player : MonoBehaviour
 
     void Drift()
     {
+        isDrifting = true;
+
         driftForce = 1f;
         leftDriftTrail.emitting = true;
         rightDriftTrail.emitting = true;
@@ -117,6 +121,8 @@ public class Player : MonoBehaviour
 
     void NoDrift()
     {
+        isDrifting = false;
+
         driftForce = 0.1f;
         leftDriftTrail.emitting = false;
         rightDriftTrail.emitting = false;
