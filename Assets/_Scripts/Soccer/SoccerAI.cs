@@ -36,7 +36,7 @@ public class SoccerAI : MonoBehaviour
     float inputTorque;
     bool inputAccelerate;
     bool inputBrakes;
-    bool inputBoost;
+    public bool inputBoost;
     public bool inputDrift;
 
     [SerializeField] float boostThresholdDistance;

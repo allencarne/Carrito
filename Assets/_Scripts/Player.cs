@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     [HideInInspector] public float maxBoost = 100;
 
     public bool isDrifting = false;
+    public bool isBoosting = false;
 
     private void FixedUpdate()
     {
@@ -98,6 +99,8 @@ public class Player : MonoBehaviour
     {
         if (currentBoost >= 1)
         {
+            isBoosting = true;
+
             currentBoost--;
             rb.AddForce(transform.up * boostForce);
             rb.AddForce(transform.up * boostForce, ForceMode2D.Impulse);
@@ -107,6 +110,8 @@ public class Player : MonoBehaviour
 
     void NoBoost()
     {
+        isBoosting = false;
+
         boostTrail.emitting = false;
     }
 

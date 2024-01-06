@@ -47,6 +47,25 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!243 &-6620762607534231509
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Collision - Car
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 6db1f3ec55a68ac4bbd6cf3ddf3144bd
+  m_Children: []
+  m_Volume: 300daf5d8615d34498f4a68aaa56a6ad
+  m_Pitch: 971933d5150b909469ee60eb89f0ebd4
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -4093923028088647324}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!243 &-6473672818769792824
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -177,6 +196,20 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!244 &-4093923028088647324
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Attenuation
+  m_EffectID: 72d5e6db4e0ef2e4f82c931d8d0da514
+  m_EffectName: Attenuation
+  m_MixLevel: 6209901c11a66c84a9186b8aa35bd066
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!244 &-3545827280981556579
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -235,6 +268,7 @@ AudioMixerGroupController:
   - {fileID: -4936689513363437757}
   - {fileID: -9145243546467335317}
   - {fileID: 6919005296105544181}
+  - {fileID: -6620762607534231509}
   - {fileID: -430205086408787089}
   m_Volume: f5d42e508013352428b03c3fb831628d
   m_Pitch: 58e6fe99269c1964fbe2579e98691fb8
@@ -298,6 +332,7 @@ AudioMixerController:
     - eab104ef9c057c040b698d399131d3b9
     - 96fe0a196e46dd7469265262a9087c10
     - beabb6e606f0a7641b2f5f9624a5ee6b
+    - 6db1f3ec55a68ac4bbd6cf3ddf3144bd
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -345,7 +380,10 @@ AudioMixerSnapshotController:
   m_Name: Snapshot
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: ceda74d8d8cedfd42a5bbc3b6c677411
-  m_FloatValues: {}
+  m_FloatValues:
+    3ece6512c0dc6cd4e9bfc4c43038c4af: 9.925883
+    3d71fc72f2dcdd8478b715bbac303fe8: -6.991066
+    0f3aac6cd26afca408df5943c94d6f2c: -5.3230715
   m_TransitionOverrides: {}
 --- !u!244 &332995788055826917
 AudioMixerEffectController:

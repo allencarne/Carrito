@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class Ball : MonoBehaviour
 {
+    [SerializeField] AudioSource wallHit;
+
     [SerializeField] Rigidbody2D rb;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] CircleCollider2D circleCollider;
@@ -41,6 +43,11 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            wallHit.Play();
+        }
+
         if (collision.gameObject.CompareTag("Car"))
         {
             if (collision.gameObject == SoccerManager.instance.blue1Instance)

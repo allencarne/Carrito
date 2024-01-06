@@ -2,17 +2,20 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
-using UnityEngine.InputSystem.XR;
 
 public class CarAudio : MonoBehaviour
 {
-    [Header("Audio Mixer")]
-    public AudioMixer audioMixer;
-
     [Header("Audio Sources")]
     public AudioSource carEngine;
     public AudioSource carDrift;
+    public AudioSource carBoost;
+    public AudioClip carBoostClip;
+
+    [SerializeField] AudioSource carHitWall;
+    [SerializeField] AudioSource carHitBall;
+    [SerializeField] AudioSource carHitCar;
+
+    private bool isBoostSoundPlaying = false;
 
     // Local Variable
     float desiredEnginePitch = 0.5f;
@@ -34,6 +37,7 @@ public class CarAudio : MonoBehaviour
     {
         UpdateEngineSFX();
         UpdateTireScreechingSFX();
+        UpdateBoostSFX();
     }
 
     void UpdateEngineSFX()
@@ -84,6 +88,71 @@ public class CarAudio : MonoBehaviour
         else
         {
             carDrift.volume = Mathf.Lerp(carDrift.volume, 0, Time.deltaTime * 10);
+        }
+    }
+
+    void UpdateBoostSFX()
+    {
+        carBoost.pitch = Random.Range(0.80f, 1.05f);
+
+        if (player)
+        {
+            if (player.isBoosting)
+            {
+                if (!isBoostSoundPlaying)
+                {
+                    carBoost.pitch = Random.Range(0.80f, 1.05f);
+                    carBoost.Play();
+                    isBoostSoundPlaying = true;
+                }
+            }
+            else
+            {
+                if (isBoostSoundPlaying)
+                {
+                    carBoost.Stop();
+                    isBoostSoundPlaying = false;
+                }
+            }
+        }
+
+        if (soccerAI)
+        {
+            if (soccerAI.inputBoost)
+            {
+                if (!isBoostSoundPlaying)
+                {
+                    carBoost.pitch = Random.Range(0.80f, 1.05f);
+                    carBoost.Play();
+                    isBoostSoundPlaying = true;
+                }
+            }
+            else
+            {
+                if (isBoostSoundPlaying)
+                {
+                    carBoost.Stop();
+                    isBoostSoundPlaying = false;
+                }
+            }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ball"))
+        {
+            carHitBall.Play();
+        }
+
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            carHitWall.Play();
+        }
+
+        if (collision.gameObject.CompareTag("Car"))
+        {
+            carHitCar.Play();
         }
     }
 }
