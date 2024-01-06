@@ -32,6 +32,10 @@ public class SoccerManager : MonoBehaviour
     }
 
     #endregion
+
+    [SerializeField] AudioSource CountDownSFX;
+    [SerializeField] AudioSource GoSFX;
+
     [SerializeField] GameObject resumeButton;
     public TextMeshProUGUI trainingText;
     [SerializeField] SoccerTraining soccerTraining;
@@ -510,15 +514,19 @@ public class SoccerManager : MonoBehaviour
     IEnumerator CountdownCoroutine()
     {
         countDownText.text = "3";
+        CountDownSFX.Play();
         yield return new WaitForSeconds(1f);
 
         countDownText.text = "2";
+        CountDownSFX.Play();
         yield return new WaitForSeconds(1f);
 
         countDownText.text = "1";
+        CountDownSFX.Play();
         yield return new WaitForSeconds(1f);
 
         countDownText.text = "Go!";
+        GoSFX.Play();
         yield return new WaitForSeconds(1f);
 
         // Do Stuff
