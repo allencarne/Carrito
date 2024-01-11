@@ -221,11 +221,11 @@ public class CustomizeMenu : MonoBehaviour
     {
         if (isBlueActive)
         {
-            blueTrailIndex = (blueTrailIndex - 1 + blueOptions.trails.Length) % blueOptions.trails.Length;
+            blueTrailIndex = (blueTrailIndex - 1 + blueOptions.trailColor.Length) % blueOptions.trailColor.Length;
         }
         else
         {
-            redTrailIndex = (redTrailIndex - 1 + redOptions.trails.Length) % redOptions.trails.Length;
+            redTrailIndex = (redTrailIndex - 1 + redOptions.trailColor.Length) % redOptions.trailColor.Length;
         }
     }
 
@@ -233,11 +233,11 @@ public class CustomizeMenu : MonoBehaviour
     {
         if (isBlueActive)
         {
-            blueTrailIndex = (blueTrailIndex + 1) % blueOptions.trails.Length;
+            blueTrailIndex = (blueTrailIndex + 1) % blueOptions.trailColor.Length;
         }
         else
         {
-            redTrailIndex = (redTrailIndex + 1) % redOptions.trails.Length;
+            redTrailIndex = (redTrailIndex + 1) % redOptions.trailColor.Length;
         }
     }
 
@@ -288,8 +288,8 @@ public class CustomizeMenu : MonoBehaviour
             body.color = options.paint[paintIndex];
 
         // Trail
-        if (options.trails.Length > 0)
-            trail.colorGradient = options.trails[trailIndex];
+        if (options.trailColor.Length > 0)
+            trail.colorGradient = options.trailColor[trailIndex];
 
         // Explosion
         if (options.explosions.Length > 0)

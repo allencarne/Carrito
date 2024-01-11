@@ -12,7 +12,10 @@ public class CarOptions : ScriptableObject
 
     public Color[] paint;
 
-    public Gradient[] trails;
+    //Trail
+    public ParticleSystem[] trails;
+    public Gradient[] trailColor;
 
+    // Explosion
     public GameObject[] explosions;
 }

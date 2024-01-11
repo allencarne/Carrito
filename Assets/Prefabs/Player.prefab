@@ -6978,7 +6978,7 @@ MonoBehaviour:
   _light: {fileID: 1515879084491592516}
   tire: {fileID: 6521874732642511412}
   wing: {fileID: 1052621071539820377}
-  trail: {fileID: 3666273003481078502}
+  trail: {fileID: 4198280543927916160}
   isBlueTeam: 0
   isAI: 0
 --- !u!114 &4676471940076671050

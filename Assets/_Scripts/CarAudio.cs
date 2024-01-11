@@ -8,7 +8,6 @@ public class CarAudio : MonoBehaviour
     public AudioSource carEngine;
     public AudioSource carDrift;
     public AudioSource carBoost;
-    public AudioClip carBoostClip;
 
     [SerializeField] AudioSource carHitWall;
     [SerializeField] AudioSource carHitBall;

@@ -21,7 +21,8 @@ public class SoccerAI : MonoBehaviour
     [SerializeField] TrailRenderer rightAccelerateTrail;
     [SerializeField] TrailRenderer leftDriftTrail;
     [SerializeField] TrailRenderer rightDriftTrail;
-    [SerializeField] TrailRenderer boostTrail;
+    //[SerializeField] TrailRenderer boostTrail;
+    [SerializeField] ParticleSystem boostTrail;
 
     [Header("Stats")]
     float speed = 10;
@@ -267,13 +268,20 @@ public class SoccerAI : MonoBehaviour
             //gameManager.SetBoost(currentBoost);
             rb.AddForce(transform.up * boostForce);
             rb.AddForce(transform.up * boostForce, ForceMode2D.Impulse);
-            boostTrail.emitting = true;
+
+            if (!boostTrail.isEmitting)
+            {
+                boostTrail.Play();
+            }
         }
     }
 
     void NoBoost()
     {
-        boostTrail.emitting = false;
+        if (boostTrail.isEmitting)
+        {
+            boostTrail.Stop();
+        }
     }
 
     void Drift()
