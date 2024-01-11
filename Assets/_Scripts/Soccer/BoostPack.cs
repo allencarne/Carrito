@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 
 public class BoostPack : MonoBehaviour
@@ -13,6 +12,8 @@ public class BoostPack : MonoBehaviour
     [SerializeField] int boostAmount;
     [SerializeField] int boostPackCoolDown;
     bool isBoostPackReady;
+
+    [SerializeField] AudioSource boostPackPickup;
 
     void Start()
     {
@@ -31,6 +32,9 @@ public class BoostPack : MonoBehaviour
             {
                 Instantiate(smallCircleFX, transform.position, transform.rotation);
 
+                boostPackPickup.pitch = Random.Range(0.80f, 1.05f);
+                boostPackPickup.Play();
+
                 isBoostPackReady = false;
                 spriteRenderer.sprite = boostPackEmpty;
                 float boostToAdd = Mathf.Min(boostAmount, player.maxBoost - player.currentBoost);
@@ -42,6 +46,9 @@ public class BoostPack : MonoBehaviour
             if (soccerAI != null && soccerAI.currentBoost != soccerAI.maxBoost)
             {
                 Instantiate(smallCircleFX, transform.position, transform.rotation);
+
+                boostPackPickup.pitch = Random.Range(0.80f, 1.05f);
+                boostPackPickup.Play();
 
                 isBoostPackReady = false;
                 spriteRenderer.sprite = boostPackEmpty;
