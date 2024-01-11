@@ -1,10 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using static SoccerManager;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -38,11 +35,11 @@ public class PauseMenu : MonoBehaviour
     // Game UI
     public void PauseButton()
     {
-        if (SoccerManager.instance.gameState == GameState.Playing)
+        if (SoccerManager.instance.gameState == SoccerManager.GameState.Playing)
         {
-            SoccerManager.instance.gameState = GameState.Paused;
+            SoccerManager.instance.gameState = SoccerManager.GameState.Paused;
         }
-        else if (SoccerManager.instance.gameState == GameState.Paused)
+        else if (SoccerManager.instance.gameState == SoccerManager.GameState.Paused)
         {
             ResumeButton();
         }
@@ -50,17 +47,17 @@ public class PauseMenu : MonoBehaviour
 
     public void ResetButton()
     {
-        if (SoccerManager.instance.gameMode == GameMode.FreePlay)
+        if (SoccerManager.instance.gameMode == SoccerManager.GameMode.FreePlay)
         {
-            if (SoccerManager.instance.gameState == GameState.Playing)
+            if (SoccerManager.instance.gameState == SoccerManager.GameState.Playing)
             {
                 SceneManager.LoadScene("Soccer");
             }
         }
 
-        if (SoccerManager.instance.gameMode == GameMode.Training)
+        if (SoccerManager.instance.gameMode == SoccerManager.GameMode.Training)
         {
-            if (SoccerManager.instance.gameState == GameState.Playing)
+            if (SoccerManager.instance.gameState == SoccerManager.GameState.Playing)
             {
                 SoccerManager.instance.GetComponent<SoccerTraining>().ReloadTrainingLevel();
             }

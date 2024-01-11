@@ -12,7 +12,8 @@ public class Player : MonoBehaviour
     [SerializeField] TrailRenderer rightAccelerateTrail;
     [SerializeField] TrailRenderer leftDriftTrail;
     [SerializeField] TrailRenderer rightDriftTrail;
-    [SerializeField] TrailRenderer boostTrail;
+    //[SerializeField] TrailRenderer boostTrail;
+    [SerializeField] ParticleSystem boostTrail;
 
     [SerializeField] GameObject accTrailLeft;
     [SerializeField] GameObject accTrailRight;
@@ -104,7 +105,11 @@ public class Player : MonoBehaviour
             currentBoost--;
             rb.AddForce(transform.up * boostForce);
             rb.AddForce(transform.up * boostForce, ForceMode2D.Impulse);
-            boostTrail.emitting = true;
+
+            if (!boostTrail.isEmitting)
+            {
+                boostTrail.Play();
+            }
         }
     }
 
@@ -112,7 +117,10 @@ public class Player : MonoBehaviour
     {
         isBoosting = false;
 
-        boostTrail.emitting = false;
+        if (boostTrail.isEmitting)
+        {
+            boostTrail.Stop();
+        }
     }
 
     void Drift()

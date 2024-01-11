@@ -8,6 +8,18 @@ public class MainMenu : MonoBehaviour
     [SerializeField] AudioSource menuHover;
     [SerializeField] AudioSource menuSelect;
 
+    private void OnEnable()
+    {
+        // Subscribe to the sceneLoaded event
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        // Unsubscribe from the sceneLoaded event
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
     private void Start()
     {
         // Reset the PlayerPrefs for tracking Current Training
@@ -33,34 +45,42 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetInt("ResetD10", 0);
     }
 
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // This method will be called when a new scene has finished loading
+        // (Optional: You can put any post-loading logic here)
+    }
+
     public void SoccerButton()
     {
         StartCoroutine(MenuDelay("SoccerMenu"));
-        //SceneManager.LoadScene("SoccerMenu");
     }
 
     public void RaceButton()
     {
         StartCoroutine(MenuDelay("RaceMenu"));
-        //SceneManager.LoadScene("RaceMenu");
     }
 
     public void BattleButton()
     {
         StartCoroutine(MenuDelay("BattleMenu"));
-        //SceneManager.LoadScene("BattleMenu");
     }
 
     public void OptionsButton()
     {
         StartCoroutine(MenuDelay("OptionsMenu"));
-        //SceneManager.LoadScene("OptionsMenu");
     }
 
     public void BindsButton()
     {
         StartCoroutine(MenuDelay("BindsMenu"));
-        //SceneManager.LoadScene("BindsMenu");
+    }
+
+    IEnumerator MenuDelay(string ButtonName)
+    {
+        yield return new WaitForSeconds(0.5f); // Adjust the delay time as needed
+
+        SceneManager.LoadScene(ButtonName);
     }
 
     public void ExitButton()
@@ -76,12 +96,5 @@ public class MainMenu : MonoBehaviour
     public void MenuSelect()
     {
         menuSelect.Play();
-    }
-
-    IEnumerator MenuDelay(string ButtonName)
-    {
-        yield return new WaitForSeconds(.1f);
-
-        SceneManager.LoadScene(ButtonName);
     }
 }
