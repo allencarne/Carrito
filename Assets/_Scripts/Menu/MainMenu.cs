@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] AudioSource menuHover;
+    [SerializeField] AudioSource menuSelect;
+
     private void Start()
     {
         // Reset the PlayerPrefs for tracking Current Training
@@ -32,31 +35,53 @@ public class MainMenu : MonoBehaviour
 
     public void SoccerButton()
     {
-        SceneManager.LoadScene("SoccerMenu");
+        StartCoroutine(MenuDelay("SoccerMenu"));
+        //SceneManager.LoadScene("SoccerMenu");
     }
 
     public void RaceButton()
     {
-        SceneManager.LoadScene("RaceMenu");
+        StartCoroutine(MenuDelay("RaceMenu"));
+        //SceneManager.LoadScene("RaceMenu");
     }
 
     public void BattleButton()
     {
-        SceneManager.LoadScene("BattleMenu");
+        StartCoroutine(MenuDelay("BattleMenu"));
+        //SceneManager.LoadScene("BattleMenu");
     }
 
     public void OptionsButton()
     {
-        SceneManager.LoadScene("OptionsMenu");
+        StartCoroutine(MenuDelay("OptionsMenu"));
+        //SceneManager.LoadScene("OptionsMenu");
     }
 
     public void BindsButton()
     {
-        SceneManager.LoadScene("BindsMenu");
+        StartCoroutine(MenuDelay("BindsMenu"));
+        //SceneManager.LoadScene("BindsMenu");
     }
 
     public void ExitButton()
     {
         Application.Quit();
+    }
+
+    public void MenuHover()
+    {
+        menuHover.Play();
+    }
+
+    public void MenuSelect()
+    {
+        menuSelect.Play();
+    }
+
+    IEnumerator MenuDelay(string ButtonName)
+    {
+        yield return new WaitForSeconds(.1f);
+
+        SceneManager.LoadScene(ButtonName);
     }
 }
