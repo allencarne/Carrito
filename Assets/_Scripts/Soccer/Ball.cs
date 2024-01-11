@@ -15,7 +15,6 @@ public class Ball : MonoBehaviour
     [SerializeField] CarOptions blueCarOptions;
     [SerializeField] CarOptions redCarOptions;
     private const string PLAYERPREFS_PREFIX = "PlayerCustomization_";
-    //[SerializeField] GameObject explosionPrefab;
 
     [SerializeField] TrailRenderer trail;
     [SerializeField] float trailSpeed;

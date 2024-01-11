@@ -6,7 +6,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Collision - Wall
+  m_Name: CarHitWall
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: e3086f558b3acd64cbb29b334d71cf35
   m_Children: []
@@ -47,13 +47,27 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!244 &-6918102585215862419
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 60c6181ecdd400d478015b06b6c79e7f
+  m_EffectName: Attenuation
+  m_MixLevel: 06c2c2b9fcc4ada41ab4a8abc923c954
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!243 &-6620762607534231509
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Collision - Car
+  m_Name: CarHitCar
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 6db1f3ec55a68ac4bbd6cf3ddf3144bd
   m_Children: []
@@ -284,6 +298,7 @@ AudioMixerGroupController:
   - {fileID: 6919005296105544181}
   - {fileID: -6620762607534231509}
   - {fileID: 257836816346992612}
+  - {fileID: 5234754003210484412}
   - {fileID: -430205086408787089}
   m_Volume: f5d42e508013352428b03c3fb831628d
   m_Pitch: 58e6fe99269c1964fbe2579e98691fb8
@@ -350,6 +365,7 @@ AudioMixerController:
     - 6db1f3ec55a68ac4bbd6cf3ddf3144bd
     - bf1161165a778194ebc3f21f5edb9728
     - 66bd4fb256411f64088ca46564311d25
+    - cf1dc229119e8114db88f9c3c3e080db
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -408,7 +424,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Collist - BoostPack
+  m_Name: CarHitBoostPack
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 66bd4fb256411f64088ca46564311d25
   m_Children: []
@@ -571,6 +587,25 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!243 &5234754003210484412
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: CarHitBallHard
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: cf1dc229119e8114db88f9c3c3e080db
+  m_Children: []
+  m_Volume: 78d3e34664218e249944a1d7b8e871ef
+  m_Pitch: bf245f830525a884da0aa695b91294d0
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -6918102585215862419}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!244 &6310475030104413362
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -610,7 +645,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Collision - Ball
+  m_Name: CarHitBall
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 461644c8d080a7e44a462af680dd3bcb
   m_Children: []
