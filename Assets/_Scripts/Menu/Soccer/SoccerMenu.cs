@@ -12,9 +12,9 @@ public class SoccerMenu : MonoBehaviour
     bool isTwoVsTwoActive = false;
     bool isThreeVsThreeActive = false;
 
-    [Header("Sides")]
-    [SerializeField] GameObject blueSide;
-    [SerializeField] GameObject redSide;
+    [Header("Panels")]
+    [SerializeField] GameObject blueSidePanel;
+    [SerializeField] GameObject redSidePanel;
 
     [Header("Blue 1")]
     [SerializeField] GameObject blue1;
@@ -76,9 +76,9 @@ public class SoccerMenu : MonoBehaviour
 
     private void Start()
     {
-        // Setup
-        blueSide.SetActive(false);
-        redSide.SetActive(false);
+        // Panel
+        blueSidePanel.SetActive(false);
+        redSidePanel.SetActive(false);
 
         blue1.SetActive(false);
         red1.SetActive(false);
@@ -167,9 +167,9 @@ public class SoccerMenu : MonoBehaviour
         isTwoVsTwoActive = false;
         isThreeVsThreeActive = false;
 
-        // Buttons
-        blueSide.SetActive(true);
-        redSide.SetActive(true);
+        // Panels
+        blueSidePanel.SetActive(true);
+        redSidePanel.SetActive(true);
 
         blue1.SetActive(true);
         red1.SetActive(true);
@@ -230,9 +230,9 @@ public class SoccerMenu : MonoBehaviour
         isTwoVsTwoActive = true;
         isThreeVsThreeActive = false;
 
-        // Buttons
-        blueSide.SetActive(true);
-        redSide.SetActive(true);
+        // Panels
+        blueSidePanel.SetActive(true);
+        redSidePanel.SetActive(true);
 
         blue1.SetActive(true);
         red1.SetActive(true);
@@ -295,9 +295,9 @@ public class SoccerMenu : MonoBehaviour
         isTwoVsTwoActive = false;
         isThreeVsThreeActive = true;
 
-        // Buttons
-        blueSide.SetActive(true);
-        redSide.SetActive(true);
+        // Panels
+        blueSidePanel.SetActive(true);
+        redSidePanel.SetActive(true);
 
         blue1.SetActive(true);
         red1.SetActive(true);
