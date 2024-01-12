@@ -98,7 +98,7 @@ public class PlayerCustomization : MonoBehaviour
 
             // Set Trail Color Based on Player Prefs
             if (options.trailColor.Length > 0)
-                colorOverLifetimeModule.color = options.trailColor[trailIndex];
+                colorOverLifetimeModule.color = options.trailColor[trailColorIndex];
         }
         else
         {
