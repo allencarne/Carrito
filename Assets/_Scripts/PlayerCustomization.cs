@@ -11,8 +11,6 @@ public class PlayerCustomization : MonoBehaviour
     [SerializeField] SpriteRenderer _light;
     [SerializeField] SpriteRenderer tire;
     [SerializeField] SpriteRenderer wing;
-    //[SerializeField] ParticleSystem trail;
-    //private ParticleSystem.ColorOverLifetimeModule colorOverLifetimeModule;
 
     private int bodyIndex = 0;
     private int lightIndex = 0;
@@ -30,8 +28,6 @@ public class PlayerCustomization : MonoBehaviour
 
     private void Start()
     {
-        //colorOverLifetimeModule = trail.colorOverLifetime;
-
         if (isBlueTeam)
         {
             LoadPlayerPrefs();

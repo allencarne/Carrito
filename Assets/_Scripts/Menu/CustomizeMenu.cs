@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using System.Net.NetworkInformation;
 using UnityEngine.UI;
+using static UnityEngine.ParticleSystem;
 
 public class CustomizeMenu : MonoBehaviour
 {
@@ -16,7 +17,8 @@ public class CustomizeMenu : MonoBehaviour
     [SerializeField] Image _light;
     [SerializeField] Image tire;
     [SerializeField] Image wing;
-    [SerializeField] TrailRenderer trail;
+    [SerializeField] ParticleSystem trail;
+    private ParticleSystem.ColorOverLifetimeModule colorOverLifetimeModule;
 
     [SerializeField] TextMeshProUGUI bodyText;
     private int blueBodyIndex = 0;
@@ -288,8 +290,21 @@ public class CustomizeMenu : MonoBehaviour
             body.color = options.paint[paintIndex];
 
         // Trail
-        if (options.trailColor.Length > 0)
-            trail.colorGradient = options.trailColor[trailIndex];
+        if (options.trails.Length > 0 && options.trailColor.Length > 0)
+        {
+            int randomTrailIndex = Random.Range(0, options.trails.Length);
+            int randomColorIndex = Random.Range(0, options.trailColor.Length);
+
+            // Instantiate the Particle System prefab
+            ParticleSystem instantiatedTrail = Instantiate(options.trails[randomTrailIndex], transform.position, transform.rotation, transform);
+
+            // Assign the instantiated Particle System to boostTrail
+            trail = instantiatedTrail;
+
+            // Assign a random color to the boostTrail
+            colorOverLifetimeModule = instantiatedTrail.colorOverLifetime;
+            colorOverLifetimeModule.color = options.trailColor[randomColorIndex];
+        }
 
         // Explosion
         if (options.explosions.Length > 0)

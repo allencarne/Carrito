@@ -23,7 +23,6 @@ public class SoccerAI : MonoBehaviour
     [SerializeField] TrailRenderer rightAccelerateTrail;
     [SerializeField] TrailRenderer leftDriftTrail;
     [SerializeField] TrailRenderer rightDriftTrail;
-    //[SerializeField] TrailRenderer boostTrail;
     [SerializeField] ParticleSystem boostTrail;
     private ParticleSystem.ColorOverLifetimeModule colorOverLifetimeModule;
 
