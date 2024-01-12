@@ -10,6 +10,8 @@ public class CustomizeMenu : MonoBehaviour
 {
     bool isBlueActive = true;
 
+    [SerializeField] Transform trailTransform;
+
     [SerializeField] CarOptions blueOptions;
     [SerializeField] CarOptions redOptions;
 
@@ -43,6 +45,10 @@ public class CustomizeMenu : MonoBehaviour
     private int blueTrailIndex = 0;
     private int redTrailIndex = 0;
 
+    [SerializeField] TextMeshProUGUI trailColorText;
+    private int blueTrailColorIndex = 0;
+    private int redTrailColorIndex = 0;
+
     [SerializeField] TextMeshProUGUI explosionText;
     private int blueExplosionIndex = 0;
     private int redExplosionIndex = 0;
@@ -59,14 +65,14 @@ public class CustomizeMenu : MonoBehaviour
     {
         if (isBlueActive)
         {
-            SelectCarOptions(blueOptions, blueBodyIndex, blueLightIndex, blueTireIndex, blueWingIndex, bluePaintIndex, blueTrailIndex, blueExplosionIndex);
-            UpdateText(blueBodyIndex, blueTireIndex, blueWingIndex, bluePaintIndex, blueTrailIndex, blueExplosionIndex);
+            SelectCarOptions(blueOptions, blueBodyIndex, blueLightIndex, blueTireIndex, blueWingIndex, bluePaintIndex, blueTrailIndex, blueTrailColorIndex, blueExplosionIndex);
+            UpdateText(blueBodyIndex, blueTireIndex, blueWingIndex, bluePaintIndex, blueTrailIndex, blueTrailColorIndex, blueExplosionIndex);
 
         }
         else
         {
-            SelectCarOptions(redOptions, redBodyIndex, redLightIndex, redTireIndex, redWingIndex, redPaintIndex, redTrailIndex, redExplosionIndex);
-            UpdateText(redBodyIndex, redTireIndex, redWingIndex, redPaintIndex, redTrailIndex, redExplosionIndex);
+            SelectCarOptions(redOptions, redBodyIndex, redLightIndex, redTireIndex, redWingIndex, redPaintIndex, redTrailIndex, redTrailColorIndex, redExplosionIndex);
+            UpdateText(redBodyIndex, redTireIndex, redWingIndex, redPaintIndex, redTrailIndex, redTrailColorIndex, redExplosionIndex);
         }
     }
 
@@ -223,11 +229,11 @@ public class CustomizeMenu : MonoBehaviour
     {
         if (isBlueActive)
         {
-            blueTrailIndex = (blueTrailIndex - 1 + blueOptions.trailColor.Length) % blueOptions.trailColor.Length;
+            blueTrailIndex = (blueTrailIndex - 1 + blueOptions.trails.Length) % blueOptions.trails.Length;
         }
         else
         {
-            redTrailIndex = (redTrailIndex - 1 + redOptions.trailColor.Length) % redOptions.trailColor.Length;
+            redTrailIndex = (redTrailIndex - 1 + redOptions.trails.Length) % redOptions.trails.Length;
         }
     }
 
@@ -235,11 +241,11 @@ public class CustomizeMenu : MonoBehaviour
     {
         if (isBlueActive)
         {
-            blueTrailIndex = (blueTrailIndex + 1) % blueOptions.trailColor.Length;
+            blueTrailIndex = (blueTrailIndex + 1) % blueOptions.trails.Length;
         }
         else
         {
-            redTrailIndex = (redTrailIndex + 1) % redOptions.trailColor.Length;
+            redTrailIndex = (redTrailIndex + 1) % redOptions.trails.Length;
         }
     }
 
@@ -267,7 +273,7 @@ public class CustomizeMenu : MonoBehaviour
         }
     }
 
-    public void SelectCarOptions(CarOptions options, int bodyIndex, int lightIndex, int tireIndex, int wingIndex, int paintIndex, int trailIndex, int explosionIndex)
+    public void SelectCarOptions(CarOptions options, int bodyIndex, int lightIndex, int tireIndex, int wingIndex, int paintIndex, int trailIndex, int trailColorIndex, int explosionIndex)
     {
         // Body
         if (options.bodys.Length > 0)
@@ -279,7 +285,7 @@ public class CustomizeMenu : MonoBehaviour
 
         // Tires
         if (options.tires.Length > 0)
-           tire.sprite = options.tires[tireIndex];
+            tire.sprite = options.tires[tireIndex];
 
         // Wing
         if (options.wings.Length > 0)
@@ -292,19 +298,63 @@ public class CustomizeMenu : MonoBehaviour
         // Trail
         if (options.trails.Length > 0 && options.trailColor.Length > 0)
         {
-            int randomTrailIndex = Random.Range(0, options.trails.Length);
-            int randomColorIndex = Random.Range(0, options.trailColor.Length);
+            if (trail == null)
+            {
+                // Instantiate the Particle System prefab
+                ParticleSystem instantiatedTrail = Instantiate(options.trails[trailIndex], trailTransform.transform.position, trailTransform.transform.rotation, transform);
 
-            // Instantiate the Particle System prefab
-            ParticleSystem instantiatedTrail = Instantiate(options.trails[randomTrailIndex], transform.position, transform.rotation, transform);
+                // Assign the instantiated Particle System to trail
+                trail = instantiatedTrail;
 
-            // Assign the instantiated Particle System to boostTrail
-            trail = instantiatedTrail;
+                // Assign the specified color to the trail
+                colorOverLifetimeModule = instantiatedTrail.colorOverLifetime;
+                colorOverLifetimeModule.color = options.trailColor[trailColorIndex];
 
-            // Assign a random color to the boostTrail
-            colorOverLifetimeModule = instantiatedTrail.colorOverLifetime;
-            colorOverLifetimeModule.color = options.trailColor[randomColorIndex];
+                // Ensure the trail is emitting
+                var emissionModule = instantiatedTrail.emission;
+                emissionModule.enabled = true;
+
+                // Set gravity to at least 2
+                var mainModule = instantiatedTrail.main;
+                mainModule.gravityModifier = 2;
+
+                Destroy(instantiatedTrail, 1);
+            }
         }
+
+
+        /*
+        // trail
+        if (options.trails.Length > 0)
+        {
+            if (trail == null)
+            {
+                switch (trailIndex)
+                {
+                    case 0:
+                        trail = Instantiate(options.trails[0], transform.position, transform.rotation, transform);
+                        break;
+                    case 1:
+                        trail = Instantiate(options.trails[1], transform.position, transform.rotation, transform);
+                        break;
+                    case 2:
+                        trail = Instantiate(options.trails[2], transform.position, transform.rotation, transform);
+                        break;
+                    case 3:
+                        trail = Instantiate(options.trails[3], transform.position, transform.rotation, transform);
+                        break;
+                    case 4:
+                        trail = Instantiate(options.trails[4], transform.position, transform.rotation, transform);
+                        break;
+                    case 5:
+                        trail = Instantiate(options.trails[5], transform.position, transform.rotation, transform);
+                        break;
+                }
+
+                Destroy(currentExplosion, 1);
+            }
+        }
+        */
 
         // Explosion
         if (options.explosions.Length > 0)
@@ -338,13 +388,14 @@ public class CustomizeMenu : MonoBehaviour
         }
     }
 
-    private void UpdateText(int cBodyIndex, int cTireIndex, int cWingIndex, int cPaintIndex, int cTrailIndex, int cExplosionIndex)
+    private void UpdateText(int cBodyIndex, int cTireIndex, int cWingIndex, int cPaintIndex, int cTrailIndex, int cTrailColorIndex, int cExplosionIndex)
     {
         bodyText.text = cBodyIndex.ToString();
         tireText.text = cTireIndex.ToString();
         wingText.text = cWingIndex.ToString();
         paintText.text = cPaintIndex.ToString();
         trailText.text = cTrailIndex.ToString();
+        trailColorText.text = cTrailColorIndex.ToString();
         explosionText.text = cExplosionIndex.ToString();
     }
 }

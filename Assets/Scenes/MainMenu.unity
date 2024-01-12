@@ -1803,7 +1803,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 368585650}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d084999bd2e55d149a8acc4ac52bfbed, type: 3}
   m_Name: 
@@ -10312,7 +10312,7 @@ Transform:
   m_GameObject: {fileID: 1468353028}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: -41.75, z: -0}
+  m_LocalPosition: {x: 0, y: -34.375, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15374,18 +15374,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d8cb6006be88d64ab830cb1b32df63c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trailTransform: {fileID: 1520851472}
   blueOptions: {fileID: 11400000, guid: 467a937e74bb33442872dfffadf8d7db, type: 2}
   redOptions: {fileID: 11400000, guid: c6a4a33714242194793a1d2931384f0c, type: 2}
   body: {fileID: 1791502101}
   _light: {fileID: 1491962040}
   tire: {fileID: 1353681797}
   wing: {fileID: 275229982}
-  trail: {fileID: 1520851474}
+  trail: {fileID: 0}
   bodyText: {fileID: 1649145596}
   tireText: {fileID: 1640410876}
   wingText: {fileID: 1211645289}
   paintText: {fileID: 1022568947}
   trailText: {fileID: 968704039}
+  trailColorText: {fileID: 776746552}
   explosionText: {fileID: 542890308}
   currentExplosion: {fileID: 0}
 --- !u!1 &1584683288
