@@ -199,7 +199,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 736010591
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 103e73db300ae724f8db395cfe383907, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -705,7 +705,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 736010591
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: efc00d4b48344b24c8fe3ce8793e72b4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -917,7 +917,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 736010591
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: efc3c77848362894b99ca678cc73ab77, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1129,7 +1129,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 736010591
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: df3e70e69b7c3af45a546f401f35010f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1226,7 +1226,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 736010591
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 0.24056602, g: 0.68922174, b: 1, a: 1}
@@ -1346,7 +1346,6 @@ MonoBehaviour:
   _light: {fileID: 4610318841239262232}
   tire: {fileID: 9079538256629881698}
   wing: {fileID: 2746051799024667713}
-  trail: {fileID: 4772976235304076504}
   isBlueTeam: 0
   isAI: 0
 --- !u!95 &6607275158854715547
@@ -1515,10 +1514,10 @@ TrailRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1161418797
-  m_SortingLayer: -1
-  m_SortingOrder: 0
-  m_Time: 0.05
+  m_SortingLayerID: 282079645
+  m_SortingLayer: 1
+  m_SortingOrder: 1
+  m_Time: 0.075
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -1660,9 +1659,9 @@ TrailRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1161418797
-  m_SortingLayer: -1
-  m_SortingOrder: 0
+  m_SortingLayerID: 282079645
+  m_SortingLayer: 1
+  m_SortingOrder: 1
   m_Time: 5
   m_PreviewTimeScale: 1
   m_Parameters:
@@ -1796,10 +1795,10 @@ TrailRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1161418797
-  m_SortingLayer: -1
-  m_SortingOrder: 0
-  m_Time: 0.05
+  m_SortingLayerID: 282079645
+  m_SortingLayer: 1
+  m_SortingOrder: 1
+  m_Time: 0.075
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -1941,9 +1940,9 @@ TrailRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1161418797
-  m_SortingLayer: -1
-  m_SortingOrder: 0
+  m_SortingLayerID: 282079645
+  m_SortingLayer: 1
+  m_SortingOrder: 1
   m_Time: 5
   m_PreviewTimeScale: 1
   m_Parameters:
@@ -2077,9 +2076,9 @@ TrailRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1161418797
-  m_SortingLayer: -1
-  m_SortingOrder: 0
+  m_SortingLayerID: 282079645
+  m_SortingLayer: 1
+  m_SortingOrder: 1
   m_Time: 0.1
   m_PreviewTimeScale: 1
   m_Parameters:
@@ -2460,11 +2459,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9135a594ceb25b419366cbb8fc18de4, type: 3}
---- !u!198 &4772976235304076504 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 2619717458587034592, guid: b9135a594ceb25b419366cbb8fc18de4, type: 3}
-  m_PrefabInstance: {fileID: 7378619944966448952}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8711207183255662973 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2198446529132271173, guid: b9135a594ceb25b419366cbb8fc18de4, type: 3}

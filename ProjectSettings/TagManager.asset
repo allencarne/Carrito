@@ -54,6 +54,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Trail
+    uniqueID: 282079645
+    locked: 0
   - name: Car
     uniqueID: 736010591
     locked: 0
