@@ -12,6 +12,8 @@ public class CustomizeMenu : MonoBehaviour
 
     [SerializeField] Transform trailTransform;
 
+    [SerializeField] Transform carPreview;
+
     [SerializeField] CarOptions blueOptions;
     [SerializeField] CarOptions redOptions;
 
@@ -231,13 +233,13 @@ public class CustomizeMenu : MonoBehaviour
         {
             blueTrailIndex = (blueTrailIndex - 1 + blueOptions.trails.Length) % blueOptions.trails.Length;
 
-            Destroy(trail);
+            Destroy(trail.gameObject);
         }
         else
         {
             redTrailIndex = (redTrailIndex - 1 + redOptions.trails.Length) % redOptions.trails.Length;
 
-            Destroy(trail);
+            Destroy(trail.gameObject);
         }
     }
 
@@ -247,13 +249,13 @@ public class CustomizeMenu : MonoBehaviour
         {
             blueTrailIndex = (blueTrailIndex + 1) % blueOptions.trails.Length;
 
-            Destroy(trail);
+            Destroy(trail.gameObject);
         }
         else
         {
             redTrailIndex = (redTrailIndex + 1) % redOptions.trails.Length;
 
-            Destroy(trail);
+            Destroy(trail.gameObject);
         }
     }
 
@@ -309,10 +311,13 @@ public class CustomizeMenu : MonoBehaviour
             if (trail == null)
             {
                 // Instantiate the Particle System prefab
-                ParticleSystem instantiatedTrail = Instantiate(options.trails[trailIndex], trailTransform.transform.position, trailTransform.transform.rotation, transform);
+                ParticleSystem instantiatedTrail = Instantiate(options.trails[trailIndex], trailTransform.transform.position, trailTransform.transform.rotation, carPreview.transform);
 
                 // Set the scale of the instantiated trail
                 instantiatedTrail.transform.localScale = new Vector3(5, 5, 1);
+
+                // Start the Particle System manually
+                instantiatedTrail.Play();
 
                 // Assign the instantiated Particle System to trail
                 trail = instantiatedTrail;
@@ -325,9 +330,9 @@ public class CustomizeMenu : MonoBehaviour
                 var emissionModule = instantiatedTrail.emission;
                 emissionModule.enabled = true;
 
-                // Set gravity to at least 2
+                // Set gravity
                 var mainModule = instantiatedTrail.main;
-                mainModule.gravityModifier = 2;
+                mainModule.gravityModifier = 10;
             }
         }
 

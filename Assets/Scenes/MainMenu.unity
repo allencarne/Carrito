@@ -15375,6 +15375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trailTransform: {fileID: 1520851472}
+  carPreview: {fileID: 368585651}
   blueOptions: {fileID: 11400000, guid: 467a937e74bb33442872dfffadf8d7db, type: 2}
   redOptions: {fileID: 11400000, guid: c6a4a33714242194793a1d2931384f0c, type: 2}
   body: {fileID: 1791502101}
