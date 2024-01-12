@@ -230,10 +230,14 @@ public class CustomizeMenu : MonoBehaviour
         if (isBlueActive)
         {
             blueTrailIndex = (blueTrailIndex - 1 + blueOptions.trails.Length) % blueOptions.trails.Length;
+
+            Destroy(trail);
         }
         else
         {
             redTrailIndex = (redTrailIndex - 1 + redOptions.trails.Length) % redOptions.trails.Length;
+
+            Destroy(trail);
         }
     }
 
@@ -242,10 +246,14 @@ public class CustomizeMenu : MonoBehaviour
         if (isBlueActive)
         {
             blueTrailIndex = (blueTrailIndex + 1) % blueOptions.trails.Length;
+
+            Destroy(trail);
         }
         else
         {
             redTrailIndex = (redTrailIndex + 1) % redOptions.trails.Length;
+
+            Destroy(trail);
         }
     }
 
@@ -303,6 +311,9 @@ public class CustomizeMenu : MonoBehaviour
                 // Instantiate the Particle System prefab
                 ParticleSystem instantiatedTrail = Instantiate(options.trails[trailIndex], trailTransform.transform.position, trailTransform.transform.rotation, transform);
 
+                // Set the scale of the instantiated trail
+                instantiatedTrail.transform.localScale = new Vector3(5, 5, 1);
+
                 // Assign the instantiated Particle System to trail
                 trail = instantiatedTrail;
 
@@ -317,44 +328,8 @@ public class CustomizeMenu : MonoBehaviour
                 // Set gravity to at least 2
                 var mainModule = instantiatedTrail.main;
                 mainModule.gravityModifier = 2;
-
-                Destroy(instantiatedTrail, 1);
             }
         }
-
-
-        /*
-        // trail
-        if (options.trails.Length > 0)
-        {
-            if (trail == null)
-            {
-                switch (trailIndex)
-                {
-                    case 0:
-                        trail = Instantiate(options.trails[0], transform.position, transform.rotation, transform);
-                        break;
-                    case 1:
-                        trail = Instantiate(options.trails[1], transform.position, transform.rotation, transform);
-                        break;
-                    case 2:
-                        trail = Instantiate(options.trails[2], transform.position, transform.rotation, transform);
-                        break;
-                    case 3:
-                        trail = Instantiate(options.trails[3], transform.position, transform.rotation, transform);
-                        break;
-                    case 4:
-                        trail = Instantiate(options.trails[4], transform.position, transform.rotation, transform);
-                        break;
-                    case 5:
-                        trail = Instantiate(options.trails[5], transform.position, transform.rotation, transform);
-                        break;
-                }
-
-                Destroy(currentExplosion, 1);
-            }
-        }
-        */
 
         // Explosion
         if (options.explosions.Length > 0)
