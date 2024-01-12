@@ -1314,6 +1314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BlueSide: 1
+  carOptions: {fileID: 11400000, guid: 467a937e74bb33442872dfffadf8d7db, type: 2}
   rb: {fileID: 8412704991420033759}
   attackingSide: {fileID: 0}
   defendingSide: {fileID: 0}
@@ -1321,7 +1322,7 @@ MonoBehaviour:
   rightAccelerateTrail: {fileID: 8412704991659994935}
   leftDriftTrail: {fileID: 8412704991949364362}
   rightDriftTrail: {fileID: 8412704992818771622}
-  boostTrail: {fileID: 4772976235304076504}
+  boostTrail: {fileID: 0}
   currentBoost: 100
   maxBoost: 100
   inputBoost: 0

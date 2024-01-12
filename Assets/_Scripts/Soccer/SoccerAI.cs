@@ -7,6 +7,8 @@ public class SoccerAI : MonoBehaviour
 {
     [SerializeField] bool BlueSide;
 
+    [SerializeField] CarOptions carOptions;
+
     [Header("Components")]
     [SerializeField] Rigidbody2D rb;
     [SerializeField] GameObject attackingSide;
@@ -55,6 +57,20 @@ public class SoccerAI : MonoBehaviour
     {
         blueDefensePoint = GameObject.Find("Blue Defense Point").transform;
         redDefensePoint = GameObject.Find("Red Defense Point").transform;
+    }
+
+    private void Start()
+    {
+        if (carOptions.trails.Length > 0)
+        {
+            int randomTrail = Random.Range(0, carOptions.trails.Length);
+
+            // Instantiate the Particle System prefab
+            ParticleSystem instantiatedTrail = Instantiate(carOptions.trails[randomTrail], transform.position, transform.rotation, transform);
+
+            // Assign the instantiated Particle System to boostTrail
+            boostTrail = instantiatedTrail;
+        }
     }
 
     private void Update()
@@ -269,19 +285,27 @@ public class SoccerAI : MonoBehaviour
             rb.AddForce(transform.up * boostForce);
             rb.AddForce(transform.up * boostForce, ForceMode2D.Impulse);
 
+            //boostTrail.SetActive(true);
+
+            
             if (!boostTrail.isEmitting)
             {
                 boostTrail.Play();
             }
+            
         }
     }
 
     void NoBoost()
     {
+        //boostTrail.SetActive(false);
+
+        
         if (boostTrail.isEmitting)
         {
             boostTrail.Stop();
         }
+        
     }
 
     void Drift()

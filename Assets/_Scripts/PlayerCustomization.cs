@@ -11,8 +11,8 @@ public class PlayerCustomization : MonoBehaviour
     [SerializeField] SpriteRenderer _light;
     [SerializeField] SpriteRenderer tire;
     [SerializeField] SpriteRenderer wing;
-    [SerializeField] ParticleSystem trail;
-    private ParticleSystem.ColorOverLifetimeModule colorOverLifetimeModule;
+    //[SerializeField] ParticleSystem trail;
+    //private ParticleSystem.ColorOverLifetimeModule colorOverLifetimeModule;
 
     private int bodyIndex = 0;
     private int lightIndex = 0;
@@ -30,7 +30,7 @@ public class PlayerCustomization : MonoBehaviour
 
     private void Start()
     {
-        colorOverLifetimeModule = trail.colorOverLifetime;
+        //colorOverLifetimeModule = trail.colorOverLifetime;
 
         if (isBlueTeam)
         {
@@ -93,12 +93,14 @@ public class PlayerCustomization : MonoBehaviour
             // Set Trail Based on Player Prefs
             if (options.trails.Length > 0)
             {
-                trail = options.trails[trailIndex];
+                //trail = options.trails[trailIndex];
             }
 
             // Set Trail Color Based on Player Prefs
             if (options.trailColor.Length > 0)
-                colorOverLifetimeModule.color = options.trailColor[trailColorIndex];
+            {
+                //colorOverLifetimeModule.color = options.trailColor[trailColorIndex];
+            }
         }
         else
         {
@@ -127,16 +129,6 @@ public class PlayerCustomization : MonoBehaviour
             // Paint
             if (options.paint.Length > 0)
                 body.color = options.paint[Random.Range(0, options.paint.Length)];
-
-            // Trail
-            if (options.trails.Length > 0)
-            {
-                trail = options.trails[Random.Range(0, options.trails.Length)];
-            }
-
-            // Trail Color
-            if (options.trailColor.Length > 0)
-                colorOverLifetimeModule.color = options.trailColor[Random.Range(0, options.trailColor.Length)];
         }
     }
 }
