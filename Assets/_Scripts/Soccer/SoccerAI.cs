@@ -25,6 +25,7 @@ public class SoccerAI : MonoBehaviour
     [SerializeField] TrailRenderer rightDriftTrail;
     //[SerializeField] TrailRenderer boostTrail;
     [SerializeField] ParticleSystem boostTrail;
+    private ParticleSystem.ColorOverLifetimeModule colorOverLifetimeModule;
 
     [Header("Stats")]
     float speed = 10;
@@ -61,15 +62,20 @@ public class SoccerAI : MonoBehaviour
 
     private void Start()
     {
-        if (carOptions.trails.Length > 0)
+        if (carOptions.trails.Length > 0 && carOptions.trailColor.Length > 0)
         {
-            int randomTrail = Random.Range(0, carOptions.trails.Length);
+            int randomTrailIndex = Random.Range(0, carOptions.trails.Length);
+            int randomColorIndex = Random.Range(0, carOptions.trailColor.Length);
 
             // Instantiate the Particle System prefab
-            ParticleSystem instantiatedTrail = Instantiate(carOptions.trails[randomTrail], transform.position, transform.rotation, transform);
+            ParticleSystem instantiatedTrail = Instantiate(carOptions.trails[randomTrailIndex], transform.position, transform.rotation, transform);
 
             // Assign the instantiated Particle System to boostTrail
             boostTrail = instantiatedTrail;
+
+            // Assign a random color to the boostTrail
+            colorOverLifetimeModule = instantiatedTrail.colorOverLifetime;
+            colorOverLifetimeModule.color = carOptions.trailColor[randomColorIndex];
         }
     }
 
