@@ -6723,7 +6723,7 @@ MonoBehaviour:
   rightAccelerateTrail: {fileID: 3391863138903824975}
   leftDriftTrail: {fileID: 6762107385994339340}
   rightDriftTrail: {fileID: 6680575781675600376}
-  boostTrail: {fileID: 1007269407524370542}
+  boostTrail: {fileID: 7017234380814116550}
   accTrailLeft: {fileID: 8035441497721194119}
   accTrailRight: {fileID: 7800129903819727601}
   preBoostTrail: {fileID: 2674229395723988136}
@@ -6978,7 +6978,6 @@ MonoBehaviour:
   _light: {fileID: 1515879084491592516}
   tire: {fileID: 6521874732642511412}
   wing: {fileID: 1052621071539820377}
-  trail: {fileID: 1007269407524370542}
   isBlueTeam: 0
   isAI: 0
 --- !u!114 &4676471940076671050
@@ -17163,11 +17162,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9135a594ceb25b419366cbb8fc18de4, type: 3}
---- !u!198 &1007269407524370542 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 2619717458587034592, guid: b9135a594ceb25b419366cbb8fc18de4, type: 3}
-  m_PrefabInstance: {fileID: 2999838352332790670}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3973268258428882379 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2198446529132271173, guid: b9135a594ceb25b419366cbb8fc18de4, type: 3}
@@ -17233,5 +17227,10 @@ PrefabInstance:
 --- !u!4 &6609966092996825955 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8008116022096090971, guid: b5f3622eb2f868943a8ee4dc3471aba9, type: 3}
+  m_PrefabInstance: {fileID: 3790300478673585208}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &7017234380814116550 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6195795617621500670, guid: b5f3622eb2f868943a8ee4dc3471aba9, type: 3}
   m_PrefabInstance: {fileID: 3790300478673585208}
   m_PrefabAsset: {fileID: 0}
