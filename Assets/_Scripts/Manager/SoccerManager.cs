@@ -35,6 +35,7 @@ public class SoccerManager : MonoBehaviour
 
     [SerializeField] AudioSource CountDownSFX;
     [SerializeField] AudioSource GoSFX;
+    [SerializeField] AudioSource WhistleStart;
 
     [SerializeField] GameObject resumeButton;
     public TextMeshProUGUI trainingText;
@@ -526,7 +527,8 @@ public class SoccerManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         countDownText.text = "Go!";
-        GoSFX.Play();
+        //GoSFX.Play();
+        WhistleStart.Play();
         yield return new WaitForSeconds(1f);
 
         // Do Stuff
