@@ -13,6 +13,7 @@ public class PlayerCustomization : MonoBehaviour
     [SerializeField] SpriteRenderer _light;
     [SerializeField] SpriteRenderer tire;
     [SerializeField] SpriteRenderer wing;
+    private ParticleSystem.ColorOverLifetimeModule colorOverLifetimeModule;
 
     private int bodyIndex = 0;
     private int lightIndex = 0;
@@ -89,7 +90,7 @@ public class PlayerCustomization : MonoBehaviour
                 body.color = options.paint[paintIndex];
 
             // Set Trail Based on Player Prefs
-            if (options.trails.Length > 0)
+            if (options.trails.Length > 0 && options.trailColor.Length > 0)
             {
                 // Instantiate the Particle System prefab
                 ParticleSystem instantiatedTrail = Instantiate(options.trails[trailIndex], transform.position, transform.rotation, transform);
@@ -98,14 +99,8 @@ public class PlayerCustomization : MonoBehaviour
                 player.boostTrail = instantiatedTrail;
 
                 // Assign a random color to the boostTrail
-                //colorOverLifetimeModule = instantiatedTrail.colorOverLifetime;
-                //colorOverLifetimeModule.color = carOptions.trailColor[randomColorIndex];
-            }
-
-            // Set Trail Color Based on Player Prefs
-            if (options.trailColor.Length > 0)
-            {
-                //colorOverLifetimeModule.color = options.trailColor[trailColorIndex];
+                colorOverLifetimeModule = instantiatedTrail.colorOverLifetime;
+                colorOverLifetimeModule.color = options.trailColor[trailColorIndex];
             }
         }
         else
