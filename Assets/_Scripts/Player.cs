@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.ParticleSystem;
 
 public class Player : MonoBehaviour
 {
@@ -12,8 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] TrailRenderer rightAccelerateTrail;
     [SerializeField] TrailRenderer leftDriftTrail;
     [SerializeField] TrailRenderer rightDriftTrail;
-    //[SerializeField] TrailRenderer boostTrail;
-    [SerializeField] ParticleSystem boostTrail;
+    public ParticleSystem boostTrail;
 
     [SerializeField] GameObject accTrailLeft;
     [SerializeField] GameObject accTrailRight;

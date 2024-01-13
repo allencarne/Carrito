@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerCustomization : MonoBehaviour
 {
+    [SerializeField] Player player;
+
     [SerializeField] CarOptions blueOptions;
     [SerializeField] CarOptions redOptions;
 
@@ -11,6 +13,7 @@ public class PlayerCustomization : MonoBehaviour
     [SerializeField] SpriteRenderer _light;
     [SerializeField] SpriteRenderer tire;
     [SerializeField] SpriteRenderer wing;
+    //public ParticleSystem trail;
 
     private int bodyIndex = 0;
     private int lightIndex = 0;
@@ -89,7 +92,15 @@ public class PlayerCustomization : MonoBehaviour
             // Set Trail Based on Player Prefs
             if (options.trails.Length > 0)
             {
-                //trail = options.trails[trailIndex];
+                // Instantiate the Particle System prefab
+                ParticleSystem instantiatedTrail = Instantiate(options.trails[trailIndex], transform.position, transform.rotation, transform);
+
+                // Assign the instantiated Particle System to boostTrail
+                player.boostTrail = instantiatedTrail;
+
+                // Assign a random color to the boostTrail
+                //colorOverLifetimeModule = instantiatedTrail.colorOverLifetime;
+                //colorOverLifetimeModule.color = carOptions.trailColor[randomColorIndex];
             }
 
             // Set Trail Color Based on Player Prefs
