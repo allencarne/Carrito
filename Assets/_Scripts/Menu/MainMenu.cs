@@ -10,6 +10,9 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+        // Reset the Time Scale (for allowing the particles to play)
+        Time.timeScale = 1;
+
         // Reset the PlayerPrefs for tracking Current Training
         PlayerPrefs.SetInt("ResetS1", 0);
         PlayerPrefs.SetInt("ResetS2", 0);

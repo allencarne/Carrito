@@ -127,6 +127,8 @@ public class CustomizeMenu : MonoBehaviour
 
         Destroy(trail.gameObject);
 
+        Destroy(explosion.gameObject);
+
         LoadPlayerPrefs();
     }
 
@@ -135,6 +137,8 @@ public class CustomizeMenu : MonoBehaviour
         isBlueActive = false;
 
         Destroy(trail.gameObject);
+
+        Destroy(explosion.gameObject);
 
         LoadPlayerPrefs();
     }
@@ -308,10 +312,13 @@ public class CustomizeMenu : MonoBehaviour
         if (isBlueActive)
         {
             blueExplosionIndex = (blueExplosionIndex - 1 + blueOptions.explosions.Length) % blueOptions.explosions.Length;
+
+            Destroy(explosion.gameObject);
         }
         else
         {
             redExplosionIndex = (redExplosionIndex - 1 + redOptions.explosions.Length) % redOptions.explosions.Length;
+            Destroy(explosion.gameObject);
         }
     }
 
@@ -320,10 +327,14 @@ public class CustomizeMenu : MonoBehaviour
         if (isBlueActive)
         {
             blueExplosionIndex = (blueExplosionIndex + 1) % blueOptions.explosions.Length;
+
+            Destroy(explosion.gameObject);
         }
         else
         {
             redExplosionIndex = (redExplosionIndex + 1) % redOptions.explosions.Length;
+
+            Destroy(explosion.gameObject);
         }
     }
 
@@ -332,10 +343,14 @@ public class CustomizeMenu : MonoBehaviour
         if (isBlueActive)
         {
             blueExplosionColorIndex = (blueExplosionColorIndex - 1 + blueOptions.trailColor.Length) % blueOptions.trailColor.Length;
+
+            Destroy(explosion.gameObject);
         }
         else
         {
             redExplosionColorIndex = (redExplosionColorIndex - 1 + redOptions.trailColor.Length) % redOptions.trailColor.Length;
+
+            Destroy(explosion.gameObject);
         }
     }
 
@@ -344,10 +359,14 @@ public class CustomizeMenu : MonoBehaviour
         if (isBlueActive)
         {
             blueExplosionColorIndex = (blueExplosionColorIndex + 1) % blueOptions.trailColor.Length;
+
+            Destroy(explosion.gameObject);
         }
         else
         {
             redExplosionColorIndex = (redExplosionColorIndex + 1) % redOptions.trailColor.Length;
+
+            Destroy(explosion.gameObject);
         }
     }
 
@@ -444,7 +463,7 @@ public class CustomizeMenu : MonoBehaviour
                 // Assign the instantiated GameObject to explosion
                 explosion = newExplosion;
 
-                Destroy(newExplosion, 1);
+                Destroy(newExplosion, 10);
             }
         }
     }
