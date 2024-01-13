@@ -398,6 +398,9 @@ public class CustomizeMenu : MonoBehaviour
                     case 5:
                         currentExplosion = Instantiate(options.explosions[5], transform.position, transform.rotation, transform);
                         break;
+                    case 6:
+                        currentExplosion = Instantiate(options.explosions[6], transform.position, transform.rotation, transform);
+                        break;
                 }
 
                 Destroy(currentExplosion, 1);
