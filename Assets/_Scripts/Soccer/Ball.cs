@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class Ball : MonoBehaviour
 {
     [SerializeField] AudioSource wallHit;
+    [SerializeField] AudioSource GoalCheer;
 
     [SerializeField] Rigidbody2D rb;
     [SerializeField] SpriteRenderer spriteRenderer;
@@ -104,6 +105,8 @@ public class Ball : MonoBehaviour
 
                 SoccerManager.instance.redScore += 1;
 
+                GoalCheer.Play();
+
                 OnScored?.Invoke();
 
                 GameObject cameraController = GameObject.Find("Camera Controller");
@@ -149,6 +152,8 @@ public class Ball : MonoBehaviour
             {
                 SoccerManager.instance.blueScore += 1;
             }
+
+            GoalCheer.Play();
 
             OnScored?.Invoke();
 
