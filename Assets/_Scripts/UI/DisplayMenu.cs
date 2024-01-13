@@ -71,8 +71,7 @@ public class DisplayMenu : MonoBehaviour
             }
 
             if (resolutions[i].width == Screen.currentResolution.width &&
-               resolutions[i].height == Screen.currentResolution.height &&
-               resolutions[i].refreshRateRatio.numerator == Screen.currentResolution.refreshRateRatio.numerator)
+              resolutions[i].height == Screen.currentResolution.height)
             {
                 currentResolutionIndex = i;
             }
