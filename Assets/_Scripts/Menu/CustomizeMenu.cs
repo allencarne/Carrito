@@ -20,7 +20,8 @@ public class CustomizeMenu : MonoBehaviour
     [SerializeField] Image tire;
     [SerializeField] Image wing;
     [SerializeField] ParticleSystem trail;
-    private ParticleSystem.ColorOverLifetimeModule colorOverLifetimeModule;
+    [SerializeField] GameObject explosion;
+    ParticleSystem.ColorOverLifetimeModule colorOverLifetimeModule;
 
     [SerializeField] TextMeshProUGUI bodyText;
     private int blueBodyIndex = 0;
@@ -52,7 +53,10 @@ public class CustomizeMenu : MonoBehaviour
     [SerializeField] TextMeshProUGUI explosionText;
     private int blueExplosionIndex = 0;
     private int redExplosionIndex = 0;
-    [SerializeField] GameObject currentExplosion;
+
+    [SerializeField] TextMeshProUGUI explosionColorText;
+    private int blueExplosionColorIndex = 0;
+    private int redExplosionColorIndex = 0;
 
     private const string PLAYERPREFS_PREFIX = "PlayerCustomization_";
 
@@ -65,26 +69,26 @@ public class CustomizeMenu : MonoBehaviour
     {
         if (isBlueActive)
         {
-            SelectCarOptions(blueOptions, blueBodyIndex, blueLightIndex, blueTireIndex, blueWingIndex, bluePaintIndex, blueTrailIndex, blueTrailColorIndex, blueExplosionIndex);
-            UpdateText(blueBodyIndex, blueTireIndex, blueWingIndex, bluePaintIndex, blueTrailIndex, blueTrailColorIndex, blueExplosionIndex);
+            SelectCarOptions(blueOptions, blueBodyIndex, blueLightIndex, blueTireIndex, blueWingIndex, bluePaintIndex, blueTrailIndex, blueTrailColorIndex, blueExplosionIndex, blueExplosionColorIndex);
+            UpdateText(blueBodyIndex, blueTireIndex, blueWingIndex, bluePaintIndex, blueTrailIndex, blueTrailColorIndex, blueExplosionIndex, blueExplosionColorIndex);
 
         }
         else
         {
-            SelectCarOptions(redOptions, redBodyIndex, redLightIndex, redTireIndex, redWingIndex, redPaintIndex, redTrailIndex, redTrailColorIndex, redExplosionIndex);
-            UpdateText(redBodyIndex, redTireIndex, redWingIndex, redPaintIndex, redTrailIndex, redTrailColorIndex, redExplosionIndex);
+            SelectCarOptions(redOptions, redBodyIndex, redLightIndex, redTireIndex, redWingIndex, redPaintIndex, redTrailIndex, redTrailColorIndex, redExplosionIndex, redExplosionColorIndex);
+            UpdateText(redBodyIndex, redTireIndex, redWingIndex, redPaintIndex, redTrailIndex, redTrailColorIndex, redExplosionIndex, redExplosionColorIndex);
         }
     }
 
     public void SavePlayerPrefs()
     {
-        SaveTeamPrefs("Blue_", blueBodyIndex, blueLightIndex, blueTireIndex, blueWingIndex, bluePaintIndex, blueTrailIndex, blueTrailColorIndex, blueExplosionIndex);
-        SaveTeamPrefs("Red_", redBodyIndex, redLightIndex, redTireIndex, redWingIndex, redPaintIndex, redTrailIndex, redTrailColorIndex, redExplosionIndex);
+        SaveTeamPrefs("Blue_", blueBodyIndex, blueLightIndex, blueTireIndex, blueWingIndex, bluePaintIndex, blueTrailIndex, blueTrailColorIndex, blueExplosionIndex, blueExplosionColorIndex);
+        SaveTeamPrefs("Red_", redBodyIndex, redLightIndex, redTireIndex, redWingIndex, redPaintIndex, redTrailIndex, redTrailColorIndex, redExplosionIndex, redExplosionColorIndex);
 
         PlayerPrefs.Save();
     }
 
-    private void SaveTeamPrefs(string keyPrefix, int bodyIndex, int lightIndex, int tireIndex, int wingIndex, int paintIndex, int trailIndex, int trailColorIndex, int explosionIndex)
+    private void SaveTeamPrefs(string keyPrefix, int bodyIndex, int lightIndex, int tireIndex, int wingIndex, int paintIndex, int trailIndex, int trailColorIndex, int explosionIndex, int explosionColorIndex)
     {
         PlayerPrefs.SetInt(PLAYERPREFS_PREFIX + keyPrefix + "BodyIndex", bodyIndex);
         PlayerPrefs.SetInt(PLAYERPREFS_PREFIX + keyPrefix + "LightIndex", lightIndex);
@@ -94,15 +98,16 @@ public class CustomizeMenu : MonoBehaviour
         PlayerPrefs.SetInt(PLAYERPREFS_PREFIX + keyPrefix + "TrailIndex", trailIndex);
         PlayerPrefs.SetInt(PLAYERPREFS_PREFIX + keyPrefix + "TrailColorIndex", trailColorIndex);
         PlayerPrefs.SetInt(PLAYERPREFS_PREFIX + keyPrefix + "ExplosionIndex", explosionIndex);
+        PlayerPrefs.SetInt(PLAYERPREFS_PREFIX + keyPrefix + "ExplosionColorIndex", explosionColorIndex);
     }
 
     private void LoadPlayerPrefs()
     {
-        LoadTeamPrefs("Blue_", ref blueBodyIndex, ref blueLightIndex, ref blueTireIndex, ref blueWingIndex, ref bluePaintIndex, ref blueTrailIndex, ref blueTrailColorIndex, ref blueExplosionIndex);
-        LoadTeamPrefs("Red_", ref redBodyIndex, ref redLightIndex, ref redTireIndex, ref redWingIndex, ref redPaintIndex, ref redTrailIndex, ref redTrailColorIndex, ref redExplosionIndex);
+        LoadTeamPrefs("Blue_", ref blueBodyIndex, ref blueLightIndex, ref blueTireIndex, ref blueWingIndex, ref bluePaintIndex, ref blueTrailIndex, ref blueTrailColorIndex, ref blueExplosionIndex, ref blueExplosionColorIndex);
+        LoadTeamPrefs("Red_", ref redBodyIndex, ref redLightIndex, ref redTireIndex, ref redWingIndex, ref redPaintIndex, ref redTrailIndex, ref redTrailColorIndex, ref redExplosionIndex, ref redExplosionColorIndex);
     }
 
-    private void LoadTeamPrefs(string keyPrefix, ref int bodyIndex, ref int lightIndex, ref int tireIndex, ref int wingIndex, ref int paintIndex, ref int trailIndex, ref int trailColorIndex, ref int explosionIndex)
+    private void LoadTeamPrefs(string keyPrefix, ref int bodyIndex, ref int lightIndex, ref int tireIndex, ref int wingIndex, ref int paintIndex, ref int trailIndex, ref int trailColorIndex, ref int explosionIndex, ref int explosionColorIndex)
     {
         bodyIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "BodyIndex", 0);
         lightIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "LightIndex", 0);
@@ -112,6 +117,7 @@ public class CustomizeMenu : MonoBehaviour
         trailIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "TrailIndex", 0);
         trailColorIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "TrailColorIndex", 0);
         explosionIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "ExplosionIndex", 0);
+        explosionColorIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + keyPrefix + "ExplosionColorIndex", 0);
     }
 
     public void BlueButton()
@@ -320,7 +326,31 @@ public class CustomizeMenu : MonoBehaviour
         }
     }
 
-    public void SelectCarOptions(CarOptions options, int bodyIndex, int lightIndex, int tireIndex, int wingIndex, int paintIndex, int trailIndex, int trailColorIndex, int explosionIndex)
+    public void ExplosionColorLeft()
+    {
+        if (isBlueActive)
+        {
+            blueExplosionColorIndex = (blueExplosionColorIndex - 1 + blueOptions.trailColor.Length) % blueOptions.trailColor.Length;
+        }
+        else
+        {
+            redExplosionColorIndex = (redExplosionColorIndex - 1 + redOptions.trailColor.Length) % redOptions.trailColor.Length;
+        }
+    }
+
+    public void ExplosionColorRight()
+    {
+        if (isBlueActive)
+        {
+            blueExplosionColorIndex = (blueExplosionColorIndex + 1) % blueOptions.trailColor.Length;
+        }
+        else
+        {
+            redExplosionColorIndex = (redExplosionColorIndex + 1) % redOptions.trailColor.Length;
+        }
+    }
+
+    public void SelectCarOptions(CarOptions options, int bodyIndex, int lightIndex, int tireIndex, int wingIndex, int paintIndex, int trailIndex, int trailColorIndex, int explosionIndex, int explosionColorIndex)
     {
         // Body
         if (options.bodys.Length > 0)
@@ -376,39 +406,40 @@ public class CustomizeMenu : MonoBehaviour
         // Explosion
         if (options.explosions.Length > 0)
         {
-            if (currentExplosion == null)
+            if (explosion == null)
             {
-                switch (explosionIndex)
+                // Instantiate the Particle System prefab
+                GameObject newExplosion = Instantiate(options.explosions[explosionIndex], transform.position, transform.rotation);
+
+                // Get the Particle System component
+                ParticleSystem explosionParticleSystem = newExplosion.GetComponent<ParticleSystem>();
+
+                // Check if the Particle System component is not null
+                if (explosionParticleSystem != null)
                 {
-                    case 0:
-                        currentExplosion = Instantiate(options.explosions[0], transform.position, transform.rotation, transform);
-                        break;
-                    case 1:
-                        currentExplosion = Instantiate(options.explosions[1], transform.position, transform.rotation, transform);
-                        break;
-                    case 2:
-                        currentExplosion = Instantiate(options.explosions[2], transform.position, transform.rotation, transform);
-                        break;
-                    case 3:
-                        currentExplosion = Instantiate(options.explosions[3], transform.position, transform.rotation, transform);
-                        break;
-                    case 4:
-                        currentExplosion = Instantiate(options.explosions[4], transform.position, transform.rotation, transform);
-                        break;
-                    case 5:
-                        currentExplosion = Instantiate(options.explosions[5], transform.position, transform.rotation, transform);
-                        break;
-                    case 6:
-                        currentExplosion = Instantiate(options.explosions[6], transform.position, transform.rotation, transform);
-                        break;
+                    // Get the main module of the Particle System
+                    var mainModule = explosionParticleSystem.main;
+
+                    // Check if the options and gradient are not null
+                    if (options.trailColor.Length > 0)
+                    {
+                        // Make sure explosionColorIndex is within the bounds of options.trailColor
+                        int colorIndex = Mathf.Clamp(explosionColorIndex, 0, options.trailColor.Length - 1);
+
+                        // Set the start color to the specified color in the gradient
+                        mainModule.startColor = options.trailColor[colorIndex];
+                    }
                 }
 
-                Destroy(currentExplosion, 1);
+                // Assign the instantiated GameObject to explosion
+                explosion = newExplosion;
+
+                Destroy(newExplosion, 1);
             }
         }
     }
 
-    private void UpdateText(int cBodyIndex, int cTireIndex, int cWingIndex, int cPaintIndex, int cTrailIndex, int cTrailColorIndex, int cExplosionIndex)
+    private void UpdateText(int cBodyIndex, int cTireIndex, int cWingIndex, int cPaintIndex, int cTrailIndex, int cTrailColorIndex, int cExplosionIndex, int cExplosionColorIndex)
     {
         bodyText.text = cBodyIndex.ToString();
         tireText.text = cTireIndex.ToString();
@@ -417,5 +448,6 @@ public class CustomizeMenu : MonoBehaviour
         trailText.text = cTrailIndex.ToString();
         trailColorText.text = cTrailColorIndex.ToString();
         explosionText.text = cExplosionIndex.ToString();
+        explosionColorText.text = cExplosionColorIndex.ToString();
     }
 }

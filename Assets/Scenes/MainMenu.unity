@@ -3488,7 +3488,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1566312520}
         m_TargetAssemblyTypeName: CustomizeMenu, Assembly-CSharp
-        m_MethodName: ExplosionLeft
+        m_MethodName: ExplosionColorLeft
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10255,7 +10255,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1566312520}
         m_TargetAssemblyTypeName: CustomizeMenu, Assembly-CSharp
-        m_MethodName: ExplosionRight
+        m_MethodName: ExplosionColorRight
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15383,6 +15383,7 @@ MonoBehaviour:
   tire: {fileID: 1353681797}
   wing: {fileID: 275229982}
   trail: {fileID: 0}
+  explosion: {fileID: 0}
   bodyText: {fileID: 1649145596}
   tireText: {fileID: 1640410876}
   wingText: {fileID: 1211645289}
@@ -15390,7 +15391,7 @@ MonoBehaviour:
   trailText: {fileID: 968704039}
   trailColorText: {fileID: 776746552}
   explosionText: {fileID: 542890308}
-  currentExplosion: {fileID: 0}
+  explosionColorText: {fileID: 1913208958}
 --- !u!1 &1584683288
 GameObject:
   m_ObjectHideFlags: 0
