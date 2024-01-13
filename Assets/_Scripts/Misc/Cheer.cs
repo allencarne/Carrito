@@ -22,5 +22,14 @@ public class Cheer : MonoBehaviour
         animator.Play("Cheer");
 
         Instantiate(cheerParticle, transform.position, transform.rotation);
+
+        StartCoroutine(ResetCheer());
+    }
+
+    IEnumerator ResetCheer()
+    {
+        yield return new WaitForSeconds(3);
+
+        animator.Play("Idle");
     }
 }
