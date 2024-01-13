@@ -182,23 +182,15 @@ public class Ball : MonoBehaviour
 
     void BlueGoal(Collider2D collision)
     {
-        int explosionIndex;
-
         if (whoTouchedTheBallLastRed != null)
         {
             if (whoTouchedTheBallLastRed.GetComponent<PlayerCustomization>().isAI)
             {
-                // Instatiate a Random Explosion
-                int randomExplosion = Random.Range(0, redCarOptions.explosions.Length);
-                var explosion = Instantiate(redCarOptions.explosions[randomExplosion], collision.transform.position, collision.transform.rotation);
-                Destroy(explosion, 3);
+                RandomExplosion(collision);
             }
             else
             {
-                // Instatiate Explosion Based on Red Player Prefs
-                explosionIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + "Red_" + "ExplosionIndex", 0);
-                var explosion = Instantiate(redCarOptions.explosions[explosionIndex], collision.transform.position, collision.transform.rotation);
-                Destroy(explosion, 3);
+                InstantiateExplosion(redCarOptions, PLAYERPREFS_PREFIX + "Red_", collision.transform.position, collision.transform.rotation);
             }
         }
         else
@@ -207,17 +199,11 @@ public class Ball : MonoBehaviour
             {
                 if (SoccerManager.instance.red1Instance.GetComponent<PlayerCustomization>().isAI)
                 {
-                    // Instatiate a Random Explosion
-                    int randomExplosion = Random.Range(0, redCarOptions.explosions.Length);
-                    var explosion = Instantiate(redCarOptions.explosions[randomExplosion], collision.transform.position, collision.transform.rotation);
-                    Destroy(explosion, 3);
+                    RandomExplosion(collision);
                 }
                 else
                 {
-                    // Instatiate Explosion Based on Red Player Prefs
-                    explosionIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + "Red_" + "ExplosionIndex", 0);
-                    var explosion = Instantiate(redCarOptions.explosions[explosionIndex], collision.transform.position, collision.transform.rotation);
-                    Destroy(explosion, 3);
+                    InstantiateExplosion(redCarOptions, PLAYERPREFS_PREFIX + "Red_", collision.transform.position, collision.transform.rotation);
                 }
             }
             else
@@ -226,17 +212,11 @@ public class Ball : MonoBehaviour
                 {
                     if (SoccerManager.instance.blue1Instance.GetComponent<PlayerCustomization>().isAI)
                     {
-                        // Instatiate a Random Explosion
-                        int randomExplosion = Random.Range(0, blueCarOptions.explosions.Length);
-                        var explosion = Instantiate(blueCarOptions.explosions[randomExplosion], collision.transform.position, collision.transform.rotation);
-                        Destroy(explosion, 3);
+                        RandomExplosion(collision);
                     }
                     else
                     {
-                        // Instatiate Explosion Based on Blue Player Prefs
-                        explosionIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + "Blue_" + "ExplosionIndex", 0);
-                        var explosion = Instantiate(blueCarOptions.explosions[explosionIndex], collision.transform.position, collision.transform.rotation);
-                        Destroy(explosion, 3);
+                        InstantiateExplosion(blueCarOptions, PLAYERPREFS_PREFIX + "Blue_", collision.transform.position, collision.transform.rotation);
                     }
                 }
             }
@@ -245,24 +225,15 @@ public class Ball : MonoBehaviour
 
     void RedGoal(Collider2D collision)
     {
-        int explosionIndex;
-
         if (whoTouchedTheBallLastBlue != null)
         {
             if (whoTouchedTheBallLastBlue.GetComponent<PlayerCustomization>().isAI)
             {
-                // Instatiate a Random Explosion
-                int randomExplosion = Random.Range(0, redCarOptions.explosions.Length);
-                var explosion = Instantiate(redCarOptions.explosions[randomExplosion], collision.transform.position, collision.transform.rotation);
-                Destroy(explosion, 3);
+                RandomExplosion(collision);
             }
             else
             {
-                explosionIndex = PlayerPrefs.GetInt(PLAYERPREFS_PREFIX + "Blue_" + "ExplosionIndex", 0);
-
-                var explosion = Instantiate(blueCarOptions.explosions[explosionIndex], collision.transform.position, collision.transform.rotation);
-
-                Destroy(explosion, 3);
+                InstantiateExplosion(blueCarOptions, PLAYERPREFS_PREFIX + "Blue_", collision.transform.position, collision.transform.rotation);
             }
         }
     }
@@ -305,5 +276,55 @@ public class Ball : MonoBehaviour
         {
             redSide = false;
         }
+    }
+
+    void RandomExplosion(Collider2D collision)
+    {
+        int randomExplosion = Random.Range(0, blueCarOptions.explosions.Length);
+        GameObject explosionObject = Instantiate(blueCarOptions.explosions[randomExplosion], collision.transform.position, collision.transform.rotation);
+
+        // Get the Particle System component
+        ParticleSystem explosionParticleSystem = explosionObject.GetComponent<ParticleSystem>();
+
+        // Check if the Particle System component is not null
+        if (explosionParticleSystem != null && blueCarOptions.trailColor.Length > 0)
+        {
+            // Select a random color index from blueCarOptions.trailColor
+            int randomColorIndex = Random.Range(0, blueCarOptions.trailColor.Length);
+
+            // Get the main module of the Particle System
+            var mainModule = explosionParticleSystem.main;
+
+            // Set the start color to the randomly selected color in the gradient
+            mainModule.startColor = blueCarOptions.trailColor[randomColorIndex];
+        }
+
+        Destroy(explosionObject, 3);
+    }
+
+    private void InstantiateExplosion(CarOptions carOptions, string playerPrefsPrefix, Vector3 position, Quaternion rotation)
+    {
+        int explosionIndex = PlayerPrefs.GetInt(playerPrefsPrefix + "ExplosionIndex", 0);
+        int explosionColorIndex = PlayerPrefs.GetInt(playerPrefsPrefix + "ExplosionColorIndex", 0);
+
+        GameObject explosionObject = Instantiate(carOptions.explosions[explosionIndex], position, rotation);
+
+        // Get the Particle System component
+        ParticleSystem explosionParticleSystem = explosionObject.GetComponent<ParticleSystem>();
+
+        // Check if the Particle System component is not null and carOptions.trailColor is not empty
+        if (explosionParticleSystem != null && carOptions.trailColor.Length > 0)
+        {
+            // Ensure explosionColorIndex is within the bounds of carOptions.trailColor
+            explosionColorIndex = Mathf.Clamp(explosionColorIndex, 0, carOptions.trailColor.Length - 1);
+
+            // Get the main module of the Particle System
+            var mainModule = explosionParticleSystem.main;
+
+            // Set the start color to the specified color in carOptions.trailColor
+            mainModule.startColor = carOptions.trailColor[explosionColorIndex];
+        }
+
+        Destroy(explosionObject, 3);
     }
 }

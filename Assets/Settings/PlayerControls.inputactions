@@ -76,7 +76,7 @@
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad;Touch",
+                    "groups": "Gamepad",
                     "action": "Steer",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -120,7 +120,7 @@
                     "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad;Touch",
+                    "groups": "Gamepad",
                     "action": "Accelerate",
                     "isComposite": false,
                     "isPartOfComposite": false

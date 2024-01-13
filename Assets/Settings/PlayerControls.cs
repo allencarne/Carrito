@@ -98,7 +98,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad;Touch"",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Steer"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -142,7 +142,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad;Touch"",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Accelerate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false

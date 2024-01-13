@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class CustomizeMenu : MonoBehaviour
 {
@@ -413,6 +414,15 @@ public class CustomizeMenu : MonoBehaviour
 
                 // Get the Particle System component
                 ParticleSystem explosionParticleSystem = newExplosion.GetComponent<ParticleSystem>();
+
+                // Get the AudioSource component from the instantiated explosion object
+                AudioSource explosionAudioSource = newExplosion.GetComponentInChildren<AudioSource>();
+
+                // Mute the AudioSource
+                if (explosionAudioSource != null)
+                {
+                    explosionAudioSource.volume = 0;
+                }
 
                 // Check if the Particle System component is not null
                 if (explosionParticleSystem != null)
