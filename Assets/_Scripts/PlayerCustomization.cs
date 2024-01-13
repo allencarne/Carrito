@@ -13,7 +13,6 @@ public class PlayerCustomization : MonoBehaviour
     [SerializeField] SpriteRenderer _light;
     [SerializeField] SpriteRenderer tire;
     [SerializeField] SpriteRenderer wing;
-    //public ParticleSystem trail;
 
     private int bodyIndex = 0;
     private int lightIndex = 0;

@@ -116,14 +116,19 @@ public class CustomizeMenu : MonoBehaviour
     public void BlueButton()
     {
         isBlueActive = true;
+
+        Destroy(trail.gameObject);
+
         LoadPlayerPrefs();
     }
 
     public void RedButton()
     {
         isBlueActive = false;
-        LoadPlayerPrefs();
 
+        Destroy(trail.gameObject);
+
+        LoadPlayerPrefs();
     }
 
     public void BodyLeft()
