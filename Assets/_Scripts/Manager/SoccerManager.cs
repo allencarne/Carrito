@@ -43,6 +43,7 @@ public class SoccerManager : MonoBehaviour
 
     [Header("Players")]
     [SerializeField] GameObject player;
+    [SerializeField] GameObject playerController;
     [SerializeField] GameObject BlueAI;
     [SerializeField] GameObject RedAI;
 
@@ -884,7 +885,14 @@ public class SoccerManager : MonoBehaviour
             }
             else
             {
-                blue1Instance = Instantiate(player, spawnPoint.position, spawnPoint.rotation);
+                if (PlayerPrefs.GetString("Blue1ControlScheme") == "Keyboard")
+                {
+                    blue1Instance = Instantiate(player, spawnPoint.position, spawnPoint.rotation);
+                }
+                else
+                {
+                    blue1Instance = Instantiate(playerController, spawnPoint.position, spawnPoint.rotation);
+                }
 
                 // Assign to Blue
                 blue1Instance.GetComponent<PlayerCustomization>().isBlueTeam = true;
@@ -965,7 +973,14 @@ public class SoccerManager : MonoBehaviour
             }
             else
             {
-                red1Instance = Instantiate(player, spawnPoint.position, spawnPoint.rotation);
+                if (PlayerPrefs.GetString("Red1ControlScheme") == "Keyboard")
+                {
+                    red1Instance = Instantiate(player, spawnPoint.position, spawnPoint.rotation);
+                }
+                else
+                {
+                    red1Instance = Instantiate(playerController, spawnPoint.position, spawnPoint.rotation);
+                }
 
                 // Assign to Red
                 red1Instance.GetComponent<PlayerCustomization>().isBlueTeam = false;

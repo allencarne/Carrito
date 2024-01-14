@@ -11953,6 +11953,8 @@ MonoBehaviour:
   red3Left: {fileID: 1921870233}
   red3Right: {fileID: 1532901886}
   playButton: {fileID: 1878371327}
+  Blue1Type: 1
+  Red1Type: 0
 --- !u!114 &1288059671
 MonoBehaviour:
   m_ObjectHideFlags: 0

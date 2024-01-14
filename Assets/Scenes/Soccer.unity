@@ -37557,6 +37557,7 @@ MonoBehaviour:
   trainingText: {fileID: 162252183}
   soccerTraining: {fileID: 1956923912}
   player: {fileID: 7755933530518722120, guid: 13452b34cd97e8b4883d85bc6539e4a2, type: 3}
+  playerController: {fileID: 1085291977217447223, guid: 430cbc8645ee8104fbe5ac50e5bb09a9, type: 3}
   BlueAI: {fileID: 8412704991420033752, guid: 89e705e6b4fb58c46af5182b3e5300ac, type: 3}
   RedAI: {fileID: 1300979883949382233, guid: 085562fad30eb0449ba81d8fdf7539c2, type: 3}
   blue1Instance: {fileID: 0}
