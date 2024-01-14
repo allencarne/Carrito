@@ -9,9 +9,12 @@ public class CarAudio : MonoBehaviour
     public AudioSource carDrift;
     public AudioSource carBoost;
 
+    public float collisionIntensityThreshold;
     [SerializeField] AudioSource carHitWall;
-    [SerializeField] AudioSource carHitBall;
     [SerializeField] AudioSource carHitCar;
+    bool canPlayWallHitSound = true;
+    bool canPlayCarHitSound = true;
+    [SerializeField] GameObject sparks;
 
     private bool isBoostSoundPlaying = false;
 
@@ -141,19 +144,64 @@ public class CarAudio : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ball"))
-        {
-            carHitBall.Play();
-        }
-
         if (collision.gameObject.CompareTag("Wall"))
         {
-            carHitWall.Play();
+            if (canPlayWallHitSound)
+            {
+                canPlayWallHitSound = false;
+
+                carHitWall.Play();
+
+                Instantiate(sparks, transform.position, transform.rotation);
+
+                StartCoroutine(WallSoundDelay());
+            }
         }
 
         if (collision.gameObject.CompareTag("Car"))
         {
-            carHitCar.Play();
+            float collisionIntensity = collision.relativeVelocity.magnitude;
+
+            if (collisionIntensity >= collisionIntensityThreshold)
+            {
+                if (canPlayCarHitSound)
+                {
+                    canPlayCarHitSound = false;
+
+                    carHitCar.Play();
+
+                    Instantiate(sparks, transform.position, transform.rotation);
+
+                    StartCoroutine(CarSoundDelay());
+                }
+            }
+            else
+            {
+                if (canPlayWallHitSound)
+                {
+                    canPlayWallHitSound = false;
+
+                    carHitWall.Play();
+
+                    Instantiate(sparks, transform.position, transform.rotation);
+
+                    StartCoroutine(WallSoundDelay());
+                }
+            }
         }
+    }
+
+    IEnumerator WallSoundDelay()
+    {
+        yield return new WaitForSeconds(.5f);
+
+        canPlayWallHitSound = true;
+    }
+
+    IEnumerator CarSoundDelay()
+    {
+        yield return new WaitForSeconds(.5f);
+
+        canPlayCarHitSound = true;
     }
 }

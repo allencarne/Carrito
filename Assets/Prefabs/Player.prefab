@@ -6913,9 +6913,10 @@ MonoBehaviour:
   carEngine: {fileID: 3505616530147246828}
   carDrift: {fileID: 175674628588374840}
   carBoost: {fileID: 3261361393816052412}
+  collisionIntensityThreshold: 10
   carHitWall: {fileID: 4336901655190423806}
-  carHitBall: {fileID: 8879208176895852590}
   carHitCar: {fileID: 6038260325610465147}
+  sparks: {fileID: 4707726074158359307, guid: fd6643a60d887ad47bda1c24291700a1, type: 3}
 --- !u!1 &7800129903819727601
 GameObject:
   m_ObjectHideFlags: 0
