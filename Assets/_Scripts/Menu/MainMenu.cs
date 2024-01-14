@@ -5,9 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] AudioSource menuHover;
-    [SerializeField] AudioSource menuSelect;
-
     private void Start()
     {
         // Reset the Time Scale (for allowing the particles to play)
@@ -69,15 +66,5 @@ public class MainMenu : MonoBehaviour
     public void ExitButton()
     {
         Application.Quit();
-    }
-
-    public void MenuHover()
-    {
-        menuHover.Play();
-    }
-
-    public void MenuSelect()
-    {
-        menuSelect.Play();
     }
 }
