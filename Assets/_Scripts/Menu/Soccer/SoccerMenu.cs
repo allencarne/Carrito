@@ -68,11 +68,11 @@ public class SoccerMenu : MonoBehaviour
     public PlayerType Blue1Type = PlayerType.Player1;
     public PlayerType Red1Type = PlayerType.AI;
 
-    PlayerType Blue2Type = PlayerType.AI;
-    PlayerType Red2Type = PlayerType.AI;
+    public PlayerType Blue2Type = PlayerType.AI;
+    public PlayerType Red2Type = PlayerType.AI;
 
-    PlayerType Blue3Type = PlayerType.AI;
-    PlayerType Red3Type = PlayerType.AI;
+    public PlayerType Blue3Type = PlayerType.AI;
+    public PlayerType Red3Type = PlayerType.AI;
 
     private void Start()
     {

@@ -2473,9 +2473,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1288059670}
-        m_TargetAssemblyTypeName: SoccerMenu, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 1288059673}
+        m_TargetAssemblyTypeName: ConnectedDevices, Assembly-CSharp
+        m_MethodName: Blue3CycleRight
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3297,8 +3297,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 19
-  m_fontSizeBase: 19
+  m_fontSize: 14.25
+  m_fontSizeBase: 14.25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3313,7 +3313,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -3840,9 +3840,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1288059670}
-        m_TargetAssemblyTypeName: SoccerMenu, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 1288059673}
+        m_TargetAssemblyTypeName: ConnectedDevices, Assembly-CSharp
+        m_MethodName: Blue2CycleRight
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7875,8 +7875,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 19
-  m_fontSizeBase: 19
+  m_fontSize: 14.25
+  m_fontSizeBase: 14.25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7891,7 +7891,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -10652,9 +10652,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1288059670}
-        m_TargetAssemblyTypeName: SoccerMenu, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 1288059673}
+        m_TargetAssemblyTypeName: ConnectedDevices, Assembly-CSharp
+        m_MethodName: Red2CycleLeft
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11751,9 +11751,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1288059670}
-        m_TargetAssemblyTypeName: SoccerMenu, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 1288059673}
+        m_TargetAssemblyTypeName: ConnectedDevices, Assembly-CSharp
+        m_MethodName: Blue2CycleLeft
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11955,6 +11955,10 @@ MonoBehaviour:
   playButton: {fileID: 1878371327}
   Blue1Type: 1
   Red1Type: 0
+  Blue2Type: 0
+  Red2Type: 0
+  Blue3Type: 0
+  Red3Type: 0
 --- !u!114 &1288059671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12004,10 +12008,26 @@ MonoBehaviour:
   blue1Text: {fileID: 360361786}
   blue1Left: {fileID: 898416340}
   blue1Right: {fileID: 1875334308}
+  blue2: {fileID: 1340401732}
+  blue2Text: {fileID: 1834745249}
+  blue2Left: {fileID: 1282306333}
+  blue2Right: {fileID: 309726566}
+  blue3: {fileID: 330615927}
+  blue3Text: {fileID: 277836758}
+  blue3Left: {fileID: 1833112325}
+  blue3Right: {fileID: 173092152}
   red1: {fileID: 376788424}
   red1Text: {fileID: 1497390545}
   red1Left: {fileID: 1237784310}
   red1Right: {fileID: 1848916443}
+  red2: {fileID: 57898857}
+  red2Text: {fileID: 788665286}
+  red2Left: {fileID: 1097508595}
+  red2Right: {fileID: 1518257282}
+  red3: {fileID: 337313181}
+  red3Text: {fileID: 1810265080}
+  red3Left: {fileID: 1746939270}
+  red3Right: {fileID: 1673758740}
 --- !u!1 &1340401730
 GameObject:
   m_ObjectHideFlags: 0
@@ -13228,9 +13248,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1288059670}
-        m_TargetAssemblyTypeName: SoccerMenu, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 1288059673}
+        m_TargetAssemblyTypeName: ConnectedDevices, Assembly-CSharp
+        m_MethodName: Red2CycleRight
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14853,9 +14873,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1288059670}
-        m_TargetAssemblyTypeName: SoccerMenu, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 1288059673}
+        m_TargetAssemblyTypeName: ConnectedDevices, Assembly-CSharp
+        m_MethodName: Red3CycleRight
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15198,9 +15218,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1288059670}
-        m_TargetAssemblyTypeName: SoccerMenu, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 1288059673}
+        m_TargetAssemblyTypeName: ConnectedDevices, Assembly-CSharp
+        m_MethodName: Red3CycleLeft
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15453,8 +15473,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 19
-  m_fontSizeBase: 19
+  m_fontSize: 14.25
+  m_fontSizeBase: 14.25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -15469,7 +15489,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -15925,9 +15945,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1288059670}
-        m_TargetAssemblyTypeName: SoccerMenu, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 1288059673}
+        m_TargetAssemblyTypeName: ConnectedDevices, Assembly-CSharp
+        m_MethodName: Blue3CycleLeft
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16059,8 +16079,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 19
-  m_fontSizeBase: 19
+  m_fontSize: 14.25
+  m_fontSizeBase: 14.25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -16075,7 +16095,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
