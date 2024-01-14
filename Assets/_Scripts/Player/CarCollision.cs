@@ -7,7 +7,6 @@ public class CarCollision : MonoBehaviour
     [SerializeField] Animator animator;
 
     public float collisionIntensityThreshold;
-    public float intensity;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
