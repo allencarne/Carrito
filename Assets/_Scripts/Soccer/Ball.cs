@@ -19,6 +19,9 @@ public class Ball : MonoBehaviour
 
     [SerializeField] TrailRenderer trail;
     [SerializeField] float trailSpeed;
+    [SerializeField] GameObject hitBallParticle;
+    [SerializeField] AudioSource hitBallSound;
+    bool canPlaySound = true;
 
     public bool blueSide;
     public bool redSide;
@@ -34,9 +37,19 @@ public class Ball : MonoBehaviour
         if (ballSpeed > trailSpeed)
         {
             trail.emitting = true;
+
+            if (canPlaySound)
+            {
+                canPlaySound = false;
+
+                hitBallSound.Play();
+                Instantiate(hitBallParticle, transform.position, transform.rotation);
+            }
         }
         else
         {
+            canPlaySound = true;
+
             trail.emitting = false;
         }
     }

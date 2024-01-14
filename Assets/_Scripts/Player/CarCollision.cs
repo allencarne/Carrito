@@ -7,9 +7,7 @@ public class CarCollision : MonoBehaviour
     [SerializeField] Animator animator;
 
     public float collisionIntensityThreshold;
-
-    [SerializeField] GameObject hitBallParticle;
-    [SerializeField] AudioSource hitBallSound;
+    public float intensity;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -22,15 +20,6 @@ public class CarCollision : MonoBehaviour
             if (collisionIntensity >= collisionIntensityThreshold)
             {
                 animator.Play("CarCollision");
-            }
-        }
-
-        if (collision.gameObject.CompareTag("Ball"))
-        {
-            if (collisionIntensity >= collisionIntensityThreshold)
-            {
-                Instantiate(hitBallParticle, collision.transform.position, collision.transform.rotation);
-                hitBallSound.Play();
             }
         }
     }
