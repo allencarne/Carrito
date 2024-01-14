@@ -166,6 +166,9 @@ public class BindsMenu : MonoBehaviour
 
     public void K_SteerLeftRebind()
     {
+        // Store the currently Selected UI Button
+        GameObject lastSelectedButton = EventSystem.current.currentSelectedGameObject;
+
         // DeSelect the currently Selected UI Button
         EventSystem.current.SetSelectedGameObject(null);
 
@@ -189,12 +192,18 @@ public class BindsMenu : MonoBehaviour
 
                 rebindingOperation.Dispose();
                 SteerAction.action.Enable();
+
+                // Reselect the last Selected UI Button
+                EventSystem.current.SetSelectedGameObject(lastSelectedButton);
             })
             .Start();
     }
 
     public void K_Reset_SteerLeft()
     {
+        // Store the currently Selected UI Button
+        GameObject lastSelectedButton = EventSystem.current.currentSelectedGameObject;
+
         // DeSelect the currently Selected UI Button
         EventSystem.current.SetSelectedGameObject(null);
 
@@ -215,10 +224,16 @@ public class BindsMenu : MonoBehaviour
 
         // Enable
         SteerAction.action.Enable();
+
+        // Reselect the last Selected UI Button
+        EventSystem.current.SetSelectedGameObject(lastSelectedButton);
     }
 
     public void K_SteerRightRebind()
     {
+        // Store the currently Selected UI Button
+        GameObject lastSelectedButton = EventSystem.current.currentSelectedGameObject;
+
         // DeSelect the currently Selected UI Button
         EventSystem.current.SetSelectedGameObject(null);
 
@@ -241,12 +256,18 @@ public class BindsMenu : MonoBehaviour
 
                 rebindingOperation.Dispose();
                 SteerAction.action.Enable();
+
+                // Reselect the last Selected UI Button
+                EventSystem.current.SetSelectedGameObject(lastSelectedButton);
             })
             .Start();
     }
 
     public void K_Reset_SteerRight()
     {
+        // Store the currently Selected UI Button
+        GameObject lastSelectedButton = EventSystem.current.currentSelectedGameObject;
+
         // DeSelect the currently Selected UI Button
         EventSystem.current.SetSelectedGameObject(null);
 
@@ -270,10 +291,16 @@ public class BindsMenu : MonoBehaviour
 
         // Enable
         SteerAction.action.Enable();
+
+        // Reselect the last Selected UI Button
+        EventSystem.current.SetSelectedGameObject(lastSelectedButton);
     }
 
     public void K_AccelerateRebind()
     {
+        // Store the currently Selected UI Button
+        GameObject lastSelectedButton = EventSystem.current.currentSelectedGameObject;
+
         // DeSelect the currently Selected UI Button
         EventSystem.current.SetSelectedGameObject(null);
 
@@ -296,12 +323,18 @@ public class BindsMenu : MonoBehaviour
 
                 rebindingOperation.Dispose();
                 AccelerateAction.action.Enable();
+
+                // Reselect the last Selected UI Button
+                EventSystem.current.SetSelectedGameObject(lastSelectedButton);
             })
             .Start();
     }
 
     public void K_Reset_Accelerate()
     {
+        // Store the currently Selected UI Button
+        GameObject lastSelectedButton = EventSystem.current.currentSelectedGameObject;
+
         // DeSelect the currently Selected UI Button
         EventSystem.current.SetSelectedGameObject(null);
 
@@ -325,10 +358,16 @@ public class BindsMenu : MonoBehaviour
 
         // Enable
         AccelerateAction.action.Enable();
+
+        // Reselect the last Selected UI Button
+        EventSystem.current.SetSelectedGameObject(lastSelectedButton);
     }
 
     public void K_BrakeRebind()
     {
+        // Store the currently Selected UI Button
+        GameObject lastSelectedButton = EventSystem.current.currentSelectedGameObject;
+
         // DeSelect the currently Selected UI Button
         EventSystem.current.SetSelectedGameObject(null);
 
@@ -351,12 +390,18 @@ public class BindsMenu : MonoBehaviour
 
                 rebindingOperation.Dispose();
                 BrakeAction.action.Enable();
+
+                // Reselect the last Selected UI Button
+                EventSystem.current.SetSelectedGameObject(lastSelectedButton);
             })
             .Start();
     }
 
     public void K_Reset_Brake()
     {
+        // Store the currently Selected UI Button
+        GameObject lastSelectedButton = EventSystem.current.currentSelectedGameObject;
+
         // DeSelect the currently Selected UI Button
         EventSystem.current.SetSelectedGameObject(null);
 
@@ -380,10 +425,16 @@ public class BindsMenu : MonoBehaviour
 
         // Enable
         BrakeAction.action.Enable();
+
+        // Reselect the last Selected UI Button
+        EventSystem.current.SetSelectedGameObject(lastSelectedButton);
     }
 
     public void K_BoostRebind()
     {
+        // Store the currently Selected UI Button
+        GameObject lastSelectedButton = EventSystem.current.currentSelectedGameObject;
+
         // DeSelect the currently Selected UI Button
         EventSystem.current.SetSelectedGameObject(null);
 
@@ -406,12 +457,18 @@ public class BindsMenu : MonoBehaviour
 
                 rebindingOperation.Dispose();
                 BoostAction.action.Enable();
+
+                // Reselect the last Selected UI Button
+                EventSystem.current.SetSelectedGameObject(lastSelectedButton);
             })
             .Start();
     }
 
     public void K_Reset_Boost()
     {
+        // Store the currently Selected UI Button
+        GameObject lastSelectedButton = EventSystem.current.currentSelectedGameObject;
+
         // DeSelect the currently Selected UI Button
         EventSystem.current.SetSelectedGameObject(null);
 
@@ -435,10 +492,16 @@ public class BindsMenu : MonoBehaviour
 
         // Enable
         BoostAction.action.Enable();
+
+        // Reselect the last Selected UI Button
+        EventSystem.current.SetSelectedGameObject(lastSelectedButton);
     }
 
     public void K_DriftRebind()
     {
+        // Store the currently Selected UI Button
+        GameObject lastSelectedButton = EventSystem.current.currentSelectedGameObject;
+
         // DeSelect the currently Selected UI Button
         EventSystem.current.SetSelectedGameObject(null);
 
@@ -461,12 +524,18 @@ public class BindsMenu : MonoBehaviour
 
                 rebindingOperation.Dispose();
                 DriftAction.action.Enable();
+
+                // Reselect the last Selected UI Button
+                EventSystem.current.SetSelectedGameObject(lastSelectedButton);
             })
             .Start();
     }
 
     public void K_Reset_Drift()
     {
+        // Store the currently Selected UI Button
+        GameObject lastSelectedButton = EventSystem.current.currentSelectedGameObject;
+
         // DeSelect the currently Selected UI Button
         EventSystem.current.SetSelectedGameObject(null);
 
@@ -490,10 +559,16 @@ public class BindsMenu : MonoBehaviour
 
         // Enable
         DriftAction.action.Enable();
+
+        // Reselect the last Selected UI Button
+        EventSystem.current.SetSelectedGameObject(lastSelectedButton);
     }
 
     public void K_PauseRebind()
     {
+        // Store the currently Selected UI Button
+        GameObject lastSelectedButton = EventSystem.current.currentSelectedGameObject;
+
         // DeSelect the currently Selected UI Button
         EventSystem.current.SetSelectedGameObject(null);
 
@@ -516,12 +591,18 @@ public class BindsMenu : MonoBehaviour
 
                 rebindingOperation.Dispose();
                 PauseAction.action.Enable();
+
+                // Reselect the last Selected UI Button
+                EventSystem.current.SetSelectedGameObject(lastSelectedButton);
             })
             .Start();
     }
 
     public void K_Reset_Pause()
     {
+        // Store the currently Selected UI Button
+        GameObject lastSelectedButton = EventSystem.current.currentSelectedGameObject;
+
         // DeSelect the currently Selected UI Button
         EventSystem.current.SetSelectedGameObject(null);
 
@@ -545,10 +626,16 @@ public class BindsMenu : MonoBehaviour
 
         // Enable
         PauseAction.action.Enable();
+
+        // Reselect the last Selected UI Button
+        EventSystem.current.SetSelectedGameObject(lastSelectedButton);
     }
 
     public void K_ResetRebind()
     {
+        // Store the currently Selected UI Button
+        GameObject lastSelectedButton = EventSystem.current.currentSelectedGameObject;
+
         // DeSelect the currently Selected UI Button
         EventSystem.current.SetSelectedGameObject(null);
 
@@ -571,12 +658,18 @@ public class BindsMenu : MonoBehaviour
 
                 rebindingOperation.Dispose();
                 ResetAction.action.Enable();
+
+                // Reselect the last Selected UI Button
+                EventSystem.current.SetSelectedGameObject(lastSelectedButton);
             })
             .Start();
     }
 
     public void K_Reset_Reset()
     {
+        // Store the currently Selected UI Button
+        GameObject lastSelectedButton = EventSystem.current.currentSelectedGameObject;
+
         // DeSelect the currently Selected UI Button
         EventSystem.current.SetSelectedGameObject(null);
 
@@ -600,6 +693,9 @@ public class BindsMenu : MonoBehaviour
 
         // Enable
         ResetAction.action.Enable();
+
+        // Reselect the last Selected UI Button
+        EventSystem.current.SetSelectedGameObject(lastSelectedButton);
     }
 
     #endregion
@@ -608,6 +704,9 @@ public class BindsMenu : MonoBehaviour
 
     public void C_SteerRebind()
     {
+        // Store the currently Selected UI Button
+        GameObject lastSelectedButton = EventSystem.current.currentSelectedGameObject;
+
         // DeSelect the currently Selected UI Button
         EventSystem.current.SetSelectedGameObject(null);
 
@@ -632,12 +731,18 @@ public class BindsMenu : MonoBehaviour
 
                 rebindingOperation.Dispose();
                 SteerAction.action.Enable();
+
+                // Reselect the last Selected UI Button
+                EventSystem.current.SetSelectedGameObject(lastSelectedButton);
             })
             .Start();
     }
 
     public void C_Reset_Steer()
     {
+        // Store the currently Selected UI Button
+        GameObject lastSelectedButton = EventSystem.current.currentSelectedGameObject;
+
         // DeSelect the currently Selected UI Button
         EventSystem.current.SetSelectedGameObject(null);
 
@@ -661,10 +766,16 @@ public class BindsMenu : MonoBehaviour
 
         // Enable
         SteerAction.action.Enable();
+
+        // Reselect the last Selected UI Button
+        EventSystem.current.SetSelectedGameObject(lastSelectedButton);
     }
 
     public void C_AccelerateRebind()
     {
+        // Store the currently Selected UI Button
+        GameObject lastSelectedButton = EventSystem.current.currentSelectedGameObject;
+
         // DeSelect the currently Selected UI Button
         EventSystem.current.SetSelectedGameObject(null);
 
@@ -688,12 +799,18 @@ public class BindsMenu : MonoBehaviour
 
                 rebindingOperation.Dispose();
                 AccelerateAction.action.Enable();
+
+                // Reselect the last Selected UI Button
+                EventSystem.current.SetSelectedGameObject(lastSelectedButton);
             })
             .Start();
     }
 
     public void C_Reset_Accelerate()
     {
+        // Store the currently Selected UI Button
+        GameObject lastSelectedButton = EventSystem.current.currentSelectedGameObject;
+
         // DeSelect the currently Selected UI Button
         EventSystem.current.SetSelectedGameObject(null);
 
@@ -717,10 +834,16 @@ public class BindsMenu : MonoBehaviour
 
         // Enable
         AccelerateAction.action.Enable();
+
+        // Reselect the last Selected UI Button
+        EventSystem.current.SetSelectedGameObject(lastSelectedButton);
     }
 
     public void C_BrakeRebind()
     {
+        // Store the currently Selected UI Button
+        GameObject lastSelectedButton = EventSystem.current.currentSelectedGameObject;
+
         // DeSelect the currently Selected UI Button
         EventSystem.current.SetSelectedGameObject(null);
 
@@ -744,12 +867,18 @@ public class BindsMenu : MonoBehaviour
 
                 rebindingOperation.Dispose();
                 BrakeAction.action.Enable();
+
+                // Reselect the last Selected UI Button
+                EventSystem.current.SetSelectedGameObject(lastSelectedButton);
             })
             .Start();
     }
 
     public void C_Reset_Brake()
     {
+        // Store the currently Selected UI Button
+        GameObject lastSelectedButton = EventSystem.current.currentSelectedGameObject;
+
         // DeSelect the currently Selected UI Button
         EventSystem.current.SetSelectedGameObject(null);
 
@@ -773,10 +902,16 @@ public class BindsMenu : MonoBehaviour
 
         // Enable
         BrakeAction.action.Enable();
+
+        // Reselect the last Selected UI Button
+        EventSystem.current.SetSelectedGameObject(lastSelectedButton);
     }
 
     public void C_BoostRebind()
     {
+        // Store the currently Selected UI Button
+        GameObject lastSelectedButton = EventSystem.current.currentSelectedGameObject;
+
         // DeSelect the currently Selected UI Button
         EventSystem.current.SetSelectedGameObject(null);
 
@@ -800,12 +935,18 @@ public class BindsMenu : MonoBehaviour
 
                 rebindingOperation.Dispose();
                 BoostAction.action.Enable();
+
+                // Reselect the last Selected UI Button
+                EventSystem.current.SetSelectedGameObject(lastSelectedButton);
             })
             .Start();
     }
 
     public void C_Reset_Boost()
     {
+        // Store the currently Selected UI Button
+        GameObject lastSelectedButton = EventSystem.current.currentSelectedGameObject;
+
         // DeSelect the currently Selected UI Button
         EventSystem.current.SetSelectedGameObject(null);
 
@@ -829,10 +970,16 @@ public class BindsMenu : MonoBehaviour
 
         // Enable
         BoostAction.action.Enable();
+
+        // Reselect the last Selected UI Button
+        EventSystem.current.SetSelectedGameObject(lastSelectedButton);
     }
 
     public void C_DriftRebind()
     {
+        // Store the currently Selected UI Button
+        GameObject lastSelectedButton = EventSystem.current.currentSelectedGameObject;
+
         // DeSelect the currently Selected UI Button
         EventSystem.current.SetSelectedGameObject(null);
 
@@ -856,12 +1003,18 @@ public class BindsMenu : MonoBehaviour
 
                 rebindingOperation.Dispose();
                 DriftAction.action.Enable();
+
+                // Reselect the last Selected UI Button
+                EventSystem.current.SetSelectedGameObject(lastSelectedButton);
             })
             .Start();
     }
 
     public void C_Reset_Drift()
     {
+        // Store the currently Selected UI Button
+        GameObject lastSelectedButton = EventSystem.current.currentSelectedGameObject;
+
         // DeSelect the currently Selected UI Button
         EventSystem.current.SetSelectedGameObject(null);
 
@@ -885,10 +1038,16 @@ public class BindsMenu : MonoBehaviour
 
         // Enable
         DriftAction.action.Enable();
+
+        // Reselect the last Selected UI Button
+        EventSystem.current.SetSelectedGameObject(lastSelectedButton);
     }
 
     public void C_PauseRebind()
     {
+        // Store the currently Selected UI Button
+        GameObject lastSelectedButton = EventSystem.current.currentSelectedGameObject;
+
         // DeSelect the currently Selected UI Button
         EventSystem.current.SetSelectedGameObject(null);
 
@@ -912,12 +1071,18 @@ public class BindsMenu : MonoBehaviour
 
                 rebindingOperation.Dispose();
                 PauseAction.action.Enable();
+
+                // Reselect the last Selected UI Button
+                EventSystem.current.SetSelectedGameObject(lastSelectedButton);
             })
             .Start();
     }
 
     public void C_Reset_Pause()
     {
+        // Store the currently Selected UI Button
+        GameObject lastSelectedButton = EventSystem.current.currentSelectedGameObject;
+
         // DeSelect the currently Selected UI Button
         EventSystem.current.SetSelectedGameObject(null);
 
@@ -941,10 +1106,16 @@ public class BindsMenu : MonoBehaviour
 
         // Enable
         PauseAction.action.Enable();
+
+        // Reselect the last Selected UI Button
+        EventSystem.current.SetSelectedGameObject(lastSelectedButton);
     }
 
     public void C_ResetRebind()
     {
+        // Store the currently Selected UI Button
+        GameObject lastSelectedButton = EventSystem.current.currentSelectedGameObject;
+
         // DeSelect the currently Selected UI Button
         EventSystem.current.SetSelectedGameObject(null);
 
@@ -968,12 +1139,18 @@ public class BindsMenu : MonoBehaviour
 
                 rebindingOperation.Dispose();
                 ResetAction.action.Enable();
+
+                // Reselect the last Selected UI Button
+                EventSystem.current.SetSelectedGameObject(lastSelectedButton);
             })
             .Start();
     }
 
     public void C_Reset_Reset()
     {
+        // Store the currently Selected UI Button
+        GameObject lastSelectedButton = EventSystem.current.currentSelectedGameObject;
+
         // DeSelect the currently Selected UI Button
         EventSystem.current.SetSelectedGameObject(null);
 
@@ -997,6 +1174,9 @@ public class BindsMenu : MonoBehaviour
 
         // Enable
         ResetAction.action.Enable();
+
+        // Reselect the last Selected UI Button
+        EventSystem.current.SetSelectedGameObject(lastSelectedButton);
     }
 
     #endregion
