@@ -8,9 +8,9 @@ using System;
 
 public class SoccerMenu : MonoBehaviour
 {
-    bool isOneVsOneActive = false;
-    bool isTwoVsTwoActive = false;
-    bool isThreeVsThreeActive = false;
+    public bool isOneVsOneActive = false;
+    public bool isTwoVsTwoActive = false;
+    public bool isThreeVsThreeActive = false;
 
     [Header("Panels")]
     [SerializeField] GameObject blueSidePanel;
@@ -65,8 +65,8 @@ public class SoccerMenu : MonoBehaviour
         Player6,
     }
 
-    PlayerType Blue1Type = PlayerType.Player1;
-    PlayerType Red1Type = PlayerType.AI;
+    public PlayerType Blue1Type = PlayerType.Player1;
+    public PlayerType Red1Type = PlayerType.AI;
 
     PlayerType Blue2Type = PlayerType.AI;
     PlayerType Red2Type = PlayerType.AI;

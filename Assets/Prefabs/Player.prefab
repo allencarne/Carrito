@@ -6897,7 +6897,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 4680765295083800313}
   collisionIntensityThreshold: 10
-  intensity: 0
 --- !u!114 &2540748304923625405
 MonoBehaviour:
   m_ObjectHideFlags: 0
