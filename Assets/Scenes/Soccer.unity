@@ -19865,16 +19865,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blue1Frame: {fileID: 1281915108}
   blue1Boost: {fileID: 118401148}
+  blue1Picture: {fileID: 2014468533}
   blue2Frame: {fileID: 1015204162}
   blue2Boost: {fileID: 311274968}
+  blue2Picture: {fileID: 320782068}
   blue3Frame: {fileID: 1075693458}
   blue3Boost: {fileID: 1611412438}
+  blue3Picture: {fileID: 996681917}
   red1Frame: {fileID: 1769552142}
   red1Boost: {fileID: 1785080611}
+  red1Picture: {fileID: 157827593}
   red2Frame: {fileID: 990315360}
   red2Boost: {fileID: 1757504928}
+  red2Picture: {fileID: 551752392}
   red3Frame: {fileID: 1516318344}
   red3Boost: {fileID: 1801744863}
+  red3Picture: {fileID: 559057648}
 --- !u!114 &1056053126
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,31 +8,37 @@ public class PlayerFrames : MonoBehaviour
 {
     [SerializeField] GameObject blue1Frame;
     [SerializeField] Image blue1Boost;
+    [SerializeField] Image blue1Picture;
     float blue1cBoost;
     float blue1mBoost;
 
     [SerializeField] GameObject blue2Frame;
     [SerializeField] Image blue2Boost;
+    [SerializeField] Image blue2Picture;
     float blue2cBoost;
     float blue2mBoost;
 
     [SerializeField] GameObject blue3Frame;
     [SerializeField] Image blue3Boost;
+    [SerializeField] Image blue3Picture;
     float blue3cBoost;
     float blue3mBoost;
 
     [SerializeField] GameObject red1Frame;
     [SerializeField] Image red1Boost;
+    [SerializeField] Image red1Picture;
     float red1cBoost;
     float red1mBoost;
 
     [SerializeField] GameObject red2Frame;
     [SerializeField] Image red2Boost;
+    [SerializeField] Image red2Picture;
     float red2cBoost;
     float red2mBoost;
 
     [SerializeField] GameObject red3Frame;
     [SerializeField] Image red3Boost;
+    [SerializeField] Image red3Picture;
     float red3cBoost;
     float red3mBoost;
 
@@ -56,6 +62,11 @@ public class PlayerFrames : MonoBehaviour
 
     PlayerType blue3PlayerType = PlayerType.None;
     PlayerType red3PlayerType = PlayerType.None;
+
+    private void Awake()
+    {
+
+    }
 
     private void Start()
     {
@@ -158,6 +169,15 @@ public class PlayerFrames : MonoBehaviour
                 blue1cBoost = SoccerManager.instance.blue1Instance.GetComponent<Player>().currentBoost;
                 blue1mBoost = SoccerManager.instance.blue1Instance.GetComponent<Player>().maxBoost;
 
+                // Find the "Body" GameObject within the hierarchy
+                Transform bodyTransform = SoccerManager.instance.blue1Instance.transform.Find("Body");
+
+                // Get the SpriteRenderer from the "Body" GameObject
+                SpriteRenderer bodySpriteRenderer = bodyTransform.GetComponent<SpriteRenderer>();
+
+                // Update Picture Color
+                blue1Picture.color = bodySpriteRenderer.color;
+
                 UpdateBoostBar(blue1Boost, blue1cBoost, blue1mBoost);
             }
         }
@@ -171,6 +191,15 @@ public class PlayerFrames : MonoBehaviour
             {
                 blue1cBoost = SoccerManager.instance.blue1Instance.GetComponent<Player>().currentBoost;
                 blue1mBoost = SoccerManager.instance.blue1Instance.GetComponent<Player>().maxBoost;
+
+                // Find the "Body" GameObject within the hierarchy
+                Transform bodyTransform = SoccerManager.instance.blue1Instance.transform.Find("Body");
+
+                // Get the SpriteRenderer from the "Body" GameObject
+                SpriteRenderer bodySpriteRenderer = bodyTransform.GetComponent<SpriteRenderer>();
+
+                // Update Picture Color
+                blue1Picture.color = bodySpriteRenderer.color;
 
                 UpdateBoostBar(blue1Boost, blue1cBoost, blue1mBoost);
             }
@@ -188,12 +217,30 @@ public class PlayerFrames : MonoBehaviour
                     blue1cBoost = SoccerManager.instance.blue1Instance.GetComponent<SoccerAI>().currentBoost;
                     blue1mBoost = SoccerManager.instance.blue1Instance.GetComponent<SoccerAI>().maxBoost;
 
+                    // Find the "Body" GameObject within the hierarchy
+                    Transform bodyTransform = SoccerManager.instance.blue1Instance.transform.Find("Body");
+
+                    // Get the SpriteRenderer from the "Body" GameObject
+                    SpriteRenderer bodySpriteRenderer = bodyTransform.GetComponent<SpriteRenderer>();
+
+                    // Update Picture Color
+                    blue1Picture.color = bodySpriteRenderer.color;
+
                     UpdateBoostBar(blue1Boost, blue1cBoost, blue1mBoost);
                 }
                 else
                 {
                     blue1cBoost = SoccerManager.instance.blue1Instance.GetComponent<Player>().currentBoost;
                     blue1mBoost = SoccerManager.instance.blue1Instance.GetComponent<Player>().maxBoost;
+
+                    // Find the "Body" GameObject within the hierarchy
+                    Transform bodyTransform = SoccerManager.instance.blue1Instance.transform.Find("Body");
+
+                    // Get the SpriteRenderer from the "Body" GameObject
+                    SpriteRenderer bodySpriteRenderer = bodyTransform.GetComponent<SpriteRenderer>();
+
+                    // Update Picture Color
+                    blue1Picture.color = bodySpriteRenderer.color;
 
                     UpdateBoostBar(blue1Boost, blue1cBoost, blue1mBoost);
                 }
@@ -206,12 +253,30 @@ public class PlayerFrames : MonoBehaviour
                     red1cBoost = SoccerManager.instance.red1Instance.GetComponent<SoccerAI>().currentBoost;
                     red1mBoost = SoccerManager.instance.red1Instance.GetComponent<SoccerAI>().maxBoost;
 
+                    // Find the "Body" GameObject within the hierarchy
+                    Transform bodyTransform = SoccerManager.instance.red1Instance.transform.Find("Body");
+
+                    // Get the SpriteRenderer from the "Body" GameObject
+                    SpriteRenderer bodySpriteRenderer = bodyTransform.GetComponent<SpriteRenderer>();
+
+                    // Update Picture Color
+                    red1Picture.color = bodySpriteRenderer.color;
+
                     UpdateBoostBar(red1Boost, red1cBoost, red1mBoost);
                 }
                 else
                 {
                     red1cBoost = SoccerManager.instance.red1Instance.GetComponent<Player>().currentBoost;
                     red1mBoost = SoccerManager.instance.red1Instance.GetComponent<Player>().maxBoost;
+
+                    // Find the "Body" GameObject within the hierarchy
+                    Transform bodyTransform = SoccerManager.instance.red1Instance.transform.Find("Body");
+
+                    // Get the SpriteRenderer from the "Body" GameObject
+                    SpriteRenderer bodySpriteRenderer = bodyTransform.GetComponent<SpriteRenderer>();
+
+                    // Update Picture Color
+                    red1Picture.color = bodySpriteRenderer.color;
 
                     UpdateBoostBar(red1Boost, red1cBoost, red1mBoost);
                 }
@@ -230,12 +295,30 @@ public class PlayerFrames : MonoBehaviour
                     blue2cBoost = SoccerManager.instance.blue2Instance.GetComponent<SoccerAI>().currentBoost;
                     blue2mBoost = SoccerManager.instance.blue2Instance.GetComponent<SoccerAI>().maxBoost;
 
+                    // Find the "Body" GameObject within the hierarchy
+                    Transform bodyTransform = SoccerManager.instance.blue2Instance.transform.Find("Body");
+
+                    // Get the SpriteRenderer from the "Body" GameObject
+                    SpriteRenderer bodySpriteRenderer = bodyTransform.GetComponent<SpriteRenderer>();
+
+                    // Update Picture Color
+                    blue2Picture.color = bodySpriteRenderer.color;
+
                     UpdateBoostBar(blue2Boost, blue2cBoost, blue2mBoost);
                 }
                 else
                 {
                     blue2cBoost = SoccerManager.instance.blue2Instance.GetComponent<Player>().currentBoost;
                     blue2mBoost = SoccerManager.instance.blue2Instance.GetComponent<Player>().maxBoost;
+
+                    // Find the "Body" GameObject within the hierarchy
+                    Transform bodyTransform = SoccerManager.instance.blue2Instance.transform.Find("Body");
+
+                    // Get the SpriteRenderer from the "Body" GameObject
+                    SpriteRenderer bodySpriteRenderer = bodyTransform.GetComponent<SpriteRenderer>();
+
+                    // Update Picture Color
+                    blue2Picture.color = bodySpriteRenderer.color;
 
                     UpdateBoostBar(blue2Boost, blue2cBoost, blue2mBoost);
                 }
@@ -248,12 +331,30 @@ public class PlayerFrames : MonoBehaviour
                     red2cBoost = SoccerManager.instance.red2Instance.GetComponent<SoccerAI>().currentBoost;
                     red2mBoost = SoccerManager.instance.red2Instance.GetComponent<SoccerAI>().maxBoost;
 
+                    // Find the "Body" GameObject within the hierarchy
+                    Transform bodyTransform = SoccerManager.instance.red2Instance.transform.Find("Body");
+
+                    // Get the SpriteRenderer from the "Body" GameObject
+                    SpriteRenderer bodySpriteRenderer = bodyTransform.GetComponent<SpriteRenderer>();
+
+                    // Update Picture Color
+                    red2Picture.color = bodySpriteRenderer.color;
+
                     UpdateBoostBar(red2Boost, red2cBoost, red2mBoost);
                 }
                 else
                 {
                     red2cBoost = SoccerManager.instance.red2Instance.GetComponent<Player>().currentBoost;
                     red2mBoost = SoccerManager.instance.red2Instance.GetComponent<Player>().maxBoost;
+
+                    // Find the "Body" GameObject within the hierarchy
+                    Transform bodyTransform = SoccerManager.instance.red2Instance.transform.Find("Body");
+
+                    // Get the SpriteRenderer from the "Body" GameObject
+                    SpriteRenderer bodySpriteRenderer = bodyTransform.GetComponent<SpriteRenderer>();
+
+                    // Update Picture Color
+                    red2Picture.color = bodySpriteRenderer.color;
 
                     UpdateBoostBar(red2Boost, red2cBoost, red2mBoost);
                 }
@@ -272,12 +373,30 @@ public class PlayerFrames : MonoBehaviour
                     blue3cBoost = SoccerManager.instance.blue3Instance.GetComponent<SoccerAI>().currentBoost;
                     blue3mBoost = SoccerManager.instance.blue3Instance.GetComponent<SoccerAI>().maxBoost;
 
+                    // Find the "Body" GameObject within the hierarchy
+                    Transform bodyTransform = SoccerManager.instance.blue3Instance.transform.Find("Body");
+
+                    // Get the SpriteRenderer from the "Body" GameObject
+                    SpriteRenderer bodySpriteRenderer = bodyTransform.GetComponent<SpriteRenderer>();
+
+                    // Update Picture Color
+                    blue3Picture.color = bodySpriteRenderer.color;
+
                     UpdateBoostBar(blue3Boost, blue3cBoost, blue3mBoost);
                 }
                 else
                 {
                     blue3cBoost = SoccerManager.instance.blue3Instance.GetComponent<Player>().currentBoost;
                     blue3mBoost = SoccerManager.instance.blue3Instance.GetComponent<Player>().maxBoost;
+
+                    // Find the "Body" GameObject within the hierarchy
+                    Transform bodyTransform = SoccerManager.instance.blue3Instance.transform.Find("Body");
+
+                    // Get the SpriteRenderer from the "Body" GameObject
+                    SpriteRenderer bodySpriteRenderer = bodyTransform.GetComponent<SpriteRenderer>();
+
+                    // Update Picture Color
+                    blue3Picture.color = bodySpriteRenderer.color;
 
                     UpdateBoostBar(blue3Boost, blue3cBoost, blue3mBoost);
                 }
@@ -290,12 +409,30 @@ public class PlayerFrames : MonoBehaviour
                     red3cBoost = SoccerManager.instance.red3Instance.GetComponent<SoccerAI>().currentBoost;
                     red3mBoost = SoccerManager.instance.red3Instance.GetComponent<SoccerAI>().maxBoost;
 
+                    // Find the "Body" GameObject within the hierarchy
+                    Transform bodyTransform = SoccerManager.instance.red3Instance.transform.Find("Body");
+
+                    // Get the SpriteRenderer from the "Body" GameObject
+                    SpriteRenderer bodySpriteRenderer = bodyTransform.GetComponent<SpriteRenderer>();
+
+                    // Update Picture Color
+                    red3Picture.color = bodySpriteRenderer.color;
+
                     UpdateBoostBar(red3Boost, red3cBoost, red3mBoost);
                 }
                 else
                 {
                     red3cBoost = SoccerManager.instance.red3Instance.GetComponent<Player>().currentBoost;
                     red3mBoost = SoccerManager.instance.red3Instance.GetComponent<Player>().maxBoost;
+
+                    // Find the "Body" GameObject within the hierarchy
+                    Transform bodyTransform = SoccerManager.instance.red3Instance.transform.Find("Body");
+
+                    // Get the SpriteRenderer from the "Body" GameObject
+                    SpriteRenderer bodySpriteRenderer = bodyTransform.GetComponent<SpriteRenderer>();
+
+                    // Update Picture Color
+                    red3Picture.color = bodySpriteRenderer.color;
 
                     UpdateBoostBar(red3Boost, red3cBoost, red3mBoost);
                 }
