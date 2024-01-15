@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] AudioMixer audioMixer;
+
     private void Start()
     {
         // Reset the Time Scale (for allowing the particles to play)
@@ -31,6 +34,11 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetInt("ResetD8", 0);
         PlayerPrefs.SetInt("ResetD9", 0);
         PlayerPrefs.SetInt("ResetD10", 0);
+
+        // Remember Volume Levels set previously
+        audioMixer.SetFloat("Volume", PlayerPrefs.GetFloat("MVolume"));
+        audioMixer.SetFloat("Music", PlayerPrefs.GetFloat("musicVolume"));
+        audioMixer.SetFloat("SFX", PlayerPrefs.GetFloat("sfxVolume"));
     }
 
     public void SoccerButton()

@@ -15382,6 +15382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d219b90aabab44196078ff1fe654ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 926a653135bcc0145ad47d82280b5ef1, type: 2}
 --- !u!114 &1566312520
 MonoBehaviour:
   m_ObjectHideFlags: 0
