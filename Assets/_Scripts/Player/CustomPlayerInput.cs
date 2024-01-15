@@ -5,11 +5,11 @@ using UnityEngine.InputSystem;
 
 public class CustomPlayerInput : MonoBehaviour
 {
-    public Vector2 SteerInput { get; private set; }
-    public bool IsAccelerating { get; private set; }
-    public bool IsBraking { get; private set; }
-    public bool IsBoosting { get; private set; }
-    public bool IsDrifting { get; private set; }
+    public Vector2 SteerInput { get; set; }
+    public bool IsAccelerating { get; set; }
+    public bool IsBraking { get; set; }
+    public bool IsBoosting { get; set; }
+    public bool IsDrifting { get; set; }
 
     public void OnSteer(InputAction.CallbackContext context)
     {
