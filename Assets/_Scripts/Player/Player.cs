@@ -29,6 +29,11 @@ public class Player : MonoBehaviour
     public bool isDrifting = false;
     public bool isBoosting = false;
 
+    private void Update()
+    {
+        //Debug.Log(playerInput.SteerInput);
+    }
+
     private void FixedUpdate()
     {
         if (playerInput.IsAccelerating && !SoccerManager.instance.CanMove)
