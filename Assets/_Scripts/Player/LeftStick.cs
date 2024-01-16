@@ -50,18 +50,87 @@ public class LeftStick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, 
             Vector2 stickMovement = new Vector2(deltaX, 0);
 
             // Apply the dead zone
-            stickMovement = ApplyDeadZone(stickMovement);
+            //stickMovement = ApplyDeadZone(stickMovement);
+
+            Debug.Log(stickMovement);
 
             // Check the direction of the stick movement and update the player's inputs accordingly
             if (stickMovement.x > 0)
             {
-                // If the stick is moving to the right, steer right
-                customPlayerInput.SteerInput = new Vector2(.5f, 0);
+                if (stickMovement.x == 1)
+                {
+                    // If the stick is moving to the right, steer right
+                    customPlayerInput.SteerInput = new Vector2(.1f, 0);
+                }
+
+                if (stickMovement.x == 2)
+                {
+                    // If the stick is moving to the right, steer right
+                    customPlayerInput.SteerInput = new Vector2(.2f, 0);
+                }
+
+                if (stickMovement.x == 3)
+                {
+                    // If the stick is moving to the right, steer right
+                    customPlayerInput.SteerInput = new Vector2(.3f, 0);
+                }
+
+                if (stickMovement.x == 4)
+                {
+                    // If the stick is moving to the right, steer right
+                    customPlayerInput.SteerInput = new Vector2(.4f, 0);
+                }
+
+                if (stickMovement.x == 5)
+                {
+                    // If the stick is moving to the right, steer right
+                    customPlayerInput.SteerInput = new Vector2(.5f, 0);
+                }
+
+                if (stickMovement.x == 6)
+                {
+                    // If the stick is moving to the right, steer right
+                    customPlayerInput.SteerInput = new Vector2(.6f, 0);
+                }
+
             }
             else if (stickMovement.x < 0)
             {
-                // If the stick is moving to the left, steer left
-                customPlayerInput.SteerInput = new Vector2(-.5f, 0);
+                if (stickMovement.x == -1)
+                {
+                    // If the stick is moving to the right, steer right
+                    customPlayerInput.SteerInput = new Vector2(-.1f, 0);
+                }
+
+                if (stickMovement.x == -2)
+                {
+                    // If the stick is moving to the right, steer right
+                    customPlayerInput.SteerInput = new Vector2(-.2f, 0);
+                }
+
+                if (stickMovement.x == -3)
+                {
+                    // If the stick is moving to the right, steer right
+                    customPlayerInput.SteerInput = new Vector2(-.3f, 0);
+                }
+
+                if (stickMovement.x == -4)
+                {
+                    // If the stick is moving to the right, steer right
+                    customPlayerInput.SteerInput = new Vector2(-.4f, 0);
+                }
+
+                if (stickMovement.x == -5)
+                {
+                    // If the stick is moving to the right, steer right
+                    customPlayerInput.SteerInput = new Vector2(-.5f, 0);
+                }
+
+                if (stickMovement.x == -6)
+                {
+                    // If the stick is moving to the right, steer right
+                    customPlayerInput.SteerInput = new Vector2(-.6f, 0);
+                }
             }
         }
         else
