@@ -11,6 +11,9 @@ public class CustomPlayerInput : MonoBehaviour
     public bool IsBoosting { get; set; }
     public bool IsDrifting { get; set; }
 
+    public float Acceleration;
+    public float Brake;
+
     public void OnSteer(InputAction.CallbackContext context)
     {
         SteerInput = context.ReadValue<Vector2>();
@@ -25,6 +28,8 @@ public class CustomPlayerInput : MonoBehaviour
     {
         IsAccelerating = context.ReadValueAsButton();
 
+        Acceleration = context.ReadValue<float>();
+
         if (context.canceled)
         {
             IsAccelerating = false;
@@ -34,6 +39,8 @@ public class CustomPlayerInput : MonoBehaviour
     public void OnBrake(InputAction.CallbackContext context)
     {
         IsBraking = context.ReadValueAsButton();
+
+        Brake = context.ReadValue<float>();
 
         if (context.canceled)
         {
