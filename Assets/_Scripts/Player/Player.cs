@@ -62,7 +62,7 @@ public class Player : MonoBehaviour
 
             Steer(playerInput.SteerInput);
 
-            if (playerInput.IsAccelerating) Accelerate(); else Decelerate();
+            Accelerate(playerInput.Acceleration);
 
             if (playerInput.IsBraking) Break();
 
@@ -81,9 +81,11 @@ public class Player : MonoBehaviour
         rb.angularVelocity = horizontalInput * torque;
     }
 
-    void Accelerate()
+    void Accelerate(float acceleration)
     {
-        rb.AddForce(transform.up * speed);
+        float actualSpeed = acceleration * speed; // Scale the speed based on acceleration
+
+        rb.AddForce(transform.up * actualSpeed);
 
         leftAccelerateTrail.emitting = true;
         rightAccelerateTrail.emitting = true;

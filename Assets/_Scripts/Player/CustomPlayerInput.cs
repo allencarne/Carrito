@@ -12,7 +12,6 @@ public class CustomPlayerInput : MonoBehaviour
     public bool IsDrifting { get; set; }
 
     public float Acceleration;
-    public float Brake;
 
     public void OnSteer(InputAction.CallbackContext context)
     {
@@ -39,8 +38,6 @@ public class CustomPlayerInput : MonoBehaviour
     public void OnBrake(InputAction.CallbackContext context)
     {
         IsBraking = context.ReadValueAsButton();
-
-        Brake = context.ReadValue<float>();
 
         if (context.canceled)
         {
