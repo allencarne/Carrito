@@ -116,26 +116,29 @@ public class CarAudio : MonoBehaviour
                 }
             }
         }
-
-        if (SoccerManager.instance.gameState == SoccerManager.GameState.Playing)
+        
+        if (SoccerManager.instance)
         {
-            if (soccerAI)
+            if (SoccerManager.instance.gameState == SoccerManager.GameState.Playing)
             {
-                if (soccerAI.inputBoost)
+                if (soccerAI)
                 {
-                    if (!isBoostSoundPlaying)
+                    if (soccerAI.inputBoost)
                     {
-                        carBoost.pitch = Random.Range(0.80f, 1.05f);
-                        carBoost.Play();
-                        isBoostSoundPlaying = true;
+                        if (!isBoostSoundPlaying)
+                        {
+                            carBoost.pitch = Random.Range(0.80f, 1.05f);
+                            carBoost.Play();
+                            isBoostSoundPlaying = true;
+                        }
                     }
-                }
-                else
-                {
-                    if (isBoostSoundPlaying)
+                    else
                     {
-                        carBoost.Stop();
-                        isBoostSoundPlaying = false;
+                        if (isBoostSoundPlaying)
+                        {
+                            carBoost.Stop();
+                            isBoostSoundPlaying = false;
+                        }
                     }
                 }
             }
