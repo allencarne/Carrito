@@ -47,9 +47,9 @@ MonoBehaviour:
   - {r: 0.6509434, g: 0.25271922, b: 0, a: 1}
   - {r: 0.4056604, g: 0.22106603, b: 0.10524209, a: 1}
   trails:
-  - {fileID: 2619717458587034592, guid: b9135a594ceb25b419366cbb8fc18de4, type: 3}
-  - {fileID: 6195795617621500670, guid: 03da3ac3345438c44a46ed2ec0c7a57a, type: 3}
-  - {fileID: 6195795617621500670, guid: 447171472d6c3074585e842e663dd4cc, type: 3}
+  - {fileID: 2619717458587034592, guid: d3758dea8f67a31419fcbca5332826d2, type: 3}
+  - {fileID: 6195795617621500670, guid: 00a67fa2b9de45f498537fcb1940be19, type: 3}
+  - {fileID: 6195795617621500670, guid: 739a8eddc0ace8f45beb2b61e320f278, type: 3}
   - {fileID: 6195795617621500670, guid: b5f3622eb2f868943a8ee4dc3471aba9, type: 3}
   trailColor:
   - serializedVersion: 2
